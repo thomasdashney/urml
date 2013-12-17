@@ -1,0 +1,28 @@
+«IMPORT ca::queensu::cs::mase::ui::wizard»
+
+«DEFINE main FOR UrmlProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR UrmlProjectInfo»
+«FILE "src/model/Model.urml"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR UrmlProjectInfo»
+«FILE "src/Generator.mwe2"-»
+module Generator
+
+var targetDir = "src-gen"
+var modelPath = "src/model"
+
+Workflow {
+	component = @workflow.UrmlGenerator auto-inject {}
+}
+«ENDFILE»
+«ENDDEFINE»

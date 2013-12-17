@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ca.queensu.cs.mase.urml/src-gen" editDirectory="/ca.queensu.cs.mase.urml.edit/src"
+    editorDirectory="/ca.queensu.cs.mase.urml.editor/src" modelPluginID="ca.queensu.cs.mase.urml"
+    forceOverwrite="true" modelName="Urml" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="ca.queensu.cs.mase.urml.edit"
+    editorPluginID="ca.queensu.cs.mase.urml.editor" runtimeVersion="2.9">
+  <genPackages prefix="Urml" basePackage="ca.queensu.cs.mase" disposableProviderFactory="true"
+      ecorePackage="Urml.ecore#/">
+    <genClasses ecoreClass="Urml.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Model/capsules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Model/protocols"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//VarDecl"/>
+    <genClasses ecoreClass="Urml.ecore#//Attribute">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Attribute/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Protocol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Protocol/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Protocol/incomingMessages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Protocol/outgoingMessages"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Signal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Signal/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Signal/varDecls"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Capsule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Capsule/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Capsule/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/interfacePorts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/internalPorts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/timerPorts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/logPorts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/capsuleRefs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/connectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/operations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/statemachines"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Operation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Operation/varDecls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Operation/operationCode"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//TimerPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//TimerPort/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//LogPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//LogPort/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Port/conjugated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Port/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Port/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Connector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/capsuleRef1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/port1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/capsuleRef2"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/port2"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//CapsuleRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//CapsuleRef/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//CapsuleRef/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//StateMachine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//StateMachine/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//StateMachine/transitions"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//State_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//State_/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//State_/entryCode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//State_/exitCode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//State_/substatemachine"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Transition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Transition/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Transition/init"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Transition/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Transition/to"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Transition/guard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Transition/triggers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Transition/timerPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Transition/action"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Trigger_in">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Trigger_in/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Trigger_in/signal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Trigger_in/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//IncomingVariable"/>
+    <genClasses ecoreClass="Urml.ecore#//Trigger_out">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Trigger_out/to"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Trigger_out/signal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Trigger_out/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//OperationCode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//OperationCode/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//StatementOperation"/>
+    <genClasses ecoreClass="Urml.ecore#//WhileLoopOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//WhileLoopOperation/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//WhileLoopOperation/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//IfStatementOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//IfStatementOperation/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//IfStatementOperation/thenStatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//IfStatementOperation/elseStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//ReturnStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//ReturnStatement/returnValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//ActionCode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//ActionCode/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Statement"/>
+    <genClasses ecoreClass="Urml.ecore#//Variable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Variable/var"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Variable/assign"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Variable/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//SendTrigger">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//SendTrigger/triggers"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//InformTimer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//InformTimer/timerPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//InformTimer/time"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//NoOp"/>
+    <genClasses ecoreClass="Urml.ecore#//Invoke">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Invoke/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Invoke/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Assignment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Assignment/lvalue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Assignment/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Assignable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Assignable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//WhileLoop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//WhileLoop/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//WhileLoop/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//IfStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//IfStatement/thenStatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//IfStatement/elseStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//LogStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//LogStatement/logPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//LogStatement/left"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//StringExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//StringExpression/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//StringExpression/str"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Expression"/>
+    <genClasses ecoreClass="Urml.ecore#//NotBooleanExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//NotBooleanExpression/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Literal"/>
+    <genClasses ecoreClass="Urml.ecore#//IntLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//IntLiteral/int"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Identifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Identifier/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//FunctionCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//FunctionCall/call"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//FunctionCall/params"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//BoolLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//BoolLiteral/true"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//ConcatenateExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//ConcatenateExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//ConcatenateExpression/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//ConditionalOrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//ConditionalOrExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//ConditionalOrExpression/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//ConditionalAndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//ConditionalAndExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//ConditionalAndExpression/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//LessThanOrEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//LessThanOrEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//LessThanOrEqual/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//LessThan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//LessThan/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//LessThan/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//GreaterThanOrEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//GreaterThanOrEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//GreaterThanOrEqual/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//GreaterThan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//GreaterThan/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//GreaterThan/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Equal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Equal/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Equal/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//NotEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//NotEqual/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//NotEqual/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Plus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Plus/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Plus/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Minus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Minus/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Minus/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Multiply">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Multiply/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Multiply/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Divide">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Divide/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Divide/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Modulo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Modulo/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Modulo/rest"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//UnaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//UnaryExpression/exp"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="urml"
+            id="ca.queensu.cs.mase.Urml"
+            name="Urml Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="ca.queensu.cs.mase.Urml.validate">
+         <activeWhen>
+            <reference
+                    definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="ca.queensu.cs.mase.Urml.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="ca.queensu.cs.mase.Urml" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="ca.queensu.cs.mase.Urml"
+            name="Urml">
+            <keywordReference id="ca.queensu.cs.mase.ui.keyword_Urml"/>
+        </page>
+        <page
+            category="ca.queensu.cs.mase.Urml"
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="ca.queensu.cs.mase.Urml.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="ca.queensu.cs.mase.ui.keyword_Urml"/>
+        </page>
+        <page
+            category="ca.queensu.cs.mase.Urml"
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="ca.queensu.cs.mase.Urml.templates"
+            name="Templates">
+            <keywordReference id="ca.queensu.cs.mase.ui.keyword_Urml"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="ca.queensu.cs.mase.Urml"
+            name="Urml">
+            <keywordReference id="ca.queensu.cs.mase.ui.keyword_Urml"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="ca.queensu.cs.mase.ui.keyword_Urml"
+            label="Urml"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="ca.queensu.cs.mase.Urml.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="ca.queensu.cs.mase.Urml.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="urml">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="urml">
+        </resourceServiceProvider>
+    </extension>
+
+
+    <!-- marker definitions for ca.queensu.cs.mase.Urml -->
+    <extension
+            id="urml.check.fast"
+            name="Urml Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.fast"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="urml.check.normal"
+            name="Urml Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.normal"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="urml.check.expensive"
+            name="Urml Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.expensive"/>
+        <persistent value="true"/>
+    </extension>
+
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+      </participant>
+   </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="ca.queensu.cs.mase.Urml"
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="ca.queensu.cs.mase.Urml.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="ca.queensu.cs.mase.ui.keyword_Urml"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="ca.queensu.cs.mase.Urml"
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="ca.queensu.cs.mase.Urml.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="ca.queensu.cs.mase.ui.keyword_Urml"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension
+        point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.open">
+            <command
+                commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+                style="push"
+                tooltip="Open Quick Outline">
+                <visibleWhen
+                    checkEnabled="false">
+                    <reference
+                        definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+                    </reference>
+                </visibleWhen>
+            </command>
+        </menuContribution>
+    </extension>
+    <!-- quickfix marker resolution generator for ca.queensu.cs.mase.Urml -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="ca.queensu.cs.mase.ui.urml.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="ca.queensu.cs.mase.ui.urml.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="ca.queensu.cs.mase.ui.urml.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
+   	<!-- Rename Refactoring -->
+	<extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler"
+          commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+       <activeWhen>
+          <reference
+                definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+          </reference>
+       </activeWhen>
+    </handler>
+ </extension>
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+         <command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <reference
+                     definitionId="ca.queensu.cs.mase.Urml.Editor.opened">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+	    <page
+	        category="ca.queensu.cs.mase.Urml"
+	        class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+	        id="ca.queensu.cs.mase.Urml.refactoring"
+	        name="Refactoring">
+	        <keywordReference id="ca.queensu.cs.mase.ui.keyword_Urml"/>
+	    </page>
+	</extension>
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="ca.queensu.cs.mase.Urml.compare.contentViewers"
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="urml">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="ca.queensu.cs.mase.Urml.compare.contentMergeViewers"
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="urml" label="Urml Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="ca.queensu.cs.mase.Urml.editors.documentProviders"
+            class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="urml">
+    </provider>
+  </extension>
+
+
+
+
+
+
+<!-- Urml launch configurations -->
+<extension
+      point="org.eclipse.debug.core.launchConfigurationTypes">
+   <launchConfigurationType
+         delegate="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.UrmlLaunchConfigurationDelegate"
+         id="ca.queensu.cs.mase.ui.interpreter.launch.urmlLaunch"
+         modes="run"
+         name="Urml Model">
+   </launchConfigurationType>
+</extension>
+<extension
+      point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+   <launchConfigurationTabGroup
+         class="ca.queensu.cs.mase.ui.interpreter.launch.UrmlLaunchConfigurationTabGroup"
+         description="Launch Urml Model"
+         id="ca.queensu.cs.mase.ui.interpreter.launch.urmlLaunchConfigurationTabGroup"
+         type="ca.queensu.cs.mase.ui.interpreter.launch.urmlLaunch">
+   </launchConfigurationTabGroup>
+</extension>
+<extension
+      point="org.eclipse.debug.ui.launchShortcuts">
+   <shortcut
+         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.LaunchShortcutFirstTransition"
+         id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
+         label="Urml Model (First transition)"
+         modes="run">
+         <contextualLaunch>
+          <enablement>
+           <with variable="selection">
+            <count value="1" />
+            <iterate>
+             <adapt type="org.eclipse.core.resources.IResource">
+             <and>
+              <test property="org.eclipse.core.resources.name" value="*.urml" />
+             </and>
+             </adapt>
+            </iterate>
+           </with>
+          </enablement>
+         </contextualLaunch>
+   </shortcut>
+      <shortcut
+         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.LaunchShortcutRandomTransition"
+         id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
+         label="Urml Model (Random transition)"
+         modes="run">
+         <contextualLaunch>
+          <enablement>
+           <with variable="selection">
+            <count value="1" />
+            <iterate>
+             <adapt type="org.eclipse.core.resources.IResource">
+             <and>
+              <test property="org.eclipse.core.resources.name" value="*.urml" />
+             </and>
+             </adapt>
+            </iterate>
+           </with>
+          </enablement>
+         </contextualLaunch>
+   </shortcut>
+   <shortcut
+         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.LaunchShortcutInteractive"
+         id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
+         label="Urml Model (Interactive)"
+         modes="run">
+         <contextualLaunch>
+          <enablement>
+           <with variable="selection">
+            <count value="1" />
+            <iterate>
+             <adapt type="org.eclipse.core.resources.IResource">
+             <and>
+              <test property="org.eclipse.core.resources.name" value="*.urml" />
+             </and>
+             </adapt>
+            </iterate>
+           </with>
+          </enablement>
+         </contextualLaunch>
+   </shortcut>
+</extension>
+<extension
+      point="org.eclipse.ui.viewActions">
+   <viewContribution
+         id="ca.queensu.cs.mase.urml.ui.terminateButton"
+         targetID="org.eclipse.ui.console.ConsoleView">
+         <action
+               id="ca.queensu.cs.mase.urml.ui.terminateAction"
+               label="Terminate"
+               icon="icons/enable/terminate_co.gif"
+               hoverIcon="icons/enable/terminate_co.gif"
+               disabledIcon="icons/disable/terminate_co.gif"
+               tooltip="Terminate"
+               toolbarPath="launchGroup"
+               class="ca.queensu.cs.mase.ui.interpreter.launch.TerminateActionDelegate"
+               enablesFor="*">
+           <selection
+                 class="org.eclipse.core.resources.IFile"
+                 name="*.urml">
+           </selection>
+         </action>
+   </viewContribution>
+</extension>
+
+
+
+</plugin>
