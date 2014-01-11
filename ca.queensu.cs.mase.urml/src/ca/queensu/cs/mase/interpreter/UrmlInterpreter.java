@@ -63,14 +63,14 @@ public class UrmlInterpreter {
 	 * @param execConfig
 	 *            the execution config
 	 */
-	public static UrmlInterpreter create(Model m, InputStream in,
+	public UrmlInterpreter (Model m, InputStream in,
 			OutputStream out, ExecutionConfig execConfig) {
 		UrmlInterpreter ui = new UrmlInterpreter();
 		ui.model = m;
 		ui.in = new BufferedReader(new InputStreamReader(in));
 		ui.out = new PrintStream(out);
 		ui.config = execConfig;
-		return ui;
+//		return ui;
 	}
 
 	/**

@@ -17,10 +17,13 @@ public class InterpreterThread {
 				@Override
 				public void run() {
 					interpreter.interpret();
+					if (action != null) {
+						action.setEnabled(false);
+					}
 				}
 			});
 			interpreterThread.start();
-		}
+		}		
 		if (action != null) {
 			action.setEnabled(true);
 		}
@@ -39,4 +42,5 @@ public class InterpreterThread {
 			interpreterThread = null;
 		}
 	}
+	
 }

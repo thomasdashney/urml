@@ -77,14 +77,17 @@ public class UrmlLaunchConfigurationDelegate extends
 		if (exitCondStr.equals(IUrmlLaunchConfigurationConstants.EXIT_INFINITE)) {
 			exitCond = ExitCondition.INFINITE;
 			duration = -1;
-		} else if (exitCondStr.equals(IUrmlLaunchConfigurationConstants.EXIT_SECONDS)) {
+		} else if (exitCondStr
+				.equals(IUrmlLaunchConfigurationConstants.EXIT_SECONDS)) {
 			exitCond = ExitCondition.BEFORE_SECONDS;
-			duration = configuration.getAttribute(IUrmlLaunchConfigurationConstants.ATTR_EXIT_SECONDS, 0);
+			duration = configuration.getAttribute(
+					IUrmlLaunchConfigurationConstants.ATTR_EXIT_SECONDS, 0);
 		} else {
 			exitCond = ExitCondition.BEFORE_TRANSITIONS;
-			duration = configuration.getAttribute(IUrmlLaunchConfigurationConstants.ATTR_EXIT_TRANSITIONS, 0);
+			duration = configuration.getAttribute(
+					IUrmlLaunchConfigurationConstants.ATTR_EXIT_TRANSITIONS, 0);
 		}
-		
+
 		if (file != null) {
 			// grab the model
 			Model model = getModelFromFile((IFile) file);//
@@ -101,9 +104,8 @@ public class UrmlLaunchConfigurationDelegate extends
 			IOConsoleInputStream in = myConsole.getInputStream();
 
 			// run the interpreter
-			final UrmlInterpreter interpreter = UrmlInterpreter.create(model,
-					in, out, new ExecutionConfig(multiTrans,
-							exitCond, duration));
+			final UrmlInterpreter interpreter = new UrmlInterpreter(model, in,
+					out, new ExecutionConfig(multiTrans, exitCond, duration));
 			InterpreterThread.start(interpreter);
 		}
 
@@ -136,13 +138,13 @@ public class UrmlLaunchConfigurationDelegate extends
 	 */
 	private void registerConsoleToView(final IOConsole console) {
 		Display.getDefault().asyncExec(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				IWorkbenchWindow window = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow();
 				IWorkbenchPage page = window.getActivePage();
-				
+
 				try {
 					IConsoleView view = (IConsoleView) page
 							.showView(IConsoleConstants.ID_CONSOLE_VIEW);
@@ -152,7 +154,7 @@ public class UrmlLaunchConfigurationDelegate extends
 				}
 			}
 		});
-		
+
 	}
 
 	/**
@@ -173,6 +175,5 @@ public class UrmlLaunchConfigurationDelegate extends
 		conMan.addConsoles(new IConsole[] { newConsole });
 		return newConsole;
 	}
-	
-	
+
 }

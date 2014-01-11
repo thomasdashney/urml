@@ -38,8 +38,8 @@ public abstract class LaunchShortcut implements ILaunchShortcut {
 
 	Thread interpreterThread = null;
 
-	
-	public void launch(ISelection selection, String mode, ExecutionConfig execConf) {
+	public void launch(ISelection selection, String mode,
+			ExecutionConfig execConf) {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection strSelection = (IStructuredSelection) selection;
 			Object firstElement = strSelection.getFirstElement();
@@ -73,8 +73,8 @@ public abstract class LaunchShortcut implements ILaunchShortcut {
 		IOConsoleInputStream in = myConsole.getInputStream();
 
 		// run the interpreter
-		final UrmlInterpreter interpreter = UrmlInterpreter.create(model, in,
-				out, execConf);
+		final UrmlInterpreter interpreter = new UrmlInterpreter(model, in, out,
+				execConf);
 		InterpreterThread.start(interpreter);
 	}
 
