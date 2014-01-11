@@ -65,11 +65,11 @@ public class UrmlInterpreter {
 	 */
 	public UrmlInterpreter (Model m, InputStream in,
 			OutputStream out, ExecutionConfig execConfig) {
-		UrmlInterpreter ui = new UrmlInterpreter();
-		ui.model = m;
-		ui.in = new BufferedReader(new InputStreamReader(in));
-		ui.out = new PrintStream(out);
-		ui.config = execConfig;
+//		UrmlInterpreter ui = new UrmlInterpreter();
+		this.model = m;
+		this.in = new BufferedReader(new InputStreamReader(in));
+		this.out = new PrintStream(out);
+		this.config = execConfig;
 //		return ui;
 	}
 
