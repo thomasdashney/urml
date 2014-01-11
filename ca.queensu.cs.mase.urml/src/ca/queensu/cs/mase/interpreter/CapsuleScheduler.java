@@ -28,22 +28,22 @@ public class CapsuleScheduler {
 	 */
 	private ExecutionConfig config;
 
-	/**
-	 * Number of times to run something
-	 */
-	private int maxRun;
+	// /**
+	// * Number of times to run something
+	// */
+	// private int maxRun;
 
 	private CapsuleScheduler() {
 		// no-op
 	}
 
 	public CapsuleScheduler(BufferedReader in, PrintStream out,
-			ExecutionConfig config, int maxRun) {
+			ExecutionConfig config) { // , int maxRun) {
 		this();
 		this.in = in;
 		this.out = out;
 		this.config = config;
-		this.maxRun = maxRun;
+//		this.maxRun = maxRun;
 	}
 
 	public void loopCapsuleRefs(TreeNode<CapsuleContext> capsuleContexts) {
@@ -51,7 +51,11 @@ public class CapsuleScheduler {
 		// loop through the capsuleCBs and run them in
 		// round robin fashion.
 		int capsuleIndex = 0;
-		int loopNum = 0;
+		long terminateTime = config.exitCons == ExecutionConfig.ExitCondition.BEFORE_SECONDS ? config.duration
+				+ System.currentTimeMillis()
+				: -1;
+		int terminateStateNum = config.exitCons == ExecutionConfig.ExitCondition.BEFORE_TRANSITIONS ? 0
+				: -1;
 
 		try {
 			List<TreeNode<CapsuleContext>> capsuleContextsList = Lists
@@ -68,9 +72,16 @@ public class CapsuleScheduler {
 							.executeNextState(ctx);
 				}
 				capsuleIndex = (capsuleIndex + 1) % listSize;
-				// loopNum++;
-				// if (loopNum > maxRun)
-				// break;
+				if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_SECONDS
+						&& System.currentTimeMillis() >= terminateTime) {
+					break;
+				}
+				if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_TRANSITIONS) {
+					terminateStateNum++;
+					if (terminateStateNum == config.duration) {
+						break;
+					}
+				}
 			}
 		} catch (ClassCastException | NoSuchIdentifierException
 				| ConnectorException e) {

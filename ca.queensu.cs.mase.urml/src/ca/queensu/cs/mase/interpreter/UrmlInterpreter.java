@@ -14,7 +14,7 @@ import ca.queensu.cs.mase.util.TreeNode;
  * A prototype of an interpreter that evaluates components inside a URML model,
  * which is defined using Xtext
  * 
- * @author keith 
+ * @author keith
  */
 public class UrmlInterpreter {
 	/**
@@ -38,16 +38,15 @@ public class UrmlInterpreter {
 	 */
 	private ExecutionConfig config;
 
-
 	/**
 	 * Variable name for the return value
 	 */
 	static final String RETURN_STRING = "return";
 
-	/**
-	 * Number of times to run something
-	 */
-	private static final int MAX_RUN = 1000;
+	// /**
+	// * Number of times to run something
+	// */
+	// private static final int MAX_RUN = 1000;
 
 	private UrmlInterpreter() {
 	}
@@ -78,8 +77,10 @@ public class UrmlInterpreter {
 	 * Interprets the embedded model by going through each capsule in the model
 	 */
 	public void interpret() {
-		TreeNode<CapsuleContext> rootCtx = new ModelInitializer(model, out).registerRootContextNode();
-		new CapsuleScheduler(in, out, config, MAX_RUN).loopCapsuleRefs(rootCtx);
+		TreeNode<CapsuleContext> rootCtx = new ModelInitializer(model, out)
+				.registerRootContextNode();
+		new CapsuleScheduler(in, out, config /* , MAX_RUN) */)
+				.loopCapsuleRefs(rootCtx);
 		System.out.println("EXIT");
 	}
 }
