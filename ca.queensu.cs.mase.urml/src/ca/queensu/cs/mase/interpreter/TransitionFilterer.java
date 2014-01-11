@@ -77,6 +77,7 @@ public class TransitionFilterer {
 			testMsgTriggers(t, toReturn, ctx);
 			testTimerTriggers(t, toReturn, ctx);
 		}
+		System.out.println(toReturn);
 		return toReturn.toArray(new Transition[0]);
 	}
 
@@ -125,23 +126,23 @@ public class TransitionFilterer {
 		if (t.getTriggers().size() == 0 && t.getTimerPort() == null) {
 			toReturn.add(t);
 		} else {
-			LOOP: for (Trigger_in ti : t.getTriggers()) {
+			for (Trigger_in ti : t.getTriggers()) {
 				Port transPort = ti.getFrom();
 				Signal transSignal = ti.getSignal();
 				MessageInfo msg = ctx.getMessageQueue().peek();
-				if (msg == null) {
-					continue LOOP;
-				}
-				System.out.println(ctx.getRefName() + " msg port: "
-						+ msg.getPort());
-				System.out.println("msg signal: " + msg.getSignal());
-				System.out.println("   trans port: " + transPort);
-				System.out.println("   trans signal: " + transSignal);
-				if (transPort == msg.getPort()
-						&& transSignal == msg.getSignal()) {
-					System.out.println(transPort);
-					System.out.println(transSignal);
-					toReturn.add(t);
+				if (msg != null) {
+					// for (MessageInfo msg : ctx.getMessageQueue()) {
+					System.out.println(ctx.getRefName() + " msg port: "
+							+ msg.getPort());
+					System.out.println("msg signal: " + msg.getSignal());
+					System.out.println("   trans port: " + transPort);
+					System.out.println("   trans signal: " + transSignal);
+					if (transPort == msg.getPort()
+							&& transSignal == msg.getSignal()) {
+						System.out.println(transPort);
+						System.out.println(transSignal);
+						toReturn.add(t);
+					}
 				}
 			}
 		}

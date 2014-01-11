@@ -12,14 +12,14 @@ public class TerminateActionDelegate implements IViewActionDelegate {
 	public void run(IAction action) {
 		InterpreterThread.stop();
 		action.setEnabled(false);
-		
+
 	}
 
 	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// TODO Auto-generated method stub
 		InterpreterThread.registerAction(action);
-		action.setEnabled(false);
+		action.setEnabled(InterpreterThread.isRunning());
 	}
 
 	@Override
