@@ -129,6 +129,7 @@ public class UrmlLaunchTab extends AbstractLaunchConfigurationTab {
 		btnExitAfterSeconds.setText("Exit after: ");
 
 		spinnerExitAfterSeconds = new Spinner(grpExitConditions, SWT.BORDER);
+		spinnerExitAfterSeconds.setMaximum(999999999);
 		spinnerExitAfterSeconds.setEnabled(btnExitAfterSeconds.getSelection());
 		spinnerExitAfterSeconds.setLayoutData(new GridData(SWT.FILL,
 				SWT.CENTER, false, false, 1, 1));
@@ -147,6 +148,7 @@ public class UrmlLaunchTab extends AbstractLaunchConfigurationTab {
 		btnExitAfterTransitions.setText("Exit after:");
 
 		spinnerExitAfterTransitions = new Spinner(grpExitConditions, SWT.BORDER);
+		spinnerExitAfterTransitions.setMaximum(999999999);
 		spinnerExitAfterTransitions.setEnabled(btnExitAfterTransitions
 				.getSelection());
 
