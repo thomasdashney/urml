@@ -33,7 +33,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Model:
-		//
 		//	"model" name=ID "{" (capsules+=Capsule | protocols+=Protocol)* "}";
 		public ParserRule getRule() { return rule; }
 
@@ -77,11 +76,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		/// ******************************************************************
-		//
 		// * Data and Variables
-		//
 		// ****************************************************************** / VarDecl:
-		//
 		//	name=ID;
 		public ParserRule getRule() { return rule; }
 
@@ -104,7 +100,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDefaultValueExpressionParserRuleCall_2_1_0 = (RuleCall)cDefaultValueAssignment_2_1.eContents().get(0);
 		
 		//Attribute:
-		//
 		//	"attribute" name=ID (":=" defaultValue=Expression)?;
 		public ParserRule getRule() { return rule; }
 
@@ -155,18 +150,13 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		/// ****************************************************************
-		//
 		// * Protocol
-		//
 		// **************************************************************** / Protocol:
-		//
 		//	"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}")? ("outgoing" "{" outgoingMessages+=Signal*
-		//
 		//	"}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}")? ("outgoing" "{" outgoingMessages+=Signal* "}")?
-		//
 		//"}"
 		public Group getGroup() { return cGroup; }
 
@@ -238,7 +228,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Signal:
-		//
 		//	name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")";
 		public ParserRule getRule() { return rule; }
 
@@ -312,26 +301,17 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		/// ****************************************************************
-		//
 		// * Capsules, Ports, and Connectors
-		//
 		// **************************************************************** / / **
-		//
 		// * The capsule 
-		//
 		// * / Capsule:
-		//
 		//	root?="root"? "capsule" name=ID "{" ("external" interfacePorts+=Port | internalPorts+=Port | timerPorts+=TimerPort |
-		//
 		//	logPorts+=LogPort | attributes+=Attribute | capsuleRefs+=CapsuleRef | connectors+=Connector | operations+=Operation |
-		//
 		//	statemachines+=StateMachine)* "}";
 		public ParserRule getRule() { return rule; }
 
 		//root?="root"? "capsule" name=ID "{" ("external" interfacePorts+=Port | internalPorts+=Port | timerPorts+=TimerPort |
-		//
 		//logPorts+=LogPort | attributes+=Attribute | capsuleRefs+=CapsuleRef | connectors+=Connector | operations+=Operation |
-		//
 		//statemachines+=StateMachine)* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -354,9 +334,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
 		//("external" interfacePorts+=Port | internalPorts+=Port | timerPorts+=TimerPort | logPorts+=LogPort |
-		//
 		//attributes+=Attribute | capsuleRefs+=CapsuleRef | connectors+=Connector | operations+=Operation |
-		//
 		//statemachines+=StateMachine)*
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
@@ -445,7 +423,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Operation:
-		//
 		//	"operation" name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")" "{" operationCode=OperationCode "}";
 		public ParserRule getRule() { return rule; }
 
@@ -509,7 +486,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//TimerPort:
-		//
 		//	"timerPort" name=ID;
 		public ParserRule getRule() { return rule; }
 
@@ -534,7 +510,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//LogPort:
-		//
 		//	"logPort" name=ID;
 		public ParserRule getRule() { return rule; }
 
@@ -565,7 +540,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cProtocolProtocolIDTerminalRuleCall_4_0_1 = (RuleCall)cProtocolProtocolCrossReference_4_0.eContents().get(1);
 		
 		//Port:
-		//
 		//	"port" conjugated?="~"? name=ID ":" protocol=[Protocol];
 		public ParserRule getRule() { return rule; }
 
@@ -623,7 +597,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPort2PortIDTerminalRuleCall_5_0_1 = (RuleCall)cPort2PortCrossReference_5_0.eContents().get(1);
 		
 		//Connector:
-		//
 		//	"connector" (capsuleRef1=[CapsuleRef] ".")? port1=[Port] "and" (capsuleRef2=[CapsuleRef] ".")? port2=[Port];
 		public ParserRule getRule() { return rule; }
 
@@ -697,7 +670,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeCapsuleIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeCapsuleCrossReference_3_0.eContents().get(1);
 		
 		//CapsuleRef:
-		//
 		//	"capsuleRef" name=ID ":" type=[Capsule];
 		public ParserRule getRule() { return rule; }
 
@@ -740,11 +712,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		/// *******************************************************************
-		//
 		// * State Machines
-		//
 		// ******************************************************************* / StateMachine:
-		//
 		//	{StateMachine} "stateMachine" "{" (states+=State_ | transitions+=Transition)* "}";
 		public ParserRule getRule() { return rule; }
 
@@ -782,108 +751,112 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class State_Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "State_");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
-		private final Keyword cEntryKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2_1_1 = (Keyword)cGroup_2_1.eContents().get(1);
-		private final Assignment cEntryCodeAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
-		private final RuleCall cEntryCodeActionCodeParserRuleCall_2_1_2_0 = (RuleCall)cEntryCodeAssignment_2_1_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_1_3 = (Keyword)cGroup_2_1.eContents().get(3);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cExitKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
-		private final Assignment cExitCodeAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
-		private final RuleCall cExitCodeActionCodeParserRuleCall_2_2_2_0 = (RuleCall)cExitCodeAssignment_2_2_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_2_3 = (Keyword)cGroup_2_2.eContents().get(3);
-		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
-		private final Keyword cSubKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Assignment cSubstatemachineAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final RuleCall cSubstatemachineStateMachineParserRuleCall_2_3_1_0 = (RuleCall)cSubstatemachineAssignment_2_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Assignment cFinalAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cFinalFinalKeyword_0_0 = (Keyword)cFinalAssignment_0.eContents().get(0);
+		private final Keyword cStateKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cEntryKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cEntryCodeAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cEntryCodeActionCodeParserRuleCall_3_1_2_0 = (RuleCall)cEntryCodeAssignment_3_1_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_1_3 = (Keyword)cGroup_3_1.eContents().get(3);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cExitKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_2_1 = (Keyword)cGroup_3_2.eContents().get(1);
+		private final Assignment cExitCodeAssignment_3_2_2 = (Assignment)cGroup_3_2.eContents().get(2);
+		private final RuleCall cExitCodeActionCodeParserRuleCall_3_2_2_0 = (RuleCall)cExitCodeAssignment_3_2_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_2_3 = (Keyword)cGroup_3_2.eContents().get(3);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cSubKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cSubstatemachineAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cSubstatemachineStateMachineParserRuleCall_3_3_1_0 = (RuleCall)cSubstatemachineAssignment_3_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		
 		//State_:
-		//
-		//	"state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")? ("sub"
-		//
-		//	substatemachine=StateMachine)? "}")?;
+		//	final?="final" "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")?
+		//	("sub" substatemachine=StateMachine)? "}")?;
 		public ParserRule getRule() { return rule; }
 
-		//"state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")? ("sub"
-		//
+		//final?="final" "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")? ("sub"
 		//substatemachine=StateMachine)? "}")?
 		public Group getGroup() { return cGroup; }
 
+		//final?="final"
+		public Assignment getFinalAssignment_0() { return cFinalAssignment_0; }
+
+		//"final"
+		public Keyword getFinalFinalKeyword_0_0() { return cFinalFinalKeyword_0_0; }
+
 		//"state"
-		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
+		public Keyword getStateKeyword_1() { return cStateKeyword_1; }
 
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")? ("sub" substatemachine=StateMachine)?
-		//
 		//"}")?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
 
 		//("entry" "{" entryCode=ActionCode "}")?
-		public Group getGroup_2_1() { return cGroup_2_1; }
+		public Group getGroup_3_1() { return cGroup_3_1; }
 
 		//"entry"
-		public Keyword getEntryKeyword_2_1_0() { return cEntryKeyword_2_1_0; }
+		public Keyword getEntryKeyword_3_1_0() { return cEntryKeyword_3_1_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_1_1() { return cLeftCurlyBracketKeyword_2_1_1; }
+		public Keyword getLeftCurlyBracketKeyword_3_1_1() { return cLeftCurlyBracketKeyword_3_1_1; }
 
 		//entryCode=ActionCode
-		public Assignment getEntryCodeAssignment_2_1_2() { return cEntryCodeAssignment_2_1_2; }
+		public Assignment getEntryCodeAssignment_3_1_2() { return cEntryCodeAssignment_3_1_2; }
 
 		//ActionCode
-		public RuleCall getEntryCodeActionCodeParserRuleCall_2_1_2_0() { return cEntryCodeActionCodeParserRuleCall_2_1_2_0; }
+		public RuleCall getEntryCodeActionCodeParserRuleCall_3_1_2_0() { return cEntryCodeActionCodeParserRuleCall_3_1_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_1_3() { return cRightCurlyBracketKeyword_2_1_3; }
+		public Keyword getRightCurlyBracketKeyword_3_1_3() { return cRightCurlyBracketKeyword_3_1_3; }
 
 		//("exit" "{" exitCode=ActionCode "}")?
-		public Group getGroup_2_2() { return cGroup_2_2; }
+		public Group getGroup_3_2() { return cGroup_3_2; }
 
 		//"exit"
-		public Keyword getExitKeyword_2_2_0() { return cExitKeyword_2_2_0; }
+		public Keyword getExitKeyword_3_2_0() { return cExitKeyword_3_2_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_2_1() { return cLeftCurlyBracketKeyword_2_2_1; }
+		public Keyword getLeftCurlyBracketKeyword_3_2_1() { return cLeftCurlyBracketKeyword_3_2_1; }
 
 		//exitCode=ActionCode
-		public Assignment getExitCodeAssignment_2_2_2() { return cExitCodeAssignment_2_2_2; }
+		public Assignment getExitCodeAssignment_3_2_2() { return cExitCodeAssignment_3_2_2; }
 
 		//ActionCode
-		public RuleCall getExitCodeActionCodeParserRuleCall_2_2_2_0() { return cExitCodeActionCodeParserRuleCall_2_2_2_0; }
+		public RuleCall getExitCodeActionCodeParserRuleCall_3_2_2_0() { return cExitCodeActionCodeParserRuleCall_3_2_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_2_3() { return cRightCurlyBracketKeyword_2_2_3; }
+		public Keyword getRightCurlyBracketKeyword_3_2_3() { return cRightCurlyBracketKeyword_3_2_3; }
 
 		//("sub" substatemachine=StateMachine)?
-		public Group getGroup_2_3() { return cGroup_2_3; }
+		public Group getGroup_3_3() { return cGroup_3_3; }
 
 		//"sub"
-		public Keyword getSubKeyword_2_3_0() { return cSubKeyword_2_3_0; }
+		public Keyword getSubKeyword_3_3_0() { return cSubKeyword_3_3_0; }
 
 		//substatemachine=StateMachine
-		public Assignment getSubstatemachineAssignment_2_3_1() { return cSubstatemachineAssignment_2_3_1; }
+		public Assignment getSubstatemachineAssignment_3_3_1() { return cSubstatemachineAssignment_3_3_1; }
 
 		//StateMachine
-		public RuleCall getSubstatemachineStateMachineParserRuleCall_2_3_1_0() { return cSubstatemachineStateMachineParserRuleCall_2_3_1_0; }
+		public RuleCall getSubstatemachineStateMachineParserRuleCall_3_3_1_0() { return cSubstatemachineStateMachineParserRuleCall_3_3_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
+		public Keyword getRightCurlyBracketKeyword_3_4() { return cRightCurlyBracketKeyword_3_4; }
 	}
 
 	public class TransitionElements extends AbstractParserRuleElementFinder {
@@ -934,22 +907,15 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		/// *
-		//
 		// * transitions:
-		//
 		// * / Transition:
-		//
 		//	"transition" name=ID? ":" (init?="initial" | from=[State_]) "->" to=[State_] "{" ("guard" "{" guard=Expression "}")?
-		//
 		//	("triggers" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
-		//
 		//	action=ActionCode "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"transition" name=ID? ":" (init?="initial" | from=[State_]) "->" to=[State_] "{" ("guard" "{" guard=Expression "}")?
-		//
 		//("triggers" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
-		//
 		//action=ActionCode "}")? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -1104,11 +1070,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		/// *
-		//
 		// * other constructs for state machines:
-		//
 		// * / Trigger_in:
-		//
 		//	from=[Port] "." signal=[Signal] "(" (parameters+=IncomingVariable ("," parameters+=IncomingVariable)*)? ")";
 		public ParserRule getRule() { return rule; }
 
@@ -1170,7 +1133,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		//IncomingVariable:
-		//
 		//	name=ID;
 		public ParserRule getRule() { return rule; }
 
@@ -1202,7 +1164,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Trigger_out:
-		//
 		//	to=[Port] "." signal=[Signal] "(" (parameters+=Expression ("," parameters+=Expression)*)? ")";
 		public ParserRule getRule() { return rule; }
 
@@ -1264,13 +1225,9 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatementsStatementOperationParserRuleCall_0 = (RuleCall)cStatementsAssignment.eContents().get(0);
 		
 		/// *********************************************************************
-		//
 		// * Operation and Action Code / Statements
-		//
 		// ********************************************************************* / // operation code
-		//
 		//OperationCode:
-		//
 		//	statements+=StatementOperation+;
 		public ParserRule getRule() { return rule; }
 
@@ -1294,7 +1251,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cReturnStatementParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//StatementOperation:
-		//
 		//	NoOp | Variable | Invoke | Assignment | WhileLoopOperation | IfStatementOperation | LogStatement | ReturnStatement;
 		public ParserRule getRule() { return rule; }
 
@@ -1338,7 +1294,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//WhileLoopOperation:
-		//
 		//	"while" condition=Expression "{" statements+=StatementOperation+ "}";
 		public ParserRule getRule() { return rule; }
 
@@ -1385,14 +1340,11 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
 		
 		//IfStatementOperation:
-		//
 		//	"if" condition=Expression "{" thenStatements+=StatementOperation+ "}" ("else " "{"
-		//
 		//	elseStatements+=StatementOperation+ "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//"if" condition=Expression "{" thenStatements+=StatementOperation+ "}" ("else " "{" elseStatements+=StatementOperation+
-		//
 		//"}")?
 		public Group getGroup() { return cGroup; }
 
@@ -1444,7 +1396,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cReturnValueExpressionParserRuleCall_1_0 = (RuleCall)cReturnValueAssignment_1.eContents().get(0);
 		
 		//ReturnStatement:
-		//
 		//	"return" returnValue=Expression;
 		public ParserRule getRule() { return rule; }
 
@@ -1467,9 +1418,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatementsStatementParserRuleCall_0 = (RuleCall)cStatementsAssignment.eContents().get(0);
 		
 		//// action code
-		//
 		//ActionCode:
-		//
 		//	statements+=Statement+;
 		public ParserRule getRule() { return rule; }
 
@@ -1494,7 +1443,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLogStatementParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		
 		//Statement:
-		//
 		//	SendTrigger | Variable | InformTimer | NoOp | Invoke | Assignment | WhileLoop | IfStatement | LogStatement;
 		public ParserRule getRule() { return rule; }
 
@@ -1542,7 +1490,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpExpressionParserRuleCall_2_1_0 = (RuleCall)cExpAssignment_2_1.eContents().get(0);
 		
 		//Variable:
-		//
 		//	"var" var=VarDecl (assign?=":=" exp=Expression)?;
 		public ParserRule getRule() { return rule; }
 
@@ -1586,7 +1533,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTriggersTrigger_outParserRuleCall_2_1_0 = (RuleCall)cTriggersAssignment_2_1.eContents().get(0);
 		
 		//SendTrigger:
-		//
 		//	"send" triggers+=Trigger_out ("and" triggers+=Trigger_out)*;
 		public ParserRule getRule() { return rule; }
 
@@ -1627,7 +1573,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTimeAdditiveExpressionParserRuleCall_3_0 = (RuleCall)cTimeAssignment_3.eContents().get(0);
 		
 		//InformTimer:
-		//
 		//	"inform" timerPort=[TimerPort] "in" time=AdditiveExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -1663,7 +1608,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNoopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//NoOp:
-		//
 		//	{NoOp} "noop";
 		public ParserRule getRule() { return rule; }
 
@@ -1695,7 +1639,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Invoke:
-		//
 		//	"call" operation=[Operation] "(" (parameters+=Expression ("," parameters+=Expression)*)? ")";
 		public ParserRule getRule() { return rule; }
 
@@ -1753,7 +1696,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpExpressionParserRuleCall_2_0 = (RuleCall)cExpAssignment_2.eContents().get(0);
 		
 		//Assignment:
-		//
 		//	lvalue=[Assignable] ":=" exp=Expression;
 		public ParserRule getRule() { return rule; }
 
@@ -1787,7 +1729,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIncomingVariableParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Assignable:
-		//
 		//	VarDecl | Attribute | IncomingVariable;
 		public ParserRule getRule() { return rule; }
 
@@ -1816,7 +1757,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//WhileLoop:
-		//
 		//	"while" condition=Expression "{" statements+=Statement+ "}";
 		public ParserRule getRule() { return rule; }
 
@@ -1863,7 +1803,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
 		
 		//IfStatement:
-		//
 		//	"if" condition=Expression "{" thenStatements+=Statement+ "}" ("else " "{" elseStatements+=Statement+ "}")?;
 		public ParserRule getRule() { return rule; }
 
@@ -1922,7 +1861,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLeftStringExpressionParserRuleCall_3_0 = (RuleCall)cLeftAssignment_3.eContents().get(0);
 		
 		//LogStatement:
-		//
 		//	"log" logPort=[LogPort] "with" left=StringExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -1963,7 +1901,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRestIndividualExpressionParserRuleCall_1_0_2_0 = (RuleCall)cRestAssignment_1_0_2.eContents().get(0);
 		
 		//StringExpression:
-		//
 		//	IndividualExpression => ({ConcatenateExpression.left=current} "^" rest=IndividualExpression)*;
 		public ParserRule getRule() { return rule; }
 
@@ -2001,7 +1938,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStrSTRINGTerminalRuleCall_1_0 = (RuleCall)cStrAssignment_1.eContents().get(0);
 		
 		//IndividualExpression returns StringExpression:
-		//
 		//	expr=Expression | str=STRING;
 		public ParserRule getRule() { return rule; }
 
@@ -2026,11 +1962,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConditionalOrExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		/// *********************************************************************
-		//
 		// * Expressions
-		//
 		// ********************************************************************* / Expression:
-		//
 		//	ConditionalOrExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -2050,7 +1983,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRestConditionalAndExpressionParserRuleCall_1_0_2_0 = (RuleCall)cRestAssignment_1_0_2.eContents().get(0);
 		
 		//ConditionalOrExpression returns Expression:
-		//
 		//	ConditionalAndExpression => ({ConditionalOrExpression.left=current} "||" rest=ConditionalAndExpression)*;
 		public ParserRule getRule() { return rule; }
 
@@ -2091,7 +2023,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRestRelationalOpExpressionParserRuleCall_1_0_2_0 = (RuleCall)cRestAssignment_1_0_2.eContents().get(0);
 		
 		//ConditionalAndExpression returns Expression:
-		//
 		//	RelationalOpExpression => ({ConditionalAndExpression.left=current} "&&" rest=RelationalOpExpression)*;
 		public ParserRule getRule() { return rule; }
 
@@ -2149,18 +2080,13 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRestAdditiveExpressionParserRuleCall_1_1_0 = (RuleCall)cRestAssignment_1_1.eContents().get(0);
 		
 		//RelationalOpExpression returns Expression:
-		//
 		//	AdditiveExpression (=> ({LessThanOrEqual.left=current} "<=" | {LessThan.left=current} "<" |
-		//
 		//	{GreaterThanOrEqual.left=current} ">=" | {GreaterThan.left=current} ">" | {Equal.left=current} "==" |
-		//
 		//	{NotEqual.left=current} "!=") rest=AdditiveExpression)*;
 		public ParserRule getRule() { return rule; }
 
 		//AdditiveExpression (=> ({LessThanOrEqual.left=current} "<=" | {LessThan.left=current} "<" |
-		//
 		//{GreaterThanOrEqual.left=current} ">=" | {GreaterThan.left=current} ">" | {Equal.left=current} "==" |
-		//
 		//{NotEqual.left=current} "!=") rest=AdditiveExpression)*
 		public Group getGroup() { return cGroup; }
 
@@ -2168,17 +2094,14 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getAdditiveExpressionParserRuleCall_0() { return cAdditiveExpressionParserRuleCall_0; }
 
 		//(=> ({LessThanOrEqual.left=current} "<=" | {LessThan.left=current} "<" | {GreaterThanOrEqual.left=current} ">=" |
-		//
 		//{GreaterThan.left=current} ">" | {Equal.left=current} "==" | {NotEqual.left=current} "!=") rest=AdditiveExpression)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//=> ({LessThanOrEqual.left=current} "<=" | {LessThan.left=current} "<" | {GreaterThanOrEqual.left=current} ">=" |
-		//
 		//{GreaterThan.left=current} ">" | {Equal.left=current} "==" | {NotEqual.left=current} "!=")
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//{LessThanOrEqual.left=current} "<=" | {LessThan.left=current} "<" | {GreaterThanOrEqual.left=current} ">=" |
-		//
 		//{GreaterThan.left=current} ">" | {Equal.left=current} "==" | {NotEqual.left=current} "!="
 		public Alternatives getAlternatives_1_0_0() { return cAlternatives_1_0_0; }
 
@@ -2260,7 +2183,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRestMultiplicativeExpressionParserRuleCall_1_1_0 = (RuleCall)cRestAssignment_1_1.eContents().get(0);
 		
 		//AdditiveExpression returns Expression:
-		//
 		//	MultiplicativeExpression (=> ({Plus.left=current} "+" | {Minus.left=current} "-") rest=MultiplicativeExpression)*;
 		public ParserRule getRule() { return rule; }
 
@@ -2324,14 +2246,11 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRestUnaryExpressionParserRuleCall_1_1_0 = (RuleCall)cRestAssignment_1_1.eContents().get(0);
 		
 		//MultiplicativeExpression returns Expression:
-		//
 		//	UnaryExpression (=> ({Multiply.left=current} "*" | {Divide.left=current} "/" | {Modulo.left=current} "%")
-		//
 		//	rest=UnaryExpression)*;
 		public ParserRule getRule() { return rule; }
 
 		//UnaryExpression (=> ({Multiply.left=current} "*" | {Divide.left=current} "/" | {Modulo.left=current} "%")
-		//
 		//rest=UnaryExpression)*
 		public Group getGroup() { return cGroup; }
 
@@ -2392,7 +2311,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpUnaryExpressionParserRuleCall_1_2_0 = (RuleCall)cExpAssignment_1_2.eContents().get(0);
 		
 		//UnaryExpression returns Expression:
-		//
 		//	UnaryExpressionNotPlusMinus | {UnaryExpression} "-" exp=UnaryExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -2425,7 +2343,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPrimaryExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//UnaryExpressionNotPlusMinus returns Expression:
-		//
 		//	NotBooleanExpression | PrimaryExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -2447,7 +2364,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpUnaryExpressionParserRuleCall_1_0 = (RuleCall)cExpAssignment_1.eContents().get(0);
 		
 		//NotBooleanExpression:
-		//
 		//	"!" exp=UnaryExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -2474,7 +2390,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//PrimaryExpression returns Expression:
-		//
 		//	LiteralOrIdentifier | "(" Expression ")";
 		public ParserRule getRule() { return rule; }
 
@@ -2504,7 +2419,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIdentifierParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//LiteralOrIdentifier returns Expression:
-		//
 		//	Literal | Identifier;
 		public ParserRule getRule() { return rule; }
 
@@ -2526,7 +2440,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFunctionCallParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Literal:
-		//
 		//	IntLiteral | BoolLiteral | FunctionCall;
 		public ParserRule getRule() { return rule; }
 
@@ -2551,7 +2464,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIntINTTerminalRuleCall_1_0 = (RuleCall)cIntAssignment_1.eContents().get(0);
 		
 		//IntLiteral:
-		//
 		//	{IntLiteral} int=INT;
 		public ParserRule getRule() { return rule; }
 
@@ -2575,7 +2487,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIdAssignableIDTerminalRuleCall_0_1 = (RuleCall)cIdAssignableCrossReference_0.eContents().get(1);
 		
 		//Identifier:
-		//
 		//	id=[Assignable];
 		public ParserRule getRule() { return rule; }
 
@@ -2607,7 +2518,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//FunctionCall:
-		//
 		//	{FunctionCall} call=[Operation] "(" (params+=Expression ("," params+=Expression)*)? ")";
 		public ParserRule getRule() { return rule; }
 
@@ -2662,7 +2572,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTrueBOOLEANTerminalRuleCall_1_0 = (RuleCall)cTrueAssignment_1.eContents().get(0);
 		
 		//BoolLiteral:
-		//
 		//	{BoolLiteral} true=BOOLEAN;
 		public ParserRule getRule() { return rule; }
 
@@ -2774,7 +2683,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//
 	//	"model" name=ID "{" (capsules+=Capsule | protocols+=Protocol)* "}";
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
@@ -2785,11 +2693,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// ******************************************************************
-	//
 	// * Data and Variables
-	//
 	// ****************************************************************** / VarDecl:
-	//
 	//	name=ID;
 	public VarDeclElements getVarDeclAccess() {
 		return (pVarDecl != null) ? pVarDecl : (pVarDecl = new VarDeclElements());
@@ -2800,7 +2705,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Attribute:
-	//
 	//	"attribute" name=ID (":=" defaultValue=Expression)?;
 	public AttributeElements getAttributeAccess() {
 		return (pAttribute != null) ? pAttribute : (pAttribute = new AttributeElements());
@@ -2811,13 +2715,9 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// ****************************************************************
-	//
 	// * Protocol
-	//
 	// **************************************************************** / Protocol:
-	//
 	//	"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}")? ("outgoing" "{" outgoingMessages+=Signal*
-	//
 	//	"}")? "}";
 	public ProtocolElements getProtocolAccess() {
 		return (pProtocol != null) ? pProtocol : (pProtocol = new ProtocolElements());
@@ -2828,7 +2728,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Signal:
-	//
 	//	name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")";
 	public SignalElements getSignalAccess() {
 		return (pSignal != null) ? pSignal : (pSignal = new SignalElements());
@@ -2839,19 +2738,12 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// ****************************************************************
-	//
 	// * Capsules, Ports, and Connectors
-	//
 	// **************************************************************** / / **
-	//
 	// * The capsule 
-	//
 	// * / Capsule:
-	//
 	//	root?="root"? "capsule" name=ID "{" ("external" interfacePorts+=Port | internalPorts+=Port | timerPorts+=TimerPort |
-	//
 	//	logPorts+=LogPort | attributes+=Attribute | capsuleRefs+=CapsuleRef | connectors+=Connector | operations+=Operation |
-	//
 	//	statemachines+=StateMachine)* "}";
 	public CapsuleElements getCapsuleAccess() {
 		return (pCapsule != null) ? pCapsule : (pCapsule = new CapsuleElements());
@@ -2862,7 +2754,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Operation:
-	//
 	//	"operation" name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")" "{" operationCode=OperationCode "}";
 	public OperationElements getOperationAccess() {
 		return (pOperation != null) ? pOperation : (pOperation = new OperationElements());
@@ -2873,7 +2764,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TimerPort:
-	//
 	//	"timerPort" name=ID;
 	public TimerPortElements getTimerPortAccess() {
 		return (pTimerPort != null) ? pTimerPort : (pTimerPort = new TimerPortElements());
@@ -2884,7 +2774,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LogPort:
-	//
 	//	"logPort" name=ID;
 	public LogPortElements getLogPortAccess() {
 		return (pLogPort != null) ? pLogPort : (pLogPort = new LogPortElements());
@@ -2895,7 +2784,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Port:
-	//
 	//	"port" conjugated?="~"? name=ID ":" protocol=[Protocol];
 	public PortElements getPortAccess() {
 		return (pPort != null) ? pPort : (pPort = new PortElements());
@@ -2906,7 +2794,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Connector:
-	//
 	//	"connector" (capsuleRef1=[CapsuleRef] ".")? port1=[Port] "and" (capsuleRef2=[CapsuleRef] ".")? port2=[Port];
 	public ConnectorElements getConnectorAccess() {
 		return (pConnector != null) ? pConnector : (pConnector = new ConnectorElements());
@@ -2917,7 +2804,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CapsuleRef:
-	//
 	//	"capsuleRef" name=ID ":" type=[Capsule];
 	public CapsuleRefElements getCapsuleRefAccess() {
 		return (pCapsuleRef != null) ? pCapsuleRef : (pCapsuleRef = new CapsuleRefElements());
@@ -2928,11 +2814,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *******************************************************************
-	//
 	// * State Machines
-	//
 	// ******************************************************************* / StateMachine:
-	//
 	//	{StateMachine} "stateMachine" "{" (states+=State_ | transitions+=Transition)* "}";
 	public StateMachineElements getStateMachineAccess() {
 		return (pStateMachine != null) ? pStateMachine : (pStateMachine = new StateMachineElements());
@@ -2943,10 +2826,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//State_:
-	//
-	//	"state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")? ("sub"
-	//
-	//	substatemachine=StateMachine)? "}")?;
+	//	final?="final" "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")?
+	//	("sub" substatemachine=StateMachine)? "}")?;
 	public State_Elements getState_Access() {
 		return (pState_ != null) ? pState_ : (pState_ = new State_Elements());
 	}
@@ -2956,15 +2837,10 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *
-	//
 	// * transitions:
-	//
 	// * / Transition:
-	//
 	//	"transition" name=ID? ":" (init?="initial" | from=[State_]) "->" to=[State_] "{" ("guard" "{" guard=Expression "}")?
-	//
 	//	("triggers" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
-	//
 	//	action=ActionCode "}")? "}";
 	public TransitionElements getTransitionAccess() {
 		return (pTransition != null) ? pTransition : (pTransition = new TransitionElements());
@@ -2975,11 +2851,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *
-	//
 	// * other constructs for state machines:
-	//
 	// * / Trigger_in:
-	//
 	//	from=[Port] "." signal=[Signal] "(" (parameters+=IncomingVariable ("," parameters+=IncomingVariable)*)? ")";
 	public Trigger_inElements getTrigger_inAccess() {
 		return (pTrigger_in != null) ? pTrigger_in : (pTrigger_in = new Trigger_inElements());
@@ -2990,7 +2863,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IncomingVariable:
-	//
 	//	name=ID;
 	public IncomingVariableElements getIncomingVariableAccess() {
 		return (pIncomingVariable != null) ? pIncomingVariable : (pIncomingVariable = new IncomingVariableElements());
@@ -3001,7 +2873,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Trigger_out:
-	//
 	//	to=[Port] "." signal=[Signal] "(" (parameters+=Expression ("," parameters+=Expression)*)? ")";
 	public Trigger_outElements getTrigger_outAccess() {
 		return (pTrigger_out != null) ? pTrigger_out : (pTrigger_out = new Trigger_outElements());
@@ -3012,13 +2883,9 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *********************************************************************
-	//
 	// * Operation and Action Code / Statements
-	//
 	// ********************************************************************* / // operation code
-	//
 	//OperationCode:
-	//
 	//	statements+=StatementOperation+;
 	public OperationCodeElements getOperationCodeAccess() {
 		return (pOperationCode != null) ? pOperationCode : (pOperationCode = new OperationCodeElements());
@@ -3029,7 +2896,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//StatementOperation:
-	//
 	//	NoOp | Variable | Invoke | Assignment | WhileLoopOperation | IfStatementOperation | LogStatement | ReturnStatement;
 	public StatementOperationElements getStatementOperationAccess() {
 		return (pStatementOperation != null) ? pStatementOperation : (pStatementOperation = new StatementOperationElements());
@@ -3040,7 +2906,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//WhileLoopOperation:
-	//
 	//	"while" condition=Expression "{" statements+=StatementOperation+ "}";
 	public WhileLoopOperationElements getWhileLoopOperationAccess() {
 		return (pWhileLoopOperation != null) ? pWhileLoopOperation : (pWhileLoopOperation = new WhileLoopOperationElements());
@@ -3051,9 +2916,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IfStatementOperation:
-	//
 	//	"if" condition=Expression "{" thenStatements+=StatementOperation+ "}" ("else " "{"
-	//
 	//	elseStatements+=StatementOperation+ "}")?;
 	public IfStatementOperationElements getIfStatementOperationAccess() {
 		return (pIfStatementOperation != null) ? pIfStatementOperation : (pIfStatementOperation = new IfStatementOperationElements());
@@ -3064,7 +2927,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ReturnStatement:
-	//
 	//	"return" returnValue=Expression;
 	public ReturnStatementElements getReturnStatementAccess() {
 		return (pReturnStatement != null) ? pReturnStatement : (pReturnStatement = new ReturnStatementElements());
@@ -3075,9 +2937,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// action code
-	//
 	//ActionCode:
-	//
 	//	statements+=Statement+;
 	public ActionCodeElements getActionCodeAccess() {
 		return (pActionCode != null) ? pActionCode : (pActionCode = new ActionCodeElements());
@@ -3088,7 +2948,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Statement:
-	//
 	//	SendTrigger | Variable | InformTimer | NoOp | Invoke | Assignment | WhileLoop | IfStatement | LogStatement;
 	public StatementElements getStatementAccess() {
 		return (pStatement != null) ? pStatement : (pStatement = new StatementElements());
@@ -3099,7 +2958,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Variable:
-	//
 	//	"var" var=VarDecl (assign?=":=" exp=Expression)?;
 	public VariableElements getVariableAccess() {
 		return (pVariable != null) ? pVariable : (pVariable = new VariableElements());
@@ -3110,7 +2968,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SendTrigger:
-	//
 	//	"send" triggers+=Trigger_out ("and" triggers+=Trigger_out)*;
 	public SendTriggerElements getSendTriggerAccess() {
 		return (pSendTrigger != null) ? pSendTrigger : (pSendTrigger = new SendTriggerElements());
@@ -3121,7 +2978,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InformTimer:
-	//
 	//	"inform" timerPort=[TimerPort] "in" time=AdditiveExpression;
 	public InformTimerElements getInformTimerAccess() {
 		return (pInformTimer != null) ? pInformTimer : (pInformTimer = new InformTimerElements());
@@ -3132,7 +2988,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NoOp:
-	//
 	//	{NoOp} "noop";
 	public NoOpElements getNoOpAccess() {
 		return (pNoOp != null) ? pNoOp : (pNoOp = new NoOpElements());
@@ -3143,7 +2998,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Invoke:
-	//
 	//	"call" operation=[Operation] "(" (parameters+=Expression ("," parameters+=Expression)*)? ")";
 	public InvokeElements getInvokeAccess() {
 		return (pInvoke != null) ? pInvoke : (pInvoke = new InvokeElements());
@@ -3154,7 +3008,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Assignment:
-	//
 	//	lvalue=[Assignable] ":=" exp=Expression;
 	public AssignmentElements getAssignmentAccess() {
 		return (pAssignment != null) ? pAssignment : (pAssignment = new AssignmentElements());
@@ -3165,7 +3018,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Assignable:
-	//
 	//	VarDecl | Attribute | IncomingVariable;
 	public AssignableElements getAssignableAccess() {
 		return (pAssignable != null) ? pAssignable : (pAssignable = new AssignableElements());
@@ -3176,7 +3028,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//WhileLoop:
-	//
 	//	"while" condition=Expression "{" statements+=Statement+ "}";
 	public WhileLoopElements getWhileLoopAccess() {
 		return (pWhileLoop != null) ? pWhileLoop : (pWhileLoop = new WhileLoopElements());
@@ -3187,7 +3038,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IfStatement:
-	//
 	//	"if" condition=Expression "{" thenStatements+=Statement+ "}" ("else " "{" elseStatements+=Statement+ "}")?;
 	public IfStatementElements getIfStatementAccess() {
 		return (pIfStatement != null) ? pIfStatement : (pIfStatement = new IfStatementElements());
@@ -3198,7 +3048,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LogStatement:
-	//
 	//	"log" logPort=[LogPort] "with" left=StringExpression;
 	public LogStatementElements getLogStatementAccess() {
 		return (pLogStatement != null) ? pLogStatement : (pLogStatement = new LogStatementElements());
@@ -3209,7 +3058,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//StringExpression:
-	//
 	//	IndividualExpression => ({ConcatenateExpression.left=current} "^" rest=IndividualExpression)*;
 	public StringExpressionElements getStringExpressionAccess() {
 		return (pStringExpression != null) ? pStringExpression : (pStringExpression = new StringExpressionElements());
@@ -3220,7 +3068,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IndividualExpression returns StringExpression:
-	//
 	//	expr=Expression | str=STRING;
 	public IndividualExpressionElements getIndividualExpressionAccess() {
 		return (pIndividualExpression != null) ? pIndividualExpression : (pIndividualExpression = new IndividualExpressionElements());
@@ -3231,11 +3078,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *********************************************************************
-	//
 	// * Expressions
-	//
 	// ********************************************************************* / Expression:
-	//
 	//	ConditionalOrExpression;
 	public ExpressionElements getExpressionAccess() {
 		return (pExpression != null) ? pExpression : (pExpression = new ExpressionElements());
@@ -3246,7 +3090,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConditionalOrExpression returns Expression:
-	//
 	//	ConditionalAndExpression => ({ConditionalOrExpression.left=current} "||" rest=ConditionalAndExpression)*;
 	public ConditionalOrExpressionElements getConditionalOrExpressionAccess() {
 		return (pConditionalOrExpression != null) ? pConditionalOrExpression : (pConditionalOrExpression = new ConditionalOrExpressionElements());
@@ -3257,7 +3100,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConditionalAndExpression returns Expression:
-	//
 	//	RelationalOpExpression => ({ConditionalAndExpression.left=current} "&&" rest=RelationalOpExpression)*;
 	public ConditionalAndExpressionElements getConditionalAndExpressionAccess() {
 		return (pConditionalAndExpression != null) ? pConditionalAndExpression : (pConditionalAndExpression = new ConditionalAndExpressionElements());
@@ -3268,11 +3110,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RelationalOpExpression returns Expression:
-	//
 	//	AdditiveExpression (=> ({LessThanOrEqual.left=current} "<=" | {LessThan.left=current} "<" |
-	//
 	//	{GreaterThanOrEqual.left=current} ">=" | {GreaterThan.left=current} ">" | {Equal.left=current} "==" |
-	//
 	//	{NotEqual.left=current} "!=") rest=AdditiveExpression)*;
 	public RelationalOpExpressionElements getRelationalOpExpressionAccess() {
 		return (pRelationalOpExpression != null) ? pRelationalOpExpression : (pRelationalOpExpression = new RelationalOpExpressionElements());
@@ -3283,7 +3122,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AdditiveExpression returns Expression:
-	//
 	//	MultiplicativeExpression (=> ({Plus.left=current} "+" | {Minus.left=current} "-") rest=MultiplicativeExpression)*;
 	public AdditiveExpressionElements getAdditiveExpressionAccess() {
 		return (pAdditiveExpression != null) ? pAdditiveExpression : (pAdditiveExpression = new AdditiveExpressionElements());
@@ -3294,9 +3132,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MultiplicativeExpression returns Expression:
-	//
 	//	UnaryExpression (=> ({Multiply.left=current} "*" | {Divide.left=current} "/" | {Modulo.left=current} "%")
-	//
 	//	rest=UnaryExpression)*;
 	public MultiplicativeExpressionElements getMultiplicativeExpressionAccess() {
 		return (pMultiplicativeExpression != null) ? pMultiplicativeExpression : (pMultiplicativeExpression = new MultiplicativeExpressionElements());
@@ -3307,7 +3143,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnaryExpression returns Expression:
-	//
 	//	UnaryExpressionNotPlusMinus | {UnaryExpression} "-" exp=UnaryExpression;
 	public UnaryExpressionElements getUnaryExpressionAccess() {
 		return (pUnaryExpression != null) ? pUnaryExpression : (pUnaryExpression = new UnaryExpressionElements());
@@ -3318,7 +3153,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnaryExpressionNotPlusMinus returns Expression:
-	//
 	//	NotBooleanExpression | PrimaryExpression;
 	public UnaryExpressionNotPlusMinusElements getUnaryExpressionNotPlusMinusAccess() {
 		return (pUnaryExpressionNotPlusMinus != null) ? pUnaryExpressionNotPlusMinus : (pUnaryExpressionNotPlusMinus = new UnaryExpressionNotPlusMinusElements());
@@ -3329,7 +3163,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NotBooleanExpression:
-	//
 	//	"!" exp=UnaryExpression;
 	public NotBooleanExpressionElements getNotBooleanExpressionAccess() {
 		return (pNotBooleanExpression != null) ? pNotBooleanExpression : (pNotBooleanExpression = new NotBooleanExpressionElements());
@@ -3340,7 +3173,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PrimaryExpression returns Expression:
-	//
 	//	LiteralOrIdentifier | "(" Expression ")";
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return (pPrimaryExpression != null) ? pPrimaryExpression : (pPrimaryExpression = new PrimaryExpressionElements());
@@ -3351,7 +3183,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LiteralOrIdentifier returns Expression:
-	//
 	//	Literal | Identifier;
 	public LiteralOrIdentifierElements getLiteralOrIdentifierAccess() {
 		return (pLiteralOrIdentifier != null) ? pLiteralOrIdentifier : (pLiteralOrIdentifier = new LiteralOrIdentifierElements());
@@ -3362,7 +3193,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Literal:
-	//
 	//	IntLiteral | BoolLiteral | FunctionCall;
 	public LiteralElements getLiteralAccess() {
 		return (pLiteral != null) ? pLiteral : (pLiteral = new LiteralElements());
@@ -3373,7 +3203,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IntLiteral:
-	//
 	//	{IntLiteral} int=INT;
 	public IntLiteralElements getIntLiteralAccess() {
 		return (pIntLiteral != null) ? pIntLiteral : (pIntLiteral = new IntLiteralElements());
@@ -3384,7 +3213,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Identifier:
-	//
 	//	id=[Assignable];
 	public IdentifierElements getIdentifierAccess() {
 		return (pIdentifier != null) ? pIdentifier : (pIdentifier = new IdentifierElements());
@@ -3395,7 +3223,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FunctionCall:
-	//
 	//	{FunctionCall} call=[Operation] "(" (params+=Expression ("," params+=Expression)*)? ")";
 	public FunctionCallElements getFunctionCallAccess() {
 		return (pFunctionCall != null) ? pFunctionCall : (pFunctionCall = new FunctionCallElements());
@@ -3406,7 +3233,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BoolLiteral:
-	//
 	//	{BoolLiteral} true=BOOLEAN;
 	public BoolLiteralElements getBoolLiteralAccess() {
 		return (pBoolLiteral != null) ? pBoolLiteral : (pBoolLiteral = new BoolLiteralElements());
@@ -3417,58 +3243,49 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal BOOLEAN returns ecore::EBoolean:
-	//
 	//	"true" | "false";
 	public TerminalRule getBOOLEANRule() {
 		return (tBOOLEAN != null) ? tBOOLEAN : (tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "BOOLEAN"));
 	} 
 
 	//terminal ID:
-	//
 	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
 		return gaTerminals.getIDRule();
 	} 
 
 	//terminal INT returns ecore::EInt:
-	//
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
 		return gaTerminals.getINTRule();
 	} 
 
 	//terminal STRING:
-	//
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
-	//
 	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
 
 	//terminal ML_COMMENT:
-	//
 	//	"/ *"->"* /";
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 
 
 	//terminal SL_COMMENT:
-	//
 	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
-	//
 	//	(" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
 		return gaTerminals.getWSRule();
 	} 
 
 	//terminal ANY_OTHER:
-	//
 	//	.;
 	public TerminalRule getANY_OTHERRule() {
 		return gaTerminals.getANY_OTHERRule();

@@ -68,9 +68,9 @@ public class StatementExecuter {
 				Port port = opposite.getPort();
 				EList<Expression> toParams = to.getParameters();
 				EList<Value> toParamValues = new BasicEList<>(toParams.size());
-				for (Expression param : toParams) {
+				for (Expression argument: toParams) {
 					toParamValues.add(new ExpressionEvaluator().interpret(
-							param, ctx));
+							argument, ctx));
 				}
 				target.getMessageQueue()
 						.add(MessageInfo.create(port, to.getSignal(),

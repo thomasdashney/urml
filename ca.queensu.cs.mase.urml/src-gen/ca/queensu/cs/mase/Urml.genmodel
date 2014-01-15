@@ -69,6 +69,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//StateMachine/transitions"/>
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//State_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//State_/final"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//State_/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//State_/entryCode"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//State_/exitCode"/>

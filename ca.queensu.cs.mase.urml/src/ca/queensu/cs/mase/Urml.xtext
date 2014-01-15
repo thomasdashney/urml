@@ -83,7 +83,7 @@ Connector:
 	'connector' (capsuleRef1=[CapsuleRef] '.')? port1=[Port]
 	'and' (capsuleRef2=[CapsuleRef] '.')? port2=[Port];
 CapsuleRef:
-	'capsuleRef' name=ID ':' type=[Capsule];
+	'capsuleInstance' name=ID ':' type=[Capsule];
 
 /*******************************************************************
  * State Machines
@@ -99,7 +99,7 @@ StateMachine:
 	'}';
 	
 State_: 
-	'state' name=ID  ('{'
+	final?='final' 'state' name=ID  ('{'
 		('entry' '{' entryCode=ActionCode '}')?
 		('exit' '{' exitCode=ActionCode '}')?
 		('sub' substatemachine=StateMachine)?

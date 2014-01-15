@@ -51,11 +51,12 @@ public class StateMachineTraverser {
 		this.config = config;
 	}
 
-	public void executeNextState(CapsuleContext ctx) {
+	public boolean executeNextState(CapsuleContext ctx) {
 		if (ctx.getCurrentState() == null) {
 			findExecuteFirstState(ctx);
+			return true;
 		} else {
-			findExecuteNextState(ctx);
+			return findExecuteNextState(ctx);
 		}
 	}
 
@@ -80,7 +81,7 @@ public class StateMachineTraverser {
 		return init.getTo();
 	}
 
-	private void findExecuteNextState(CapsuleContext ctx) {
+	private boolean findExecuteNextState(CapsuleContext ctx) {
 		State_ currentState = ctx.getCurrentState();
 		StateMachine subSm = currentState.getSubstatemachine();
 		if (subSm != null) {
@@ -88,7 +89,7 @@ public class StateMachineTraverser {
 			// sub-statemachine.
 			Transition init = findInitialTransition(subSm);
 			if (init == null) {
-				return;
+				return true;
 			}
 			runActionForTransition(init, ctx);
 			ctx.setCurrentState(init.getTo());
@@ -99,12 +100,17 @@ public class StateMachineTraverser {
 			// just find the next transition from the current state.
 			Transition currentTransition = findNextTransition(ctx);
 			if (currentTransition == null) {
-				return;
+				return true;
 			}
 			runExitActionEntryCode(currentTransition, ctx);
-			ctx.setCurrentState(currentTransition.getTo());
+			State_ toState = currentTransition.getTo();
+			ctx.setCurrentState(toState);
+			if (toState.isFinal()) {
+				return false;
+			}
 //			logState(ctx.getCurrentState(), ctx);
 		}
+		return true;
 	}
 
 //	/**
@@ -229,13 +235,14 @@ public class StateMachineTraverser {
 	private Transition findNextTransition(CapsuleContext ctx) {
 		// go through the current state and all its ancestor states.
 		// Find the transition whose "from" state is the current
-		// state or its ancestor.
+		// state or its ancestors
 		State_ stateToGoThrough = ctx.getCurrentState();
 		List<Transition> nextTrans = new ArrayList<>();
 		do {
 			Collection<Transition> targetTransitions = ctx
 					.getTargetTransitions().get(stateToGoThrough);
 			nextTrans.addAll(targetTransitions);
+			// get current state's ancestors
 			stateToGoThrough = EcoreUtil2.getContainerOfType(
 					stateToGoThrough.eContainer(), State_.class);
 		} while (stateToGoThrough != null);

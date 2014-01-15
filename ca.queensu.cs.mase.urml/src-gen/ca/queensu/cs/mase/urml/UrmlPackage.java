@@ -684,13 +684,22 @@ public interface UrmlPackage extends EPackage
   int STATE_ = 13;
 
   /**
+   * The feature id for the '<em><b>Final</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE___FINAL = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE___NAME = 0;
+  int STATE___NAME = 1;
 
   /**
    * The feature id for the '<em><b>Entry Code</b></em>' containment reference.
@@ -699,7 +708,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE___ENTRY_CODE = 1;
+  int STATE___ENTRY_CODE = 2;
 
   /**
    * The feature id for the '<em><b>Exit Code</b></em>' containment reference.
@@ -708,7 +717,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE___EXIT_CODE = 2;
+  int STATE___EXIT_CODE = 3;
 
   /**
    * The feature id for the '<em><b>Substatemachine</b></em>' containment reference.
@@ -717,7 +726,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE___SUBSTATEMACHINE = 3;
+  int STATE___SUBSTATEMACHINE = 4;
 
   /**
    * The number of structural features of the '<em>State </em>' class.
@@ -726,7 +735,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE__FEATURE_COUNT = 4;
+  int STATE__FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.TransitionImpl <em>Transition</em>}' class.
@@ -2794,6 +2803,17 @@ public interface UrmlPackage extends EPackage
   EClass getState_();
 
   /**
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.State_#isFinal <em>Final</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Final</em>'.
+   * @see ca.queensu.cs.mase.urml.State_#isFinal()
+   * @see #getState_()
+   * @generated
+   */
+  EAttribute getState__Final();
+
+  /**
    * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.State_#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4574,6 +4594,14 @@ public interface UrmlPackage extends EPackage
      * @generated
      */
     EClass STATE_ = eINSTANCE.getState_();
+
+    /**
+     * The meta object literal for the '<em><b>Final</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE___FINAL = eINSTANCE.getState__Final();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

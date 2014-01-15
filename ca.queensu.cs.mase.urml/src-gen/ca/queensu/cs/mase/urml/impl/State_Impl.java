@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link ca.queensu.cs.mase.urml.impl.State_Impl#isFinal <em>Final</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.State_Impl#getName <em>Name</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.State_Impl#getEntryCode <em>Entry Code</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.State_Impl#getExitCode <em>Exit Code</em>}</li>
@@ -34,6 +35,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class State_Impl extends MinimalEObjectImpl.Container implements State_
 {
+  /**
+   * The default value of the '{@link #isFinal() <em>Final</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFinal()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean FINAL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isFinal() <em>Final</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFinal()
+   * @generated
+   * @ordered
+   */
+  protected boolean final_ = FINAL_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -103,6 +124,29 @@ public class State_Impl extends MinimalEObjectImpl.Container implements State_
   protected EClass eStaticClass()
   {
     return UrmlPackage.Literals.STATE_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isFinal()
+  {
+    return final_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFinal(boolean newFinal)
+  {
+    boolean oldFinal = final_;
+    final_ = newFinal;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UrmlPackage.STATE___FINAL, oldFinal, final_));
   }
 
   /**
@@ -302,6 +346,8 @@ public class State_Impl extends MinimalEObjectImpl.Container implements State_
   {
     switch (featureID)
     {
+      case UrmlPackage.STATE___FINAL:
+        return isFinal();
       case UrmlPackage.STATE___NAME:
         return getName();
       case UrmlPackage.STATE___ENTRY_CODE:
@@ -324,6 +370,9 @@ public class State_Impl extends MinimalEObjectImpl.Container implements State_
   {
     switch (featureID)
     {
+      case UrmlPackage.STATE___FINAL:
+        setFinal((Boolean)newValue);
+        return;
       case UrmlPackage.STATE___NAME:
         setName((String)newValue);
         return;
@@ -350,6 +399,9 @@ public class State_Impl extends MinimalEObjectImpl.Container implements State_
   {
     switch (featureID)
     {
+      case UrmlPackage.STATE___FINAL:
+        setFinal(FINAL_EDEFAULT);
+        return;
       case UrmlPackage.STATE___NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -376,6 +428,8 @@ public class State_Impl extends MinimalEObjectImpl.Container implements State_
   {
     switch (featureID)
     {
+      case UrmlPackage.STATE___FINAL:
+        return final_ != FINAL_EDEFAULT;
       case UrmlPackage.STATE___NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UrmlPackage.STATE___ENTRY_CODE:
@@ -399,7 +453,9 @@ public class State_Impl extends MinimalEObjectImpl.Container implements State_
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (final: ");
+    result.append(final_);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

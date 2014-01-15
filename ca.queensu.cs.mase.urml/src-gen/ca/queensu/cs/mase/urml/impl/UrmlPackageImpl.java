@@ -1052,7 +1052,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getState__Name()
+  public EAttribute getState__Final()
   {
     return (EAttribute)state_EClass.getEStructuralFeatures().get(0);
   }
@@ -1062,9 +1062,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getState__EntryCode()
+  public EAttribute getState__Name()
   {
-    return (EReference)state_EClass.getEStructuralFeatures().get(1);
+    return (EAttribute)state_EClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1072,7 +1072,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getState__ExitCode()
+  public EReference getState__EntryCode()
   {
     return (EReference)state_EClass.getEStructuralFeatures().get(2);
   }
@@ -1082,9 +1082,19 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getState__Substatemachine()
+  public EReference getState__ExitCode()
   {
     return (EReference)state_EClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getState__Substatemachine()
+  {
+    return (EReference)state_EClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2390,6 +2400,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     createEReference(stateMachineEClass, STATE_MACHINE__TRANSITIONS);
 
     state_EClass = createEClass(STATE_);
+    createEAttribute(state_EClass, STATE___FINAL);
     createEAttribute(state_EClass, STATE___NAME);
     createEReference(state_EClass, STATE___ENTRY_CODE);
     createEReference(state_EClass, STATE___EXIT_CODE);
@@ -2696,6 +2707,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEReference(getStateMachine_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(state_EClass, State_.class, "State_", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getState__Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, State_.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getState__Name(), ecorePackage.getEString(), "name", null, 0, 1, State_.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState__EntryCode(), this.getActionCode(), null, "entryCode", null, 0, 1, State_.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState__ExitCode(), this.getActionCode(), null, "exitCode", null, 0, 1, State_.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

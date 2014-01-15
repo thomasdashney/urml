@@ -43,7 +43,7 @@ public class CapsuleScheduler {
 		this.in = in;
 		this.out = out;
 		this.config = config;
-//		this.maxRun = maxRun;
+		// this.maxRun = maxRun;
 	}
 
 	public void loopCapsuleRefs(TreeNode<CapsuleContext> capsuleContexts) {
@@ -68,8 +68,11 @@ public class CapsuleScheduler {
 						.get(capsuleIndex);
 				CapsuleContext ctx = ctxNode.data;
 				if (ctx.getCapsule().getStatemachines().size() != 0) {
-					new StateMachineTraverser(in, out, config)
-							.executeNextState(ctx);
+					boolean doContinue = new StateMachineTraverser(in, out,
+							config).executeNextState(ctx);
+					if (!doContinue) {
+						break;
+					}
 				}
 				capsuleIndex = (capsuleIndex + 1) % listSize;
 				if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_SECONDS

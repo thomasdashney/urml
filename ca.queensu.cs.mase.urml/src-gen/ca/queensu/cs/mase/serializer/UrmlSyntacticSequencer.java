@@ -22,7 +22,7 @@ public class UrmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesisKeyword_1_0_p;
 	protected AbstractElementAlias match_Protocol___IncomingKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
 	protected AbstractElementAlias match_Protocol___OutgoingKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q;
-	protected AbstractElementAlias match_State____LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_4__q;
+	protected AbstractElementAlias match_State____LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_4__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -31,7 +31,7 @@ public class UrmlSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_PrimaryExpression_LeftParenthesisKeyword_1_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_1_0());
 		match_Protocol___IncomingKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getProtocolAccess().getIncomingKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_3_3()));
 		match_Protocol___OutgoingKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getProtocolAccess().getOutgoingKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_4_3()));
-		match_State____LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getState_Access().getLeftCurlyBracketKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getState_Access().getRightCurlyBracketKeyword_2_4()));
+		match_State____LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getState_Access().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getState_Access().getRightCurlyBracketKeyword_3_4()));
 	}
 	
 	@Override
@@ -54,8 +54,8 @@ public class UrmlSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Protocol___IncomingKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Protocol___OutgoingKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q.equals(syntax))
 				emit_Protocol___OutgoingKeyword_4_0_LeftCurlyBracketKeyword_4_1_RightCurlyBracketKeyword_4_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_State____LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_4__q.equals(syntax))
-				emit_State____LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_State____LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_4__q.equals(syntax))
+				emit_State____LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -96,7 +96,7 @@ public class UrmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     ('{' '}')?
 	 */
-	protected void emit_State____LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_State____LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
