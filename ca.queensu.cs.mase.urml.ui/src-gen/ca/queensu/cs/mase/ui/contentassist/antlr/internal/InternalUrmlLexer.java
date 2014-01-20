@@ -539,10 +539,10 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:32:7: ( 'capsuleRef' )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:32:9: 'capsuleRef'
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:32:7: ( 'capsuleInstance' )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:32:9: 'capsuleInstance'
             {
-            match("capsuleRef"); 
+            match("capsuleInstance"); 
 
 
             }
@@ -2556,10 +2556,10 @@ public class InternalUrmlLexer extends Lexer {
         "\2\54\1\u010c\1\54\1\uffff\1\54\1\u010f\1\u0110\1\uffff\1\u0111"+
         "\2\54\1\uffff\1\54\1\u0115\1\54\1\uffff\1\54\1\u0118\1\uffff\1\54"+
         "\1\u011a\3\uffff\1\u011b\1\54\1\u011d\1\uffff\1\u011e\1\54\1\uffff"+
-        "\1\54\2\uffff\1\u0121\2\uffff\1\u0122\1\54\2\uffff\1\54\1\u0125"+
-        "\1\uffff";
+        "\1\54\2\uffff\1\54\2\uffff\1\u0122\2\54\1\uffff\2\54\1\u0127\1\54"+
+        "\1\uffff\1\54\1\u012a\1\uffff";
     static final String DFA13_eofS =
-        "\u0126\uffff";
+        "\u012b\uffff";
     static final String DFA13_minS =
         "\1\0\1\157\2\uffff\1\143\1\75\1\157\1\146\1\160\3\uffff\1\141\1"+
         "\154\1\151\1\157\1\uffff\1\145\1\76\1\165\1\150\1\145\1\141\1\157"+
@@ -2581,10 +2581,10 @@ public class InternalUrmlLexer extends Lexer {
         "\1\164\1\141\1\uffff\1\157\2\164\1\162\1\164\1\141\3\uffff\1\60"+
         "\1\uffff\1\164\1\uffff\1\154\1\147\1\uffff\1\60\1\147\1\157\1\60"+
         "\1\157\1\154\1\162\1\60\1\151\1\163\1\60\1\143\1\uffff\1\145\2\60"+
-        "\1\uffff\1\60\1\156\1\145\1\uffff\1\162\1\60\1\164\1\uffff\1\157"+
-        "\1\60\1\uffff\1\150\1\60\3\uffff\1\60\1\146\1\60\1\uffff\1\60\1"+
-        "\156\1\uffff\1\151\2\uffff\1\60\2\uffff\1\60\1\156\2\uffff\1\145"+
-        "\1\60\1\uffff";
+        "\1\uffff\1\60\2\156\1\uffff\1\162\1\60\1\164\1\uffff\1\157\1\60"+
+        "\1\uffff\1\150\1\60\3\uffff\1\60\1\163\1\60\1\uffff\1\60\1\156\1"+
+        "\uffff\1\151\2\uffff\1\164\2\uffff\1\60\1\156\1\141\1\uffff\1\145"+
+        "\1\156\1\60\1\143\1\uffff\1\145\1\60\1\uffff";
     static final String DFA13_maxS =
         "\1\uffff\1\157\2\uffff\1\164\1\75\1\162\1\156\1\165\3\uffff\1\157"+
         "\1\170\1\162\1\157\1\uffff\1\165\1\76\1\165\1\151\1\157\1\141\1"+
@@ -2606,10 +2606,11 @@ public class InternalUrmlLexer extends Lexer {
         "\1\156\1\151\1\145\1\164\1\141\1\uffff\1\157\2\164\1\162\1\164\1"+
         "\141\3\uffff\1\172\1\uffff\1\164\1\uffff\1\154\1\147\1\uffff\1\172"+
         "\1\147\1\157\1\172\1\157\1\154\1\162\1\172\1\151\1\163\1\172\1\143"+
-        "\1\uffff\1\145\2\172\1\uffff\1\172\1\156\1\145\1\uffff\1\162\1\172"+
-        "\1\164\1\uffff\1\157\1\172\1\uffff\1\150\1\172\3\uffff\1\172\1\146"+
-        "\1\172\1\uffff\1\172\1\156\1\uffff\1\151\2\uffff\1\172\2\uffff\1"+
-        "\172\1\156\2\uffff\1\145\1\172\1\uffff";
+        "\1\uffff\1\145\2\172\1\uffff\1\172\2\156\1\uffff\1\162\1\172\1\164"+
+        "\1\uffff\1\157\1\172\1\uffff\1\150\1\172\3\uffff\1\172\1\163\1\172"+
+        "\1\uffff\1\172\1\156\1\uffff\1\151\2\uffff\1\164\2\uffff\1\172\1"+
+        "\156\1\141\1\uffff\1\145\1\156\1\172\1\143\1\uffff\1\145\1\172\1"+
+        "\uffff";
     static final String DFA13_acceptS =
         "\2\uffff\1\2\1\3\5\uffff\1\11\1\12\1\13\4\uffff\1\25\16\uffff\1"+
         "\70\1\72\1\uffff\1\74\1\77\1\uffff\1\103\1\104\2\uffff\1\110\1\111"+
@@ -2623,9 +2624,9 @@ public class InternalUrmlLexer extends Lexer {
         "\36\1\43\1\uffff\1\100\1\uffff\1\42\2\uffff\1\51\14\uffff\1\46\3"+
         "\uffff\1\101\3\uffff\1\14\3\uffff\1\41\2\uffff\1\20\2\uffff\1\6"+
         "\1\7\1\10\3\uffff\1\15\2\uffff\1\37\1\uffff\1\4\1\16\1\uffff\1\23"+
-        "\1\17\2\uffff\1\26\1\34\2\uffff\1\27";
+        "\1\17\3\uffff\1\34\4\uffff\1\27\2\uffff\1\26";
     static final String DFA13_specialS =
-        "\1\0\46\uffff\1\1\1\2\u00fd\uffff}>";
+        "\1\1\46\uffff\1\0\1\2\u0102\uffff}>";
     static final String[] DFA13_transitionS = {
             "\11\52\2\51\2\52\1\51\22\52\1\51\1\36\1\47\2\52\1\42\1\32\1"+
             "\50\1\11\1\12\1\40\1\37\1\13\1\22\1\20\1\41\12\46\1\5\1\52\1"+
@@ -2879,7 +2880,7 @@ public class InternalUrmlLexer extends Lexer {
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u0102",
             "\1\u0103",
-            "\12\54\7\uffff\21\54\1\u0104\10\54\4\uffff\1\54\1\uffff\32"+
+            "\12\54\7\uffff\10\54\1\u0104\21\54\4\uffff\1\54\1\uffff\32"+
             "\54",
             "\1\u0106",
             "\1\u0107",
@@ -2920,14 +2921,19 @@ public class InternalUrmlLexer extends Lexer {
             "\1\u0120",
             "",
             "",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u0121",
             "",
             "",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u0123",
-            "",
-            "",
             "\1\u0124",
+            "",
+            "\1\u0125",
+            "\1\u0126",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u0128",
+            "",
+            "\1\u0129",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             ""
     };
@@ -2969,6 +2975,16 @@ public class InternalUrmlLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA13_39 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA13_39>='\u0000' && LA13_39<='\uFFFF')) ) {s = 103;}
+
+                        else s = 42;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA13_0 = input.LA(1);
 
                         s = -1;
@@ -3055,16 +3071,6 @@ public class InternalUrmlLexer extends Lexer {
                         else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {s = 41;}
 
                         else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||(LA13_0>='#' && LA13_0<='$')||LA13_0==';'||(LA13_0>='?' && LA13_0<='@')||(LA13_0>='[' && LA13_0<=']')||LA13_0=='`'||(LA13_0>='\u007F' && LA13_0<='\uFFFF')) ) {s = 42;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA13_39 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA13_39>='\u0000' && LA13_39<='\uFFFF')) ) {s = 103;}
-
-                        else s = 42;
 
                         if ( s>=0 ) return s;
                         break;

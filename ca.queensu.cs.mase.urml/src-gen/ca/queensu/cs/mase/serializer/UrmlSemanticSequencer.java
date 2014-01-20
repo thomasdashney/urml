@@ -1446,7 +1446,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (final?='final' name=ID (entryCode=ActionCode? exitCode=ActionCode? substatemachine=StateMachine?)?)
+	 *     (final?='final'? name=ID (entryCode=ActionCode? exitCode=ActionCode? substatemachine=StateMachine?)?)
 	 */
 	protected void sequence_State_(EObject context, State_ semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -661,7 +661,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class CapsuleRefElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CapsuleRef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCapsuleRefKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cCapsuleInstanceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -670,14 +670,14 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeCapsuleIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeCapsuleCrossReference_3_0.eContents().get(1);
 		
 		//CapsuleRef:
-		//	"capsuleRef" name=ID ":" type=[Capsule];
+		//	"capsuleInstance" name=ID ":" type=[Capsule];
 		public ParserRule getRule() { return rule; }
 
-		//"capsuleRef" name=ID ":" type=[Capsule]
+		//"capsuleInstance" name=ID ":" type=[Capsule]
 		public Group getGroup() { return cGroup; }
 
-		//"capsuleRef"
-		public Keyword getCapsuleRefKeyword_0() { return cCapsuleRefKeyword_0; }
+		//"capsuleInstance"
+		public Keyword getCapsuleInstanceKeyword_0() { return cCapsuleInstanceKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -777,15 +777,15 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
 		
 		//State_:
-		//	final?="final" "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")?
+		//	final?="final"? "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")?
 		//	("sub" substatemachine=StateMachine)? "}")?;
 		public ParserRule getRule() { return rule; }
 
-		//final?="final" "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")? ("sub"
-		//substatemachine=StateMachine)? "}")?
+		//final?="final"? "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")?
+		//("sub" substatemachine=StateMachine)? "}")?
 		public Group getGroup() { return cGroup; }
 
-		//final?="final"
+		//final?="final"?
 		public Assignment getFinalAssignment_0() { return cFinalAssignment_0; }
 
 		//"final"
@@ -2804,7 +2804,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CapsuleRef:
-	//	"capsuleRef" name=ID ":" type=[Capsule];
+	//	"capsuleInstance" name=ID ":" type=[Capsule];
 	public CapsuleRefElements getCapsuleRefAccess() {
 		return (pCapsuleRef != null) ? pCapsuleRef : (pCapsuleRef = new CapsuleRefElements());
 	}
@@ -2826,7 +2826,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//State_:
-	//	final?="final" "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")?
+	//	final?="final"? "state" name=ID ("{" ("entry" "{" entryCode=ActionCode "}")? ("exit" "{" exitCode=ActionCode "}")?
 	//	("sub" substatemachine=StateMachine)? "}")?;
 	public State_Elements getState_Access() {
 		return (pState_ != null) ? pState_ : (pState_ = new State_Elements());

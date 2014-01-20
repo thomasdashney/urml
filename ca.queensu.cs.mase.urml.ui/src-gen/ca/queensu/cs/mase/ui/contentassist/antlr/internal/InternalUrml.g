@@ -4310,11 +4310,11 @@ rule__CapsuleRef__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getCapsuleRefAccess().getCapsuleRefKeyword_0()); }
+{ before(grammarAccess.getCapsuleRefAccess().getCapsuleInstanceKeyword_0()); }
 
-	'capsuleRef' 
+	'capsuleInstance' 
 
-{ after(grammarAccess.getCapsuleRefAccess().getCapsuleRefKeyword_0()); }
+{ after(grammarAccess.getCapsuleRefAccess().getCapsuleInstanceKeyword_0()); }
 )
 
 ;
@@ -4600,7 +4600,7 @@ rule__State___Group__0__Impl
 :
 (
 { before(grammarAccess.getState_Access().getFinalAssignment_0()); }
-(rule__State___FinalAssignment_0)
+(rule__State___FinalAssignment_0)?
 { after(grammarAccess.getState_Access().getFinalAssignment_0()); }
 )
 

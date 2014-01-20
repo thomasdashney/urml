@@ -1074,9 +1074,9 @@ ruleCapsuleRef returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='capsuleRef' 
+(	otherlv_0='capsuleInstance' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getCapsuleRefAccess().getCapsuleRefKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getCapsuleRefAccess().getCapsuleInstanceKeyword_0());
     }
 (
 (
@@ -1225,7 +1225,7 @@ ruleState_ returns [EObject current=null]
 	    }
 
 )
-)	otherlv_1='state' 
+)?	otherlv_1='state' 
     {
     	newLeafNode(otherlv_1, grammarAccess.getState_Access().getStateKeyword_1());
     }

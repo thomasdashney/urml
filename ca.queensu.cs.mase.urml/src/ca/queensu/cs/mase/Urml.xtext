@@ -99,7 +99,7 @@ StateMachine:
 	'}';
 	
 State_: 
-	final?='final' 'state' name=ID  ('{'
+	(final?='final')? 'state' name=ID  ('{'
 		('entry' '{' entryCode=ActionCode '}')?
 		('exit' '{' exitCode=ActionCode '}')?
 		('sub' substatemachine=StateMachine)?
