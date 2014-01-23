@@ -104,8 +104,8 @@ public class OppositeFinder {
 		if (conn == null) {
 			throw new ConnectorNotFoundException(
 					String.format(
-							Messages.getString("cannot send signal: connector with port %s.%s is "
-									+ "missing in capsule %s"), //$NON-NLS-1$
+							"cannot send signal: connector with port %s.%s is "
+									+ "missing in capsule %s", //$NON-NLS-1$
 							sourceCB.getCapsuleRef().getName(),
 							sourcePort.getName(), parentCB.getName()));
 		}
@@ -122,8 +122,8 @@ public class OppositeFinder {
 		if (conn == null) {
 			throw new ConnectorNotFoundException(
 					String.format(
-							Messages.getString("cannot send signal: connector with port %s.%s is "
-									+ "missing in capsule %s"), //$NON-NLS-1$
+							"cannot send signal: connector with port %s.%s is "
+									+ "missing in capsule %s", //$NON-NLS-1$
 							sourceCB.getCapsuleRef().getName(),
 							sourcePort.getName(), sourceCB.getName()));
 //			return null;

@@ -19,6 +19,7 @@ public class InterpreterThread {
 					interpreter.interpret();
 					if (action != null) {
 						action.setEnabled(false);
+						interpreterThread = null;
 					}
 				}
 			});

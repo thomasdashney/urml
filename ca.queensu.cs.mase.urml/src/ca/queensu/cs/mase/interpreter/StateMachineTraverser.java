@@ -30,9 +30,9 @@ public class StateMachineTraverser {
 	 */
 	private PrintStream out;
 
-	@Inject
-	private Logger logger;
-	
+	// @Inject
+	// private Logger logger;
+
 	/**
 	 * The input stream
 	 */
@@ -44,6 +44,16 @@ public class StateMachineTraverser {
 	 */
 	private ExecutionConfig config;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param in
+	 *            input stream from the client Eclipse's console view
+	 * @param out
+	 *            output stream from the client Eclipse's console view
+	 * @param config
+	 *            execution config for the interpreter
+	 */
 	public StateMachineTraverser(BufferedReader in, PrintStream out,
 			ExecutionConfig config) {
 		this.in = in;
@@ -51,11 +61,26 @@ public class StateMachineTraverser {
 		this.config = config;
 	}
 
+	/**
+	 * Attempts to exeute the next state. If the current state is already a
+	 * final state, simply returns false. However, if otherwise, the next state
+	 * is found and the current state is set as the next state, and returns
+	 * true.
+	 * 
+	 * @param ctx
+	 *            the current capsule context, which contains a reference to the
+	 *            current state
+	 * @return true if the current state is not a final state; otherwise returns
+	 *         false.
+	 */
 	public boolean executeNextState(CapsuleContext ctx) {
 		if (ctx.getCurrentState() == null) {
+			// can't find the current state; assume we are getting into the
+			// first state
 			findExecuteFirstState(ctx);
 			return true;
 		} else {
+			// find the next state
 			return findExecuteNextState(ctx);
 		}
 	}
@@ -81,22 +106,37 @@ public class StateMachineTraverser {
 		return init.getTo();
 	}
 
+	/**
+	 * Finds and executes the next state for the capsule in the capsule context
+	 * {@code ctx} and returns true, only if the current state is not a final
+	 * state. If the current state is already a final state, this method simply
+	 * returns false.
+	 * 
+	 * @param ctx
+	 *            the current capsule context
+	 * @return true if the current state is not a final state; otherwise false
+	 */
 	private boolean findExecuteNextState(CapsuleContext ctx) {
 		State_ currentState = ctx.getCurrentState();
+		// if current state is a final state, simply return false
+		if (currentState.isFinal()) {
+			return false;
+		}
+
 		StateMachine subSm = currentState.getSubstatemachine();
 		if (subSm != null) {
-			// the current state has a sub-statemachine. Enter that
-			// sub-statemachine.
+			// the current state has a sub-state machine. Enter into that
+			// sub-state machine.
 			Transition init = findInitialTransition(subSm);
 			if (init == null) {
 				return true;
 			}
 			runActionForTransition(init, ctx);
 			ctx.setCurrentState(init.getTo());
-//			logState(ctx.getCurrentState(), ctx);
+			// logState(ctx.getCurrentState(), ctx);
 			runEntryCodeForState(ctx.getCurrentState(), ctx);
 		} else {
-			// the current state does not have a sub-statemachine.
+			// the current state does not have a sub-state machine.
 			// just find the next transition from the current state.
 			Transition currentTransition = findNextTransition(ctx);
 			if (currentTransition == null) {
@@ -105,31 +145,29 @@ public class StateMachineTraverser {
 			runExitActionEntryCode(currentTransition, ctx);
 			State_ toState = currentTransition.getTo();
 			ctx.setCurrentState(toState);
-			if (toState.isFinal()) {
-				return false;
-			}
-//			logState(ctx.getCurrentState(), ctx);
+
+			// logState(ctx.getCurrentState(), ctx);
 		}
 		return true;
 	}
 
-//	/**
-//	 * Executes the given state {@code StateTarget} by going through its entry
-//	 * and exit code
-//	 * 
-//	 * @param state
-//	 *            the state terminal whose entry and exit code is to be
-//	 *            executed. Note that this is done only when the
-//	 *            {@code StateTarget} is of class {@link StateTarget} (i.e. the
-//	 *            terminal has a state in it), even though we are accepting
-//	 *            {@link TransitionTarget} here.
-//	 * @param ctx
-//	 *            the stored and persistent information relevant to the current
-//	 *            capsule
-//	 */
-//	private void logState(State_ state, CapsuleContext ctx) {
-//		out.println(ctx.getRefName() + "   state: " + state.getName());
-//	}
+	// /**
+	// * Executes the given state {@code StateTarget} by going through its entry
+	// * and exit code
+	// *
+	// * @param state
+	// * the state terminal whose entry and exit code is to be
+	// * executed. Note that this is done only when the
+	// * {@code StateTarget} is of class {@link StateTarget} (i.e. the
+	// * terminal has a state in it), even though we are accepting
+	// * {@link TransitionTarget} here.
+	// * @param ctx
+	// * the stored and persistent information relevant to the current
+	// * capsule
+	// */
+	// private void logState(State_ state, CapsuleContext ctx) {
+	// out.println(ctx.getRefName() + "   state: " + state.getName());
+	// }
 
 	/**
 	 * Finds the first appearing initial transition in the state machine
@@ -149,9 +187,9 @@ public class StateMachineTraverser {
 			for (Transition t : sm.getTransitions()) {
 				if (t.isInit()) {
 					Transition initial = t;
-//					out.println(c.getName() + "   initial transition: "
-//							+ initial.getName() + " to "
-//							+ initial.getTo().getName());
+					// out.println(c.getName() + "   initial transition: "
+					// + initial.getName() + " to "
+					// + initial.getTo().getName());
 					return initial;
 				}
 			}
@@ -171,8 +209,8 @@ public class StateMachineTraverser {
 	private void runActionCodeForTransition(Transition transition,
 			CapsuleContext ctx) {
 		if (transition.getAction() != null) {
-//			out.println(ctx.getName() + "      running action code for "
-//					+ transition.getName());
+			// out.println(ctx.getName() + "      running action code for "
+			// + transition.getName());
 			execute(transition.getAction().getStatements(), ctx);
 		}
 		if (ctx.getTriggerVars() != null) {
@@ -191,8 +229,8 @@ public class StateMachineTraverser {
 	 */
 	private void runEntryCodeForState(State_ state, CapsuleContext ctx) {
 		if (state.getEntryCode() != null) {
-//			out.println(ctx.getName() + "      running entry code for "
-//					+ state.getName());
+			// out.println(ctx.getName() + "      running entry code for "
+			// + state.getName());
 			execute(state.getEntryCode().getStatements(), ctx);
 		}
 	}
@@ -208,8 +246,8 @@ public class StateMachineTraverser {
 	 */
 	private void runExitCodeForState(State_ state, CapsuleContext ctx) {
 		if (state.getExitCode() != null) {
-//			out.println(ctx.getName() + "      running exit code for "
-//					+ state.getName());
+			// out.println(ctx.getName() + "      running exit code for "
+			// + state.getName());
 			execute(state.getExitCode().getStatements(), ctx);
 		}
 	}
@@ -226,31 +264,48 @@ public class StateMachineTraverser {
 	 */
 	private void execute(EList<Statement> statements, CapsuleContext ctx) {
 		ctx.getCallStack().push(new HashMap<String, Value>());
-		for (Statement st : statements)
+		for (Statement st : statements) {
 			new StatementExecuter().interpret(st, ctx);
+		}
 		ctx.getCallStack().pop();
 	}
 
+	/**
+	 * Goes through the current state and all its ancestor states, and then find
+	 * the outgoing transitions from such states. After that, filter out the
+	 * transitions such that those that pass the guard and are part of the
+	 * trigger are selected. After that, choose the enabled transition based on
+	 * the execution config. Such a transition will be selected as the next
+	 * transition and will be returned.
+	 * 
+	 * @param ctx
+	 *            the current capsule instance
+	 * @return the next transition to be executed
+	 */
 	@Nullable
 	private Transition findNextTransition(CapsuleContext ctx) {
-		// go through the current state and all its ancestor states.
-		// Find the transition whose "from" state is the current
-		// state or its ancestors
 		State_ stateToGoThrough = ctx.getCurrentState();
-		List<Transition> nextTrans = new ArrayList<>();
+		List<Transition> candidateEnabledTrans = new ArrayList<>();
 		do {
-			Collection<Transition> targetTransitions = ctx
-					.getTargetTransitions().get(stateToGoThrough);
-			nextTrans.addAll(targetTransitions);
+			// get the outgoing transitions from stateToGoThrough
+			Collection<Transition> outgoingTransitions = ctx
+					.getOutgoingTransitions().get(stateToGoThrough);
+			// add those outgoing transitions to the candidate enabled
+			// transition list
+			candidateEnabledTrans.addAll(outgoingTransitions);
 			// get current state's ancestors
 			stateToGoThrough = EcoreUtil2.getContainerOfType(
 					stateToGoThrough.eContainer(), State_.class);
 		} while (stateToGoThrough != null);
 
 		TransitionFilterer f = new TransitionFilterer(in, out, config);
-		Transition[] withoutCheck = nextTrans.toArray(new Transition[0]);
+		Transition[] withoutCheck = candidateEnabledTrans
+				.toArray(new Transition[0]);
+		// only the transitions that pass the guard remain
 		Transition[] withGuard = f.filterGuard(withoutCheck, ctx);
+		// only the transitions that are part of the trigger remain
 		Transition[] withGuardTrigger = f.filterTrigger(withGuard, ctx);
+		// select the next transition based on the execution config
 		return f.chooseNextTransition(withGuardTrigger, ctx);
 	}
 
@@ -314,13 +369,13 @@ public class StateMachineTraverser {
 	private void runActionForTransition(Transition currentTransition,
 			CapsuleContext ctx) {
 
-//		State_ from = currentTransition.getFrom();
-//		State_ to = currentTransition.getTo();
+		// State_ from = currentTransition.getFrom();
+		// State_ to = currentTransition.getTo();
 
-//		out.println(ctx.getName() + "   transition: "
-//				+ currentTransition.getName() + " from "
-//				+ (from == null ? " null " : from.getName()) + " to "
-//				+ (to == null ? " null " : to.getName()));
+		// out.println(ctx.getName() + "   transition: "
+		// + currentTransition.getName() + " from "
+		// + (from == null ? " null " : from.getName()) + " to "
+		// + (to == null ? " null " : to.getName()));
 		runActionCodeForTransition(currentTransition, ctx);
 
 	}

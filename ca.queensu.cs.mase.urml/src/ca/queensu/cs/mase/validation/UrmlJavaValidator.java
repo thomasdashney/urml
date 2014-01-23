@@ -191,6 +191,20 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 		}
 	}
 
+	@Check
+	public void checkFinalState(State_ state) {
+		if (state.isFinal()) {
+			if (state.getExitCode() != null) {
+				error("Final state cannot have exit code",
+						UrmlPackage.eINSTANCE.getState__ExitCode());
+			}
+			if (state.getSubstatemachine() != null) {
+				error("Final state cannot have sub-statemachine",
+						UrmlPackage.eINSTANCE.getState__Substatemachine());
+			}
+		}
+	}
+
 	public static String DUPLICATE_STATE = "ca.queensu.cs.mase.DuplicateState";
 
 	@Check

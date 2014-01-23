@@ -231,19 +231,28 @@ public class TransitionFilterer {
 	 */
 	private int userSelectTransition(Transition[] nextTransitionList)
 			throws IOException {
-		String capsuleName = "";
-		int transitionIndex = 0;
-		for (Transition tr : nextTransitionList) {
-			Capsule c = EcoreUtil2.getContainerOfType(tr, Capsule.class);
-			capsuleName = c != null ? c.getName() : "";
-			out.println(capsuleName + " " + transitionIndex + ". "
-					+ evalTransition(tr));
-			transitionIndex++;
+		while (true) {
+			String capsuleName = "";
+			int transitionIndex = 0;
+			for (Transition tr : nextTransitionList) {
+				Capsule c = EcoreUtil2.getContainerOfType(tr, Capsule.class);
+				capsuleName = c != null ? c.getName() : "";
+				out.println(capsuleName + " " + transitionIndex + ". "
+						+ evalTransition(tr));
+				transitionIndex++;
+			}
+			out.println(capsuleName
+					+ " choose the transition you wish to launch:");
+			// String transitionSelectionStr = in.readLine();
+			// return Integer.parseInt(transitionSelectionStr);
+			int transitionSelectionStr = Integer.parseInt(in.readLine());
+			if (transitionSelectionStr >= 0
+					&& transitionSelectionStr < nextTransitionList.length) {
+				return transitionSelectionStr;
+			}
+			out.println(capsuleName
+					+ ": error: please choose the proper selection");
 		}
-		out.println(capsuleName + " choose the transition you wish to launch:");
-		String transitionSelectionStr = "0";
-		transitionSelectionStr = in.readLine();
-		return Integer.parseInt(transitionSelectionStr);
 	}
 
 	/**
