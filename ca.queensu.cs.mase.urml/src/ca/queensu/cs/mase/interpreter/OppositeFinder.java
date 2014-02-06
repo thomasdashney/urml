@@ -8,9 +8,9 @@ import ca.queensu.cs.mase.util.TreeNode;
 public class OppositeFinder {
 
 	/**
-	 * Given the context of source capsuleRef @{code sourceCtx} and the source
-	 * Port {@code sourcePort}, find the opposite site of that capsuleRef.port
-	 * pair for its connection.
+	 * Given the context of source capsule instance @{code sourceCtx} and the
+	 * source Port {@code sourcePort}, find the opposite site of that
+	 * capsuleInstance-port pair for its connection.
 	 * 
 	 * @param sourceCtx
 	 *            the context of the source capsuleRef
@@ -34,10 +34,10 @@ public class OppositeFinder {
 
 		if (sourceCtx.getCapsule().getInternalPorts().contains(sourcePort)) {
 			target = manageInternalPort(sourceCtx, sourcePort);
-//			if (target == null) {
-//				// assume targetCtx.targetPort == sourceCtx.sourcePort
-//				return CapsuleContextPortPair.create(sourceCtx, sourcePort);
-//			}
+			// if (target == null) {
+			// // assume targetCtx.targetPort == sourceCtx.sourcePort
+			// return CapsuleContextPortPair.create(sourceCtx, sourcePort);
+			// }
 			parentNode = sourceNode;
 		} else {
 			target = manageExternalPort(sourceCtx, sourcePort, parentNode);
@@ -62,8 +62,8 @@ public class OppositeFinder {
 							String.format(
 									"cannot send signal: connector with port %s.%s is missing in capsule %s", //$NON-NLS-1$
 									childNode.data.getCapsuleRef().getName(),
-									target.getPort().getName(), parentCtx
-											.getName()));
+									target.getPort().getName(),
+									parentCtx.getName()));
 				}
 				target = findTargetPort(conn, childNode.data.getCapsuleRef(),
 						target.getPort());
@@ -102,12 +102,11 @@ public class OppositeFinder {
 		conn = findMatchingConnector(parentCB, sourceCB.getCapsuleRef(),
 				sourcePort);
 		if (conn == null) {
-			throw new ConnectorNotFoundException(
-					String.format(
-							"cannot send signal: connector with port %s.%s is "
-									+ "missing in capsule %s", //$NON-NLS-1$
-							sourceCB.getCapsuleRef().getName(),
-							sourcePort.getName(), parentCB.getName()));
+			throw new ConnectorNotFoundException(String.format(
+					"cannot send signal: connector with port %s.%s is "
+							+ "missing in capsule %s", //$NON-NLS-1$
+					sourceCB.getCapsuleRef().getName(), sourcePort.getName(),
+					parentCB.getName()));
 		}
 		target = findTargetPort(conn, sourceCB.getCapsuleRef(), sourcePort);
 		return target;
@@ -120,13 +119,12 @@ public class OppositeFinder {
 		conn = findMatchingConnector(sourceCB, sourceCB.getCapsuleRef(),
 				sourcePort);
 		if (conn == null) {
-			throw new ConnectorNotFoundException(
-					String.format(
-							"cannot send signal: connector with port %s.%s is "
-									+ "missing in capsule %s", //$NON-NLS-1$
-							sourceCB.getCapsuleRef().getName(),
-							sourcePort.getName(), sourceCB.getName()));
-//			return null;
+			throw new ConnectorNotFoundException(String.format(
+					"cannot send signal: connector with port %s.%s is "
+							+ "missing in capsule %s", //$NON-NLS-1$
+					sourceCB.getCapsuleRef().getName(), sourcePort.getName(),
+					sourceCB.getName()));
+			// return null;
 		}
 		target = findTargetPort(conn, null, sourcePort);
 		return target;

@@ -57,6 +57,11 @@ public class CapsuleContext {
 	private State_ currentState = null;
 
 	/**
+	 * The previous state in this "thread"
+	 */
+	private State_ previousState = null;
+	
+	/**
 	 * The message queue of this "thread"
 	 */
 	private Queue<MessageInfo> messageQueue = new LinkedList<>();
@@ -145,6 +150,14 @@ public class CapsuleContext {
 
 	public void setCurrentState(State_ s) {
 		currentState = s;
+	}
+	
+	public State_ getPreviousState() {
+		return previousState;
+	}
+	
+	public void setPreviousState(State_ s) {
+		previousState = s;
 	}
 
 	public PrintStream getOutstream() {

@@ -90,6 +90,7 @@ public class StateMachineTraverser {
 		if (firstState == null) {
 			return;
 		}
+		ctx.setPreviousState(null);
 		ctx.setCurrentState(firstState);
 		runEntryCodeForState(firstState, ctx);
 	}
@@ -132,6 +133,7 @@ public class StateMachineTraverser {
 				return true;
 			}
 			runActionForTransition(init, ctx);
+			ctx.setPreviousState(ctx.getCurrentState());
 			ctx.setCurrentState(init.getTo());
 			// logState(ctx.getCurrentState(), ctx);
 			runEntryCodeForState(ctx.getCurrentState(), ctx);
