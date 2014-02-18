@@ -6,7 +6,7 @@ import java.util.List;
 import org.eclipse.jdt.annotation.Nullable;
 
 import ca.queensu.cs.mase.urml.Capsule;
-import ca.queensu.cs.mase.urml.CapsuleRef;
+import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Model;
 import ca.queensu.cs.mase.urml.UrmlFactory;
 import ca.queensu.cs.mase.util.TreeNode;
@@ -22,18 +22,30 @@ public class ModelInitializer {
 	 * The output stream
 	 */
 	private PrintStream out;
-	
+
 	private ModelInitializer() {
 	}
-	
-	public  ModelInitializer(Model model, PrintStream out) {
+
+	/**
+	 * Constructor
+	 * 
+	 * @param model
+	 * @param out
+	 */
+	public ModelInitializer(Model model, PrintStream out) {
 		this();
 		this.model = model;
 		this.out = out;
 	}
-	
+
+	/**
+	 * Register the root capsule "instance" from the model. This capsule is the
+	 * one that is distinguished as "root" from the file.
+	 * 
+	 * @return
+	 */
 	public TreeNode<CapsuleContext> registerRootContextNode() {
-		CapsuleRef root = UrmlFactory.eINSTANCE.createCapsuleRef();
+		CapsuleInst root = UrmlFactory.eINSTANCE.createCapsuleInst();
 		root.setName("root"); //$NON-NLS-1$
 		Capsule rootCapsule = findRootCapsule();
 		if (rootCapsule == null) {
@@ -48,6 +60,11 @@ public class ModelInitializer {
 		return rootNode;
 	}
 
+	/**
+	 * Find the root capsule from the model
+	 * 
+	 * @return
+	 */
 	@Nullable
 	private Capsule findRootCapsule() {
 		for (Capsule c : model.getCapsules()) {
@@ -58,12 +75,19 @@ public class ModelInitializer {
 		return null;
 	}
 
+	/**
+	 * Register children nodes for children capsule instance in breadth-first
+	 * search fashion
+	 * 
+	 * @param parentContext
+	 * @param parentNode
+	 */
 	private void registerChildren(CapsuleContext parentContext,
 			TreeNode<CapsuleContext> parentNode) {
-		CapsuleRef parentRef = parentContext.getCapsuleRef();
-		List<CapsuleRef> childRefs = parentRef.getType().getCapsuleRefs();
-		for (CapsuleRef childRef : childRefs) {
-			CapsuleContext childContext = new CapsuleContext(childRef, out);
+		CapsuleInst parentInst = parentContext.getCapsuleInst();
+		List<CapsuleInst> childInsts = parentInst.getType().getCapsuleInsts();
+		for (CapsuleInst childInst : childInsts) {
+			CapsuleContext childContext = new CapsuleContext(childInst, out);
 			TreeNode<CapsuleContext> childNode = parentNode
 					.addChild(childContext);
 			childContext.setTreeNode(childNode);

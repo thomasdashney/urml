@@ -80,7 +80,7 @@ public class UrmlFormatter extends AbstractDeclarativeFormatter {
 				f.getProtocolAccess().getOutgoingKeyword_4_0(),
 				f.getSignalRule(), f.getCapsuleRule(), f.getOperationRule(),
 				f.getTimerPortRule(), f.getLogPortRule(), f.getPortRule(),
-				f.getConnectorRule(), f.getCapsuleRefRule(),
+				f.getConnectorRule(), f.getCapsuleInstRule(),
 				f.getStateMachineRule(), f.getState_Rule(),
 				f.getState_Access().getEntryKeyword_3_1_0(),
 				f.getState_Access().getSubKeyword_3_3_0(),

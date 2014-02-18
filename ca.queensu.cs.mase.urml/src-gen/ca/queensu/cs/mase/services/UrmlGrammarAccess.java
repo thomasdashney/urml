@@ -290,8 +290,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLogPortsLogPortParserRuleCall_4_3_0 = (RuleCall)cLogPortsAssignment_4_3.eContents().get(0);
 		private final Assignment cAttributesAssignment_4_4 = (Assignment)cAlternatives_4.eContents().get(4);
 		private final RuleCall cAttributesAttributeParserRuleCall_4_4_0 = (RuleCall)cAttributesAssignment_4_4.eContents().get(0);
-		private final Assignment cCapsuleRefsAssignment_4_5 = (Assignment)cAlternatives_4.eContents().get(5);
-		private final RuleCall cCapsuleRefsCapsuleRefParserRuleCall_4_5_0 = (RuleCall)cCapsuleRefsAssignment_4_5.eContents().get(0);
+		private final Assignment cCapsuleInstsAssignment_4_5 = (Assignment)cAlternatives_4.eContents().get(5);
+		private final RuleCall cCapsuleInstsCapsuleInstParserRuleCall_4_5_0 = (RuleCall)cCapsuleInstsAssignment_4_5.eContents().get(0);
 		private final Assignment cConnectorsAssignment_4_6 = (Assignment)cAlternatives_4.eContents().get(6);
 		private final RuleCall cConnectorsConnectorParserRuleCall_4_6_0 = (RuleCall)cConnectorsAssignment_4_6.eContents().get(0);
 		private final Assignment cOperationsAssignment_4_7 = (Assignment)cAlternatives_4.eContents().get(7);
@@ -306,13 +306,13 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		// * The capsule 
 		// * / Capsule:
 		//	root?="root"? "capsule" name=ID "{" ("external" interfacePorts+=Port | internalPorts+=Port | timerPorts+=TimerPort |
-		//	logPorts+=LogPort | attributes+=Attribute | capsuleRefs+=CapsuleRef | connectors+=Connector | operations+=Operation |
-		//	statemachines+=StateMachine)* "}";
+		//	logPorts+=LogPort | attributes+=Attribute | capsuleInsts+=CapsuleInst | connectors+=Connector | operations+=Operation
+		//	| statemachines+=StateMachine)* "}";
 		public ParserRule getRule() { return rule; }
 
 		//root?="root"? "capsule" name=ID "{" ("external" interfacePorts+=Port | internalPorts+=Port | timerPorts+=TimerPort |
-		//logPorts+=LogPort | attributes+=Attribute | capsuleRefs+=CapsuleRef | connectors+=Connector | operations+=Operation |
-		//statemachines+=StateMachine)* "}"
+		//logPorts+=LogPort | attributes+=Attribute | capsuleInsts+=CapsuleInst | connectors+=Connector | operations+=Operation
+		//| statemachines+=StateMachine)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//root?="root"?
@@ -334,7 +334,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
 		//("external" interfacePorts+=Port | internalPorts+=Port | timerPorts+=TimerPort | logPorts+=LogPort |
-		//attributes+=Attribute | capsuleRefs+=CapsuleRef | connectors+=Connector | operations+=Operation |
+		//attributes+=Attribute | capsuleInsts+=CapsuleInst | connectors+=Connector | operations+=Operation |
 		//statemachines+=StateMachine)*
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
@@ -374,11 +374,11 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Attribute
 		public RuleCall getAttributesAttributeParserRuleCall_4_4_0() { return cAttributesAttributeParserRuleCall_4_4_0; }
 
-		//capsuleRefs+=CapsuleRef
-		public Assignment getCapsuleRefsAssignment_4_5() { return cCapsuleRefsAssignment_4_5; }
+		//capsuleInsts+=CapsuleInst
+		public Assignment getCapsuleInstsAssignment_4_5() { return cCapsuleInstsAssignment_4_5; }
 
-		//CapsuleRef
-		public RuleCall getCapsuleRefsCapsuleRefParserRuleCall_4_5_0() { return cCapsuleRefsCapsuleRefParserRuleCall_4_5_0; }
+		//CapsuleInst
+		public RuleCall getCapsuleInstsCapsuleInstParserRuleCall_4_5_0() { return cCapsuleInstsCapsuleInstParserRuleCall_4_5_0; }
 
 		//connectors+=Connector
 		public Assignment getConnectorsAssignment_4_6() { return cConnectorsAssignment_4_6; }
@@ -579,44 +579,44 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cConnectorKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cCapsuleRef1Assignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final CrossReference cCapsuleRef1CapsuleRefCrossReference_1_0_0 = (CrossReference)cCapsuleRef1Assignment_1_0.eContents().get(0);
-		private final RuleCall cCapsuleRef1CapsuleRefIDTerminalRuleCall_1_0_0_1 = (RuleCall)cCapsuleRef1CapsuleRefCrossReference_1_0_0.eContents().get(1);
+		private final Assignment cCapsuleInst1Assignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final CrossReference cCapsuleInst1CapsuleInstCrossReference_1_0_0 = (CrossReference)cCapsuleInst1Assignment_1_0.eContents().get(0);
+		private final RuleCall cCapsuleInst1CapsuleInstIDTerminalRuleCall_1_0_0_1 = (RuleCall)cCapsuleInst1CapsuleInstCrossReference_1_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cPort1Assignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cPort1PortCrossReference_2_0 = (CrossReference)cPort1Assignment_2.eContents().get(0);
 		private final RuleCall cPort1PortIDTerminalRuleCall_2_0_1 = (RuleCall)cPort1PortCrossReference_2_0.eContents().get(1);
 		private final Keyword cAndKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cCapsuleRef2Assignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final CrossReference cCapsuleRef2CapsuleRefCrossReference_4_0_0 = (CrossReference)cCapsuleRef2Assignment_4_0.eContents().get(0);
-		private final RuleCall cCapsuleRef2CapsuleRefIDTerminalRuleCall_4_0_0_1 = (RuleCall)cCapsuleRef2CapsuleRefCrossReference_4_0_0.eContents().get(1);
+		private final Assignment cCapsuleInst2Assignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final CrossReference cCapsuleInst2CapsuleInstCrossReference_4_0_0 = (CrossReference)cCapsuleInst2Assignment_4_0.eContents().get(0);
+		private final RuleCall cCapsuleInst2CapsuleInstIDTerminalRuleCall_4_0_0_1 = (RuleCall)cCapsuleInst2CapsuleInstCrossReference_4_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Assignment cPort2Assignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final CrossReference cPort2PortCrossReference_5_0 = (CrossReference)cPort2Assignment_5.eContents().get(0);
 		private final RuleCall cPort2PortIDTerminalRuleCall_5_0_1 = (RuleCall)cPort2PortCrossReference_5_0.eContents().get(1);
 		
 		//Connector:
-		//	"connector" (capsuleRef1=[CapsuleRef] ".")? port1=[Port] "and" (capsuleRef2=[CapsuleRef] ".")? port2=[Port];
+		//	"connector" (capsuleInst1=[CapsuleInst] ".")? port1=[Port] "and" (capsuleInst2=[CapsuleInst] ".")? port2=[Port];
 		public ParserRule getRule() { return rule; }
 
-		//"connector" (capsuleRef1=[CapsuleRef] ".")? port1=[Port] "and" (capsuleRef2=[CapsuleRef] ".")? port2=[Port]
+		//"connector" (capsuleInst1=[CapsuleInst] ".")? port1=[Port] "and" (capsuleInst2=[CapsuleInst] ".")? port2=[Port]
 		public Group getGroup() { return cGroup; }
 
 		//"connector"
 		public Keyword getConnectorKeyword_0() { return cConnectorKeyword_0; }
 
-		//(capsuleRef1=[CapsuleRef] ".")?
+		//(capsuleInst1=[CapsuleInst] ".")?
 		public Group getGroup_1() { return cGroup_1; }
 
-		//capsuleRef1=[CapsuleRef]
-		public Assignment getCapsuleRef1Assignment_1_0() { return cCapsuleRef1Assignment_1_0; }
+		//capsuleInst1=[CapsuleInst]
+		public Assignment getCapsuleInst1Assignment_1_0() { return cCapsuleInst1Assignment_1_0; }
 
-		//[CapsuleRef]
-		public CrossReference getCapsuleRef1CapsuleRefCrossReference_1_0_0() { return cCapsuleRef1CapsuleRefCrossReference_1_0_0; }
+		//[CapsuleInst]
+		public CrossReference getCapsuleInst1CapsuleInstCrossReference_1_0_0() { return cCapsuleInst1CapsuleInstCrossReference_1_0_0; }
 
 		//ID
-		public RuleCall getCapsuleRef1CapsuleRefIDTerminalRuleCall_1_0_0_1() { return cCapsuleRef1CapsuleRefIDTerminalRuleCall_1_0_0_1; }
+		public RuleCall getCapsuleInst1CapsuleInstIDTerminalRuleCall_1_0_0_1() { return cCapsuleInst1CapsuleInstIDTerminalRuleCall_1_0_0_1; }
 
 		//"."
 		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
@@ -633,17 +633,17 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"and"
 		public Keyword getAndKeyword_3() { return cAndKeyword_3; }
 
-		//(capsuleRef2=[CapsuleRef] ".")?
+		//(capsuleInst2=[CapsuleInst] ".")?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//capsuleRef2=[CapsuleRef]
-		public Assignment getCapsuleRef2Assignment_4_0() { return cCapsuleRef2Assignment_4_0; }
+		//capsuleInst2=[CapsuleInst]
+		public Assignment getCapsuleInst2Assignment_4_0() { return cCapsuleInst2Assignment_4_0; }
 
-		//[CapsuleRef]
-		public CrossReference getCapsuleRef2CapsuleRefCrossReference_4_0_0() { return cCapsuleRef2CapsuleRefCrossReference_4_0_0; }
+		//[CapsuleInst]
+		public CrossReference getCapsuleInst2CapsuleInstCrossReference_4_0_0() { return cCapsuleInst2CapsuleInstCrossReference_4_0_0; }
 
 		//ID
-		public RuleCall getCapsuleRef2CapsuleRefIDTerminalRuleCall_4_0_0_1() { return cCapsuleRef2CapsuleRefIDTerminalRuleCall_4_0_0_1; }
+		public RuleCall getCapsuleInst2CapsuleInstIDTerminalRuleCall_4_0_0_1() { return cCapsuleInst2CapsuleInstIDTerminalRuleCall_4_0_0_1; }
 
 		//"."
 		public Keyword getFullStopKeyword_4_1() { return cFullStopKeyword_4_1; }
@@ -658,8 +658,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getPort2PortIDTerminalRuleCall_5_0_1() { return cPort2PortIDTerminalRuleCall_5_0_1; }
 	}
 
-	public class CapsuleRefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CapsuleRef");
+	public class CapsuleInstElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CapsuleInst");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCapsuleInstanceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -669,7 +669,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cTypeCapsuleCrossReference_3_0 = (CrossReference)cTypeAssignment_3.eContents().get(0);
 		private final RuleCall cTypeCapsuleIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeCapsuleCrossReference_3_0.eContents().get(1);
 		
-		//CapsuleRef:
+		//CapsuleInst:
 		//	"capsuleInstance" name=ID ":" type=[Capsule];
 		public ParserRule getRule() { return rule; }
 
@@ -2600,7 +2600,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	private LogPortElements pLogPort;
 	private PortElements pPort;
 	private ConnectorElements pConnector;
-	private CapsuleRefElements pCapsuleRef;
+	private CapsuleInstElements pCapsuleInst;
 	private StateMachineElements pStateMachine;
 	private State_Elements pState_;
 	private TransitionElements pTransition;
@@ -2743,8 +2743,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	// * The capsule 
 	// * / Capsule:
 	//	root?="root"? "capsule" name=ID "{" ("external" interfacePorts+=Port | internalPorts+=Port | timerPorts+=TimerPort |
-	//	logPorts+=LogPort | attributes+=Attribute | capsuleRefs+=CapsuleRef | connectors+=Connector | operations+=Operation |
-	//	statemachines+=StateMachine)* "}";
+	//	logPorts+=LogPort | attributes+=Attribute | capsuleInsts+=CapsuleInst | connectors+=Connector | operations+=Operation
+	//	| statemachines+=StateMachine)* "}";
 	public CapsuleElements getCapsuleAccess() {
 		return (pCapsule != null) ? pCapsule : (pCapsule = new CapsuleElements());
 	}
@@ -2794,7 +2794,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Connector:
-	//	"connector" (capsuleRef1=[CapsuleRef] ".")? port1=[Port] "and" (capsuleRef2=[CapsuleRef] ".")? port2=[Port];
+	//	"connector" (capsuleInst1=[CapsuleInst] ".")? port1=[Port] "and" (capsuleInst2=[CapsuleInst] ".")? port2=[Port];
 	public ConnectorElements getConnectorAccess() {
 		return (pConnector != null) ? pConnector : (pConnector = new ConnectorElements());
 	}
@@ -2803,14 +2803,14 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getConnectorAccess().getRule();
 	}
 
-	//CapsuleRef:
+	//CapsuleInst:
 	//	"capsuleInstance" name=ID ":" type=[Capsule];
-	public CapsuleRefElements getCapsuleRefAccess() {
-		return (pCapsuleRef != null) ? pCapsuleRef : (pCapsuleRef = new CapsuleRefElements());
+	public CapsuleInstElements getCapsuleInstAccess() {
+		return (pCapsuleInst != null) ? pCapsuleInst : (pCapsuleInst = new CapsuleInstElements());
 	}
 	
-	public ParserRule getCapsuleRefRule() {
-		return getCapsuleRefAccess().getRule();
+	public ParserRule getCapsuleInstRule() {
+		return getCapsuleInstAccess().getRule();
 	}
 
 	/// *******************************************************************

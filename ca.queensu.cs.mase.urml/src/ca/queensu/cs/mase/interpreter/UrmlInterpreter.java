@@ -63,14 +63,12 @@ public class UrmlInterpreter {
 	 * @param execConfig
 	 *            the execution config
 	 */
-	public UrmlInterpreter (Model m, InputStream in,
-			OutputStream out, ExecutionConfig execConfig) {
-//		UrmlInterpreter ui = new UrmlInterpreter();
+	public UrmlInterpreter(Model m, InputStream in, OutputStream out,
+			ExecutionConfig execConfig) {
 		this.model = m;
 		this.in = new BufferedReader(new InputStreamReader(in));
 		this.out = new PrintStream(out);
 		this.config = execConfig;
-//		return ui;
 	}
 
 	/**
@@ -79,8 +77,7 @@ public class UrmlInterpreter {
 	public void interpret() {
 		TreeNode<CapsuleContext> rootCtx = new ModelInitializer(model, out)
 				.registerRootContextNode();
-		new CapsuleScheduler(in, out, config /* , MAX_RUN) */)
-				.loopCapsuleRefs(rootCtx);
+		new CapsuleScheduler(in, out, config).loopCapsuleRefs(rootCtx);
 		System.out.println("EXIT");
 	}
 }

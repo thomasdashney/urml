@@ -122,13 +122,13 @@ public interface UrmlFactory extends EFactory
   Connector createConnector();
 
   /**
-   * Returns a new object of class '<em>Capsule Ref</em>'.
+   * Returns a new object of class '<em>Capsule Inst</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Capsule Ref</em>'.
+   * @return a new object of class '<em>Capsule Inst</em>'.
    * @generated
    */
-  CapsuleRef createCapsuleRef();
+  CapsuleInst createCapsuleInst();
 
   /**
    * Returns a new object of class '<em>State Machine</em>'.

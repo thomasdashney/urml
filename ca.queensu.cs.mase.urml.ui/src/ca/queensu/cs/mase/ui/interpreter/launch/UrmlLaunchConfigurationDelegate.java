@@ -42,6 +42,9 @@ public class UrmlLaunchConfigurationDelegate extends
 
 	private final String CONSOLE_NAME = "urml interpreter";
 
+	/**
+	 * Launches the interpreter from its configuration
+	 */
 	@Override
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
@@ -55,20 +58,66 @@ public class UrmlLaunchConfigurationDelegate extends
 					.getFile(new Path(modelStr));
 		}
 
-		MultipleTransitions multiTrans;
-		String execConfig = configuration.getAttribute(
-				IUrmlLaunchConfigurationConstants.ATTR_EXEC_CONFIG,
-				IUrmlLaunchConfigurationConstants.EXEC_FIRST_TRANSITION);
-		if (execConfig
-				.equals(IUrmlLaunchConfigurationConstants.EXEC_FIRST_TRANSITION)) {
-			multiTrans = MultipleTransitions.FIRST_TRANSITION;
-		} else if (execConfig
-				.equals(IUrmlLaunchConfigurationConstants.EXEC_INTERACTIVE)) {
-			multiTrans = MultipleTransitions.INTERACTIVE;
-		} else {
-			multiTrans = MultipleTransitions.RANDOM_TRANSITION;
+		MultipleTransitions multiTrans = getMultiTransFrom(configuration);
+		Object[] exitCondAndDuration = getExitCondAndDurationFrom(configuration);
+		ExitCondition exitCond = (ExitCondition) exitCondAndDuration[0];
+		int duration = (int) exitCondAndDuration[1];
+
+		if (file != null) {
+			loadFile(file, multiTrans, exitCond, duration);
 		}
 
+	}
+
+	/**
+	 * Loads the file from its parameters
+	 * 
+	 * @param file
+	 *            the model file
+	 * @param multiTrans
+	 *            the multiple transition parameter
+	 * @param exitCond
+	 *            the exit condition parameter
+	 * @param duration
+	 *            the duration parameter
+	 */
+	private void loadFile(IFile file, MultipleTransitions multiTrans,
+			ExitCondition exitCond, int duration) {
+		// grab the model
+		Model model = getModelFromFile((IFile) file);//
+
+		// find a console or create a new console if there isn't one
+		IOConsole myConsole = findConsole(CONSOLE_NAME);
+		myConsole.clearConsole();
+
+		// register this new console into a console view
+		registerConsoleToView(myConsole);
+
+		// create a new input/output stream for the console
+		IOConsoleOutputStream out = myConsole.newOutputStream();
+		IOConsoleInputStream in = myConsole.getInputStream();
+
+		// run the interpreter
+		final UrmlInterpreter interpreter = new UrmlInterpreter(model, in, out,
+				new ExecutionConfig(multiTrans, exitCond, duration));
+		InterpreterThread.start(interpreter);
+	}
+
+	/**
+	 * Gets the exit condition and duration from the launch configuration
+	 * 
+	 * @param configuration
+	 *            the launch configuration
+	 * @return an {@code Object} array with the 0th element being the exit
+	 *         condition and the 1st element being the duration. Clients of this
+	 *         method should cast the return values to their appropriate types
+	 *         (i.e. ExitCondition and int) accordingly
+	 * @throws CoreException
+	 *             when something has gone wrong while accessing the launch
+	 *             configuration
+	 */
+	private Object[] getExitCondAndDurationFrom(
+			ILaunchConfiguration configuration) throws CoreException {
 		int duration = 0;
 		ExitCondition exitCond;
 		String exitCondStr = configuration.getAttribute(
@@ -87,32 +136,40 @@ public class UrmlLaunchConfigurationDelegate extends
 			duration = configuration.getAttribute(
 					IUrmlLaunchConfigurationConstants.ATTR_EXIT_TRANSITIONS, 0);
 		}
-
-		if (file != null) {
-			// grab the model
-			Model model = getModelFromFile((IFile) file);//
-
-			// find a console or create a new console if there isn't one
-			IOConsole myConsole = findConsole(CONSOLE_NAME);
-			myConsole.clearConsole();
-
-			// register this new console into a console view
-			registerConsoleToView(myConsole);
-
-			// create a new input/output stream for the console
-			IOConsoleOutputStream out = myConsole.newOutputStream();
-			IOConsoleInputStream in = myConsole.getInputStream();
-
-			// run the interpreter
-			final UrmlInterpreter interpreter = new UrmlInterpreter(model, in,
-					out, new ExecutionConfig(multiTrans, exitCond, duration));
-			InterpreterThread.start(interpreter);
-		}
-
+		return new Object[] { exitCond, duration };
 	}
 
 	/**
-	 * Find the model from the {@code file}
+	 * Gets multiple transitions parameter from the launch configuration
+	 * 
+	 * @param configuration
+	 *            the launch configuration
+	 * @return multiple transitions parameter
+	 * @throws CoreException
+	 *             if something has gone wrong while accessing the launch
+	 *             configuration
+	 */
+	private MultipleTransitions getMultiTransFrom(
+			ILaunchConfiguration configuration) throws CoreException {
+		MultipleTransitions multiTrans;
+		String execConfig = configuration.getAttribute(
+				IUrmlLaunchConfigurationConstants.ATTR_EXEC_CONFIG,
+				IUrmlLaunchConfigurationConstants.EXEC_FIRST_TRANSITION);
+		if (execConfig
+				.equals(IUrmlLaunchConfigurationConstants.EXEC_FIRST_TRANSITION)) {
+			multiTrans = MultipleTransitions.FIRST_TRANSITION;
+		} else if (execConfig
+				.equals(IUrmlLaunchConfigurationConstants.EXEC_INTERACTIVE)) {
+			multiTrans = MultipleTransitions.INTERACTIVE;
+		} else {
+			multiTrans = MultipleTransitions.RANDOM_TRANSITION;
+		}
+		return multiTrans;
+	}
+
+	/**
+	 * Find the model from the {@code file} from the Resource, which is part of
+	 * EMF's persistence API *
 	 * 
 	 * @param file
 	 *            the source information
@@ -138,7 +195,9 @@ public class UrmlLaunchConfigurationDelegate extends
 	 */
 	private void registerConsoleToView(final IOConsole console) {
 		Display.getDefault().asyncExec(new Runnable() {
-
+			/**
+			 * Registers the console to its view
+			 */
 			@Override
 			public void run() {
 				IWorkbenchWindow window = PlatformUI.getWorkbench()

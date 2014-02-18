@@ -151,10 +151,10 @@ public class UrmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UrmlPackage.CAPSULE_REF:
+      case UrmlPackage.CAPSULE_INST:
       {
-        CapsuleRef capsuleRef = (CapsuleRef)theEObject;
-        T result = caseCapsuleRef(capsuleRef);
+        CapsuleInst capsuleInst = (CapsuleInst)theEObject;
+        T result = caseCapsuleInst(capsuleInst);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -703,17 +703,17 @@ public class UrmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Capsule Ref</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Capsule Inst</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Capsule Ref</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Capsule Inst</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCapsuleRef(CapsuleRef object)
+  public T caseCapsuleInst(CapsuleInst object)
   {
     return null;
   }

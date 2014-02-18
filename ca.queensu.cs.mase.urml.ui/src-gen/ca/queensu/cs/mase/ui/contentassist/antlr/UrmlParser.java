@@ -74,7 +74,7 @@ public class UrmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConnectorAccess().getGroup(), "rule__Connector__Group__0");
 					put(grammarAccess.getConnectorAccess().getGroup_1(), "rule__Connector__Group_1__0");
 					put(grammarAccess.getConnectorAccess().getGroup_4(), "rule__Connector__Group_4__0");
-					put(grammarAccess.getCapsuleRefAccess().getGroup(), "rule__CapsuleRef__Group__0");
+					put(grammarAccess.getCapsuleInstAccess().getGroup(), "rule__CapsuleInst__Group__0");
 					put(grammarAccess.getStateMachineAccess().getGroup(), "rule__StateMachine__Group__0");
 					put(grammarAccess.getState_Access().getGroup(), "rule__State___Group__0");
 					put(grammarAccess.getState_Access().getGroup_3(), "rule__State___Group_3__0");
@@ -168,7 +168,7 @@ public class UrmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCapsuleAccess().getTimerPortsAssignment_4_2(), "rule__Capsule__TimerPortsAssignment_4_2");
 					put(grammarAccess.getCapsuleAccess().getLogPortsAssignment_4_3(), "rule__Capsule__LogPortsAssignment_4_3");
 					put(grammarAccess.getCapsuleAccess().getAttributesAssignment_4_4(), "rule__Capsule__AttributesAssignment_4_4");
-					put(grammarAccess.getCapsuleAccess().getCapsuleRefsAssignment_4_5(), "rule__Capsule__CapsuleRefsAssignment_4_5");
+					put(grammarAccess.getCapsuleAccess().getCapsuleInstsAssignment_4_5(), "rule__Capsule__CapsuleInstsAssignment_4_5");
 					put(grammarAccess.getCapsuleAccess().getConnectorsAssignment_4_6(), "rule__Capsule__ConnectorsAssignment_4_6");
 					put(grammarAccess.getCapsuleAccess().getOperationsAssignment_4_7(), "rule__Capsule__OperationsAssignment_4_7");
 					put(grammarAccess.getCapsuleAccess().getStatemachinesAssignment_4_8(), "rule__Capsule__StatemachinesAssignment_4_8");
@@ -181,12 +181,12 @@ public class UrmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPortAccess().getConjugatedAssignment_1(), "rule__Port__ConjugatedAssignment_1");
 					put(grammarAccess.getPortAccess().getNameAssignment_2(), "rule__Port__NameAssignment_2");
 					put(grammarAccess.getPortAccess().getProtocolAssignment_4(), "rule__Port__ProtocolAssignment_4");
-					put(grammarAccess.getConnectorAccess().getCapsuleRef1Assignment_1_0(), "rule__Connector__CapsuleRef1Assignment_1_0");
+					put(grammarAccess.getConnectorAccess().getCapsuleInst1Assignment_1_0(), "rule__Connector__CapsuleInst1Assignment_1_0");
 					put(grammarAccess.getConnectorAccess().getPort1Assignment_2(), "rule__Connector__Port1Assignment_2");
-					put(grammarAccess.getConnectorAccess().getCapsuleRef2Assignment_4_0(), "rule__Connector__CapsuleRef2Assignment_4_0");
+					put(grammarAccess.getConnectorAccess().getCapsuleInst2Assignment_4_0(), "rule__Connector__CapsuleInst2Assignment_4_0");
 					put(grammarAccess.getConnectorAccess().getPort2Assignment_5(), "rule__Connector__Port2Assignment_5");
-					put(grammarAccess.getCapsuleRefAccess().getNameAssignment_1(), "rule__CapsuleRef__NameAssignment_1");
-					put(grammarAccess.getCapsuleRefAccess().getTypeAssignment_3(), "rule__CapsuleRef__TypeAssignment_3");
+					put(grammarAccess.getCapsuleInstAccess().getNameAssignment_1(), "rule__CapsuleInst__NameAssignment_1");
+					put(grammarAccess.getCapsuleInstAccess().getTypeAssignment_3(), "rule__CapsuleInst__TypeAssignment_3");
 					put(grammarAccess.getStateMachineAccess().getStatesAssignment_3_0(), "rule__StateMachine__StatesAssignment_3_0");
 					put(grammarAccess.getStateMachineAccess().getTransitionsAssignment_3_1(), "rule__StateMachine__TransitionsAssignment_3_1");
 					put(grammarAccess.getState_Access().getFinalAssignment_0(), "rule__State___FinalAssignment_0");

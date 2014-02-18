@@ -6,7 +6,7 @@ import ca.queensu.cs.mase.urml.Assignment;
 import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.BoolLiteral;
 import ca.queensu.cs.mase.urml.Capsule;
-import ca.queensu.cs.mase.urml.CapsuleRef;
+import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.ConcatenateExpression;
 import ca.queensu.cs.mase.urml.ConditionalAndExpression;
 import ca.queensu.cs.mase.urml.ConditionalOrExpression;
@@ -134,9 +134,9 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case UrmlPackage.CAPSULE_REF:
-				if(context == grammarAccess.getCapsuleRefRule()) {
-					sequence_CapsuleRef(context, (CapsuleRef) semanticObject); 
+			case UrmlPackage.CAPSULE_INST:
+				if(context == grammarAccess.getCapsuleInstRule()) {
+					sequence_CapsuleInst(context, (CapsuleInst) semanticObject); 
 					return; 
 				}
 				else break;
@@ -928,17 +928,17 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (name=ID type=[Capsule|ID])
 	 */
-	protected void sequence_CapsuleRef(EObject context, CapsuleRef semanticObject) {
+	protected void sequence_CapsuleInst(EObject context, CapsuleInst semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.CAPSULE_REF__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.CAPSULE_REF__NAME));
-			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.CAPSULE_REF__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.CAPSULE_REF__TYPE));
+			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.CAPSULE_INST__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.CAPSULE_INST__NAME));
+			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.CAPSULE_INST__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.CAPSULE_INST__TYPE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCapsuleRefAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCapsuleRefAccess().getTypeCapsuleIDTerminalRuleCall_3_0_1(), semanticObject.getType());
+		feeder.accept(grammarAccess.getCapsuleInstAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCapsuleInstAccess().getTypeCapsuleIDTerminalRuleCall_3_0_1(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -954,7 +954,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *             timerPorts+=TimerPort | 
 	 *             logPorts+=LogPort | 
 	 *             attributes+=Attribute | 
-	 *             capsuleRefs+=CapsuleRef | 
+	 *             capsuleInsts+=CapsuleInst | 
 	 *             connectors+=Connector | 
 	 *             operations+=Operation | 
 	 *             statemachines+=StateMachine
@@ -1006,7 +1006,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (capsuleRef1=[CapsuleRef|ID]? port1=[Port|ID] capsuleRef2=[CapsuleRef|ID]? port2=[Port|ID])
+	 *     (capsuleInst1=[CapsuleInst|ID]? port1=[Port|ID] capsuleInst2=[CapsuleInst|ID]? port2=[Port|ID])
 	 */
 	protected void sequence_Connector(EObject context, Connector semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

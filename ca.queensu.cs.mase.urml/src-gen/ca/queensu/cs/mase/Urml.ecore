@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="urml" nsURI="http://www.queensu.ca/cs/mase/Urml" nsPrefix="urml">
-  <eAnnotations source="gmf"/>
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="capsules" upperBound="-1"
@@ -27,7 +26,6 @@
         eType="#//VarDecl" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Capsule">
-    <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfacePorts" upperBound="-1"
@@ -40,8 +38,8 @@
         eType="#//LogPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="capsuleRefs" upperBound="-1"
-        eType="#//CapsuleRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capsuleInsts" upperBound="-1"
+        eType="#//CapsuleInst" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
         eType="#//Connector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
@@ -68,12 +66,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="protocol" eType="#//Protocol"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="capsuleRef1" eType="#//CapsuleRef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capsuleInst1" eType="#//CapsuleInst"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="port1" eType="#//Port"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="capsuleRef2" eType="#//CapsuleRef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capsuleInst2" eType="#//CapsuleInst"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="port2" eType="#//Port"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CapsuleRef">
+  <eClassifiers xsi:type="ecore:EClass" name="CapsuleInst">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Capsule"/>
   </eClassifiers>

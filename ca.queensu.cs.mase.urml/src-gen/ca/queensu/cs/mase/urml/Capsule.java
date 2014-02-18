@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ca.queensu.cs.mase.urml.Capsule#getTimerPorts <em>Timer Ports</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Capsule#getLogPorts <em>Log Ports</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Capsule#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link ca.queensu.cs.mase.urml.Capsule#getCapsuleRefs <em>Capsule Refs</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.Capsule#getCapsuleInsts <em>Capsule Insts</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Capsule#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Capsule#getOperations <em>Operations</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Capsule#getStatemachines <em>Statemachines</em>}</li>
@@ -167,20 +167,20 @@ public interface Capsule extends EObject
   EList<Attribute> getAttributes();
 
   /**
-   * Returns the value of the '<em><b>Capsule Refs</b></em>' containment reference list.
-   * The list contents are of type {@link ca.queensu.cs.mase.urml.CapsuleRef}.
+   * Returns the value of the '<em><b>Capsule Insts</b></em>' containment reference list.
+   * The list contents are of type {@link ca.queensu.cs.mase.urml.CapsuleInst}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Capsule Refs</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Capsule Insts</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Capsule Refs</em>' containment reference list.
-   * @see ca.queensu.cs.mase.urml.UrmlPackage#getCapsule_CapsuleRefs()
+   * @return the value of the '<em>Capsule Insts</em>' containment reference list.
+   * @see ca.queensu.cs.mase.urml.UrmlPackage#getCapsule_CapsuleInsts()
    * @model containment="true"
    * @generated
    */
-  EList<CapsuleRef> getCapsuleRefs();
+  EList<CapsuleInst> getCapsuleInsts();
 
   /**
    * Returns the value of the '<em><b>Connectors</b></em>' containment reference list.

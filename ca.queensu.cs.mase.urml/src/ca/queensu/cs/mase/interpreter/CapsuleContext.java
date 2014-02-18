@@ -12,9 +12,10 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.xbase.typesystem.util.Multimaps2;
 
 import com.google.common.collect.Multimap;
+
 import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.Capsule;
-import ca.queensu.cs.mase.urml.CapsuleRef;
+import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.TimerPort;
 import ca.queensu.cs.mase.urml.Transition;
@@ -39,7 +40,7 @@ public class CapsuleContext {
 	/**
 	 * The capsule instance EObject
 	 */
-	private CapsuleRef capsuleRef;
+	private CapsuleInst capsuleInst;
 
 	/**
 	 * The capsule class name
@@ -132,8 +133,8 @@ public class CapsuleContext {
 		return capsule;
 	}
 
-	public CapsuleRef getCapsuleRef() {
-		return capsuleRef;
+	public CapsuleInst getCapsuleInst() {
+		return capsuleInst;
 	}
 
 	public String getRefName() {
@@ -204,17 +205,17 @@ public class CapsuleContext {
 		// no-op
 	}
 
-	public CapsuleContext(CapsuleRef capsuleRef, PrintStream out) {
+	public CapsuleContext(CapsuleInst capsuleInst, PrintStream out) {
 		this();
 		this.out = out;
-		initializeContext(capsuleRef);
+		initializeContext(capsuleInst);
 	}
 
-	private void initializeContext(CapsuleRef capsuleRef) {
-		capsule = capsuleRef.getType();
-		this.capsuleRef = capsuleRef;
-		name = capsuleRef.getType().getName();
-		refName = capsuleRef.getName();
+	private void initializeContext(CapsuleInst capsuleInst) {
+		capsule = capsuleInst.getType();
+		this.capsuleInst = capsuleInst;
+		name = capsuleInst.getType().getName();
+		refName = capsuleInst.getName();
 		initializeCapsule();
 	}
 

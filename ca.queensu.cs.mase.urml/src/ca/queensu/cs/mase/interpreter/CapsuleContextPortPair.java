@@ -10,7 +10,7 @@ public class CapsuleContextPortPair {
 		// no-op
 	}
 	
-	private CapsuleContextPortPair(CapsuleContext capsuleContext, Port port) {
+	CapsuleContextPortPair(CapsuleContext capsuleContext, Port port) {
 		this.capsuleContext = capsuleContext;
 		this.port = port;
 	}

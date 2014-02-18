@@ -5,20 +5,33 @@ import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
+/**
+ * Tab group relating to launching an urml file
+ * 
+ * @author Keith
+ * 
+ */
 public class UrmlLaunchConfigurationTabGroup extends
 		AbstractLaunchConfigurationTabGroup {
 
+	/**
+	 * Constructor
+	 */
 	public UrmlLaunchConfigurationTabGroup() {
-		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Instantiate the tabs from the tab group
+	 * 
+	 * @param dialog
+	 *            the launch configuration dialog
+	 * @param mode
+	 *            run mode; debug mode is currently not implemented
+	 */
 	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-		// TODO Auto-generated method stub
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-			new UrmlLaunchTab(),
-			new CommonTab()
-		};
+				new UrmlLaunchTab(), new CommonTab() };
 		setTabs(tabs);
 	}
 

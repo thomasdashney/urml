@@ -4,7 +4,7 @@ package ca.queensu.cs.mase.urml.impl;
 
 import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.Capsule;
-import ca.queensu.cs.mase.urml.CapsuleRef;
+import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Connector;
 import ca.queensu.cs.mase.urml.LogPort;
 import ca.queensu.cs.mase.urml.Operation;
@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl#getTimerPorts <em>Timer Ports</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl#getLogPorts <em>Log Ports</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl#getCapsuleRefs <em>Capsule Refs</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl#getCapsuleInsts <em>Capsule Insts</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl#getStatemachines <em>Statemachines</em>}</li>
@@ -145,14 +145,14 @@ public class CapsuleImpl extends MinimalEObjectImpl.Container implements Capsule
   protected EList<Attribute> attributes;
 
   /**
-   * The cached value of the '{@link #getCapsuleRefs() <em>Capsule Refs</em>}' containment reference list.
+   * The cached value of the '{@link #getCapsuleInsts() <em>Capsule Insts</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCapsuleRefs()
+   * @see #getCapsuleInsts()
    * @generated
    * @ordered
    */
-  protected EList<CapsuleRef> capsuleRefs;
+  protected EList<CapsuleInst> capsuleInsts;
 
   /**
    * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
@@ -326,13 +326,13 @@ public class CapsuleImpl extends MinimalEObjectImpl.Container implements Capsule
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<CapsuleRef> getCapsuleRefs()
+  public EList<CapsuleInst> getCapsuleInsts()
   {
-    if (capsuleRefs == null)
+    if (capsuleInsts == null)
     {
-      capsuleRefs = new EObjectContainmentEList<CapsuleRef>(CapsuleRef.class, this, UrmlPackage.CAPSULE__CAPSULE_REFS);
+      capsuleInsts = new EObjectContainmentEList<CapsuleInst>(CapsuleInst.class, this, UrmlPackage.CAPSULE__CAPSULE_INSTS);
     }
-    return capsuleRefs;
+    return capsuleInsts;
   }
 
   /**
@@ -397,8 +397,8 @@ public class CapsuleImpl extends MinimalEObjectImpl.Container implements Capsule
         return ((InternalEList<?>)getLogPorts()).basicRemove(otherEnd, msgs);
       case UrmlPackage.CAPSULE__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-      case UrmlPackage.CAPSULE__CAPSULE_REFS:
-        return ((InternalEList<?>)getCapsuleRefs()).basicRemove(otherEnd, msgs);
+      case UrmlPackage.CAPSULE__CAPSULE_INSTS:
+        return ((InternalEList<?>)getCapsuleInsts()).basicRemove(otherEnd, msgs);
       case UrmlPackage.CAPSULE__CONNECTORS:
         return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
       case UrmlPackage.CAPSULE__OPERATIONS:
@@ -433,8 +433,8 @@ public class CapsuleImpl extends MinimalEObjectImpl.Container implements Capsule
         return getLogPorts();
       case UrmlPackage.CAPSULE__ATTRIBUTES:
         return getAttributes();
-      case UrmlPackage.CAPSULE__CAPSULE_REFS:
-        return getCapsuleRefs();
+      case UrmlPackage.CAPSULE__CAPSULE_INSTS:
+        return getCapsuleInsts();
       case UrmlPackage.CAPSULE__CONNECTORS:
         return getConnectors();
       case UrmlPackage.CAPSULE__OPERATIONS:
@@ -482,9 +482,9 @@ public class CapsuleImpl extends MinimalEObjectImpl.Container implements Capsule
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
-      case UrmlPackage.CAPSULE__CAPSULE_REFS:
-        getCapsuleRefs().clear();
-        getCapsuleRefs().addAll((Collection<? extends CapsuleRef>)newValue);
+      case UrmlPackage.CAPSULE__CAPSULE_INSTS:
+        getCapsuleInsts().clear();
+        getCapsuleInsts().addAll((Collection<? extends CapsuleInst>)newValue);
         return;
       case UrmlPackage.CAPSULE__CONNECTORS:
         getConnectors().clear();
@@ -533,8 +533,8 @@ public class CapsuleImpl extends MinimalEObjectImpl.Container implements Capsule
       case UrmlPackage.CAPSULE__ATTRIBUTES:
         getAttributes().clear();
         return;
-      case UrmlPackage.CAPSULE__CAPSULE_REFS:
-        getCapsuleRefs().clear();
+      case UrmlPackage.CAPSULE__CAPSULE_INSTS:
+        getCapsuleInsts().clear();
         return;
       case UrmlPackage.CAPSULE__CONNECTORS:
         getConnectors().clear();
@@ -573,8 +573,8 @@ public class CapsuleImpl extends MinimalEObjectImpl.Container implements Capsule
         return logPorts != null && !logPorts.isEmpty();
       case UrmlPackage.CAPSULE__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
-      case UrmlPackage.CAPSULE__CAPSULE_REFS:
-        return capsuleRefs != null && !capsuleRefs.isEmpty();
+      case UrmlPackage.CAPSULE__CAPSULE_INSTS:
+        return capsuleInsts != null && !capsuleInsts.isEmpty();
       case UrmlPackage.CAPSULE__CONNECTORS:
         return connectors != null && !connectors.isEmpty();
       case UrmlPackage.CAPSULE__OPERATIONS:

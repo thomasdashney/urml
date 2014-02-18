@@ -58,7 +58,7 @@ Capsule
 		| 	timerPorts+=TimerPort 
 		| 	logPorts+=LogPort 
 		| 	attributes+=Attribute 
-		| 	capsuleRefs+=CapsuleRef 
+		| 	capsuleInsts+=CapsuleInst 
 		| 	connectors+=Connector 
 		| 	operations+=Operation 
 		| 	statemachines+=StateMachine
@@ -80,9 +80,9 @@ LogPort:
 Port:
     'port' (conjugated?='~')? name=ID ':' protocol=[Protocol];
 Connector:
-	'connector' (capsuleRef1=[CapsuleRef] '.')? port1=[Port]
-	'and' (capsuleRef2=[CapsuleRef] '.')? port2=[Port];
-CapsuleRef:
+	'connector' (capsuleInst1=[CapsuleInst] '.')? port1=[Port]
+	'and' (capsuleInst2=[CapsuleInst] '.')? port2=[Port];
+CapsuleInst:
 	'capsuleInstance' name=ID ':' type=[Capsule];
 
 /*******************************************************************

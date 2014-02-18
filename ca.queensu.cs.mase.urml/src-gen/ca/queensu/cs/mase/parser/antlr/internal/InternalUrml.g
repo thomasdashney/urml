@@ -610,17 +610,17 @@ ruleCapsule returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCapsuleAccess().getCapsuleRefsCapsuleRefParserRuleCall_4_5_0()); 
+	        newCompositeNode(grammarAccess.getCapsuleAccess().getCapsuleInstsCapsuleInstParserRuleCall_4_5_0()); 
 	    }
-		lv_capsuleRefs_10_0=ruleCapsuleRef		{
+		lv_capsuleInsts_10_0=ruleCapsuleInst		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCapsuleRule());
 	        }
        		add(
        			$current, 
-       			"capsuleRefs",
-        		lv_capsuleRefs_10_0, 
-        		"CapsuleRef");
+       			"capsuleInsts",
+        		lv_capsuleInsts_10_0, 
+        		"CapsuleInst");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -998,7 +998,7 @@ ruleConnector returns [EObject current=null]
         }
 	otherlv_1=RULE_ID
 	{
-		newLeafNode(otherlv_1, grammarAccess.getConnectorAccess().getCapsuleRef1CapsuleRefCrossReference_1_0_0()); 
+		newLeafNode(otherlv_1, grammarAccess.getConnectorAccess().getCapsuleInst1CapsuleInstCrossReference_1_0_0()); 
 	}
 
 )
@@ -1032,7 +1032,7 @@ ruleConnector returns [EObject current=null]
         }
 	otherlv_5=RULE_ID
 	{
-		newLeafNode(otherlv_5, grammarAccess.getConnectorAccess().getCapsuleRef2CapsuleRefCrossReference_4_0_0()); 
+		newLeafNode(otherlv_5, grammarAccess.getConnectorAccess().getCapsuleInst2CapsuleInstCrossReference_4_0_0()); 
 	}
 
 )
@@ -1060,33 +1060,33 @@ ruleConnector returns [EObject current=null]
 
 
 
-// Entry rule entryRuleCapsuleRef
-entryRuleCapsuleRef returns [EObject current=null] 
+// Entry rule entryRuleCapsuleInst
+entryRuleCapsuleInst returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getCapsuleRefRule()); }
-	 iv_ruleCapsuleRef=ruleCapsuleRef 
-	 { $current=$iv_ruleCapsuleRef.current; } 
+	{ newCompositeNode(grammarAccess.getCapsuleInstRule()); }
+	 iv_ruleCapsuleInst=ruleCapsuleInst 
+	 { $current=$iv_ruleCapsuleInst.current; } 
 	 EOF 
 ;
 
-// Rule CapsuleRef
-ruleCapsuleRef returns [EObject current=null] 
+// Rule CapsuleInst
+ruleCapsuleInst returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (	otherlv_0='capsuleInstance' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getCapsuleRefAccess().getCapsuleInstanceKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getCapsuleInstAccess().getCapsuleInstanceKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getCapsuleRefAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getCapsuleInstAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getCapsuleRefRule());
+	            $current = createModelElement(grammarAccess.getCapsuleInstRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1098,18 +1098,18 @@ ruleCapsuleRef returns [EObject current=null]
 )
 )	otherlv_2=':' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getCapsuleRefAccess().getColonKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getCapsuleInstAccess().getColonKeyword_2());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getCapsuleRefRule());
+	            $current = createModelElement(grammarAccess.getCapsuleInstRule());
 	        }
         }
 	otherlv_3=RULE_ID
 	{
-		newLeafNode(otherlv_3, grammarAccess.getCapsuleRefAccess().getTypeCapsuleCrossReference_3_0()); 
+		newLeafNode(otherlv_3, grammarAccess.getCapsuleInstAccess().getTypeCapsuleCrossReference_3_0()); 
 	}
 
 )

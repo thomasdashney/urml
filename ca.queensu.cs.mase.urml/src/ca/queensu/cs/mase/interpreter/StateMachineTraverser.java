@@ -9,12 +9,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.EcoreUtil2;
-
-import com.google.inject.Inject;
 
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.StateMachine;
@@ -29,9 +26,6 @@ public class StateMachineTraverser {
 	 * The output stream
 	 */
 	private PrintStream out;
-
-	// @Inject
-	// private Logger logger;
 
 	/**
 	 * The input stream
@@ -77,24 +71,43 @@ public class StateMachineTraverser {
 		if (ctx.getCurrentState() == null) {
 			// can't find the current state; assume we are getting into the
 			// first state
-			findExecuteFirstState(ctx);
-			return true;
+			return findExecuteFirstState(ctx);
 		} else {
 			// find the next state
 			return findExecuteNextState(ctx);
 		}
 	}
 
-	private void findExecuteFirstState(CapsuleContext ctx) {
+	/**
+	 * Find and execute the first state in the state machine, when no current
+	 * state is found in the capsule context {@code ctx}. Return true if the
+	 * first state (i.e. resultingly the current state) is not a final state.
+	 * 
+	 * @param ctx
+	 *            the capsule context
+	 * @return true if the first state (i.e. current state) is not a final state
+	 */
+	private boolean findExecuteFirstState(CapsuleContext ctx) {
 		State_ firstState = findFirstState(ctx);
 		if (firstState == null) {
-			return;
+			// no initial transition; assume no final state
+			return true;
 		}
 		ctx.setPreviousState(null);
 		ctx.setCurrentState(firstState);
 		runEntryCodeForState(firstState, ctx);
+		return !firstState.isFinal();
 	}
 
+	/**
+	 * Find the first state by finding the initial transition and then executing
+	 * it.
+	 * 
+	 * @param ctx
+	 *            the capsule context
+	 * @return the first state in the state machine; null if the initial
+	 *         transition cannot be found in the state machine
+	 */
 	@Nullable
 	private State_ findFirstState(CapsuleContext ctx) {
 		Capsule c = ctx.getCapsule();
@@ -135,7 +148,6 @@ public class StateMachineTraverser {
 			runActionForTransition(init, ctx);
 			ctx.setPreviousState(ctx.getCurrentState());
 			ctx.setCurrentState(init.getTo());
-			// logState(ctx.getCurrentState(), ctx);
 			runEntryCodeForState(ctx.getCurrentState(), ctx);
 		} else {
 			// the current state does not have a sub-state machine.
@@ -146,30 +158,11 @@ public class StateMachineTraverser {
 			}
 			runExitActionEntryCode(currentTransition, ctx);
 			State_ toState = currentTransition.getTo();
+			ctx.setPreviousState(ctx.getCurrentState());
 			ctx.setCurrentState(toState);
-
-			// logState(ctx.getCurrentState(), ctx);
 		}
 		return true;
 	}
-
-	// /**
-	// * Executes the given state {@code StateTarget} by going through its entry
-	// * and exit code
-	// *
-	// * @param state
-	// * the state terminal whose entry and exit code is to be
-	// * executed. Note that this is done only when the
-	// * {@code StateTarget} is of class {@link StateTarget} (i.e. the
-	// * terminal has a state in it), even though we are accepting
-	// * {@link TransitionTarget} here.
-	// * @param ctx
-	// * the stored and persistent information relevant to the current
-	// * capsule
-	// */
-	// private void logState(State_ state, CapsuleContext ctx) {
-	// out.println(ctx.getRefName() + "   state: " + state.getName());
-	// }
 
 	/**
 	 * Finds the first appearing initial transition in the state machine
@@ -184,14 +177,12 @@ public class StateMachineTraverser {
 	 */
 	@Nullable
 	private Transition findInitialTransition(StateMachine sm) {
+		// find the state machine which contains the state machine "sm"
 		Capsule c = EcoreUtil2.getContainerOfType(sm, Capsule.class);
 		if (c != null) {
 			for (Transition t : sm.getTransitions()) {
 				if (t.isInit()) {
 					Transition initial = t;
-					// out.println(c.getName() + "   initial transition: "
-					// + initial.getName() + " to "
-					// + initial.getTo().getName());
 					return initial;
 				}
 			}
@@ -211,8 +202,6 @@ public class StateMachineTraverser {
 	private void runActionCodeForTransition(Transition transition,
 			CapsuleContext ctx) {
 		if (transition.getAction() != null) {
-			// out.println(ctx.getName() + "      running action code for "
-			// + transition.getName());
 			execute(transition.getAction().getStatements(), ctx);
 		}
 		if (ctx.getTriggerVars() != null) {
@@ -231,8 +220,6 @@ public class StateMachineTraverser {
 	 */
 	private void runEntryCodeForState(State_ state, CapsuleContext ctx) {
 		if (state.getEntryCode() != null) {
-			// out.println(ctx.getName() + "      running entry code for "
-			// + state.getName());
 			execute(state.getEntryCode().getStatements(), ctx);
 		}
 	}
@@ -248,8 +235,6 @@ public class StateMachineTraverser {
 	 */
 	private void runExitCodeForState(State_ state, CapsuleContext ctx) {
 		if (state.getExitCode() != null) {
-			// out.println(ctx.getName() + "      running exit code for "
-			// + state.getName());
 			execute(state.getExitCode().getStatements(), ctx);
 		}
 	}
@@ -370,14 +355,6 @@ public class StateMachineTraverser {
 	 */
 	private void runActionForTransition(Transition currentTransition,
 			CapsuleContext ctx) {
-
-		// State_ from = currentTransition.getFrom();
-		// State_ to = currentTransition.getTo();
-
-		// out.println(ctx.getName() + "   transition: "
-		// + currentTransition.getName() + " from "
-		// + (from == null ? " null " : from.getName()) + " to "
-		// + (to == null ? " null " : to.getName()));
 		runActionCodeForTransition(currentTransition, ctx);
 
 	}

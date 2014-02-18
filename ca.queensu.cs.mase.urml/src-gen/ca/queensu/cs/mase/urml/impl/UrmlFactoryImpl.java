@@ -75,7 +75,7 @@ public class UrmlFactoryImpl extends EFactoryImpl implements UrmlFactory
       case UrmlPackage.LOG_PORT: return createLogPort();
       case UrmlPackage.PORT: return createPort();
       case UrmlPackage.CONNECTOR: return createConnector();
-      case UrmlPackage.CAPSULE_REF: return createCapsuleRef();
+      case UrmlPackage.CAPSULE_INST: return createCapsuleInst();
       case UrmlPackage.STATE_MACHINE: return createStateMachine();
       case UrmlPackage.STATE_: return createState_();
       case UrmlPackage.TRANSITION: return createTransition();
@@ -253,10 +253,10 @@ public class UrmlFactoryImpl extends EFactoryImpl implements UrmlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public CapsuleRef createCapsuleRef()
+  public CapsuleInst createCapsuleInst()
   {
-    CapsuleRefImpl capsuleRef = new CapsuleRefImpl();
-    return capsuleRef;
+    CapsuleInstImpl capsuleInst = new CapsuleInstImpl();
+    return capsuleInst;
   }
 
   /**

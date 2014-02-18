@@ -57,10 +57,6 @@ public class StatementExecuter {
 
 	private void compute(SendTrigger st, CapsuleContext ctx) {
 		for (Trigger_out to : st.getTriggers()) {
-			// ctx.getOutstream().println(
-			// ctx.getName() + " sending triggers for "
-			// + to.getTo().getName() + "."
-			// + to.getSignal().getName());
 			try {
 				CapsuleContextPortPair opposite = OppositeFinder
 						.findOppositeCapsule(ctx, to.getTo());
@@ -68,7 +64,7 @@ public class StatementExecuter {
 				Port port = opposite.getPort();
 				EList<Expression> toParams = to.getParameters();
 				EList<Value> toParamValues = new BasicEList<>(toParams.size());
-				for (Expression argument: toParams) {
+				for (Expression argument : toParams) {
 					toParamValues.add(new ExpressionEvaluator().interpret(
 							argument, ctx));
 				}
@@ -89,10 +85,6 @@ public class StatementExecuter {
 	}
 
 	private void compute(Variable st, CapsuleContext ctx) {
-		// ctx.getOutstream().println(
-		// ctx.getName() + " declaring variable for "
-		// + st.getVar().getName());
-
 		Map<String, Value> envt = ctx.getCallStack().peek();
 		String lvalue = st.getVar().getName();
 		if (st.isAssign()) {
@@ -105,7 +97,7 @@ public class StatementExecuter {
 
 	private void compute(LogStatement st, CapsuleContext ctx) {
 		ctx.getOutstream().println(
-				ctx.getCapsuleRef().getName() + " logging to "
+				ctx.getCapsuleInst().getName() + " logging to "
 						+ st.getLogPort().getName() + " with: "
 						+ evalStr(st.getLeft(), ctx));
 	}
@@ -134,8 +126,6 @@ public class StatementExecuter {
 		ExpressionEvaluator expEval = new ExpressionEvaluator();
 		Value result = expEval.interpret(st.getExp(), ctx);
 		String lvalue = st.getLvalue().getName();
-		// ctx.getOutstream().println(
-		// ctx.getName() + " assigning " + lvalue + " with " + result);
 		Map<String, Value> currCall = ctx.getCallStack().peek();
 		if (currCall.containsKey(lvalue))
 			currCall.put(lvalue, result);
@@ -153,10 +143,6 @@ public class StatementExecuter {
 			throw new IllegalStateException(ctx.getName() + " " + evalResult
 					+ " is not an integer expression");
 		Int time = (Int) evalResult;
-		// ctx.getOutstream().println(
-		// ctx.getName() + " informing timer "
-		// + st.getTimerPort().getName() + " for " + time.getVal()
-		// + " milliseconds");
 		final TimerPort timeout = st.getTimerPort();
 		long timeoutTime = System.currentTimeMillis() + time.getVal();
 		ctx.getTimeout().put(timeout, timeoutTime);
@@ -166,36 +152,40 @@ public class StatementExecuter {
 		ExpressionEvaluator expEval = new ExpressionEvaluator();
 		while (true) {
 			Value result = expEval.interpret(st.getCondition(), ctx);
-			if (!(result instanceof Bool))
+			if (!(result instanceof Bool)) {
 				throw new IllegalStateException(ctx.getName() + " " + result
 						+ " is not a boolean expression");
+			}
 			Bool testResult = (Bool) result;
-			if (!testResult.getVal())
+			if (!testResult.getVal()) {
 				break;
-			for (Statement loopSt : st.getStatements())
+			}
+			for (Statement loopSt : st.getStatements()) {
 				interpret(loopSt, ctx);
+			}
 		}
 	}
 
 	private void compute(IfStatement st, CapsuleContext ctx) {
 		ExpressionEvaluator expEval = new ExpressionEvaluator();
 		Value evalResult = expEval.interpret(st.getCondition(), ctx);
-		if (!(evalResult instanceof Bool))
+		if (!(evalResult instanceof Bool)) {
 			throw new IllegalStateException(ctx.getName() + " " + evalResult
 					+ " is not a boolean expression");
+		}
 		Bool testResult = (Bool) evalResult;
-		if (testResult.getVal())
-			for (Statement stIf : st.getThenStatements())
+		if (testResult.getVal()) {
+			for (Statement stIf : st.getThenStatements()) {
 				interpret(stIf, ctx);
-		else
-			for (Statement stElse : st.getElseStatements())
+			}
+		} else {
+			for (Statement stElse : st.getElseStatements()) {
 				interpret(stElse, ctx);
+			}
+		}
 	}
 
 	private void compute(Invoke st, CapsuleContext ctx) {
-		// ctx.getOutstream().println(
-		// ctx.getName() + " invoking operation "
-		// + st.getOperation().getName());
 
 		// check if # of formal parameters (from the operation header)
 		// and # of actual arguments (from the invocation) are equal

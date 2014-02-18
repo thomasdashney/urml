@@ -23,12 +23,39 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 
 import ca.queensu.cs.mase.ui.internal.UrmlActivator;
 
+/**
+ * Dialog allowing to select file of certain extensions
+ * 
+ * @author Keith
+ * 
+ */
 public class ResourceFileSelectionDialog extends ElementTreeSelectionDialog {
+	/**
+	 * Constructing the dialog
+	 * 
+	 * @param parent
+	 *            the GUI parent of the dialog
+	 * @param labelProvider
+	 *            the label provider for the dialog
+	 * @param contentProvider
+	 *            the tree content provider of the dialog
+	 */
 	public ResourceFileSelectionDialog(Shell parent,
 			ILabelProvider labelProvider, ITreeContentProvider contentProvider) {
 		super(parent, labelProvider, contentProvider);
 	}
 
+	/**
+	 * Constructs the dialog of given title, message, type, and extension
+	 * 
+	 * @param title
+	 *            the title of the dialog
+	 * @param message
+	 *            the message prompt of the dialog
+	 * @param type
+	 *            which type of file to accept
+	 * @param extension
+	 */
 	public ResourceFileSelectionDialog(String title, String message,
 			String[] type, String extension) {
 		this(Display.getDefault().getActiveShell(), WorkbenchLabelProvider
@@ -127,7 +154,7 @@ public class ResourceFileSelectionDialog extends ElementTreeSelectionDialog {
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
-		
+
 		List<IProject> openProjects = new ArrayList<IProject>(projects.length);
 		for (IProject project : projects) {
 			if (project.isOpen()) {
@@ -136,14 +163,14 @@ public class ResourceFileSelectionDialog extends ElementTreeSelectionDialog {
 		}
 		return openProjects.toArray();
 	}
-	
+
 	static class ExtensionViewerFilter extends ViewerFilter {
 		String filter = "";
-		
+
 		public ExtensionViewerFilter(String filter) {
 			this.filter = filter;
 		}
-		
+
 		@Override
 		public boolean select(Viewer viewer, Object parentElement,
 				Object element) {
@@ -159,6 +186,6 @@ public class ResourceFileSelectionDialog extends ElementTreeSelectionDialog {
 			}
 			return false;
 		}
-		
+
 	}
 }

@@ -50,9 +50,11 @@ public class ExpressionEvaluator {
 	@Inject
 	private Logger logger;
 	/**
-	 * Xtext's polymorphic dispatcher to "overload" method based on the dynamic
-	 * (runtime) types of the parameters (as opposed to Java which dispatch
-	 * methods based on the compile-time types of the parameters)
+	 * Xtext's multiple dispatcher to dispatch method based on the dynamic
+	 * (runtime) types of all its arguments (as opposed to Java where in the
+	 * call receiver.message(arguments), only the runtime type of receiver is
+	 * matched and for the arguments, their compile-time type is matched);
+	 * multiple dispatch is also known as "multi-methods" in the PL literature
 	 */
 	private PolymorphicDispatcher<Value> expEvalDispatcher = PolymorphicDispatcher
 			.createForSingleTarget("compute", 2, 2, this); //$NON-NLS-1$
@@ -213,30 +215,33 @@ public class ExpressionEvaluator {
 				&& ctx.getTriggerVars().containsKey(identifierName)) {
 			return ctx.getTriggerVars().get(identifierName);
 		} else {
-			throw new NoSuchIdentifierException(String.format(
-					"line %d: no such identifier %s from current scope or capsule attribute",
-					getLineNumber(exp),
-					identifierName));
+			throw new NoSuchIdentifierException(
+					String.format(
+							"line %d: no such identifier %s from current scope or capsule attribute",
+							getLineNumber(exp), identifierName));
 		}
 	}
 
 	private static int getLineNumber(EObject obj) {
-		if (obj == null) return -1;
+		if (obj == null)
+			return -1;
 		ICompositeNode node = NodeModelUtils.getNode(obj);
-		if (node == null) return -1;
+		if (node == null)
+			return -1;
 		return node.getStartLine();
 	}
-	
+
 	private Value compute(FunctionCall exp, CapsuleContext ctx) {
-//		logger.debug("calling function " + exp.getCall().getName()); //$NON-NLS-1$
+		//		logger.debug("calling function " + exp.getCall().getName()); //$NON-NLS-1$
 
 		// check if formal param # == actual arguments #
 		int formalParam = exp.getCall().getVarDecls().size();
 		int actualArgs = exp.getParams().size();
 		if (formalParam != actualArgs) {
-			throw new IllegalStateException(String.format(
-					Messages.getString("ExpressionEvaluator.1"), //$NON-NLS-1$
-					exp.getCall().getName()));
+			throw new IllegalStateException(
+					String.format(
+							"line %d: the number of parameters in function call and its prototype do not match in %s",
+							getLineNumber(exp), exp.getCall().getName()));
 		}
 
 		// create new envt with formal params assigned
@@ -255,12 +260,12 @@ public class ExpressionEvaluator {
 			for (StatementOperation stmtOp : exp.getCall().getOperationCode()
 					.getStatements())
 				stmtExec.execute(stmtOp, ctx);
-			throw new ReturnStatementNotFoundException(
-					Messages.getString("ExpressionEvaluator.2")); //$NON-NLS-1$
+			throw new ReturnStatementNotFoundException("line "
+					+ getLineNumber(exp)
+					+ ": cannot find a return statement in a function.");
 		} catch (ReturnStatementException re) {
 		}
-		Value returnVal = ctx.getCallStack().peek()
-				.get("return");
+		Value returnVal = ctx.getCallStack().peek().get("return");
 		ctx.getCallStack().pop();
 		return returnVal;
 	}
@@ -269,8 +274,7 @@ public class ExpressionEvaluator {
 		Value val = expEvalDispatcher.invoke(exp, ctx);
 		if (!(val instanceof Bool))
 			throw new ClassCastException(String.format(
-					Messages.getString("ExpressionEvaluator.3"), //$NON-NLS-1$
-					ctx.getName(), val.toString()));
+					"line %d: %s is not a boolean", getLineNumber(exp), val.toString()));
 		return (Bool) val;
 	}
 
@@ -278,8 +282,7 @@ public class ExpressionEvaluator {
 		Value val = expEvalDispatcher.invoke(exp, ctx);
 		if (!(val instanceof Int))
 			throw new ClassCastException(String.format(
-					Messages.getString("ExpressionEvaluator.4"), //$NON-NLS-1$
-					ctx.getName(), val.toString()));
+					"line %d: %s is not an integer", getLineNumber(exp), val.toString()));
 		return (Int) val;
 	}
 

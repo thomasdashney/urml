@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/ca.queensu.cs.mase.urml/src"
-    modelPluginID="ca.queensu.cs.mase.urml" modelName="Urml" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false">
-  <foreignModel>Urml.ecore</foreignModel>
-  <genPackages prefix="Urml" disposableProviderFactory="true" ecorePackage="Urml.ecore#/">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ca.queensu.cs.mase.urml/src-gen" editDirectory="/ca.queensu.cs.mase.urml.edit/src"
+    editorDirectory="/ca.queensu.cs.mase.urml.editor/src" modelPluginID="ca.queensu.cs.mase.urml"
+    forceOverwrite="true" modelName="Urml" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="ca.queensu.cs.mase.urml.edit"
+    editorPluginID="ca.queensu.cs.mase.urml.editor" runtimeVersion="2.9">
+  <genPackages prefix="Urml" basePackage="ca.queensu.cs.mase" disposableProviderFactory="true"
+      ecorePackage="Urml.ecore#/">
     <genClasses ecoreClass="Urml.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Model/capsules"/>
@@ -31,7 +33,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/timerPorts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/logPorts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/capsuleRefs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/capsuleInsts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/connectors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/operations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Capsule/statemachines"/>
@@ -53,14 +55,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Port/protocol"/>
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//Connector">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/capsuleRef1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/capsuleInst1"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/port1"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/capsuleRef2"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/capsuleInst2"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Connector/port2"/>
     </genClasses>
-    <genClasses ecoreClass="Urml.ecore#//CapsuleRef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//CapsuleRef/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//CapsuleRef/type"/>
+    <genClasses ecoreClass="Urml.ecore#//CapsuleInst">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//CapsuleInst/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//CapsuleInst/type"/>
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//StateMachine">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//StateMachine/states"/>

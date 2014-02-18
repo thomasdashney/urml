@@ -8,7 +8,7 @@ import ca.queensu.cs.mase.urml.Assignment;
 import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.BoolLiteral;
 import ca.queensu.cs.mase.urml.Capsule;
-import ca.queensu.cs.mase.urml.CapsuleRef;
+import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.ConcatenateExpression;
 import ca.queensu.cs.mase.urml.ConditionalAndExpression;
 import ca.queensu.cs.mase.urml.ConditionalOrExpression;
@@ -160,7 +160,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass capsuleRefEClass = null;
+  private EClass capsuleInstEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -772,7 +772,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCapsule_CapsuleRefs()
+  public EReference getCapsule_CapsuleInsts()
   {
     return (EReference)capsuleEClass.getEStructuralFeatures().get(7);
   }
@@ -942,7 +942,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConnector_CapsuleRef1()
+  public EReference getConnector_CapsuleInst1()
   {
     return (EReference)connectorEClass.getEStructuralFeatures().get(0);
   }
@@ -962,7 +962,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConnector_CapsuleRef2()
+  public EReference getConnector_CapsuleInst2()
   {
     return (EReference)connectorEClass.getEStructuralFeatures().get(2);
   }
@@ -982,9 +982,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCapsuleRef()
+  public EClass getCapsuleInst()
   {
-    return capsuleRefEClass;
+    return capsuleInstEClass;
   }
 
   /**
@@ -992,9 +992,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCapsuleRef_Name()
+  public EAttribute getCapsuleInst_Name()
   {
-    return (EAttribute)capsuleRefEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)capsuleInstEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1002,9 +1002,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCapsuleRef_Type()
+  public EReference getCapsuleInst_Type()
   {
-    return (EReference)capsuleRefEClass.getEStructuralFeatures().get(1);
+    return (EReference)capsuleInstEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2364,7 +2364,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     createEReference(capsuleEClass, CAPSULE__TIMER_PORTS);
     createEReference(capsuleEClass, CAPSULE__LOG_PORTS);
     createEReference(capsuleEClass, CAPSULE__ATTRIBUTES);
-    createEReference(capsuleEClass, CAPSULE__CAPSULE_REFS);
+    createEReference(capsuleEClass, CAPSULE__CAPSULE_INSTS);
     createEReference(capsuleEClass, CAPSULE__CONNECTORS);
     createEReference(capsuleEClass, CAPSULE__OPERATIONS);
     createEReference(capsuleEClass, CAPSULE__STATEMACHINES);
@@ -2386,14 +2386,14 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     createEReference(portEClass, PORT__PROTOCOL);
 
     connectorEClass = createEClass(CONNECTOR);
-    createEReference(connectorEClass, CONNECTOR__CAPSULE_REF1);
+    createEReference(connectorEClass, CONNECTOR__CAPSULE_INST1);
     createEReference(connectorEClass, CONNECTOR__PORT1);
-    createEReference(connectorEClass, CONNECTOR__CAPSULE_REF2);
+    createEReference(connectorEClass, CONNECTOR__CAPSULE_INST2);
     createEReference(connectorEClass, CONNECTOR__PORT2);
 
-    capsuleRefEClass = createEClass(CAPSULE_REF);
-    createEAttribute(capsuleRefEClass, CAPSULE_REF__NAME);
-    createEReference(capsuleRefEClass, CAPSULE_REF__TYPE);
+    capsuleInstEClass = createEClass(CAPSULE_INST);
+    createEAttribute(capsuleInstEClass, CAPSULE_INST__NAME);
+    createEReference(capsuleInstEClass, CAPSULE_INST__TYPE);
 
     stateMachineEClass = createEClass(STATE_MACHINE);
     createEReference(stateMachineEClass, STATE_MACHINE__STATES);
@@ -2671,7 +2671,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEReference(getCapsule_TimerPorts(), this.getTimerPort(), null, "timerPorts", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCapsule_LogPorts(), this.getLogPort(), null, "logPorts", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCapsule_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCapsule_CapsuleRefs(), this.getCapsuleRef(), null, "capsuleRefs", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCapsule_CapsuleInsts(), this.getCapsuleInst(), null, "capsuleInsts", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCapsule_Connectors(), this.getConnector(), null, "connectors", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCapsule_Operations(), this.getOperation(), null, "operations", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCapsule_Statemachines(), this.getStateMachine(), null, "statemachines", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2693,14 +2693,14 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEReference(getPort_Protocol(), this.getProtocol(), null, "protocol", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConnector_CapsuleRef1(), this.getCapsuleRef(), null, "capsuleRef1", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConnector_CapsuleInst1(), this.getCapsuleInst(), null, "capsuleInst1", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConnector_Port1(), this.getPort(), null, "port1", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConnector_CapsuleRef2(), this.getCapsuleRef(), null, "capsuleRef2", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConnector_CapsuleInst2(), this.getCapsuleInst(), null, "capsuleInst2", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConnector_Port2(), this.getPort(), null, "port2", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(capsuleRefEClass, CapsuleRef.class, "CapsuleRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCapsuleRef_Name(), ecorePackage.getEString(), "name", null, 0, 1, CapsuleRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCapsuleRef_Type(), this.getCapsule(), null, "type", null, 0, 1, CapsuleRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(capsuleInstEClass, CapsuleInst.class, "CapsuleInst", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCapsuleInst_Name(), ecorePackage.getEString(), "name", null, 0, 1, CapsuleInst.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCapsuleInst_Type(), this.getCapsule(), null, "type", null, 0, 1, CapsuleInst.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateMachineEClass, StateMachine.class, "StateMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStateMachine_States(), this.getState_(), null, "states", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

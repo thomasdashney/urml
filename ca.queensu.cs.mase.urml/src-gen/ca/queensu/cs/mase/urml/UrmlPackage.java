@@ -352,13 +352,13 @@ public interface UrmlPackage extends EPackage
   int CAPSULE__ATTRIBUTES = 6;
 
   /**
-   * The feature id for the '<em><b>Capsule Refs</b></em>' containment reference list.
+   * The feature id for the '<em><b>Capsule Insts</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAPSULE__CAPSULE_REFS = 7;
+  int CAPSULE__CAPSULE_INSTS = 7;
 
   /**
    * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
@@ -555,13 +555,13 @@ public interface UrmlPackage extends EPackage
   int CONNECTOR = 10;
 
   /**
-   * The feature id for the '<em><b>Capsule Ref1</b></em>' reference.
+   * The feature id for the '<em><b>Capsule Inst1</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONNECTOR__CAPSULE_REF1 = 0;
+  int CONNECTOR__CAPSULE_INST1 = 0;
 
   /**
    * The feature id for the '<em><b>Port1</b></em>' reference.
@@ -573,13 +573,13 @@ public interface UrmlPackage extends EPackage
   int CONNECTOR__PORT1 = 1;
 
   /**
-   * The feature id for the '<em><b>Capsule Ref2</b></em>' reference.
+   * The feature id for the '<em><b>Capsule Inst2</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONNECTOR__CAPSULE_REF2 = 2;
+  int CONNECTOR__CAPSULE_INST2 = 2;
 
   /**
    * The feature id for the '<em><b>Port2</b></em>' reference.
@@ -600,14 +600,14 @@ public interface UrmlPackage extends EPackage
   int CONNECTOR_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.CapsuleRefImpl <em>Capsule Ref</em>}' class.
+   * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.CapsuleInstImpl <em>Capsule Inst</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see ca.queensu.cs.mase.urml.impl.CapsuleRefImpl
-   * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getCapsuleRef()
+   * @see ca.queensu.cs.mase.urml.impl.CapsuleInstImpl
+   * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getCapsuleInst()
    * @generated
    */
-  int CAPSULE_REF = 11;
+  int CAPSULE_INST = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -616,7 +616,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CAPSULE_REF__NAME = 0;
+  int CAPSULE_INST__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -625,16 +625,16 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CAPSULE_REF__TYPE = 1;
+  int CAPSULE_INST__TYPE = 1;
 
   /**
-   * The number of structural features of the '<em>Capsule Ref</em>' class.
+   * The number of structural features of the '<em>Capsule Inst</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAPSULE_REF_FEATURE_COUNT = 2;
+  int CAPSULE_INST_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.StateMachineImpl <em>State Machine</em>}' class.
@@ -2503,15 +2503,15 @@ public interface UrmlPackage extends EPackage
   EReference getCapsule_Attributes();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ca.queensu.cs.mase.urml.Capsule#getCapsuleRefs <em>Capsule Refs</em>}'.
+   * Returns the meta object for the containment reference list '{@link ca.queensu.cs.mase.urml.Capsule#getCapsuleInsts <em>Capsule Insts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Capsule Refs</em>'.
-   * @see ca.queensu.cs.mase.urml.Capsule#getCapsuleRefs()
+   * @return the meta object for the containment reference list '<em>Capsule Insts</em>'.
+   * @see ca.queensu.cs.mase.urml.Capsule#getCapsuleInsts()
    * @see #getCapsule()
    * @generated
    */
-  EReference getCapsule_CapsuleRefs();
+  EReference getCapsule_CapsuleInsts();
 
   /**
    * Returns the meta object for the containment reference list '{@link ca.queensu.cs.mase.urml.Capsule#getConnectors <em>Connectors</em>}'.
@@ -2685,15 +2685,15 @@ public interface UrmlPackage extends EPackage
   EClass getConnector();
 
   /**
-   * Returns the meta object for the reference '{@link ca.queensu.cs.mase.urml.Connector#getCapsuleRef1 <em>Capsule Ref1</em>}'.
+   * Returns the meta object for the reference '{@link ca.queensu.cs.mase.urml.Connector#getCapsuleInst1 <em>Capsule Inst1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Capsule Ref1</em>'.
-   * @see ca.queensu.cs.mase.urml.Connector#getCapsuleRef1()
+   * @return the meta object for the reference '<em>Capsule Inst1</em>'.
+   * @see ca.queensu.cs.mase.urml.Connector#getCapsuleInst1()
    * @see #getConnector()
    * @generated
    */
-  EReference getConnector_CapsuleRef1();
+  EReference getConnector_CapsuleInst1();
 
   /**
    * Returns the meta object for the reference '{@link ca.queensu.cs.mase.urml.Connector#getPort1 <em>Port1</em>}'.
@@ -2707,15 +2707,15 @@ public interface UrmlPackage extends EPackage
   EReference getConnector_Port1();
 
   /**
-   * Returns the meta object for the reference '{@link ca.queensu.cs.mase.urml.Connector#getCapsuleRef2 <em>Capsule Ref2</em>}'.
+   * Returns the meta object for the reference '{@link ca.queensu.cs.mase.urml.Connector#getCapsuleInst2 <em>Capsule Inst2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Capsule Ref2</em>'.
-   * @see ca.queensu.cs.mase.urml.Connector#getCapsuleRef2()
+   * @return the meta object for the reference '<em>Capsule Inst2</em>'.
+   * @see ca.queensu.cs.mase.urml.Connector#getCapsuleInst2()
    * @see #getConnector()
    * @generated
    */
-  EReference getConnector_CapsuleRef2();
+  EReference getConnector_CapsuleInst2();
 
   /**
    * Returns the meta object for the reference '{@link ca.queensu.cs.mase.urml.Connector#getPort2 <em>Port2</em>}'.
@@ -2729,36 +2729,36 @@ public interface UrmlPackage extends EPackage
   EReference getConnector_Port2();
 
   /**
-   * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.CapsuleRef <em>Capsule Ref</em>}'.
+   * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.CapsuleInst <em>Capsule Inst</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Capsule Ref</em>'.
-   * @see ca.queensu.cs.mase.urml.CapsuleRef
+   * @return the meta object for class '<em>Capsule Inst</em>'.
+   * @see ca.queensu.cs.mase.urml.CapsuleInst
    * @generated
    */
-  EClass getCapsuleRef();
+  EClass getCapsuleInst();
 
   /**
-   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.CapsuleRef#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.CapsuleInst#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see ca.queensu.cs.mase.urml.CapsuleRef#getName()
-   * @see #getCapsuleRef()
+   * @see ca.queensu.cs.mase.urml.CapsuleInst#getName()
+   * @see #getCapsuleInst()
    * @generated
    */
-  EAttribute getCapsuleRef_Name();
+  EAttribute getCapsuleInst_Name();
 
   /**
-   * Returns the meta object for the reference '{@link ca.queensu.cs.mase.urml.CapsuleRef#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link ca.queensu.cs.mase.urml.CapsuleInst#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Type</em>'.
-   * @see ca.queensu.cs.mase.urml.CapsuleRef#getType()
-   * @see #getCapsuleRef()
+   * @see ca.queensu.cs.mase.urml.CapsuleInst#getType()
+   * @see #getCapsuleInst()
    * @generated
    */
-  EReference getCapsuleRef_Type();
+  EReference getCapsuleInst_Type();
 
   /**
    * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.StateMachine <em>State Machine</em>}'.
@@ -4356,12 +4356,12 @@ public interface UrmlPackage extends EPackage
     EReference CAPSULE__ATTRIBUTES = eINSTANCE.getCapsule_Attributes();
 
     /**
-     * The meta object literal for the '<em><b>Capsule Refs</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Capsule Insts</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CAPSULE__CAPSULE_REFS = eINSTANCE.getCapsule_CapsuleRefs();
+    EReference CAPSULE__CAPSULE_INSTS = eINSTANCE.getCapsule_CapsuleInsts();
 
     /**
      * The meta object literal for the '<em><b>Connectors</b></em>' containment reference list feature.
@@ -4502,12 +4502,12 @@ public interface UrmlPackage extends EPackage
     EClass CONNECTOR = eINSTANCE.getConnector();
 
     /**
-     * The meta object literal for the '<em><b>Capsule Ref1</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Capsule Inst1</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONNECTOR__CAPSULE_REF1 = eINSTANCE.getConnector_CapsuleRef1();
+    EReference CONNECTOR__CAPSULE_INST1 = eINSTANCE.getConnector_CapsuleInst1();
 
     /**
      * The meta object literal for the '<em><b>Port1</b></em>' reference feature.
@@ -4518,12 +4518,12 @@ public interface UrmlPackage extends EPackage
     EReference CONNECTOR__PORT1 = eINSTANCE.getConnector_Port1();
 
     /**
-     * The meta object literal for the '<em><b>Capsule Ref2</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Capsule Inst2</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONNECTOR__CAPSULE_REF2 = eINSTANCE.getConnector_CapsuleRef2();
+    EReference CONNECTOR__CAPSULE_INST2 = eINSTANCE.getConnector_CapsuleInst2();
 
     /**
      * The meta object literal for the '<em><b>Port2</b></em>' reference feature.
@@ -4534,14 +4534,14 @@ public interface UrmlPackage extends EPackage
     EReference CONNECTOR__PORT2 = eINSTANCE.getConnector_Port2();
 
     /**
-     * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.CapsuleRefImpl <em>Capsule Ref</em>}' class.
+     * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.CapsuleInstImpl <em>Capsule Inst</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ca.queensu.cs.mase.urml.impl.CapsuleRefImpl
-     * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getCapsuleRef()
+     * @see ca.queensu.cs.mase.urml.impl.CapsuleInstImpl
+     * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getCapsuleInst()
      * @generated
      */
-    EClass CAPSULE_REF = eINSTANCE.getCapsuleRef();
+    EClass CAPSULE_INST = eINSTANCE.getCapsuleInst();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -4549,7 +4549,7 @@ public interface UrmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CAPSULE_REF__NAME = eINSTANCE.getCapsuleRef_Name();
+    EAttribute CAPSULE_INST__NAME = eINSTANCE.getCapsuleInst_Name();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -4557,7 +4557,7 @@ public interface UrmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CAPSULE_REF__TYPE = eINSTANCE.getCapsuleRef_Type();
+    EReference CAPSULE_INST__TYPE = eINSTANCE.getCapsuleInst_Type();
 
     /**
      * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.StateMachineImpl <em>State Machine</em>}' class.

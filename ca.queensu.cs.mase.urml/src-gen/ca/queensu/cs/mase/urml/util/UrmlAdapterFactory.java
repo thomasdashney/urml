@@ -130,9 +130,9 @@ public class UrmlAdapterFactory extends AdapterFactoryImpl
         return createConnectorAdapter();
       }
       @Override
-      public Adapter caseCapsuleRef(CapsuleRef object)
+      public Adapter caseCapsuleInst(CapsuleInst object)
       {
-        return createCapsuleRefAdapter();
+        return createCapsuleInstAdapter();
       }
       @Override
       public Adapter caseStateMachine(StateMachine object)
@@ -552,16 +552,16 @@ public class UrmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link ca.queensu.cs.mase.urml.CapsuleRef <em>Capsule Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link ca.queensu.cs.mase.urml.CapsuleInst <em>Capsule Inst</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see ca.queensu.cs.mase.urml.CapsuleRef
+   * @see ca.queensu.cs.mase.urml.CapsuleInst
    * @generated
    */
-  public Adapter createCapsuleRefAdapter()
+  public Adapter createCapsuleInstAdapter()
   {
     return null;
   }

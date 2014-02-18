@@ -2,7 +2,7 @@
  */
 package ca.queensu.cs.mase.urml.impl;
 
-import ca.queensu.cs.mase.urml.CapsuleRef;
+import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Connector;
 import ca.queensu.cs.mase.urml.Port;
 import ca.queensu.cs.mase.urml.UrmlPackage;
@@ -22,9 +22,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ca.queensu.cs.mase.urml.impl.ConnectorImpl#getCapsuleRef1 <em>Capsule Ref1</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.impl.ConnectorImpl#getCapsuleInst1 <em>Capsule Inst1</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.ConnectorImpl#getPort1 <em>Port1</em>}</li>
- *   <li>{@link ca.queensu.cs.mase.urml.impl.ConnectorImpl#getCapsuleRef2 <em>Capsule Ref2</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.impl.ConnectorImpl#getCapsuleInst2 <em>Capsule Inst2</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.ConnectorImpl#getPort2 <em>Port2</em>}</li>
  * </ul>
  * </p>
@@ -34,14 +34,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ConnectorImpl extends MinimalEObjectImpl.Container implements Connector
 {
   /**
-   * The cached value of the '{@link #getCapsuleRef1() <em>Capsule Ref1</em>}' reference.
+   * The cached value of the '{@link #getCapsuleInst1() <em>Capsule Inst1</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCapsuleRef1()
+   * @see #getCapsuleInst1()
    * @generated
    * @ordered
    */
-  protected CapsuleRef capsuleRef1;
+  protected CapsuleInst capsuleInst1;
 
   /**
    * The cached value of the '{@link #getPort1() <em>Port1</em>}' reference.
@@ -54,14 +54,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
   protected Port port1;
 
   /**
-   * The cached value of the '{@link #getCapsuleRef2() <em>Capsule Ref2</em>}' reference.
+   * The cached value of the '{@link #getCapsuleInst2() <em>Capsule Inst2</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCapsuleRef2()
+   * @see #getCapsuleInst2()
    * @generated
    * @ordered
    */
-  protected CapsuleRef capsuleRef2;
+  protected CapsuleInst capsuleInst2;
 
   /**
    * The cached value of the '{@link #getPort2() <em>Port2</em>}' reference.
@@ -99,19 +99,19 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
    * <!-- end-user-doc -->
    * @generated
    */
-  public CapsuleRef getCapsuleRef1()
+  public CapsuleInst getCapsuleInst1()
   {
-    if (capsuleRef1 != null && capsuleRef1.eIsProxy())
+    if (capsuleInst1 != null && capsuleInst1.eIsProxy())
     {
-      InternalEObject oldCapsuleRef1 = (InternalEObject)capsuleRef1;
-      capsuleRef1 = (CapsuleRef)eResolveProxy(oldCapsuleRef1);
-      if (capsuleRef1 != oldCapsuleRef1)
+      InternalEObject oldCapsuleInst1 = (InternalEObject)capsuleInst1;
+      capsuleInst1 = (CapsuleInst)eResolveProxy(oldCapsuleInst1);
+      if (capsuleInst1 != oldCapsuleInst1)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UrmlPackage.CONNECTOR__CAPSULE_REF1, oldCapsuleRef1, capsuleRef1));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UrmlPackage.CONNECTOR__CAPSULE_INST1, oldCapsuleInst1, capsuleInst1));
       }
     }
-    return capsuleRef1;
+    return capsuleInst1;
   }
 
   /**
@@ -119,9 +119,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
    * <!-- end-user-doc -->
    * @generated
    */
-  public CapsuleRef basicGetCapsuleRef1()
+  public CapsuleInst basicGetCapsuleInst1()
   {
-    return capsuleRef1;
+    return capsuleInst1;
   }
 
   /**
@@ -129,12 +129,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCapsuleRef1(CapsuleRef newCapsuleRef1)
+  public void setCapsuleInst1(CapsuleInst newCapsuleInst1)
   {
-    CapsuleRef oldCapsuleRef1 = capsuleRef1;
-    capsuleRef1 = newCapsuleRef1;
+    CapsuleInst oldCapsuleInst1 = capsuleInst1;
+    capsuleInst1 = newCapsuleInst1;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UrmlPackage.CONNECTOR__CAPSULE_REF1, oldCapsuleRef1, capsuleRef1));
+      eNotify(new ENotificationImpl(this, Notification.SET, UrmlPackage.CONNECTOR__CAPSULE_INST1, oldCapsuleInst1, capsuleInst1));
   }
 
   /**
@@ -185,19 +185,19 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
    * <!-- end-user-doc -->
    * @generated
    */
-  public CapsuleRef getCapsuleRef2()
+  public CapsuleInst getCapsuleInst2()
   {
-    if (capsuleRef2 != null && capsuleRef2.eIsProxy())
+    if (capsuleInst2 != null && capsuleInst2.eIsProxy())
     {
-      InternalEObject oldCapsuleRef2 = (InternalEObject)capsuleRef2;
-      capsuleRef2 = (CapsuleRef)eResolveProxy(oldCapsuleRef2);
-      if (capsuleRef2 != oldCapsuleRef2)
+      InternalEObject oldCapsuleInst2 = (InternalEObject)capsuleInst2;
+      capsuleInst2 = (CapsuleInst)eResolveProxy(oldCapsuleInst2);
+      if (capsuleInst2 != oldCapsuleInst2)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UrmlPackage.CONNECTOR__CAPSULE_REF2, oldCapsuleRef2, capsuleRef2));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UrmlPackage.CONNECTOR__CAPSULE_INST2, oldCapsuleInst2, capsuleInst2));
       }
     }
-    return capsuleRef2;
+    return capsuleInst2;
   }
 
   /**
@@ -205,9 +205,9 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
    * <!-- end-user-doc -->
    * @generated
    */
-  public CapsuleRef basicGetCapsuleRef2()
+  public CapsuleInst basicGetCapsuleInst2()
   {
-    return capsuleRef2;
+    return capsuleInst2;
   }
 
   /**
@@ -215,12 +215,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCapsuleRef2(CapsuleRef newCapsuleRef2)
+  public void setCapsuleInst2(CapsuleInst newCapsuleInst2)
   {
-    CapsuleRef oldCapsuleRef2 = capsuleRef2;
-    capsuleRef2 = newCapsuleRef2;
+    CapsuleInst oldCapsuleInst2 = capsuleInst2;
+    capsuleInst2 = newCapsuleInst2;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UrmlPackage.CONNECTOR__CAPSULE_REF2, oldCapsuleRef2, capsuleRef2));
+      eNotify(new ENotificationImpl(this, Notification.SET, UrmlPackage.CONNECTOR__CAPSULE_INST2, oldCapsuleInst2, capsuleInst2));
   }
 
   /**
@@ -276,15 +276,15 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
   {
     switch (featureID)
     {
-      case UrmlPackage.CONNECTOR__CAPSULE_REF1:
-        if (resolve) return getCapsuleRef1();
-        return basicGetCapsuleRef1();
+      case UrmlPackage.CONNECTOR__CAPSULE_INST1:
+        if (resolve) return getCapsuleInst1();
+        return basicGetCapsuleInst1();
       case UrmlPackage.CONNECTOR__PORT1:
         if (resolve) return getPort1();
         return basicGetPort1();
-      case UrmlPackage.CONNECTOR__CAPSULE_REF2:
-        if (resolve) return getCapsuleRef2();
-        return basicGetCapsuleRef2();
+      case UrmlPackage.CONNECTOR__CAPSULE_INST2:
+        if (resolve) return getCapsuleInst2();
+        return basicGetCapsuleInst2();
       case UrmlPackage.CONNECTOR__PORT2:
         if (resolve) return getPort2();
         return basicGetPort2();
@@ -302,14 +302,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
   {
     switch (featureID)
     {
-      case UrmlPackage.CONNECTOR__CAPSULE_REF1:
-        setCapsuleRef1((CapsuleRef)newValue);
+      case UrmlPackage.CONNECTOR__CAPSULE_INST1:
+        setCapsuleInst1((CapsuleInst)newValue);
         return;
       case UrmlPackage.CONNECTOR__PORT1:
         setPort1((Port)newValue);
         return;
-      case UrmlPackage.CONNECTOR__CAPSULE_REF2:
-        setCapsuleRef2((CapsuleRef)newValue);
+      case UrmlPackage.CONNECTOR__CAPSULE_INST2:
+        setCapsuleInst2((CapsuleInst)newValue);
         return;
       case UrmlPackage.CONNECTOR__PORT2:
         setPort2((Port)newValue);
@@ -328,14 +328,14 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
   {
     switch (featureID)
     {
-      case UrmlPackage.CONNECTOR__CAPSULE_REF1:
-        setCapsuleRef1((CapsuleRef)null);
+      case UrmlPackage.CONNECTOR__CAPSULE_INST1:
+        setCapsuleInst1((CapsuleInst)null);
         return;
       case UrmlPackage.CONNECTOR__PORT1:
         setPort1((Port)null);
         return;
-      case UrmlPackage.CONNECTOR__CAPSULE_REF2:
-        setCapsuleRef2((CapsuleRef)null);
+      case UrmlPackage.CONNECTOR__CAPSULE_INST2:
+        setCapsuleInst2((CapsuleInst)null);
         return;
       case UrmlPackage.CONNECTOR__PORT2:
         setPort2((Port)null);
@@ -354,12 +354,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
   {
     switch (featureID)
     {
-      case UrmlPackage.CONNECTOR__CAPSULE_REF1:
-        return capsuleRef1 != null;
+      case UrmlPackage.CONNECTOR__CAPSULE_INST1:
+        return capsuleInst1 != null;
       case UrmlPackage.CONNECTOR__PORT1:
         return port1 != null;
-      case UrmlPackage.CONNECTOR__CAPSULE_REF2:
-        return capsuleRef2 != null;
+      case UrmlPackage.CONNECTOR__CAPSULE_INST2:
+        return capsuleInst2 != null;
       case UrmlPackage.CONNECTOR__PORT2:
         return port2 != null;
     }

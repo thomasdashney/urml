@@ -28,11 +28,11 @@ import ca.queensu.cs.mase.urml.Trigger_out;
  */
 public class UrmlScopeProvider extends AbstractDeclarativeScopeProvider {
 	public IScope scope_Connector_port1(Connector cntr, EReference ref) {
-		return Scopes.scopeFor(cntr.getCapsuleRef1().getType().getInterfacePorts());
+		return Scopes.scopeFor(cntr.getCapsuleInst1().getType().getInterfacePorts());
 	}
 	
 	public IScope scope_Connector_port2(Connector cntr, EReference ref) {
-		EList<Port> list = cntr.getCapsuleRef2().getType().getInterfacePorts();
+		EList<Port> list = cntr.getCapsuleInst2().getType().getInterfacePorts();
 		IScope scope = Scopes.scopeFor(list);
 		return scope;
 	}	

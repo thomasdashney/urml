@@ -278,8 +278,8 @@ class ModelBasicTest {
 		}'''.parse
 		
 		model.assertNoErrors
-		Assert::assertEquals(model.capsules.get(0).capsuleRefs.get(0).name, "cr")
-		Assert::assertEquals(model.capsules.get(0).capsuleRefs.get(0).type,
+		Assert::assertEquals(model.capsules.get(0).capsuleInsts.get(0).name, "cr")
+		Assert::assertEquals(model.capsules.get(0).capsuleInsts.get(0).type,
 			model.capsules.get(1))
 	}
 	

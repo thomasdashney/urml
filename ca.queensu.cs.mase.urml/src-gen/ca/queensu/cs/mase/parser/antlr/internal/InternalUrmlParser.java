@@ -1251,7 +1251,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCapsule"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:466:1: ruleCapsule returns [EObject current=null] : ( ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleRefs_10_0= ruleCapsuleRef ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}' ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:466:1: ruleCapsule returns [EObject current=null] : ( ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleInsts_10_0= ruleCapsuleInst ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}' ) ;
     public final EObject ruleCapsule() throws RecognitionException {
         EObject current = null;
 
@@ -1271,7 +1271,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
         EObject lv_attributes_9_0 = null;
 
-        EObject lv_capsuleRefs_10_0 = null;
+        EObject lv_capsuleInsts_10_0 = null;
 
         EObject lv_connectors_11_0 = null;
 
@@ -1283,11 +1283,11 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:469:28: ( ( ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleRefs_10_0= ruleCapsuleRef ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}' ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:470:1: ( ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleRefs_10_0= ruleCapsuleRef ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:469:28: ( ( ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleInsts_10_0= ruleCapsuleInst ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}' ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:470:1: ( ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleInsts_10_0= ruleCapsuleInst ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}' )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:470:1: ( ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleRefs_10_0= ruleCapsuleRef ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}' )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:470:2: ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleRefs_10_0= ruleCapsuleRef ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}'
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:470:1: ( ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleInsts_10_0= ruleCapsuleInst ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:470:2: ( (lv_root_0_0= 'root' ) )? otherlv_1= 'capsule' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleInsts_10_0= ruleCapsuleInst ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )* otherlv_14= '}'
             {
             // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:470:2: ( (lv_root_0_0= 'root' ) )?
             int alt9=2;
@@ -1368,7 +1368,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_3, grammarAccess.getCapsuleAccess().getLeftCurlyBracketKeyword_3());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:511:1: ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleRefs_10_0= ruleCapsuleRef ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )*
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:511:1: ( (otherlv_4= 'external' ( (lv_interfacePorts_5_0= rulePort ) ) ) | ( (lv_internalPorts_6_0= rulePort ) ) | ( (lv_timerPorts_7_0= ruleTimerPort ) ) | ( (lv_logPorts_8_0= ruleLogPort ) ) | ( (lv_attributes_9_0= ruleAttribute ) ) | ( (lv_capsuleInsts_10_0= ruleCapsuleInst ) ) | ( (lv_connectors_11_0= ruleConnector ) ) | ( (lv_operations_12_0= ruleOperation ) ) | ( (lv_statemachines_13_0= ruleStateMachine ) ) )*
             loop10:
             do {
                 int alt10=10;
@@ -1640,21 +1640,21 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 6 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:610:6: ( (lv_capsuleRefs_10_0= ruleCapsuleRef ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:610:6: ( (lv_capsuleInsts_10_0= ruleCapsuleInst ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:610:6: ( (lv_capsuleRefs_10_0= ruleCapsuleRef ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:611:1: (lv_capsuleRefs_10_0= ruleCapsuleRef )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:610:6: ( (lv_capsuleInsts_10_0= ruleCapsuleInst ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:611:1: (lv_capsuleInsts_10_0= ruleCapsuleInst )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:611:1: (lv_capsuleRefs_10_0= ruleCapsuleRef )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:612:3: lv_capsuleRefs_10_0= ruleCapsuleRef
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:611:1: (lv_capsuleInsts_10_0= ruleCapsuleInst )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:612:3: lv_capsuleInsts_10_0= ruleCapsuleInst
             	    {
             	    if ( state.backtracking==0 ) {
             	       
-            	      	        newCompositeNode(grammarAccess.getCapsuleAccess().getCapsuleRefsCapsuleRefParserRuleCall_4_5_0()); 
+            	      	        newCompositeNode(grammarAccess.getCapsuleAccess().getCapsuleInstsCapsuleInstParserRuleCall_4_5_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleCapsuleRef_in_ruleCapsule1199);
-            	    lv_capsuleRefs_10_0=ruleCapsuleRef();
+            	    pushFollow(FOLLOW_ruleCapsuleInst_in_ruleCapsule1199);
+            	    lv_capsuleInsts_10_0=ruleCapsuleInst();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -1665,9 +1665,9 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	      	        }
             	             		add(
             	             			current, 
-            	             			"capsuleRefs",
-            	              		lv_capsuleRefs_10_0, 
-            	              		"CapsuleRef");
+            	             			"capsuleInsts",
+            	              		lv_capsuleInsts_10_0, 
+            	              		"CapsuleInst");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -2655,7 +2655,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConnector2011); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      		newLeafNode(otherlv_1, grammarAccess.getConnectorAccess().getCapsuleRef1CapsuleRefCrossReference_1_0_0()); 
+                      		newLeafNode(otherlv_1, grammarAccess.getConnectorAccess().getCapsuleInst1CapsuleInstCrossReference_1_0_0()); 
                       	
                     }
 
@@ -2738,7 +2738,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     otherlv_5=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleConnector2078); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      		newLeafNode(otherlv_5, grammarAccess.getConnectorAccess().getCapsuleRef2CapsuleRefCrossReference_4_0_0()); 
+                      		newLeafNode(otherlv_5, grammarAccess.getConnectorAccess().getCapsuleInst2CapsuleInstCrossReference_4_0_0()); 
                       	
                     }
 
@@ -2806,30 +2806,30 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleConnector"
 
 
-    // $ANTLR start "entryRuleCapsuleRef"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1064:1: entryRuleCapsuleRef returns [EObject current=null] : iv_ruleCapsuleRef= ruleCapsuleRef EOF ;
-    public final EObject entryRuleCapsuleRef() throws RecognitionException {
+    // $ANTLR start "entryRuleCapsuleInst"
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1064:1: entryRuleCapsuleInst returns [EObject current=null] : iv_ruleCapsuleInst= ruleCapsuleInst EOF ;
+    public final EObject entryRuleCapsuleInst() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleCapsuleRef = null;
+        EObject iv_ruleCapsuleInst = null;
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1065:2: (iv_ruleCapsuleRef= ruleCapsuleRef EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1066:2: iv_ruleCapsuleRef= ruleCapsuleRef EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1065:2: (iv_ruleCapsuleInst= ruleCapsuleInst EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1066:2: iv_ruleCapsuleInst= ruleCapsuleInst EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getCapsuleRefRule()); 
+               newCompositeNode(grammarAccess.getCapsuleInstRule()); 
             }
-            pushFollow(FOLLOW_ruleCapsuleRef_in_entryRuleCapsuleRef2148);
-            iv_ruleCapsuleRef=ruleCapsuleRef();
+            pushFollow(FOLLOW_ruleCapsuleInst_in_entryRuleCapsuleInst2148);
+            iv_ruleCapsuleInst=ruleCapsuleInst();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleCapsuleRef; 
+               current =iv_ruleCapsuleInst; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCapsuleRef2158); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCapsuleInst2158); if (state.failed) return current;
 
             }
 
@@ -2843,12 +2843,12 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleCapsuleRef"
+    // $ANTLR end "entryRuleCapsuleInst"
 
 
-    // $ANTLR start "ruleCapsuleRef"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1073:1: ruleCapsuleRef returns [EObject current=null] : (otherlv_0= 'capsuleInstance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) ;
-    public final EObject ruleCapsuleRef() throws RecognitionException {
+    // $ANTLR start "ruleCapsuleInst"
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1073:1: ruleCapsuleInst returns [EObject current=null] : (otherlv_0= 'capsuleInstance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) ;
+    public final EObject ruleCapsuleInst() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -2865,10 +2865,10 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1077:1: (otherlv_0= 'capsuleInstance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
             // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1077:3: otherlv_0= 'capsuleInstance' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,35,FOLLOW_35_in_ruleCapsuleRef2195); if (state.failed) return current;
+            otherlv_0=(Token)match(input,35,FOLLOW_35_in_ruleCapsuleInst2195); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_0, grammarAccess.getCapsuleRefAccess().getCapsuleInstanceKeyword_0());
+                  	newLeafNode(otherlv_0, grammarAccess.getCapsuleInstAccess().getCapsuleInstanceKeyword_0());
                   
             }
             // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1081:1: ( (lv_name_1_0= RULE_ID ) )
@@ -2877,16 +2877,16 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1082:1: (lv_name_1_0= RULE_ID )
             // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1083:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCapsuleRef2212); if (state.failed) return current;
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCapsuleInst2212); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(lv_name_1_0, grammarAccess.getCapsuleRefAccess().getNameIDTerminalRuleCall_1_0()); 
+              			newLeafNode(lv_name_1_0, grammarAccess.getCapsuleInstAccess().getNameIDTerminalRuleCall_1_0()); 
               		
             }
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElement(grammarAccess.getCapsuleRefRule());
+              	            current = createModelElement(grammarAccess.getCapsuleInstRule());
               	        }
                      		setWithLastConsumed(
                      			current, 
@@ -2901,10 +2901,10 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,31,FOLLOW_31_in_ruleCapsuleRef2229); if (state.failed) return current;
+            otherlv_2=(Token)match(input,31,FOLLOW_31_in_ruleCapsuleInst2229); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_2, grammarAccess.getCapsuleRefAccess().getColonKeyword_2());
+                  	newLeafNode(otherlv_2, grammarAccess.getCapsuleInstAccess().getColonKeyword_2());
                   
             }
             // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:1103:1: ( (otherlv_3= RULE_ID ) )
@@ -2916,14 +2916,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               			if (current==null) {
-              	            current = createModelElement(grammarAccess.getCapsuleRefRule());
+              	            current = createModelElement(grammarAccess.getCapsuleInstRule());
               	        }
                       
             }
-            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCapsuleRef2249); if (state.failed) return current;
+            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCapsuleInst2249); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              		newLeafNode(otherlv_3, grammarAccess.getCapsuleRefAccess().getTypeCapsuleCrossReference_3_0()); 
+              		newLeafNode(otherlv_3, grammarAccess.getCapsuleInstAccess().getTypeCapsuleCrossReference_3_0()); 
               	
             }
 
@@ -2951,7 +2951,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleCapsuleRef"
+    // $ANTLR end "ruleCapsuleInst"
 
 
     // $ANTLR start "entryRuleStateMachine"
@@ -11927,7 +11927,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleTimerPort_in_ruleCapsule1118 = new BitSet(new long[]{0x000000193E00C000L});
     public static final BitSet FOLLOW_ruleLogPort_in_ruleCapsule1145 = new BitSet(new long[]{0x000000193E00C000L});
     public static final BitSet FOLLOW_ruleAttribute_in_ruleCapsule1172 = new BitSet(new long[]{0x000000193E00C000L});
-    public static final BitSet FOLLOW_ruleCapsuleRef_in_ruleCapsule1199 = new BitSet(new long[]{0x000000193E00C000L});
+    public static final BitSet FOLLOW_ruleCapsuleInst_in_ruleCapsule1199 = new BitSet(new long[]{0x000000193E00C000L});
     public static final BitSet FOLLOW_ruleConnector_in_ruleCapsule1226 = new BitSet(new long[]{0x000000193E00C000L});
     public static final BitSet FOLLOW_ruleOperation_in_ruleCapsule1253 = new BitSet(new long[]{0x000000193E00C000L});
     public static final BitSet FOLLOW_ruleStateMachine_in_ruleCapsule1280 = new BitSet(new long[]{0x000000193E00C000L});
@@ -11969,12 +11969,12 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleConnector2078 = new BitSet(new long[]{0x0000000200000000L});
     public static final BitSet FOLLOW_33_in_ruleConnector2090 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleConnector2112 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCapsuleRef_in_entryRuleCapsuleRef2148 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCapsuleRef2158 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleCapsuleRef2195 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCapsuleRef2212 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleCapsuleRef2229 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCapsuleRef2249 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCapsuleInst_in_entryRuleCapsuleInst2148 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCapsuleInst2158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleCapsuleInst2195 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCapsuleInst2212 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleCapsuleInst2229 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCapsuleInst2249 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStateMachine_in_entryRuleStateMachine2285 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleStateMachine2295 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_36_in_ruleStateMachine2341 = new BitSet(new long[]{0x0000000000002000L});
