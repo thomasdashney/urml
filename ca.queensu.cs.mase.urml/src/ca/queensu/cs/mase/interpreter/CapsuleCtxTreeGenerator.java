@@ -11,7 +11,7 @@ import ca.queensu.cs.mase.urml.Model;
 import ca.queensu.cs.mase.urml.UrmlFactory;
 import ca.queensu.cs.mase.util.TreeNode;
 
-public class ModelInitializer {
+public class CapsuleCtxTreeGenerator {
 
 	/**
 	 * The embedded model to be interpreted by this interpreter
@@ -23,7 +23,7 @@ public class ModelInitializer {
 	 */
 	private PrintStream out;
 
-	private ModelInitializer() {
+	private CapsuleCtxTreeGenerator() {
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class ModelInitializer {
 	 * @param model
 	 * @param out
 	 */
-	public ModelInitializer(Model model, PrintStream out) {
+	public CapsuleCtxTreeGenerator(Model model, PrintStream out) {
 		this();
 		this.model = model;
 		this.out = out;
@@ -44,7 +44,7 @@ public class ModelInitializer {
 	 * 
 	 * @return
 	 */
-	public TreeNode<CapsuleContext> registerRootContextNode() {
+	public TreeNode<CapsuleContext> getRootContextNode() {
 		CapsuleInst root = UrmlFactory.eINSTANCE.createCapsuleInst();
 		root.setName("root"); //$NON-NLS-1$
 		Capsule rootCapsule = findRootCapsule();
@@ -79,19 +79,18 @@ public class ModelInitializer {
 	 * Register children nodes for children capsule instance in breadth-first
 	 * search fashion
 	 * 
-	 * @param parentContext
+	 * @param parentCtx
 	 * @param parentNode
 	 */
-	private void registerChildren(CapsuleContext parentContext,
+	private void registerChildren(CapsuleContext parentCtx,
 			TreeNode<CapsuleContext> parentNode) {
-		CapsuleInst parentInst = parentContext.getCapsuleInst();
+		CapsuleInst parentInst = parentCtx.getCapsuleInst();
 		List<CapsuleInst> childInsts = parentInst.getType().getCapsuleInsts();
 		for (CapsuleInst childInst : childInsts) {
-			CapsuleContext childContext = new CapsuleContext(childInst, out);
-			TreeNode<CapsuleContext> childNode = parentNode
-					.addChild(childContext);
-			childContext.setTreeNode(childNode);
-			registerChildren(childContext, childNode);
+			CapsuleContext childCtx = new CapsuleContext(childInst, out);
+			TreeNode<CapsuleContext> childNode = parentNode.addChild(childCtx);
+			childCtx.setTreeNode(childNode);
+			registerChildren(childCtx, childNode);
 		}
 	}
 }

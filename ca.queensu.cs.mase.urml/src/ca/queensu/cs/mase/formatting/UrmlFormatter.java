@@ -4,7 +4,6 @@
 package ca.queensu.cs.mase.formatting;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
@@ -41,6 +40,7 @@ public class UrmlFormatter extends AbstractDeclarativeFormatter {
 		c.setNoLinewrap()
 				.after(f.getCapsuleAccess().getExternalKeyword_4_0_0());
 		setPeriods(c, f);
+		c.setSpace(" ").after(f.getState_Access().getSubKeyword_3_3_0());
 	}
 
 	private void setPeriods(FormattingConfig c, UrmlGrammarAccess f) {
@@ -57,10 +57,9 @@ public class UrmlFormatter extends AbstractDeclarativeFormatter {
 		}
 		for (final Pair<Keyword, Keyword> pair : f.findKeywordPairs("{", "}")) {
 			c.setSpace(" ").before(pair.getFirst());
-
-			c.setIndentation(pair.getFirst(), pair.getSecond());
 			c.setLinewrap().after(pair.getFirst());
 			c.setLinewrap().before(pair.getSecond());
+			c.setIndentation(pair.getFirst(), pair.getSecond());
 		}
 	}
 

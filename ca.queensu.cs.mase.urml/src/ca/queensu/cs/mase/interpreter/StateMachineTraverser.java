@@ -296,6 +296,12 @@ public class StateMachineTraverser {
 		return f.chooseNextTransition(withGuardTrigger, ctx);
 	}
 
+	/**
+	 * Given a state, retrieve its ancestors along the state itself in a deque
+	 * 
+	 * @param state
+	 * @return
+	 */
 	private Deque<State_> getStateWithAncestors(State_ state) {
 		Deque<State_> stateWithParents = new LinkedList<>();
 		while (state != null) {
@@ -307,6 +313,13 @@ public class StateMachineTraverser {
 		return stateWithParents;
 	}
 
+	/**
+	 * Remove the common ancestors in both fromWithParents and toWithParents
+	 * deques
+	 * 
+	 * @param fromWithParents
+	 * @param toWithParents
+	 */
 	private void removeCommonAncestors(Deque<State_> fromWithParents,
 			Deque<State_> toWithParents) {
 		State_ from;

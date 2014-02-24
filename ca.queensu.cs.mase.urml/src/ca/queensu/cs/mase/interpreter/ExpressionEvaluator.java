@@ -232,8 +232,7 @@ public class ExpressionEvaluator {
 	}
 
 	private Value compute(FunctionCall exp, CapsuleContext ctx) {
-		//		logger.debug("calling function " + exp.getCall().getName()); //$NON-NLS-1$
-
+		
 		// check if formal param # == actual arguments #
 		int formalParam = exp.getCall().getVarDecls().size();
 		int actualArgs = exp.getParams().size();
@@ -263,7 +262,7 @@ public class ExpressionEvaluator {
 			throw new ReturnStatementNotFoundException("line "
 					+ getLineNumber(exp)
 					+ ": cannot find a return statement in a function.");
-		} catch (ReturnStatementException re) {
+		} catch (ReturnStatementSignal re) {
 		}
 		Value returnVal = ctx.getCallStack().peek().get("return");
 		ctx.getCallStack().pop();

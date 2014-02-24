@@ -46,7 +46,7 @@ public class CapsuleScheduler {
 	 * @param capsuleContexts
 	 *            the list of capsule instances
 	 */
-	public void loopCapsuleRefs(TreeNode<CapsuleContext> capsuleContexts) {
+	public void loopCapsuleCtxFromTree(TreeNode<CapsuleContext> capsuleContexts) {
 
 		// loop through the capsule instances and run them in
 		// round robin fashion.

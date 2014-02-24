@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-import ca.queensu.cs.mase.interpreter.ExecutionConfig.MultipleTransitions;
 import ca.queensu.cs.mase.urml.Model;
 import ca.queensu.cs.mase.util.TreeNode;
 
@@ -41,16 +40,11 @@ public class UrmlInterpreter {
 	/**
 	 * Variable name for the return value
 	 */
-	static final String RETURN_STRING = "return";
+	static final String RETURN_STRING = "return"; //$NON-NLS-1$
 
-	// /**
-	// * Number of times to run something
-	// */
-	// private static final int MAX_RUN = 1000;
-
-	private UrmlInterpreter() {
+	public interface Factory {
+		UrmlInterpreter create(Model m);
 	}
-
 	/**
 	 * Main constructor
 	 * 
@@ -75,9 +69,9 @@ public class UrmlInterpreter {
 	 * Interprets the embedded model by going through each capsule in the model
 	 */
 	public void interpret() {
-		TreeNode<CapsuleContext> rootCtx = new ModelInitializer(model, out)
-				.registerRootContextNode();
-		new CapsuleScheduler(in, out, config).loopCapsuleRefs(rootCtx);
+		TreeNode<CapsuleContext> rootCtx = new CapsuleCtxTreeGenerator(model, out)
+				.getRootContextNode();
+		new CapsuleScheduler(in, out, config).loopCapsuleCtxFromTree(rootCtx);
 		System.out.println("EXIT");
 	}
 }

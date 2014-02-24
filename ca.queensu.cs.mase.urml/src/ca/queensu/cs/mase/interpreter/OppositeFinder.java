@@ -92,8 +92,8 @@ public class OppositeFinder {
 						+ " is missing in capsule " + parentCtx.getName();
 				throw new ConnectorNotFoundException(s);
 			}
-			pair.current = findTargetPort(conn, childNode.data.getCapsuleInst(),
-					pair.current.port);
+			pair.current = findTargetPort(conn,
+					childNode.data.getCapsuleInst(), pair.current.port);
 
 			// if current capsuleRef is null, the port is an external port of
 			// the capsule; if that is the case, continue propagating up the
@@ -112,17 +112,20 @@ public class OppositeFinder {
 	/**
 	 * Zoom out from the subcapsule if the port of the subcapsule is an internal
 	 * port. This is the easy case because we just need to jump to the opposite
-	 * port and then we are done.
+	 * port and then we are done. Once we are done, return the terminal <capsule
+	 * instance, port> pair that we have reached.
 	 * 
 	 * @param sourceCtx
+	 *            the source capsule instance
 	 * @param sourcePort
-	 * @return
+	 *            the source port in the source capsule
+	 * @return the destination <capsule instance, port> pair
 	 */
 	private static CapsuleInstPortPair zoomOutForInternalPort(
 			CapsuleContext sourceCtx, Port sourcePort) {
 		Connector conn;
 		CapsuleInstPortPair target;
-		
+
 		conn = findMatchingConnector(sourceCtx, sourceCtx.getCapsuleInst(),
 				sourcePort);
 		if (conn == null) {
@@ -139,10 +142,12 @@ public class OppositeFinder {
 	/**
 	 * Given the pair, that contains the current <capsuleRef, port> pair and the
 	 * parent node, zoom in to target capsule until we hit the final opposite
-	 * <capsuleRef, pair> and return it.
+	 * <capsuleRef, pair> and return that pair.
 	 * 
 	 * @param pair
-	 * @return
+	 *            the pair that consists of (1) the parent node and (2) the
+	 *            current <capsule instance, port> pair
+	 * @return the destination <capsule instance, port> pair
 	 */
 	private static CapsuleContextPortPair zoomIn(ParentNodeCurrentPair pair) {
 		TreeNode<CapsuleContext> childNode;
@@ -152,7 +157,8 @@ public class OppositeFinder {
 		Port currentPort = null;
 
 		// find the child node that contains the target capsule reference
-		childNode = findChildNode(pair.parentNode, pair.current.getCapsuleInst());
+		childNode = findChildNode(pair.parentNode,
+				pair.current.getCapsuleInst());
 
 		while (continueLoop) {
 			// get the capsuleCtx of the child node

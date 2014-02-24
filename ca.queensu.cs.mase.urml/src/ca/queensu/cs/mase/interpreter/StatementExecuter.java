@@ -42,10 +42,24 @@ public class StatementExecuter {
 	private PolymorphicDispatcher<Void> stmtExecDispatcher = PolymorphicDispatcher
 			.createForSingleTarget("compute", 2, 2, this);
 
+	/**
+	 * Execute the statement {@code st} based on the environment from the
+	 * capsule context {@code ctx}
+	 * 
+	 * @param st
+	 * @param ctx
+	 */
 	public void interpret(Statement st, CapsuleContext ctx) {
 		stmtExecDispatcher.invoke(st, ctx);
 	}
 
+	/**
+	 * Get the line number where the EObject {@code obj} appears in the parsed
+	 * file
+	 * 
+	 * @param obj
+	 * @return the line number of the parsed {@code obj}; if not found, -1
+	 */
 	private static int getLineNumber(EObject obj) {
 		if (obj == null)
 			return -1;
@@ -60,7 +74,7 @@ public class StatementExecuter {
 			try {
 				CapsuleContextPortPair opposite = OppositeFinder
 						.findOppositeCapsule(ctx, to.getTo());
-				CapsuleContext target = opposite.getCapsuleCB();
+				CapsuleContext target = opposite.getCapsuleCtx();
 				Port port = opposite.getPort();
 				EList<Expression> toParams = to.getParameters();
 				EList<Value> toParamValues = new BasicEList<>(toParams.size());
@@ -215,7 +229,7 @@ public class StatementExecuter {
 					.getOperationCode().getStatements();
 			for (StatementOperation so : stmts)
 				execute(so, ctx);
-		} catch (ReturnStatementException ret) {
+		} catch (ReturnStatementSignal ret) {
 		}
 		ctx.getCallStack().pop();
 	}
@@ -262,7 +276,7 @@ public class StatementExecuter {
 				.peek()
 				.put(UrmlInterpreter.RETURN_STRING,
 						expEval.interpret(st.getReturnValue(), ctx));
-		throw new ReturnStatementException();
+		throw new ReturnStatementSignal();
 	}
 
 }
