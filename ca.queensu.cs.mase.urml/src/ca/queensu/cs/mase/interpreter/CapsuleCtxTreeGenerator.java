@@ -2,8 +2,7 @@ package ca.queensu.cs.mase.interpreter;
 
 import java.io.PrintStream;
 import java.util.List;
-
-import org.eclipse.jdt.annotation.Nullable;
+import java.util.Optional;
 
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.CapsuleInst;
@@ -45,34 +44,22 @@ public class CapsuleCtxTreeGenerator {
 	 * @return
 	 */
 	public TreeNode<CapsuleContext> getRootContextNode() {
+
+		Optional<Capsule> rootCapsuleOpt = model.getCapsules().stream()
+				.filter(c -> c.isRoot()).findFirst();
+		if (!rootCapsuleOpt.isPresent())
+			throw new RootCapsuleNotFoundException();
+		Capsule rootCapsule = rootCapsuleOpt.get();
+		
 		CapsuleInst root = UrmlFactory.eINSTANCE.createCapsuleInst();
 		root.setName("root"); //$NON-NLS-1$
-		Capsule rootCapsule = findRootCapsule();
-		if (rootCapsule == null) {
-			throw new RootCapsuleNotFoundException();
-		}
 		root.setType(rootCapsule);
+		
 		CapsuleContext rootContext = new CapsuleContext(root, out);
 		TreeNode<CapsuleContext> rootNode = new TreeNode<>(rootContext);
 		rootContext.setTreeNode(rootNode);
-
 		registerChildren(rootContext, rootNode);
 		return rootNode;
-	}
-
-	/**
-	 * Find the root capsule from the model
-	 * 
-	 * @return
-	 */
-	@Nullable
-	private Capsule findRootCapsule() {
-		for (Capsule c : model.getCapsules()) {
-			if (c.isRoot()) {
-				return c;
-			}
-		}
-		return null;
 	}
 
 	/**

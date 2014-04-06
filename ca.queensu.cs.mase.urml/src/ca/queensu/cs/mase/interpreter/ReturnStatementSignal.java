@@ -10,4 +10,8 @@ package ca.queensu.cs.mase.interpreter;
  */
 public class ReturnStatementSignal extends RuntimeException {
 	private static final long serialVersionUID = 1719831731643766253L;
+	/**
+	 * Variable name for the return value
+	 */
+	public static final String RETURN_STRING = "return"; //$NON-NLS-1$
 }

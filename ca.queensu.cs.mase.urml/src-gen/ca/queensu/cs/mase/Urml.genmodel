@@ -137,9 +137,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Assignment/lvalue"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Assignment/exp"/>
     </genClasses>
-    <genClasses ecoreClass="Urml.ecore#//Assignable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Assignable/name"/>
-    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Assignable"/>
     <genClasses ecoreClass="Urml.ecore#//WhileLoop">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//WhileLoop/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//WhileLoop/statements"/>
@@ -167,6 +165,9 @@
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//Identifier">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//Identifier/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Urml.ecore#//Identifiable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Identifiable/name"/>
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//FunctionCall">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Urml.ecore#//FunctionCall/call"/>

@@ -19,6 +19,7 @@ import ca.queensu.cs.mase.urml.Expression;
 import ca.queensu.cs.mase.urml.FunctionCall;
 import ca.queensu.cs.mase.urml.GreaterThan;
 import ca.queensu.cs.mase.urml.GreaterThanOrEqual;
+import ca.queensu.cs.mase.urml.Identifiable;
 import ca.queensu.cs.mase.urml.Identifier;
 import ca.queensu.cs.mase.urml.IfStatement;
 import ca.queensu.cs.mase.urml.IfStatementOperation;
@@ -364,6 +365,13 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * @generated
    */
   private EClass identifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass identifiableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1602,16 +1610,6 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAssignable_Name()
-  {
-    return (EAttribute)assignableEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getWhileLoop()
   {
     return whileLoopEClass;
@@ -1815,6 +1813,26 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
   public EReference getIdentifier_Id()
   {
     return (EReference)identifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIdentifiable()
+  {
+    return identifiableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIdentifiable_Name()
+  {
+    return (EAttribute)identifiableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2473,7 +2491,6 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     createEReference(assignmentEClass, ASSIGNMENT__EXP);
 
     assignableEClass = createEClass(ASSIGNABLE);
-    createEAttribute(assignableEClass, ASSIGNABLE__NAME);
 
     whileLoopEClass = createEClass(WHILE_LOOP);
     createEReference(whileLoopEClass, WHILE_LOOP__CONDITION);
@@ -2504,6 +2521,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
 
     identifierEClass = createEClass(IDENTIFIER);
     createEReference(identifierEClass, IDENTIFIER__ID);
+
+    identifiableEClass = createEClass(IDENTIFIABLE);
+    createEAttribute(identifiableEClass, IDENTIFIABLE__NAME);
 
     functionCallEClass = createEClass(FUNCTION_CALL);
     createEReference(functionCallEClass, FUNCTION_CALL__CALL);
@@ -2603,7 +2623,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     // Add supertypes to classes
     varDeclEClass.getESuperTypes().add(this.getAssignable());
     attributeEClass.getESuperTypes().add(this.getAssignable());
-    incomingVariableEClass.getESuperTypes().add(this.getAssignable());
+    incomingVariableEClass.getESuperTypes().add(this.getIdentifiable());
     whileLoopOperationEClass.getESuperTypes().add(this.getStatementOperation());
     ifStatementOperationEClass.getESuperTypes().add(this.getStatementOperation());
     returnStatementEClass.getESuperTypes().add(this.getStatementOperation());
@@ -2617,6 +2637,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     invokeEClass.getESuperTypes().add(this.getStatement());
     assignmentEClass.getESuperTypes().add(this.getStatementOperation());
     assignmentEClass.getESuperTypes().add(this.getStatement());
+    assignableEClass.getESuperTypes().add(this.getIdentifiable());
     whileLoopEClass.getESuperTypes().add(this.getStatement());
     ifStatementEClass.getESuperTypes().add(this.getStatement());
     logStatementEClass.getESuperTypes().add(this.getStatementOperation());
@@ -2780,7 +2801,6 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEReference(getAssignment_Exp(), this.getExpression(), null, "exp", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignableEClass, Assignable.class, "Assignable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAssignable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Assignable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(whileLoopEClass, WhileLoop.class, "WhileLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWhileLoop_Condition(), this.getExpression(), null, "condition", null, 0, 1, WhileLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2810,7 +2830,10 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEAttribute(getIntLiteral_Int(), ecorePackage.getEInt(), "int", null, 0, 1, IntLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(identifierEClass, Identifier.class, "Identifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIdentifier_Id(), this.getAssignable(), null, "id", null, 0, 1, Identifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIdentifier_Id(), this.getIdentifiable(), null, "id", null, 0, 1, Identifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(identifiableEClass, Identifiable.class, "Identifiable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIdentifiable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionCallEClass, FunctionCall.class, "FunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFunctionCall_Call(), this.getOperation(), null, "call", null, 0, 1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

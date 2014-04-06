@@ -70,11 +70,8 @@ public class UrmlLaunchTab extends AbstractLaunchConfigurationTab {
 		lblModel.setText("Model:");
 
 		txtModeltoload = new Text(grpFile, SWT.BORDER);
-		txtModeltoload.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				updateLaunchConfigurationDialog();
-			}
-		});
+		txtModeltoload
+				.addModifyListener(e -> updateLaunchConfigurationDialog());
 		txtModeltoload.setText("modelToLoad");
 		txtModeltoload.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
 				false, 1, 1));

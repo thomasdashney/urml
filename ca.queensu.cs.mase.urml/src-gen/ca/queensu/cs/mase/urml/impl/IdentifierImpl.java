@@ -2,7 +2,7 @@
  */
 package ca.queensu.cs.mase.urml.impl;
 
-import ca.queensu.cs.mase.urml.Assignable;
+import ca.queensu.cs.mase.urml.Identifiable;
 import ca.queensu.cs.mase.urml.Identifier;
 import ca.queensu.cs.mase.urml.UrmlPackage;
 
@@ -36,7 +36,7 @@ public class IdentifierImpl extends ExpressionImpl implements Identifier
    * @generated
    * @ordered
    */
-  protected Assignable id;
+  protected Identifiable id;
 
   /**
    * <!-- begin-user-doc -->
@@ -64,12 +64,12 @@ public class IdentifierImpl extends ExpressionImpl implements Identifier
    * <!-- end-user-doc -->
    * @generated
    */
-  public Assignable getId()
+  public Identifiable getId()
   {
     if (id != null && id.eIsProxy())
     {
       InternalEObject oldId = (InternalEObject)id;
-      id = (Assignable)eResolveProxy(oldId);
+      id = (Identifiable)eResolveProxy(oldId);
       if (id != oldId)
       {
         if (eNotificationRequired())
@@ -84,7 +84,7 @@ public class IdentifierImpl extends ExpressionImpl implements Identifier
    * <!-- end-user-doc -->
    * @generated
    */
-  public Assignable basicGetId()
+  public Identifiable basicGetId()
   {
     return id;
   }
@@ -94,9 +94,9 @@ public class IdentifierImpl extends ExpressionImpl implements Identifier
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(Assignable newId)
+  public void setId(Identifiable newId)
   {
-    Assignable oldId = id;
+    Identifiable oldId = id;
     id = newId;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UrmlPackage.IDENTIFIER__ID, oldId, id));
@@ -130,7 +130,7 @@ public class IdentifierImpl extends ExpressionImpl implements Identifier
     switch (featureID)
     {
       case UrmlPackage.IDENTIFIER__ID:
-        setId((Assignable)newValue);
+        setId((Identifiable)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -147,7 +147,7 @@ public class IdentifierImpl extends ExpressionImpl implements Identifier
     switch (featureID)
     {
       case UrmlPackage.IDENTIFIER__ID:
-        setId((Assignable)null);
+        setId((Identifiable)null);
         return;
     }
     super.eUnset(featureID);

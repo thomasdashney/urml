@@ -114,14 +114,10 @@ public class ResourceFileSelectionDialog extends ElementTreeSelectionDialog {
 	private static final IStatus ERROR = new Status(IStatus.ERROR, PLUGIN_ID,
 			0, "", null);
 
-	private ISelectionStatusValidator validator = new ISelectionStatusValidator() {
-		@Override
-		public IStatus validate(Object[] selection) {
-			return selection.length == 1
-					&& selection[0] instanceof IFile
-					&& checkExtension(((IFile) selection[0]).getFileExtension()) ? OK
-					: ERROR;
-		}
+	private ISelectionStatusValidator validator = selection -> {
+		return selection.length == 1 && selection[0] instanceof IFile
+				&& checkExtension(((IFile) selection[0]).getFileExtension()) ? OK
+				: ERROR;
 	};
 
 	private boolean checkExtension(String name) {

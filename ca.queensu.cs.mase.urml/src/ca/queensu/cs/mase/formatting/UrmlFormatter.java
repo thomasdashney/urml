@@ -86,7 +86,7 @@ public class UrmlFormatter extends AbstractDeclarativeFormatter {
 				f.getState_Access().getExitKeyword_3_2_0(),
 				f.getTransitionRule(),
 				f.getTransitionAccess().getGuardKeyword_7_0(),
-				f.getTransitionAccess().getTriggersKeyword_8_0(),
+				f.getTransitionAccess().getTriggeredByKeyword_8_0(),
 				f.getTransitionAccess().getActionKeyword_9_0(),
 				f.getStatementRule(), f.getStatementOperationRule(),
 

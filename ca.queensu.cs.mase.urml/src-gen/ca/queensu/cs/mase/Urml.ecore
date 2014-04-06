@@ -110,7 +110,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//IncomingVariable" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IncomingVariable" eSuperTypes="#//Assignable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IncomingVariable" eSuperTypes="#//Identifiable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger_out">
     <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Port"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="signal" eType="#//Signal"/>
@@ -172,9 +172,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Assignable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assignable" eSuperTypes="#//Identifiable"/>
   <eClassifiers xsi:type="ecore:EClass" name="WhileLoop" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Expression"
         containment="true"/>
@@ -209,7 +207,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="int" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Identifier" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Assignable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Identifiable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionCall" eSuperTypes="#//Literal">
     <eStructuralFeatures xsi:type="ecore:EReference" name="call" eType="#//Operation"/>

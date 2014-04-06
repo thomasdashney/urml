@@ -392,6 +392,15 @@ public interface UrmlFactory extends EFactory
   Identifier createIdentifier();
 
   /**
+   * Returns a new object of class '<em>Identifiable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Identifiable</em>'.
+   * @generated
+   */
+  Identifiable createIdentifiable();
+
+  /**
    * Returns a new object of class '<em>Function Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

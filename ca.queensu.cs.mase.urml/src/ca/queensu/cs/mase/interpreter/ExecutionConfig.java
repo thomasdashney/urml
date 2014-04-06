@@ -42,7 +42,7 @@ public class ExecutionConfig {
 
 	public enum MultipleTransitions {
 		FIRST_TRANSITION, RANDOM_TRANSITION, INTERACTIVE
-	};
+	}
 
 	public MultipleTransitions multiTrans;
 
@@ -50,6 +50,7 @@ public class ExecutionConfig {
 		BEFORE_SECONDS, BEFORE_TRANSITIONS, INFINITE;
 	}
 
-	public int duration;
 	public ExitCondition exitCons;
+
+	public int duration;
 }

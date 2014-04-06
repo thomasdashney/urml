@@ -280,6 +280,11 @@ public class UrmlAdapterFactory extends AdapterFactoryImpl
         return createIdentifierAdapter();
       }
       @Override
+      public Adapter caseIdentifiable(Identifiable object)
+      {
+        return createIdentifiableAdapter();
+      }
+      @Override
       public Adapter caseFunctionCall(FunctionCall object)
       {
         return createFunctionCallAdapter();
@@ -997,6 +1002,21 @@ public class UrmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIdentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ca.queensu.cs.mase.urml.Identifiable <em>Identifiable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ca.queensu.cs.mase.urml.Identifiable
+   * @generated
+   */
+  public Adapter createIdentifiableAdapter()
   {
     return null;
   }

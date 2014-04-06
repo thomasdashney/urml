@@ -103,6 +103,34 @@ public interface UrmlPackage extends EPackage
   int MODEL_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.IdentifiableImpl <em>Identifiable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ca.queensu.cs.mase.urml.impl.IdentifiableImpl
+   * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getIdentifiable()
+   * @generated
+   */
+  int IDENTIFIABLE = 41;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIABLE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Identifiable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIABLE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.AssignableImpl <em>Assignable</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -119,7 +147,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNABLE__NAME = 0;
+  int ASSIGNABLE__NAME = IDENTIFIABLE__NAME;
 
   /**
    * The number of structural features of the '<em>Assignable</em>' class.
@@ -128,7 +156,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNABLE_FEATURE_COUNT = 1;
+  int ASSIGNABLE_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.VarDeclImpl <em>Var Decl</em>}' class.
@@ -891,7 +919,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INCOMING_VARIABLE__NAME = ASSIGNABLE__NAME;
+  int INCOMING_VARIABLE__NAME = IDENTIFIABLE__NAME;
 
   /**
    * The number of structural features of the '<em>Incoming Variable</em>' class.
@@ -900,7 +928,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INCOMING_VARIABLE_FEATURE_COUNT = ASSIGNABLE_FEATURE_COUNT + 0;
+  int INCOMING_VARIABLE_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.Trigger_outImpl <em>Trigger out</em>}' class.
@@ -1644,7 +1672,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getFunctionCall()
    * @generated
    */
-  int FUNCTION_CALL = 41;
+  int FUNCTION_CALL = 42;
 
   /**
    * The feature id for the '<em><b>Call</b></em>' reference.
@@ -1681,7 +1709,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getBoolLiteral()
    * @generated
    */
-  int BOOL_LITERAL = 42;
+  int BOOL_LITERAL = 43;
 
   /**
    * The feature id for the '<em><b>True</b></em>' attribute.
@@ -1709,7 +1737,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getConcatenateExpression()
    * @generated
    */
-  int CONCATENATE_EXPRESSION = 43;
+  int CONCATENATE_EXPRESSION = 44;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1764,7 +1792,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getConditionalOrExpression()
    * @generated
    */
-  int CONDITIONAL_OR_EXPRESSION = 44;
+  int CONDITIONAL_OR_EXPRESSION = 45;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1801,7 +1829,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getConditionalAndExpression()
    * @generated
    */
-  int CONDITIONAL_AND_EXPRESSION = 45;
+  int CONDITIONAL_AND_EXPRESSION = 46;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1838,7 +1866,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getLessThanOrEqual()
    * @generated
    */
-  int LESS_THAN_OR_EQUAL = 46;
+  int LESS_THAN_OR_EQUAL = 47;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1875,7 +1903,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getLessThan()
    * @generated
    */
-  int LESS_THAN = 47;
+  int LESS_THAN = 48;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1912,7 +1940,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getGreaterThanOrEqual()
    * @generated
    */
-  int GREATER_THAN_OR_EQUAL = 48;
+  int GREATER_THAN_OR_EQUAL = 49;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1949,7 +1977,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getGreaterThan()
    * @generated
    */
-  int GREATER_THAN = 49;
+  int GREATER_THAN = 50;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1986,7 +2014,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getEqual()
    * @generated
    */
-  int EQUAL = 50;
+  int EQUAL = 51;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2023,7 +2051,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getNotEqual()
    * @generated
    */
-  int NOT_EQUAL = 51;
+  int NOT_EQUAL = 52;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2060,7 +2088,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 52;
+  int PLUS = 53;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2097,7 +2125,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 53;
+  int MINUS = 54;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2134,7 +2162,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getMultiply()
    * @generated
    */
-  int MULTIPLY = 54;
+  int MULTIPLY = 55;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2171,7 +2199,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getDivide()
    * @generated
    */
-  int DIVIDE = 55;
+  int DIVIDE = 56;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2208,7 +2236,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getModulo()
    * @generated
    */
-  int MODULO = 56;
+  int MODULO = 57;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2245,7 +2273,7 @@ public interface UrmlPackage extends EPackage
    * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 57;
+  int UNARY_EXPRESSION = 58;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -3390,17 +3418,6 @@ public interface UrmlPackage extends EPackage
   EClass getAssignable();
 
   /**
-   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Assignable#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see ca.queensu.cs.mase.urml.Assignable#getName()
-   * @see #getAssignable()
-   * @generated
-   */
-  EAttribute getAssignable_Name();
-
-  /**
    * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.WhileLoop <em>While Loop</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3621,6 +3638,27 @@ public interface UrmlPackage extends EPackage
    * @generated
    */
   EReference getIdentifier_Id();
+
+  /**
+   * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.Identifiable <em>Identifiable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Identifiable</em>'.
+   * @see ca.queensu.cs.mase.urml.Identifiable
+   * @generated
+   */
+  EClass getIdentifiable();
+
+  /**
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Identifiable#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ca.queensu.cs.mase.urml.Identifiable#getName()
+   * @see #getIdentifiable()
+   * @generated
+   */
+  EAttribute getIdentifiable_Name();
 
   /**
    * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.FunctionCall <em>Function Call</em>}'.
@@ -5072,14 +5110,6 @@ public interface UrmlPackage extends EPackage
     EClass ASSIGNABLE = eINSTANCE.getAssignable();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ASSIGNABLE__NAME = eINSTANCE.getAssignable_Name();
-
-    /**
      * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.WhileLoopImpl <em>While Loop</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5264,6 +5294,24 @@ public interface UrmlPackage extends EPackage
      * @generated
      */
     EReference IDENTIFIER__ID = eINSTANCE.getIdentifier_Id();
+
+    /**
+     * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.IdentifiableImpl <em>Identifiable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ca.queensu.cs.mase.urml.impl.IdentifiableImpl
+     * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getIdentifiable()
+     * @generated
+     */
+    EClass IDENTIFIABLE = eINSTANCE.getIdentifiable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IDENTIFIABLE__NAME = eINSTANCE.getIdentifiable_Name();
 
     /**
      * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.FunctionCallImpl <em>Function Call</em>}' class.

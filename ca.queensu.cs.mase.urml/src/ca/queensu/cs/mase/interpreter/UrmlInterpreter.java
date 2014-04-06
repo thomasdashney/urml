@@ -37,11 +37,6 @@ public class UrmlInterpreter {
 	 */
 	private ExecutionConfig config;
 
-	/**
-	 * Variable name for the return value
-	 */
-	static final String RETURN_STRING = "return"; //$NON-NLS-1$
-
 	public interface Factory {
 		UrmlInterpreter create(Model m);
 	}

@@ -13,12 +13,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.EcoreUtil2;
 
+import ca.queensu.cs.mase.interpreter.dispatchers.StatementExecuter;
+import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.StateMachine;
 import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.Statement;
 import ca.queensu.cs.mase.urml.Transition;
-import ca.queensu.cs.mase.util.Value;
 
 public class StateMachineTraverser {
 
@@ -252,7 +253,7 @@ public class StateMachineTraverser {
 	private void execute(EList<Statement> statements, CapsuleContext ctx) {
 		ctx.getCallStack().push(new HashMap<String, Value>());
 		for (Statement st : statements) {
-			new StatementExecuter().interpret(st, ctx);
+			StatementExecuter.interpret(st, ctx);
 		}
 		ctx.getCallStack().pop();
 	}
@@ -285,12 +286,12 @@ public class StateMachineTraverser {
 					stateToGoThrough.eContainer(), State_.class);
 		} while (stateToGoThrough != null);
 
-		TransitionFilterer f = new TransitionFilterer(in, out, config);
+		TransitionFilter f = new TransitionFilter(in, out, config);
 		Transition[] withoutCheck = candidateEnabledTrans
 				.toArray(new Transition[0]);
 		// only the transitions that pass the guard remain
 		Transition[] withGuard = f.filterGuard(withoutCheck, ctx);
-		// only the transitions that are part of the trigger remain
+		// only the transitions that are triggered remain
 		Transition[] withGuardTrigger = f.filterTrigger(withGuard, ctx);
 		// select the next transition based on the execution config
 		return f.chooseNextTransition(withGuardTrigger, ctx);

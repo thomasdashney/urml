@@ -1,5 +1,7 @@
 package ca.queensu.cs.mase.interpreter;
 
+import java.util.Optional;
+
 import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Connector;
 import ca.queensu.cs.mase.urml.Port;
@@ -12,47 +14,45 @@ public class OppositeFinder {
 	 * source Port {@code sourcePort}, find the opposite site of that
 	 * capsuleInstance-port pair for its connection.
 	 * 
-	 * @param sourceCtx
-	 *            the context of the source capsuleRef
-	 * @param sourcePort
+	 * @param ctx
+	 *            the context of the source capsule instance
+	 * @param port
 	 *            the source port
-	 * @return the opposite side (through the connector) of the capsuleRef.port
+	 * @return the opposite side (through the connector) of the capsuleInst.port
 	 *         pair
 	 */
 	public static CapsuleContextPortPair findOppositeCapsule(
-			CapsuleContext sourceCtx, Port sourcePort) {
-		ParentNodeCurrentPair pair = zoomOut(sourceCtx, sourcePort);
+			CapsuleContext ctx, Port port) {
+		ParentNodeCurrentPair pair = zoomOut(ctx, port);
 		return zoomIn(pair);
 	}
 
 	/**
 	 * Propagates up (zoom out) from the "inner" capsule to its parent capsule,
-	 * and repeats doing so until both side of the connector are internal ports
-	 * (i.e. not some relay external port).
+	 * and repeats doing so until the connector hits an internal port (i.e. not
+	 * some relay external port).
 	 * 
-	 * @param sourceCtx
+	 * @param ctx
 	 *            the source capsuleRef
-	 * @param sourcePort
+	 * @param port
 	 *            the source port
 	 * @return
 	 */
-	private static ParentNodeCurrentPair zoomOut(CapsuleContext sourceCtx,
-			Port sourcePort) {
-		TreeNode<CapsuleContext> sourceNode;
+	private static ParentNodeCurrentPair zoomOut(CapsuleContext ctx, Port port) {
+		TreeNode<CapsuleContext> node = ctx.getTreeNode();
 		ParentNodeCurrentPair pair = new ParentNodeCurrentPair();
 
-		sourceNode = sourceCtx.getTreeNode();
-		pair.parentNode = sourceNode.parent;
+		pair.parentNode = node.parent;
 
-		if (sourcePortIsInternal(sourceCtx, sourcePort)) {
+		if (portIsInternal(ctx, port)) {
 			// source port is internal; easy case -- just zoom out ONCE
-			pair.current = zoomOutForInternalPort(sourceCtx, sourcePort);
-			pair.parentNode = sourceNode;
+			pair.current = zoomOutForInternalPort(ctx, port);
+			pair.parentNode = node;
 		} else {
 			// source port is external; hard case -- keep zooming out until we
 			// hit an internal port
-			pair.current = new CapsuleInstPortPair(null, sourcePort);
-			zoomOutForExternalPort(sourceCtx, pair);
+			pair.current = new CapsuleInstPortPair(null, port);
+			zoomOutForExternalPort(ctx, pair);
 		}
 		return pair;
 	}
@@ -151,7 +151,7 @@ public class OppositeFinder {
 	 */
 	private static CapsuleContextPortPair zoomIn(ParentNodeCurrentPair pair) {
 		TreeNode<CapsuleContext> childNode;
-		Connector conn;
+		Optional<Connector> conn;
 		boolean continueLoop = true;
 		CapsuleContext currentCtx = null;
 		Port currentPort = null;
@@ -165,11 +165,11 @@ public class OppositeFinder {
 			currentCtx = childNode.data;
 			currentPort = pair.current.getPort();
 			conn = findMatchingRelayConnector(currentCtx, currentPort);
-			if (conn == null) {
+			if (!conn.isPresent()) {
 				continueLoop = false;
 			}
 			if (continueLoop) {
-				pair.current = findTargetPort(conn, null, currentPort);
+				pair.current = findTargetPort(conn.get(), null, currentPort);
 				childNode = findChildNode(currentCtx.getTreeNode(),
 						pair.current.getCapsuleInst());
 			}
@@ -178,15 +178,14 @@ public class OppositeFinder {
 	}
 
 	/**
-	 * Check if the sourcePort is internal in sourceCtx
+	 * Check if the port is internal in ctx
 	 * 
-	 * @param sourceCtx
-	 * @param sourcePort
+	 * @param ctx
+	 * @param port
 	 * @return
 	 */
-	private static boolean sourcePortIsInternal(CapsuleContext sourceCtx,
-			Port sourcePort) {
-		return sourceCtx.getCapsule().getInternalPorts().contains(sourcePort);
+	private static boolean portIsInternal(CapsuleContext ctx, Port port) {
+		return ctx.getCapsule().getInternalPorts().contains(port);
 	}
 
 	/**
@@ -200,19 +199,17 @@ public class OppositeFinder {
 	 */
 	private static TreeNode<CapsuleContext> findChildNode(
 			TreeNode<CapsuleContext> parentNode, CapsuleInst targetInst) {
-		TreeNode<CapsuleContext> childNode = null;
-		for (TreeNode<CapsuleContext> candidateChildNode : parentNode.children) {
-			if (candidateChildNode.data.getCapsuleInst() == targetInst) {
-				childNode = candidateChildNode;
-			}
-		}
-		if (childNode == null) {
+		Optional<TreeNode<CapsuleContext>> childNode = parentNode.children
+				.stream()
+				.filter(node -> node.data.getCapsuleInst() == targetInst)
+				.findFirst();
+		if (!childNode.isPresent()) {
 			String errMsg = "cannot find capsule reference "
 					+ targetInst.getName() + " in capsule "
 					+ parentNode.data.getCapsule().getName();
 			throw new ChildNodeNotFoundException(errMsg);
 		}
-		return childNode;
+		return childNode.get();
 	}
 
 	/**
@@ -242,7 +239,7 @@ public class OppositeFinder {
 	 * @param p
 	 * @return
 	 */
-	private static Connector findMatchingRelayConnector(CapsuleContext ctx,
+	private static Optional<Connector> findMatchingRelayConnector(CapsuleContext ctx,
 			Port p) {
 
 		// go through all the connectors in ctx
@@ -251,17 +248,17 @@ public class OppositeFinder {
 			// if the candidate connector is a relay connector and the port is
 			// the given port
 			if (conn.getCapsuleInst1() == null && conn.getPort1() == p) {
-				return conn;
+				return Optional.of(conn);
 			}
 
 			// same as above but for the other side of the candidate connector
 			if (conn.getCapsuleInst2() == null && conn.getPort2() == p) {
-				return conn;
+				return Optional.of(conn);
 			}
 		}
 
 		// no connectors found
-		return null;
+		return Optional.empty();
 	}
 
 	/**

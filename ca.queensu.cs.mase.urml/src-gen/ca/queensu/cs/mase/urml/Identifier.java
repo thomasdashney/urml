@@ -30,12 +30,12 @@ public interface Identifier extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Id</em>' reference.
-   * @see #setId(Assignable)
+   * @see #setId(Identifiable)
    * @see ca.queensu.cs.mase.urml.UrmlPackage#getIdentifier_Id()
    * @model
    * @generated
    */
-  Assignable getId();
+  Identifiable getId();
 
   /**
    * Sets the value of the '{@link ca.queensu.cs.mase.urml.Identifier#getId <em>Id</em>}' reference.
@@ -45,6 +45,6 @@ public interface Identifier extends Expression
    * @see #getId()
    * @generated
    */
-  void setId(Assignable value);
+  void setId(Identifiable value);
 
 } // Identifier

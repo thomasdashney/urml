@@ -1,4 +1,5 @@
-package ca.queensu.cs.mase.util;
+package ca.queensu.cs.mase.types;
+
 
 public class None implements Value {
 

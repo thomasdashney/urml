@@ -1,6 +1,7 @@
 package ca.queensu.cs.mase.interpreter;
 
 import java.io.PrintStream;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,15 +14,16 @@ import org.eclipse.xtext.xbase.typesystem.util.Multimaps2;
 
 import com.google.common.collect.Multimap;
 
+import ca.queensu.cs.mase.interpreter.dispatchers.ExpressionEvaluator;
+import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.TimerPort;
 import ca.queensu.cs.mase.urml.Transition;
-import ca.queensu.cs.mase.util.MessageInfo;
+import ca.queensu.cs.mase.util.MessageDesc;
 import ca.queensu.cs.mase.util.TreeNode;
-import ca.queensu.cs.mase.util.Value;
 
 /**
  * A catch-all class that encapsulates the data in a capsule instance, which is
@@ -65,7 +67,7 @@ public class CapsuleContext {
 	/**
 	 * The message queue of this "thread"
 	 */
-	private Queue<MessageInfo> messageQueue = new LinkedList<>();
+	private Queue<MessageDesc> messageQueue = new LinkedList<>();
 
 	/**
 	 * The location of the capsule instance in the model's capsule instance tree
@@ -75,7 +77,7 @@ public class CapsuleContext {
 	/**
 	 * The timeout queue of this "thread"
 	 */
-	private Map<TimerPort, Long> timeout = new HashMap<>();
+	private Map<TimerPort, Instant> timeout = new HashMap<>();
 
 	/**
 	 * The trigger variables
@@ -161,11 +163,13 @@ public class CapsuleContext {
 		previousState = s;
 	}
 
-	public PrintStream getOutstream() {
-		return out;
-	}
+	
 
-	public Queue<MessageInfo> getMessageQueue() {
+	public void log(String str) {
+		out.println(str);
+	}
+	
+	public Queue<MessageDesc> getMessageQueue() {
 		return messageQueue;
 	}
 
@@ -185,7 +189,7 @@ public class CapsuleContext {
 		treeNode = tn;
 	}
 
-	public Map<TimerPort, Long> getTimeout() {
+	public Map<TimerPort, Instant> getTimeout() {
 		return timeout;
 	}
 
@@ -241,7 +245,7 @@ public class CapsuleContext {
 	private void registerAttributes() {
 		Capsule c = capsule;
 		for (Attribute a : c.getAttributes()) {
-			Value value = a.getDefaultValue() != null ? new ExpressionEvaluator()
+			Value value = a.getDefaultValue() != null ? ExpressionEvaluator
 					.interpret(a.getDefaultValue(), this) : null;
 			// logger.debug(name + "   attribute: " + a.getName() + " " +
 			// value);

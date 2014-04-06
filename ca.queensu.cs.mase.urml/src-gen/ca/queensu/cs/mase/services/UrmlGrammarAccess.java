@@ -884,7 +884,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cGuardExpressionParserRuleCall_7_2_0 = (RuleCall)cGuardAssignment_7_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cTriggersKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cTriggeredByKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Alternatives cAlternatives_8_1 = (Alternatives)cGroup_8.eContents().get(1);
 		private final Group cGroup_8_1_0 = (Group)cAlternatives_8_1.eContents().get(0);
 		private final Assignment cTriggersAssignment_8_1_0_0 = (Assignment)cGroup_8_1_0.eContents().get(0);
@@ -910,12 +910,12 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		// * transitions:
 		// * / Transition:
 		//	"transition" name=ID? ":" (init?="initial" | from=[State_]) "->" to=[State_] "{" ("guard" "{" guard=Expression "}")?
-		//	("triggers" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
+		//	("triggeredBy" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
 		//	action=ActionCode "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"transition" name=ID? ":" (init?="initial" | from=[State_]) "->" to=[State_] "{" ("guard" "{" guard=Expression "}")?
-		//("triggers" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
+		//("triggeredBy" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
 		//action=ActionCode "}")? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -982,11 +982,11 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_7_3() { return cRightCurlyBracketKeyword_7_3; }
 
-		//("triggers" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))?
+		//("triggeredBy" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))?
 		public Group getGroup_8() { return cGroup_8; }
 
-		//"triggers"
-		public Keyword getTriggersKeyword_8_0() { return cTriggersKeyword_8_0; }
+		//"triggeredBy"
+		public Keyword getTriggeredByKeyword_8_0() { return cTriggeredByKeyword_8_0; }
 
 		//triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]
 		public Alternatives getAlternatives_8_1() { return cAlternatives_8_1; }
@@ -1726,13 +1726,12 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cVarDeclParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cAttributeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cIncomingVariableParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Assignable:
-		//	VarDecl | Attribute | IncomingVariable;
+		//	VarDecl | Attribute;
 		public ParserRule getRule() { return rule; }
 
-		//VarDecl | Attribute | IncomingVariable
+		//VarDecl | Attribute
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//VarDecl
@@ -1740,9 +1739,6 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Attribute
 		public RuleCall getAttributeParserRuleCall_1() { return cAttributeParserRuleCall_1; }
-
-		//IncomingVariable
-		public RuleCall getIncomingVariableParserRuleCall_2() { return cIncomingVariableParserRuleCall_2; }
 	}
 
 	public class WhileLoopElements extends AbstractParserRuleElementFinder {
@@ -2483,21 +2479,41 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class IdentifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Identifier");
 		private final Assignment cIdAssignment = (Assignment)rule.eContents().get(1);
-		private final CrossReference cIdAssignableCrossReference_0 = (CrossReference)cIdAssignment.eContents().get(0);
-		private final RuleCall cIdAssignableIDTerminalRuleCall_0_1 = (RuleCall)cIdAssignableCrossReference_0.eContents().get(1);
+		private final CrossReference cIdIdentifiableCrossReference_0 = (CrossReference)cIdAssignment.eContents().get(0);
+		private final RuleCall cIdIdentifiableIDTerminalRuleCall_0_1 = (RuleCall)cIdIdentifiableCrossReference_0.eContents().get(1);
 		
 		//Identifier:
-		//	id=[Assignable];
+		//	id=[Identifiable];
 		public ParserRule getRule() { return rule; }
 
-		//id=[Assignable]
+		//id=[Identifiable]
 		public Assignment getIdAssignment() { return cIdAssignment; }
 
-		//[Assignable]
-		public CrossReference getIdAssignableCrossReference_0() { return cIdAssignableCrossReference_0; }
+		//[Identifiable]
+		public CrossReference getIdIdentifiableCrossReference_0() { return cIdIdentifiableCrossReference_0; }
 
 		//ID
-		public RuleCall getIdAssignableIDTerminalRuleCall_0_1() { return cIdAssignableIDTerminalRuleCall_0_1; }
+		public RuleCall getIdIdentifiableIDTerminalRuleCall_0_1() { return cIdIdentifiableIDTerminalRuleCall_0_1; }
+	}
+
+	public class IdentifiableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Identifiable");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAssignableParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIncomingVariableParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Identifiable:
+		//	Assignable | IncomingVariable;
+		public ParserRule getRule() { return rule; }
+
+		//Assignable | IncomingVariable
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//Assignable
+		public RuleCall getAssignableParserRuleCall_0() { return cAssignableParserRuleCall_0; }
+
+		//IncomingVariable
+		public RuleCall getIncomingVariableParserRuleCall_1() { return cIncomingVariableParserRuleCall_1; }
 	}
 
 	public class FunctionCallElements extends AbstractParserRuleElementFinder {
@@ -2640,6 +2656,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	private LiteralElements pLiteral;
 	private IntLiteralElements pIntLiteral;
 	private IdentifierElements pIdentifier;
+	private IdentifiableElements pIdentifiable;
 	private FunctionCallElements pFunctionCall;
 	private BoolLiteralElements pBoolLiteral;
 	private TerminalRule tBOOLEAN;
@@ -2840,7 +2857,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	// * transitions:
 	// * / Transition:
 	//	"transition" name=ID? ":" (init?="initial" | from=[State_]) "->" to=[State_] "{" ("guard" "{" guard=Expression "}")?
-	//	("triggers" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
+	//	("triggeredBy" (triggers+=Trigger_in ("or" triggers+=Trigger_in)* | "timeout" timerPort=[TimerPort]))? ("action" "{"
 	//	action=ActionCode "}")? "}";
 	public TransitionElements getTransitionAccess() {
 		return (pTransition != null) ? pTransition : (pTransition = new TransitionElements());
@@ -3018,7 +3035,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Assignable:
-	//	VarDecl | Attribute | IncomingVariable;
+	//	VarDecl | Attribute;
 	public AssignableElements getAssignableAccess() {
 		return (pAssignable != null) ? pAssignable : (pAssignable = new AssignableElements());
 	}
@@ -3213,13 +3230,23 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Identifier:
-	//	id=[Assignable];
+	//	id=[Identifiable];
 	public IdentifierElements getIdentifierAccess() {
 		return (pIdentifier != null) ? pIdentifier : (pIdentifier = new IdentifierElements());
 	}
 	
 	public ParserRule getIdentifierRule() {
 		return getIdentifierAccess().getRule();
+	}
+
+	//Identifiable:
+	//	Assignable | IncomingVariable;
+	public IdentifiableElements getIdentifiableAccess() {
+		return (pIdentifiable != null) ? pIdentifiable : (pIdentifiable = new IdentifiableElements());
+	}
+	
+	public ParserRule getIdentifiableRule() {
+		return getIdentifiableAccess().getRule();
 	}
 
 	//FunctionCall:

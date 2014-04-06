@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class IncomingVariableImpl extends AssignableImpl implements IncomingVariable
+public class IncomingVariableImpl extends IdentifiableImpl implements IncomingVariable
 {
   /**
    * <!-- begin-user-doc -->

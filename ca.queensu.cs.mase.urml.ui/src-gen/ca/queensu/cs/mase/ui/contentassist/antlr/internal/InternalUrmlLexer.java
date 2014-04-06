@@ -12,80 +12,80 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalUrmlLexer extends Lexer {
-    public static final int T__68=68;
+    public static final int T__50=50;
     public static final int RULE_BOOLEAN=7;
-    public static final int T__69=69;
-    public static final int T__66=66;
-    public static final int RULE_ID=4;
-    public static final int T__67=67;
-    public static final int T__29=29;
-    public static final int T__64=64;
-    public static final int T__28=28;
-    public static final int T__65=65;
-    public static final int T__27=27;
-    public static final int T__62=62;
-    public static final int T__26=26;
-    public static final int T__63=63;
-    public static final int T__25=25;
-    public static final int T__24=24;
-    public static final int T__23=23;
-    public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=11;
-    public static final int T__21=21;
-    public static final int T__20=20;
-    public static final int T__61=61;
-    public static final int EOF=-1;
-    public static final int T__60=60;
-    public static final int T__55=55;
-    public static final int T__56=56;
     public static final int T__19=19;
+    public static final int T__15=15;
+    public static final int T__59=59;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__55=55;
+    public static final int T__12=12;
+    public static final int T__56=56;
+    public static final int T__13=13;
     public static final int T__57=57;
+    public static final int T__14=14;
     public static final int T__58=58;
     public static final int T__51=51;
-    public static final int T__16=16;
     public static final int T__52=52;
-    public static final int T__15=15;
     public static final int T__53=53;
-    public static final int T__18=18;
     public static final int T__54=54;
-    public static final int T__17=17;
-    public static final int T__12=12;
-    public static final int T__14=14;
-    public static final int T__13=13;
-    public static final int T__59=59;
+    public static final int T__60=60;
+    public static final int T__61=61;
+    public static final int RULE_ID=4;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
     public static final int RULE_INT=6;
-    public static final int T__50=50;
-    public static final int T__42=42;
-    public static final int T__43=43;
-    public static final int T__40=40;
-    public static final int T__41=41;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__44=44;
-    public static final int T__45=45;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int RULE_SL_COMMENT=9;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int T__66=66;
     public static final int RULE_ML_COMMENT=8;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
-    public static final int RULE_STRING=5;
-    public static final int T__33=33;
-    public static final int T__71=71;
-    public static final int T__34=34;
-    public static final int T__72=72;
-    public static final int T__35=35;
-    public static final int T__36=36;
+    public static final int T__23=23;
+    public static final int T__67=67;
+    public static final int T__24=24;
+    public static final int T__68=68;
+    public static final int T__25=25;
+    public static final int T__69=69;
+    public static final int T__62=62;
+    public static final int T__63=63;
+    public static final int T__20=20;
+    public static final int T__64=64;
+    public static final int T__21=21;
+    public static final int T__65=65;
     public static final int T__70=70;
+    public static final int T__71=71;
+    public static final int T__72=72;
+    public static final int RULE_STRING=5;
+    public static final int RULE_SL_COMMENT=9;
     public static final int T__37=37;
     public static final int T__38=38;
     public static final int T__39=39;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int T__73=73;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__74=74;
+    public static final int T__31=31;
+    public static final int T__75=75;
+    public static final int T__32=32;
     public static final int T__76=76;
     public static final int RULE_WS=10;
-    public static final int T__75=75;
-    public static final int T__74=74;
-    public static final int T__73=73;
+    public static final int RULE_ANY_OTHER=11;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
 
     // delegates
     // delegators
@@ -728,10 +728,10 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:41:7: ( 'triggers' )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:41:9: 'triggers'
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:41:7: ( 'triggeredBy' )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:41:9: 'triggeredBy'
             {
-            match("triggers"); 
+            match("triggeredBy"); 
 
 
             }
@@ -1453,10 +1453,10 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = RULE_BOOLEAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12855:14: ( ( 'true' | 'false' ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12855:16: ( 'true' | 'false' )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12905:14: ( ( 'true' | 'false' ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12905:16: ( 'true' | 'false' )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12855:16: ( 'true' | 'false' )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12905:16: ( 'true' | 'false' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1474,7 +1474,7 @@ public class InternalUrmlLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12855:17: 'true'
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12905:17: 'true'
                     {
                     match("true"); 
 
@@ -1482,7 +1482,7 @@ public class InternalUrmlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12855:24: 'false'
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12905:24: 'false'
                     {
                     match("false"); 
 
@@ -1508,10 +1508,10 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12857:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12857:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12907:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12907:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12857:11: ( '^' )?
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12907:11: ( '^' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1520,7 +1520,7 @@ public class InternalUrmlLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12857:11: '^'
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12907:11: '^'
                     {
                     match('^'); 
 
@@ -1538,7 +1538,7 @@ public class InternalUrmlLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12857:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12907:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -1587,10 +1587,10 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12859:10: ( ( '0' .. '9' )+ )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12859:12: ( '0' .. '9' )+
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12909:10: ( ( '0' .. '9' )+ )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12909:12: ( '0' .. '9' )+
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12859:12: ( '0' .. '9' )+
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12909:12: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1604,7 +1604,7 @@ public class InternalUrmlLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12859:13: '0' .. '9'
+            	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12909:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1636,10 +1636,10 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1657,10 +1657,10 @@ public class InternalUrmlLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1676,7 +1676,7 @@ public class InternalUrmlLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1692,7 +1692,7 @@ public class InternalUrmlLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1717,10 +1717,10 @@ public class InternalUrmlLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1736,7 +1736,7 @@ public class InternalUrmlLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1752,7 +1752,7 @@ public class InternalUrmlLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12861:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12911:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1795,12 +1795,12 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12863:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12863:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12913:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12913:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12863:24: ( options {greedy=false; } : . )*
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12913:24: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -1825,7 +1825,7 @@ public class InternalUrmlLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12863:52: .
+            	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12913:52: .
             	    {
             	    matchAny(); 
 
@@ -1855,12 +1855,12 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12865:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12865:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12915:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12915:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12865:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12915:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -1873,7 +1873,7 @@ public class InternalUrmlLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12865:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12915:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1893,7 +1893,7 @@ public class InternalUrmlLexer extends Lexer {
                 }
             } while (true);
 
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12865:40: ( ( '\\r' )? '\\n' )?
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12915:40: ( ( '\\r' )? '\\n' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1902,9 +1902,9 @@ public class InternalUrmlLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12865:41: ( '\\r' )? '\\n'
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12915:41: ( '\\r' )? '\\n'
                     {
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12865:41: ( '\\r' )?
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12915:41: ( '\\r' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -1913,7 +1913,7 @@ public class InternalUrmlLexer extends Lexer {
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12865:41: '\\r'
+                            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12915:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1945,10 +1945,10 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12867:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12867:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12917:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12917:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12867:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12917:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt12=0;
             loop12:
             do {
@@ -2002,8 +2002,8 @@ public class InternalUrmlLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12869:16: ( . )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12869:18: .
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12919:16: ( . )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12919:18: .
             {
             matchAny(); 
 
@@ -2554,12 +2554,12 @@ public class InternalUrmlLexer extends Lexer {
         "\uffff\1\54\1\u00ed\2\54\1\u00f0\6\54\1\uffff\6\54\3\uffff\1\u00fd"+
         "\1\uffff\1\54\1\uffff\2\54\1\uffff\1\u0101\2\54\1\u0105\3\54\1\u0109"+
         "\2\54\1\u010c\1\54\1\uffff\1\54\1\u010f\1\u0110\1\uffff\1\u0111"+
-        "\2\54\1\uffff\1\54\1\u0115\1\54\1\uffff\1\54\1\u0118\1\uffff\1\54"+
-        "\1\u011a\3\uffff\1\u011b\1\54\1\u011d\1\uffff\1\u011e\1\54\1\uffff"+
-        "\1\54\2\uffff\1\54\2\uffff\1\u0122\2\54\1\uffff\2\54\1\u0127\1\54"+
-        "\1\uffff\1\54\1\u012a\1\uffff";
+        "\2\54\1\uffff\1\54\1\u0115\1\54\1\uffff\2\54\1\uffff\1\54\1\u011a"+
+        "\3\uffff\1\u011b\1\54\1\u011d\1\uffff\1\u011e\3\54\2\uffff\1\54"+
+        "\2\uffff\1\u0123\3\54\1\uffff\1\u0127\2\54\1\uffff\1\u012a\1\54"+
+        "\1\uffff\1\54\1\u012d\1\uffff";
     static final String DFA13_eofS =
-        "\u012b\uffff";
+        "\u012e\uffff";
     static final String DFA13_minS =
         "\1\0\1\157\2\uffff\1\143\1\75\1\157\1\146\1\160\3\uffff\1\141\1"+
         "\154\1\151\1\157\1\uffff\1\145\1\76\1\165\1\150\1\145\1\141\1\157"+
@@ -2580,11 +2580,11 @@ public class InternalUrmlLexer extends Lexer {
         "\2\60\1\uffff\1\165\1\60\1\157\1\156\1\60\1\154\1\156\1\151\1\145"+
         "\1\164\1\141\1\uffff\1\157\2\164\1\162\1\164\1\141\3\uffff\1\60"+
         "\1\uffff\1\164\1\uffff\1\154\1\147\1\uffff\1\60\1\147\1\157\1\60"+
-        "\1\157\1\154\1\162\1\60\1\151\1\163\1\60\1\143\1\uffff\1\145\2\60"+
-        "\1\uffff\1\60\2\156\1\uffff\1\162\1\60\1\164\1\uffff\1\157\1\60"+
+        "\1\157\1\154\1\162\1\60\1\151\1\145\1\60\1\143\1\uffff\1\145\2\60"+
+        "\1\uffff\1\60\2\156\1\uffff\1\162\1\60\1\164\1\uffff\1\157\1\144"+
         "\1\uffff\1\150\1\60\3\uffff\1\60\1\163\1\60\1\uffff\1\60\1\156\1"+
-        "\uffff\1\151\2\uffff\1\164\2\uffff\1\60\1\156\1\141\1\uffff\1\145"+
-        "\1\156\1\60\1\143\1\uffff\1\145\1\60\1\uffff";
+        "\102\1\151\2\uffff\1\164\2\uffff\1\60\1\171\1\156\1\141\1\uffff"+
+        "\1\60\1\145\1\156\1\uffff\1\60\1\143\1\uffff\1\145\1\60\1\uffff";
     static final String DFA13_maxS =
         "\1\uffff\1\157\2\uffff\1\164\1\75\1\162\1\156\1\165\3\uffff\1\157"+
         "\1\170\1\162\1\157\1\uffff\1\165\1\76\1\165\1\151\1\157\1\141\1"+
@@ -2605,12 +2605,12 @@ public class InternalUrmlLexer extends Lexer {
         "\1\156\2\uffff\2\172\1\uffff\1\165\1\172\1\157\1\156\1\172\1\154"+
         "\1\156\1\151\1\145\1\164\1\141\1\uffff\1\157\2\164\1\162\1\164\1"+
         "\141\3\uffff\1\172\1\uffff\1\164\1\uffff\1\154\1\147\1\uffff\1\172"+
-        "\1\147\1\157\1\172\1\157\1\154\1\162\1\172\1\151\1\163\1\172\1\143"+
+        "\1\147\1\157\1\172\1\157\1\154\1\162\1\172\1\151\1\145\1\172\1\143"+
         "\1\uffff\1\145\2\172\1\uffff\1\172\2\156\1\uffff\1\162\1\172\1\164"+
-        "\1\uffff\1\157\1\172\1\uffff\1\150\1\172\3\uffff\1\172\1\163\1\172"+
-        "\1\uffff\1\172\1\156\1\uffff\1\151\2\uffff\1\164\2\uffff\1\172\1"+
-        "\156\1\141\1\uffff\1\145\1\156\1\172\1\143\1\uffff\1\145\1\172\1"+
-        "\uffff";
+        "\1\uffff\1\157\1\144\1\uffff\1\150\1\172\3\uffff\1\172\1\163\1\172"+
+        "\1\uffff\1\172\1\156\1\102\1\151\2\uffff\1\164\2\uffff\1\172\1\171"+
+        "\1\156\1\141\1\uffff\1\172\1\145\1\156\1\uffff\1\172\1\143\1\uffff"+
+        "\1\145\1\172\1\uffff";
     static final String DFA13_acceptS =
         "\2\uffff\1\2\1\3\5\uffff\1\11\1\12\1\13\4\uffff\1\25\16\uffff\1"+
         "\70\1\72\1\uffff\1\74\1\77\1\uffff\1\103\1\104\2\uffff\1\110\1\111"+
@@ -2623,10 +2623,10 @@ public class InternalUrmlLexer extends Lexer {
         "\1\56\1\uffff\1\76\1\53\2\uffff\1\1\13\uffff\1\31\6\uffff\1\30\1"+
         "\36\1\43\1\uffff\1\100\1\uffff\1\42\2\uffff\1\51\14\uffff\1\46\3"+
         "\uffff\1\101\3\uffff\1\14\3\uffff\1\41\2\uffff\1\20\2\uffff\1\6"+
-        "\1\7\1\10\3\uffff\1\15\2\uffff\1\37\1\uffff\1\4\1\16\1\uffff\1\23"+
-        "\1\17\3\uffff\1\34\4\uffff\1\27\2\uffff\1\26";
+        "\1\7\1\10\3\uffff\1\15\4\uffff\1\4\1\16\1\uffff\1\23\1\17\4\uffff"+
+        "\1\34\3\uffff\1\37\2\uffff\1\27\2\uffff\1\26";
     static final String DFA13_specialS =
-        "\1\1\46\uffff\1\0\1\2\u0102\uffff}>";
+        "\1\1\46\uffff\1\0\1\2\u0105\uffff}>";
     static final String[] DFA13_transitionS = {
             "\11\52\2\51\2\52\1\51\22\52\1\51\1\36\1\47\2\52\1\42\1\32\1"+
             "\50\1\11\1\12\1\40\1\37\1\13\1\22\1\20\1\41\12\46\1\5\1\52\1"+
@@ -2904,7 +2904,7 @@ public class InternalUrmlLexer extends Lexer {
             "\1\u0116",
             "",
             "\1\u0117",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u0118",
             "",
             "\1\u0119",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
@@ -2917,23 +2917,26 @@ public class InternalUrmlLexer extends Lexer {
             "",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u011f",
-            "",
             "\1\u0120",
-            "",
-            "",
             "\1\u0121",
             "",
             "",
-            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\u0123",
-            "\1\u0124",
+            "\1\u0122",
             "",
+            "",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u0124",
             "\1\u0125",
             "\1\u0126",
+            "",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             "\1\u0128",
-            "",
             "\1\u0129",
+            "",
+            "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u012b",
+            "",
+            "\1\u012c",
             "\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
             ""
     };

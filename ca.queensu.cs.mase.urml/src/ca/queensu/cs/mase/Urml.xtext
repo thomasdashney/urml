@@ -115,7 +115,7 @@ Transition
 		(init?='initial' | from=[State_]) '->' to=[State_]
 		'{'
 			('guard' '{' guard=Expression '}')?
-			('triggers' ((triggers+=Trigger_in  ('or' triggers+=Trigger_in)*) 
+			('triggeredBy' ((triggers+=Trigger_in  ('or' triggers+=Trigger_in)*) 
 				| 'timeout' timerPort=[TimerPort]
 			))?
 			('action' '{' action=ActionCode '}')? 
@@ -219,7 +219,8 @@ Assignment
 	;	
 	
 Assignable 
-	:	VarDecl | Attribute | IncomingVariable ;
+	:	VarDecl | Attribute  ;
+
 WhileLoop 
 	:	'while' condition=Expression '{' statements+=Statement+ '}'
 	;	
@@ -321,9 +322,12 @@ IntLiteral
 	;
 
 Identifier 
-	:	id=[Assignable]
+	:	id=[Identifiable]
 	;
 
+Identifiable
+	:	Assignable | IncomingVariable
+	;
 
 FunctionCall
 	: 	{FunctionCall} call=[Operation|ID]

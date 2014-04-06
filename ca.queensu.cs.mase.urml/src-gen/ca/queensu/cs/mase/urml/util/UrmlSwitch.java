@@ -84,6 +84,7 @@ public class UrmlSwitch<T> extends Switch<T>
         VarDecl varDecl = (VarDecl)theEObject;
         T result = caseVarDecl(varDecl);
         if (result == null) result = caseAssignable(varDecl);
+        if (result == null) result = caseIdentifiable(varDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,6 +93,7 @@ public class UrmlSwitch<T> extends Switch<T>
         Attribute attribute = (Attribute)theEObject;
         T result = caseAttribute(attribute);
         if (result == null) result = caseAssignable(attribute);
+        if (result == null) result = caseIdentifiable(attribute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -190,7 +192,7 @@ public class UrmlSwitch<T> extends Switch<T>
       {
         IncomingVariable incomingVariable = (IncomingVariable)theEObject;
         T result = caseIncomingVariable(incomingVariable);
-        if (result == null) result = caseAssignable(incomingVariable);
+        if (result == null) result = caseIdentifiable(incomingVariable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -309,6 +311,7 @@ public class UrmlSwitch<T> extends Switch<T>
       {
         Assignable assignable = (Assignable)theEObject;
         T result = caseAssignable(assignable);
+        if (result == null) result = caseIdentifiable(assignable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -381,6 +384,13 @@ public class UrmlSwitch<T> extends Switch<T>
         Identifier identifier = (Identifier)theEObject;
         T result = caseIdentifier(identifier);
         if (result == null) result = caseExpression(identifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UrmlPackage.IDENTIFIABLE:
+      {
+        Identifiable identifiable = (Identifiable)theEObject;
+        T result = caseIdentifiable(identifiable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1178,6 +1188,22 @@ public class UrmlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIdentifier(Identifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIdentifiable(Identifiable object)
   {
     return null;
   }

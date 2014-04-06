@@ -105,6 +105,7 @@ public class UrmlFactoryImpl extends EFactoryImpl implements UrmlFactory
       case UrmlPackage.LITERAL: return createLiteral();
       case UrmlPackage.INT_LITERAL: return createIntLiteral();
       case UrmlPackage.IDENTIFIER: return createIdentifier();
+      case UrmlPackage.IDENTIFIABLE: return createIdentifiable();
       case UrmlPackage.FUNCTION_CALL: return createFunctionCall();
       case UrmlPackage.BOOL_LITERAL: return createBoolLiteral();
       case UrmlPackage.CONCATENATE_EXPRESSION: return createConcatenateExpression();
@@ -576,6 +577,17 @@ public class UrmlFactoryImpl extends EFactoryImpl implements UrmlFactory
   {
     IdentifierImpl identifier = new IdentifierImpl();
     return identifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Identifiable createIdentifiable()
+  {
+    IdentifiableImpl identifiable = new IdentifiableImpl();
+    return identifiable;
   }
 
   /**

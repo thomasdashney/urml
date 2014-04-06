@@ -1,5 +1,8 @@
 package ca.queensu.cs.mase.ui.interpreter.launch;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -118,23 +121,26 @@ public class UrmlLaunchConfigurationDelegate extends
 	 */
 	private Object[] getExitCondAndDurationFrom(
 			ILaunchConfiguration configuration) throws CoreException {
-		int duration = 0;
+		int duration;
 		ExitCondition exitCond;
 		String exitCondStr = configuration.getAttribute(
 				IUrmlLaunchConfigurationConstants.ATTR_EXIT_COND,
 				IUrmlLaunchConfigurationConstants.EXIT_INFINITE);
-		if (exitCondStr.equals(IUrmlLaunchConfigurationConstants.EXIT_INFINITE)) {
+		switch (exitCondStr) {
+		case IUrmlLaunchConfigurationConstants.EXIT_INFINITE:
 			exitCond = ExitCondition.INFINITE;
 			duration = -1;
-		} else if (exitCondStr
-				.equals(IUrmlLaunchConfigurationConstants.EXIT_SECONDS)) {
+			break;
+		case IUrmlLaunchConfigurationConstants.EXIT_SECONDS:
 			exitCond = ExitCondition.BEFORE_SECONDS;
 			duration = configuration.getAttribute(
 					IUrmlLaunchConfigurationConstants.ATTR_EXIT_SECONDS, 0);
-		} else {
+			break;
+		default:
 			exitCond = ExitCondition.BEFORE_TRANSITIONS;
 			duration = configuration.getAttribute(
 					IUrmlLaunchConfigurationConstants.ATTR_EXIT_TRANSITIONS, 0);
+			break;
 		}
 		return new Object[] { exitCond, duration };
 	}
@@ -155,14 +161,16 @@ public class UrmlLaunchConfigurationDelegate extends
 		String execConfig = configuration.getAttribute(
 				IUrmlLaunchConfigurationConstants.ATTR_EXEC_CONFIG,
 				IUrmlLaunchConfigurationConstants.EXEC_FIRST_TRANSITION);
-		if (execConfig
-				.equals(IUrmlLaunchConfigurationConstants.EXEC_FIRST_TRANSITION)) {
+		switch (execConfig) {
+		case IUrmlLaunchConfigurationConstants.EXEC_FIRST_TRANSITION:
 			multiTrans = MultipleTransitions.FIRST_TRANSITION;
-		} else if (execConfig
-				.equals(IUrmlLaunchConfigurationConstants.EXEC_INTERACTIVE)) {
+			break;
+		case IUrmlLaunchConfigurationConstants.EXEC_INTERACTIVE:
 			multiTrans = MultipleTransitions.INTERACTIVE;
-		} else {
+			break;
+		default:
 			multiTrans = MultipleTransitions.RANDOM_TRANSITION;
+			break;
 		}
 		return multiTrans;
 	}
@@ -194,26 +202,20 @@ public class UrmlLaunchConfigurationDelegate extends
 	 *            the source event
 	 */
 	private void registerConsoleToView(final IOConsole console) {
-		Display.getDefault().asyncExec(new Runnable() {
-			/**
-			 * Registers the console to its view
-			 */
-			@Override
-			public void run() {
-				IWorkbenchWindow window = PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow();
-				IWorkbenchPage page = window.getActivePage();
+		Display.getDefault().asyncExec(
+				() -> {
+					IWorkbenchWindow window = PlatformUI.getWorkbench()
+							.getActiveWorkbenchWindow();
+					IWorkbenchPage page = window.getActivePage();
 
-				try {
-					IConsoleView view = (IConsoleView) page
-							.showView(IConsoleConstants.ID_CONSOLE_VIEW);
-					view.display(console);
-				} catch (PartInitException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
+					try {
+						IConsoleView view = (IConsoleView) page
+								.showView(IConsoleConstants.ID_CONSOLE_VIEW);
+						view.display(console);
+					} catch (PartInitException e) {
+						e.printStackTrace();
+					}
+				});
 	}
 
 	/**
@@ -227,12 +229,15 @@ public class UrmlLaunchConfigurationDelegate extends
 	 */
 	private IOConsole findConsole(String name) {
 		IConsoleManager conMan = ConsolePlugin.getDefault().getConsoleManager();
-		for (IConsole con : conMan.getConsoles())
-			if (name.equals(con.getName()))
-				return (IOConsole) con;
-		IOConsole newConsole = new IOConsole(name, null);
-		conMan.addConsoles(new IConsole[] { newConsole });
-		return newConsole;
+		Optional<IConsole> existingConsole = Stream.of(conMan.getConsoles())
+				.findFirst();
+		if (existingConsole.isPresent()) {
+			return (IOConsole) existingConsole.get();
+		} else {
+			IOConsole newConsole = new IOConsole(name, null);
+			conMan.addConsoles(new IConsole[] { newConsole });
+			return newConsole;
+		}
 	}
 
 }

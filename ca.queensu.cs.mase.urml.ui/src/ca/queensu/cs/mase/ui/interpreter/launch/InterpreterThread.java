@@ -22,26 +22,20 @@ public class InterpreterThread {
 	 *            the interpreter that the thread is going to execute
 	 */
 	public static void start(final UrmlInterpreter interpreter) {
-		if (interpreterThread == null) {
-			interpreterThread = new Thread(new Runnable() {
-				/**
-				 * Run the interpreter for URML
-				 */
-				@Override
-				public void run() {
-					interpreter.interpret();
-
-					// the interpreter has finished successfully (i.e., without
-					// interruption from the user). Clean up by unlink the
-					// terminate action and unlink interpreter thread.
-					if (action != null) {
-						action.setEnabled(false);
-						interpreterThread = null;
-					}
-				}
-			});
-			interpreterThread.start();
+		if (isRunning()) {
+			stop();
 		}
+		interpreterThread = new Thread(() -> {
+			interpreter.interpret();
+			// the interpreter has finished successfully (i.e., without
+			// interruption from the user). Clean up by unlink the
+			// terminate action and unlink interpreter thread.
+			if (action != null) {
+				action.setEnabled(false);
+				interpreterThread = null;
+			}
+		});
+		interpreterThread.start();
 		if (action != null) {
 			action.setEnabled(true);
 		}
@@ -74,7 +68,7 @@ public class InterpreterThread {
 	 * been pressed
 	 */
 	public static void stop() {
-		if (interpreterThread != null) {
+		if (isRunning()) {
 			interpreterThread.stop();
 			// unlink the interpreter thread
 			interpreterThread = null;

@@ -1,6 +1,9 @@
-package ca.queensu.cs.mase.interpreter;
+package ca.queensu.cs.mase.interpreter.dispatchers;
 
+import java.lang.reflect.Method;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
@@ -9,8 +12,16 @@ import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
+import ca.queensu.cs.mase.interpreter.CapsuleContext;
+import ca.queensu.cs.mase.interpreter.ReturnStatementSignal;
+import ca.queensu.cs.mase.types.Bool;
+import ca.queensu.cs.mase.types.Int;
+import ca.queensu.cs.mase.types.None;
+import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.BoolLiteral;
 import ca.queensu.cs.mase.urml.ConditionalAndExpression;
 import ca.queensu.cs.mase.urml.ConditionalOrExpression;
@@ -34,10 +45,6 @@ import ca.queensu.cs.mase.urml.Plus;
 import ca.queensu.cs.mase.urml.ReturnStatement;
 import ca.queensu.cs.mase.urml.StatementOperation;
 import ca.queensu.cs.mase.urml.UnaryExpression;
-import ca.queensu.cs.mase.util.Bool;
-import ca.queensu.cs.mase.util.Int;
-import ca.queensu.cs.mase.util.None;
-import ca.queensu.cs.mase.util.Value;
 
 /**
  * An expression evaluator used for the URML language
@@ -48,7 +55,7 @@ import ca.queensu.cs.mase.util.Value;
 public class ExpressionEvaluator {
 
 	@Inject
-	private Logger logger;
+	private Logger logger = Logger.getLogger(ExpressionEvaluator.class);
 	/**
 	 * Xtext's multiple dispatcher to dispatch method based on the dynamic
 	 * (runtime) types of all its arguments (as opposed to Java where in the
@@ -56,8 +63,15 @@ public class ExpressionEvaluator {
 	 * matched and for the arguments, their compile-time type is matched);
 	 * multiple dispatch is also known as "multi-methods" in the PL literature
 	 */
-	private PolymorphicDispatcher<Value> expEvalDispatcher = PolymorphicDispatcher
-			.createForSingleTarget("compute", 2, 2, this); //$NON-NLS-1$
+	private static PolymorphicDispatcher<Value> expEvalDispatcher;
+	static {
+
+		Predicate<Method> methodFilter = PolymorphicDispatcher.Predicates
+				.forName("compute", 2);
+		List<ExpressionEvaluator> targets = Collections
+				.singletonList(new ExpressionEvaluator());
+		expEvalDispatcher = new PolymorphicDispatcher<>(targets, methodFilter);
+	}
 
 	/**
 	 * Evaluates the expression {@code exp} based on the environment as
@@ -72,7 +86,7 @@ public class ExpressionEvaluator {
 	 *         represents the result of the evaluation of the expression
 	 *         {@code exp}
 	 */
-	public Value interpret(Expression exp, CapsuleContext ctx) {
+	public static Value interpret(Expression exp, CapsuleContext ctx) {
 		return expEvalDispatcher.invoke(exp, ctx);
 	}
 
@@ -232,7 +246,7 @@ public class ExpressionEvaluator {
 	}
 
 	private Value compute(FunctionCall exp, CapsuleContext ctx) {
-		
+
 		// check if formal param # == actual arguments #
 		int formalParam = exp.getCall().getVarDecls().size();
 		int actualArgs = exp.getParams().size();
@@ -248,7 +262,8 @@ public class ExpressionEvaluator {
 		for (int i = 0; i < formalParam; i++) {
 			String formalParameter = exp.getCall().getVarDecls().get(i)
 					.getName();
-			Value actualArgument = this.interpret(exp.getParams().get(i), ctx);
+			Value actualArgument = ExpressionEvaluator.interpret(exp
+					.getParams().get(i), ctx);
 			newEnvt.put(formalParameter, actualArgument);
 		}
 
@@ -273,7 +288,8 @@ public class ExpressionEvaluator {
 		Value val = expEvalDispatcher.invoke(exp, ctx);
 		if (!(val instanceof Bool))
 			throw new ClassCastException(String.format(
-					"line %d: %s is not a boolean", getLineNumber(exp), val.toString()));
+					"line %d: %s is not a boolean", getLineNumber(exp),
+					val.toString()));
 		return (Bool) val;
 	}
 
@@ -281,7 +297,7 @@ public class ExpressionEvaluator {
 		Value val = expEvalDispatcher.invoke(exp, ctx);
 		if (!(val instanceof Int))
 			throw new ClassCastException(String.format(
-					"line %d: %s is not an integer", getLineNumber(exp), val.toString()));
+					"line %d: %s is not an integer", getLineNumber(exp), val));
 		return (Int) val;
 	}
 

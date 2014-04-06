@@ -13,6 +13,6 @@ package ca.queensu.cs.mase.urml;
  * @model
  * @generated
  */
-public interface IncomingVariable extends Assignable
+public interface IncomingVariable extends Identifiable
 {
 } // IncomingVariable

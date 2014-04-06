@@ -1464,9 +1464,9 @@ ruleTransition returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getTransitionAccess().getRightCurlyBracketKeyword_7_3());
     }
-)?(	otherlv_12='triggers' 
+)?(	otherlv_12='triggeredBy' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getTransitionAccess().getTriggersKeyword_8_0());
+    	newLeafNode(otherlv_12, grammarAccess.getTransitionAccess().getTriggeredByKeyword_8_0());
     }
 (((
 (
@@ -2677,6 +2677,44 @@ ruleAssignment returns [EObject current=null]
 
 
 
+// Entry rule entryRuleAssignable
+entryRuleAssignable returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAssignableRule()); }
+	 iv_ruleAssignable=ruleAssignable 
+	 { $current=$iv_ruleAssignable.current; } 
+	 EOF 
+;
+
+// Rule Assignable
+ruleAssignable returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getAssignableAccess().getVarDeclParserRuleCall_0()); 
+    }
+    this_VarDecl_0=ruleVarDecl
+    { 
+        $current = $this_VarDecl_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getAssignableAccess().getAttributeParserRuleCall_1()); 
+    }
+    this_Attribute_1=ruleAttribute
+    { 
+        $current = $this_Attribute_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
 
 
 // Entry rule entryRuleWhileLoop
@@ -3827,12 +3865,14 @@ ruleIdentifier returns [EObject current=null]
         }
 	otherlv_0=RULE_ID
 	{
-		newLeafNode(otherlv_0, grammarAccess.getIdentifierAccess().getIdAssignableCrossReference_0()); 
+		newLeafNode(otherlv_0, grammarAccess.getIdentifierAccess().getIdIdentifiableCrossReference_0()); 
 	}
 
 )
 )
 ;
+
+
 
 
 

@@ -3,6 +3,7 @@ package ca.queensu.cs.mase.interpreter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.EcoreUtil2;
 
+import ca.queensu.cs.mase.interpreter.dispatchers.ExpressionEvaluator;
+import ca.queensu.cs.mase.types.Bool;
+import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.Expression;
 import ca.queensu.cs.mase.urml.IncomingVariable;
@@ -19,17 +23,15 @@ import ca.queensu.cs.mase.urml.Signal;
 import ca.queensu.cs.mase.urml.TimerPort;
 import ca.queensu.cs.mase.urml.Transition;
 import ca.queensu.cs.mase.urml.Trigger_in;
-import ca.queensu.cs.mase.util.Bool;
-import ca.queensu.cs.mase.util.MessageInfo;
-import ca.queensu.cs.mase.util.Value;
+import ca.queensu.cs.mase.util.MessageDesc;
 
-public class TransitionFilterer {
+public class TransitionFilter {
 
 	private BufferedReader in;
 	private PrintStream out;
 	private ExecutionConfig config;
 
-	public TransitionFilterer(BufferedReader in, PrintStream out,
+	public TransitionFilter(BufferedReader in, PrintStream out,
 			ExecutionConfig config) {
 		this.in = in;
 		this.out = out;
@@ -77,7 +79,7 @@ public class TransitionFilterer {
 			testMsgTriggers(t, toReturn, ctx);
 			testTimerTriggers(t, toReturn, ctx);
 		}
-		System.out.println(toReturn);
+//		SSystem.out.println(toReturn);
 		return toReturn.toArray(new Transition[0]);
 	}
 
@@ -129,18 +131,18 @@ public class TransitionFilterer {
 			for (Trigger_in ti : t.getTriggers()) {
 				Port transPort = ti.getFrom();
 				Signal transSignal = ti.getSignal();
-				MessageInfo msg = ctx.getMessageQueue().peek();
+				MessageDesc msg = ctx.getMessageQueue().peek();
 				if (msg != null) {
 					// for (MessageInfo msg : ctx.getMessageQueue()) {
-					System.out.println(ctx.getRefName() + " msg port: "
-							+ msg.getPort());
-					System.out.println("msg signal: " + msg.getSignal());
-					System.out.println("   trans port: " + transPort);
-					System.out.println("   trans signal: " + transSignal);
+//					SSystem.out.println(ctx.getRefName() + " msg port: "
+//							+ msg.getPort());
+//					SSystem.out.println("msg signal: " + msg.getSignal());
+//					SSystem.out.println("   trans port: " + transPort);
+//					SSystem.out.println("   trans signal: " + transSignal);
 					if (transPort == msg.getPort()
 							&& transSignal == msg.getSignal()) {
-						System.out.println(transPort);
-						System.out.println(transSignal);
+//						SSystem.out.println(transPort);
+//						SSystem.out.println(transSignal);
 						toReturn.add(t);
 					}
 				}
@@ -153,9 +155,10 @@ public class TransitionFilterer {
 		TimerPort timerPort = t.getTimerPort();
 		if (timerPort != null) {
 			if (ctx.getTimeout().containsKey(timerPort)) {
-				long timeoutTime = ctx.getTimeout().get(timerPort);
-				if (System.currentTimeMillis() >= timeoutTime) {
+				Instant timeoutInstant = ctx.getTimeout().get(timerPort);
+				if (Instant.now().isAfter(timeoutInstant.minusMillis(500))) {
 					toReturn.add(t);
+					ctx.getTimeout().remove(timerPort);
 				}
 			}
 		}
@@ -176,7 +179,7 @@ public class TransitionFilterer {
 		Expression guard = t.getGuard();
 		if (guard == null)
 			return new Bool(true);
-		Value guardValue = new ExpressionEvaluator().interpret(guard, ci);
+		Value guardValue = ExpressionEvaluator.interpret(guard, ci);
 		if (!(guardValue instanceof Bool))
 			throw new ClassCastException(
 					"the guard does not evaluate to a boolean value");
@@ -274,7 +277,7 @@ public class TransitionFilterer {
 		for (Trigger_in trigger : transition.getTriggers()) {
 			Port triggerPort = trigger.getFrom();
 			Signal triggerSignal = trigger.getSignal();
-			MessageInfo msg = ctx.getMessageQueue().peek();
+			MessageDesc msg = ctx.getMessageQueue().peek();
 			if (msg == null) {
 				continue;
 			}
