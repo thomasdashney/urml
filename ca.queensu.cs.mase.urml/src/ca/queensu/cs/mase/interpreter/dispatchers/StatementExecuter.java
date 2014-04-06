@@ -21,6 +21,7 @@ import com.google.common.collect.Lists;
 import ca.queensu.cs.mase.interpreter.OppositeFinder;
 import ca.queensu.cs.mase.interpreter.OppositeFinder.ConnectorException;
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
+import ca.queensu.cs.mase.interpreter.data.CapsuleContextPortPair;
 import ca.queensu.cs.mase.types.Bool;
 import ca.queensu.cs.mase.types.Int;
 import ca.queensu.cs.mase.types.Value;
@@ -45,7 +46,6 @@ import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.urml.Variable;
 import ca.queensu.cs.mase.urml.WhileLoop;
 import ca.queensu.cs.mase.urml.WhileLoopOperation;
-import ca.queensu.cs.mase.util.CapsuleContextPortPair;
 import ca.queensu.cs.mase.util.MessageDesc;
 import ca.queensu.cs.mase.util.ReturnStatementSignal;
 
