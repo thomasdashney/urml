@@ -80,7 +80,6 @@ public class TransitionFilter {
 			testMsgTriggers(t, toReturn, ctx);
 			testTimerTriggers(t, toReturn, ctx);
 		}
-//		SSystem.out.println(toReturn);
 		return toReturn.toArray(new Transition[0]);
 	}
 
@@ -134,16 +133,8 @@ public class TransitionFilter {
 				Signal transSignal = ti.getSignal();
 				MessageDesc msg = ctx.getMessageQueue().peek();
 				if (msg != null) {
-					// for (MessageInfo msg : ctx.getMessageQueue()) {
-//					SSystem.out.println(ctx.getRefName() + " msg port: "
-//							+ msg.getPort());
-//					SSystem.out.println("msg signal: " + msg.getSignal());
-//					SSystem.out.println("   trans port: " + transPort);
-//					SSystem.out.println("   trans signal: " + transSignal);
 					if (transPort == msg.getPort()
 							&& transSignal == msg.getSignal()) {
-//						SSystem.out.println(transPort);
-//						SSystem.out.println(transSignal);
 						toReturn.add(t);
 					}
 				}
@@ -157,7 +148,7 @@ public class TransitionFilter {
 		if (timerPort != null) {
 			if (ctx.getTimeout().containsKey(timerPort)) {
 				Instant timeoutInstant = ctx.getTimeout().get(timerPort);
-				if (Instant.now().isAfter(timeoutInstant.minusMillis(500))) {
+				if (Instant.now().isAfter(timeoutInstant)) {
 					toReturn.add(t);
 					ctx.getTimeout().remove(timerPort);
 				}
