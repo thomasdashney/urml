@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.EcoreUtil2;
 
+import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.dispatchers.ExpressionEvaluator;
 import ca.queensu.cs.mase.types.Bool;
 import ca.queensu.cs.mase.types.Value;

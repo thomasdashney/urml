@@ -1,5 +1,6 @@
 package ca.queensu.cs.mase.interpreter;
 
+import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.urml.Port;
 
 /**

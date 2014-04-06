@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.OptionalLong;
 
 import ca.queensu.cs.mase.interpreter.OppositeFinder.ConnectorException;
+import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.dispatchers.ExpressionEvaluator.NoSuchIdentifierException;
 import ca.queensu.cs.mase.util.TreeNode;
 

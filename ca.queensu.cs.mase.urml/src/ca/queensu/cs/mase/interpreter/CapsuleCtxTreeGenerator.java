@@ -4,6 +4,7 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.Optional;
 
+import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Model;

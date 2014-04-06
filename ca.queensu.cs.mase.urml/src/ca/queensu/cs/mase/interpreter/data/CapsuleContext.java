@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.interpreter;
+package ca.queensu.cs.mase.interpreter.data;
 
 import java.io.PrintStream;
 import java.time.Instant;

@@ -18,10 +18,10 @@ import org.eclipse.xtext.util.PolymorphicDispatcher;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 
-import ca.queensu.cs.mase.interpreter.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.CapsuleContextPortPair;
 import ca.queensu.cs.mase.interpreter.OppositeFinder;
 import ca.queensu.cs.mase.interpreter.OppositeFinder.ConnectorException;
+import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.types.Bool;
 import ca.queensu.cs.mase.types.Int;
 import ca.queensu.cs.mase.types.Value;
