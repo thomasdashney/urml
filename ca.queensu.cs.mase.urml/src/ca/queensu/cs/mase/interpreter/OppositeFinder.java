@@ -6,6 +6,7 @@ import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Connector;
 import ca.queensu.cs.mase.urml.Port;
+import ca.queensu.cs.mase.util.CapsuleContextPortPair;
 import ca.queensu.cs.mase.util.TreeNode;
 
 public class OppositeFinder {

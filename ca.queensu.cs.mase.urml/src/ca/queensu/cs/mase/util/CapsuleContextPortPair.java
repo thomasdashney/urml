@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.interpreter;
+package ca.queensu.cs.mase.util;
 
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.urml.Port;
@@ -20,7 +20,7 @@ public class CapsuleContextPortPair {
 	 * @param capsuleContext
 	 * @param port
 	 */
-	CapsuleContextPortPair(CapsuleContext capsuleContext, Port port) {
+	public CapsuleContextPortPair(CapsuleContext capsuleContext, Port port) {
 		this.capsuleContext = capsuleContext;
 		this.port = port;
 	}
