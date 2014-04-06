@@ -1,17 +1,16 @@
-package ca.queensu.cs.mase.interpreter;
+package ca.queensu.cs.mase.interpreter.data;
 
 import java.io.PrintStream;
 import java.util.List;
 import java.util.Optional;
 
-import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Model;
 import ca.queensu.cs.mase.urml.UrmlFactory;
 import ca.queensu.cs.mase.util.TreeNode;
 
-public class CapsuleCtxTreeGenerator {
+public class CapsuleContextTreeGenerator {
 
 	/**
 	 * The embedded model to be interpreted by this interpreter
@@ -23,7 +22,7 @@ public class CapsuleCtxTreeGenerator {
 	 */
 	private PrintStream out;
 
-	private CapsuleCtxTreeGenerator() {
+	private CapsuleContextTreeGenerator() {
 	}
 
 	/**
@@ -32,7 +31,7 @@ public class CapsuleCtxTreeGenerator {
 	 * @param model
 	 * @param out
 	 */
-	public CapsuleCtxTreeGenerator(Model model, PrintStream out) {
+	public CapsuleContextTreeGenerator(Model model, PrintStream out) {
 		this();
 		this.model = model;
 		this.out = out;

@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
+import ca.queensu.cs.mase.interpreter.data.CapsuleContextTreeGenerator;
 import ca.queensu.cs.mase.urml.Model;
 import ca.queensu.cs.mase.util.TreeNode;
 
@@ -65,7 +66,7 @@ public class UrmlInterpreter {
 	 * Interprets the embedded model by going through each capsule in the model
 	 */
 	public void interpret() {
-		TreeNode<CapsuleContext> rootCtx = new CapsuleCtxTreeGenerator(model, out)
+		TreeNode<CapsuleContext> rootCtx = new CapsuleContextTreeGenerator(model, out)
 				.getRootContextNode();
 		new CapsuleScheduler(in, out, config).loopCapsuleCtxFromTree(rootCtx);
 		System.out.println("EXIT");
