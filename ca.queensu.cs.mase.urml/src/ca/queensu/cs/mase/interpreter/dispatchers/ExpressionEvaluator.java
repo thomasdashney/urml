@@ -17,7 +17,6 @@ import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
 import ca.queensu.cs.mase.interpreter.CapsuleContext;
-import ca.queensu.cs.mase.interpreter.ReturnStatementSignal;
 import ca.queensu.cs.mase.types.Bool;
 import ca.queensu.cs.mase.types.Int;
 import ca.queensu.cs.mase.types.None;
@@ -45,6 +44,7 @@ import ca.queensu.cs.mase.urml.Plus;
 import ca.queensu.cs.mase.urml.ReturnStatement;
 import ca.queensu.cs.mase.urml.StatementOperation;
 import ca.queensu.cs.mase.urml.UnaryExpression;
+import ca.queensu.cs.mase.util.ReturnStatementSignal;
 
 /**
  * An expression evaluator used for the URML language

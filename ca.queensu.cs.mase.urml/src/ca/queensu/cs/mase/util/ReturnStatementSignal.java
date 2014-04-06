@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.interpreter;
+package ca.queensu.cs.mase.util;
 
 /**
  * A dirty (really dirty) trick. When we have met a "return" statement from the
