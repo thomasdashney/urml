@@ -236,8 +236,8 @@ public class TransitionFilter {
 						+ evalTransition(tr));
 				transitionIndex++;
 			}
-			out.println(capsuleName
-					+ " choose the transition you wish to launch:");
+			out.println("capsule name: " + capsuleName
+					+ ". choose the transition you wish to launch:");
 			// String transitionSelectionStr = in.readLine();
 			// return Integer.parseInt(transitionSelectionStr);
 			int transitionSelectionStr = Integer.parseInt(in.readLine());

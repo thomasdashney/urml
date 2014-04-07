@@ -1421,17 +1421,10 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     returnValue=Expression
+	 *     (returnValue=Expression?)
 	 */
 	protected void sequence_ReturnStatement(EObject context, ReturnStatement semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.RETURN_STATEMENT__RETURN_VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.RETURN_STATEMENT__RETURN_VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_1_0(), semanticObject.getReturnValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

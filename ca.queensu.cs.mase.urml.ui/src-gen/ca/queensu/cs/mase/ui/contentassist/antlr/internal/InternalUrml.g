@@ -7242,11 +7242,11 @@ rule__ReturnStatement__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getReturnStatementAccess().getReturnKeyword_0()); }
+{ before(grammarAccess.getReturnStatementAccess().getReturnStatementAction_0()); }
+(
 
-	'return' 
-
-{ after(grammarAccess.getReturnStatementAccess().getReturnKeyword_0()); }
+)
+{ after(grammarAccess.getReturnStatementAccess().getReturnStatementAction_0()); }
 )
 
 ;
@@ -7261,6 +7261,7 @@ rule__ReturnStatement__Group__1
     }
 :
 	rule__ReturnStatement__Group__1__Impl
+	rule__ReturnStatement__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -7272,15 +7273,47 @@ rule__ReturnStatement__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getReturnStatementAccess().getReturnValueAssignment_1()); }
-(rule__ReturnStatement__ReturnValueAssignment_1)
-{ after(grammarAccess.getReturnStatementAccess().getReturnValueAssignment_1()); }
+{ before(grammarAccess.getReturnStatementAccess().getReturnKeyword_1()); }
+
+	'return' 
+
+{ after(grammarAccess.getReturnStatementAccess().getReturnKeyword_1()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__ReturnStatement__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ReturnStatement__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ReturnStatement__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getReturnStatementAccess().getReturnValueAssignment_2()); }
+(rule__ReturnStatement__ReturnValueAssignment_2)?
+{ after(grammarAccess.getReturnStatementAccess().getReturnValueAssignment_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -12314,14 +12347,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ReturnStatement__ReturnValueAssignment_1
+rule__ReturnStatement__ReturnValueAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_1_0()); }
-	ruleExpression{ after(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_1_0()); }
+{ before(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_2_0()); }
+	ruleExpression{ after(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_2_0()); }
 )
 
 ;

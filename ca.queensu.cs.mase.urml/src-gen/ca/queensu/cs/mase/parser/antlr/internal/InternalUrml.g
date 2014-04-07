@@ -2125,29 +2125,35 @@ ruleReturnStatement returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='return' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getReturnStatementAccess().getReturnKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getReturnStatementAccess().getReturnStatementAction_0(),
+            $current);
+    }
+)	otherlv_1='return' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getReturnStatementAccess().getReturnKeyword_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_2_0()); 
 	    }
-		lv_returnValue_1_0=ruleExpression		{
+		lv_returnValue_2_0=ruleExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getReturnStatementRule());
 	        }
        		set(
        			$current, 
        			"returnValue",
-        		lv_returnValue_1_0, 
+        		lv_returnValue_2_0, 
         		"Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))
+)?)
 ;
 
 

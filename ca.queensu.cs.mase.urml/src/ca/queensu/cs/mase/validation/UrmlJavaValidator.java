@@ -1,6 +1,7 @@
 package ca.queensu.cs.mase.validation;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -13,9 +14,12 @@ import ca.queensu.cs.mase.urml.Connector;
 import ca.queensu.cs.mase.urml.FunctionCall;
 import ca.queensu.cs.mase.urml.Invoke;
 import ca.queensu.cs.mase.urml.Model;
+import ca.queensu.cs.mase.urml.OperationCode;
 import ca.queensu.cs.mase.urml.Port;
 import ca.queensu.cs.mase.urml.Protocol;
+import ca.queensu.cs.mase.urml.ReturnStatement;
 import ca.queensu.cs.mase.urml.State_;
+import ca.queensu.cs.mase.urml.StatementOperation;
 import ca.queensu.cs.mase.urml.Transition;
 import ca.queensu.cs.mase.urml.Trigger_in;
 import ca.queensu.cs.mase.urml.Trigger_out;
@@ -205,6 +209,24 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 		}
 	}
 
+	@Check
+	public void checkFunctionMustReturnSomething(FunctionCall f) {
+		Stream<StatementOperation> s = f.getCall().getOperationCode()
+				.getStatements().stream();
+		if (!s.anyMatch(o -> o instanceof ReturnStatement)) {
+			error("Function call must return something",
+					UrmlPackage.eINSTANCE.getFunctionCall_Call());
+		}
+
+		for (ReturnStatement rs : (Iterable<ReturnStatement>) s.filter(
+				o -> o instanceof ReturnStatement)
+				.map(o -> (ReturnStatement) o)::iterator) {
+			if (rs.getReturnValue() == null) {
+				error("This function must return something", rs, null, -1);
+			}
+		}
+	}
+
 	public static String DUPLICATE_STATE = "ca.queensu.cs.mase.DuplicateState";
 
 	@Check
@@ -220,6 +242,15 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 		checkDuplicates(trans, UrmlPackage.eINSTANCE.getTransition_Name(),
 				DUPLICATE_TRANSITION);
 	}
+
+	// public static String DUPLICATE_IDENTIFIER =
+	// "ca.queensu.cs.mase.DuplicateIdentifier";
+	//
+	// @Check
+	// public void checkIdentifierDuplicates(Identifiable id) {
+	// checkDuplicates(id, UrmlPackage.eINSTANCE.getIdentifiable_Name(),
+	// DUPLICATE_IDENTIFIER);
+	// }
 
 	private <T extends EObject> void checkDuplicates(T first,
 			EStructuralFeature feature, String code) {

@@ -219,7 +219,7 @@ public class UrmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfStatementOperationAccess().getConditionAssignment_1(), "rule__IfStatementOperation__ConditionAssignment_1");
 					put(grammarAccess.getIfStatementOperationAccess().getThenStatementsAssignment_3(), "rule__IfStatementOperation__ThenStatementsAssignment_3");
 					put(grammarAccess.getIfStatementOperationAccess().getElseStatementsAssignment_5_2(), "rule__IfStatementOperation__ElseStatementsAssignment_5_2");
-					put(grammarAccess.getReturnStatementAccess().getReturnValueAssignment_1(), "rule__ReturnStatement__ReturnValueAssignment_1");
+					put(grammarAccess.getReturnStatementAccess().getReturnValueAssignment_2(), "rule__ReturnStatement__ReturnValueAssignment_2");
 					put(grammarAccess.getActionCodeAccess().getStatementsAssignment(), "rule__ActionCode__StatementsAssignment");
 					put(grammarAccess.getVariableAccess().getVarAssignment_1(), "rule__Variable__VarAssignment_1");
 					put(grammarAccess.getVariableAccess().getAssignAssignment_2_0(), "rule__Variable__AssignAssignment_2_0");

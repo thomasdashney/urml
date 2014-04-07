@@ -176,7 +176,7 @@ IfStatementOperation
 		('else '  '{' elseStatements+=StatementOperation+ '}')?    
 	;
 ReturnStatement 
-	: 	'return' returnValue=Expression
+	: 	{ReturnStatement} 'return' returnValue=Expression?
 	;
 
 
@@ -219,7 +219,9 @@ Assignment
 	;	
 	
 Assignable 
-	:	LocalVar | Attribute  ;
+	:	LocalVar 
+	|	Attribute
+	;
 
 WhileLoop 
 	:	'while' condition=Expression '{' statements+=Statement+ '}'
@@ -326,7 +328,8 @@ Identifier
 	;
 
 Identifiable
-	:	Assignable | IncomingVariable
+	:	Assignable 
+	|	IncomingVariable
 	;
 
 FunctionCall

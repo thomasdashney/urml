@@ -5818,61 +5818,92 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReturnStatement"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2124:1: ruleReturnStatement returns [EObject current=null] : (otherlv_0= 'return' ( (lv_returnValue_1_0= ruleExpression ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2124:1: ruleReturnStatement returns [EObject current=null] : ( () otherlv_1= 'return' ( (lv_returnValue_2_0= ruleExpression ) )? ) ;
     public final EObject ruleReturnStatement() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        EObject lv_returnValue_1_0 = null;
+        Token otherlv_1=null;
+        EObject lv_returnValue_2_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2127:28: ( (otherlv_0= 'return' ( (lv_returnValue_1_0= ruleExpression ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2128:1: (otherlv_0= 'return' ( (lv_returnValue_1_0= ruleExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2127:28: ( ( () otherlv_1= 'return' ( (lv_returnValue_2_0= ruleExpression ) )? ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2128:1: ( () otherlv_1= 'return' ( (lv_returnValue_2_0= ruleExpression ) )? )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2128:1: (otherlv_0= 'return' ( (lv_returnValue_1_0= ruleExpression ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2128:3: otherlv_0= 'return' ( (lv_returnValue_1_0= ruleExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2128:1: ( () otherlv_1= 'return' ( (lv_returnValue_2_0= ruleExpression ) )? )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2128:2: () otherlv_1= 'return' ( (lv_returnValue_2_0= ruleExpression ) )?
             {
-            otherlv_0=(Token)match(input,53,FOLLOW_53_in_ruleReturnStatement4526); if (state.failed) return current;
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2128:2: ()
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2129:5: 
+            {
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_0, grammarAccess.getReturnStatementAccess().getReturnKeyword_0());
+                      current = forceCreateModelElement(
+                          grammarAccess.getReturnStatementAccess().getReturnStatementAction_0(),
+                          current);
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2132:1: ( (lv_returnValue_1_0= ruleExpression ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2133:1: (lv_returnValue_1_0= ruleExpression )
-            {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2133:1: (lv_returnValue_1_0= ruleExpression )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2134:3: lv_returnValue_1_0= ruleExpression
-            {
-            if ( state.backtracking==0 ) {
-               
-              	        newCompositeNode(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_1_0()); 
-              	    
-            }
-            pushFollow(FOLLOW_ruleExpression_in_ruleReturnStatement4547);
-            lv_returnValue_1_0=ruleExpression();
 
-            state._fsp--;
-            if (state.failed) return current;
+            }
+
+            otherlv_1=(Token)match(input,53,FOLLOW_53_in_ruleReturnStatement4535); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getReturnStatementRule());
-              	        }
-                     		set(
-                     			current, 
-                     			"returnValue",
-                      		lv_returnValue_1_0, 
-                      		"Expression");
-              	        afterParserOrEnumRuleCall();
-              	    
+                  	newLeafNode(otherlv_1, grammarAccess.getReturnStatementAccess().getReturnKeyword_1());
+                  
             }
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2138:1: ( (lv_returnValue_2_0= ruleExpression ) )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
+            if ( ((LA39_0>=RULE_INT && LA39_0<=RULE_BOOLEAN)||LA39_0==20||LA39_0==72||LA39_0==76) ) {
+                alt39=1;
             }
+            else if ( (LA39_0==RULE_ID) ) {
+                int LA39_2 = input.LA(2);
 
+                if ( (LA39_2==EOF||LA39_2==RULE_ID||LA39_2==14||LA39_2==20||(LA39_2>=50 && LA39_2<=51)||(LA39_2>=53 && LA39_2<=54)||(LA39_2>=58 && LA39_2<=60)||(LA39_2>=63 && LA39_2<=75)) ) {
+                    alt39=1;
+                }
+            }
+            switch (alt39) {
+                case 1 :
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2139:1: (lv_returnValue_2_0= ruleExpression )
+                    {
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2139:1: (lv_returnValue_2_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2140:3: lv_returnValue_2_0= ruleExpression
+                    {
+                    if ( state.backtracking==0 ) {
+                       
+                      	        newCompositeNode(grammarAccess.getReturnStatementAccess().getReturnValueExpressionParserRuleCall_2_0()); 
+                      	    
+                    }
+                    pushFollow(FOLLOW_ruleExpression_in_ruleReturnStatement4556);
+                    lv_returnValue_2_0=ruleExpression();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = createModelElementForParent(grammarAccess.getReturnStatementRule());
+                      	        }
+                             		set(
+                             			current, 
+                             			"returnValue",
+                              		lv_returnValue_2_0, 
+                              		"Expression");
+                      	        afterParserOrEnumRuleCall();
+                      	    
+                    }
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -5899,7 +5930,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleActionCode"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2158:1: entryRuleActionCode returns [EObject current=null] : iv_ruleActionCode= ruleActionCode EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2164:1: entryRuleActionCode returns [EObject current=null] : iv_ruleActionCode= ruleActionCode EOF ;
     public final EObject entryRuleActionCode() throws RecognitionException {
         EObject current = null;
 
@@ -5907,13 +5938,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2159:2: (iv_ruleActionCode= ruleActionCode EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2160:2: iv_ruleActionCode= ruleActionCode EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2165:2: (iv_ruleActionCode= ruleActionCode EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2166:2: iv_ruleActionCode= ruleActionCode EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getActionCodeRule()); 
             }
-            pushFollow(FOLLOW_ruleActionCode_in_entryRuleActionCode4583);
+            pushFollow(FOLLOW_ruleActionCode_in_entryRuleActionCode4593);
             iv_ruleActionCode=ruleActionCode();
 
             state._fsp--;
@@ -5921,7 +5952,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleActionCode; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleActionCode4593); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleActionCode4603); if (state.failed) return current;
 
             }
 
@@ -5939,7 +5970,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleActionCode"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2167:1: ruleActionCode returns [EObject current=null] : ( (lv_statements_0_0= ruleStatement ) )+ ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2173:1: ruleActionCode returns [EObject current=null] : ( (lv_statements_0_0= ruleStatement ) )+ ;
     public final EObject ruleActionCode() throws RecognitionException {
         EObject current = null;
 
@@ -5949,34 +5980,34 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2170:28: ( ( (lv_statements_0_0= ruleStatement ) )+ )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2171:1: ( (lv_statements_0_0= ruleStatement ) )+
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2176:28: ( ( (lv_statements_0_0= ruleStatement ) )+ )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2177:1: ( (lv_statements_0_0= ruleStatement ) )+
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2171:1: ( (lv_statements_0_0= ruleStatement ) )+
-            int cnt39=0;
-            loop39:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2177:1: ( (lv_statements_0_0= ruleStatement ) )+
+            int cnt40=0;
+            loop40:
             do {
-                int alt39=2;
-                int LA39_0 = input.LA(1);
+                int alt40=2;
+                int LA40_0 = input.LA(1);
 
-                if ( (LA39_0==RULE_ID||(LA39_0>=50 && LA39_0<=51)||(LA39_0>=54 && LA39_0<=56)||(LA39_0>=58 && LA39_0<=60)) ) {
-                    alt39=1;
+                if ( (LA40_0==RULE_ID||(LA40_0>=50 && LA40_0<=51)||(LA40_0>=54 && LA40_0<=56)||(LA40_0>=58 && LA40_0<=60)) ) {
+                    alt40=1;
                 }
 
 
-                switch (alt39) {
+                switch (alt40) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2172:1: (lv_statements_0_0= ruleStatement )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2178:1: (lv_statements_0_0= ruleStatement )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2172:1: (lv_statements_0_0= ruleStatement )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2173:3: lv_statements_0_0= ruleStatement
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2178:1: (lv_statements_0_0= ruleStatement )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2179:3: lv_statements_0_0= ruleStatement
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getActionCodeAccess().getStatementsStatementParserRuleCall_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleStatement_in_ruleActionCode4638);
+            	    pushFollow(FOLLOW_ruleStatement_in_ruleActionCode4648);
             	    lv_statements_0_0=ruleStatement();
 
             	    state._fsp--;
@@ -6002,13 +6033,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt39 >= 1 ) break loop39;
+            	    if ( cnt40 >= 1 ) break loop40;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(39, input);
+                            new EarlyExitException(40, input);
                         throw eee;
                 }
-                cnt39++;
+                cnt40++;
             } while (true);
 
 
@@ -6031,7 +6062,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStatement"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2197:1: entryRuleStatement returns [EObject current=null] : iv_ruleStatement= ruleStatement EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2203:1: entryRuleStatement returns [EObject current=null] : iv_ruleStatement= ruleStatement EOF ;
     public final EObject entryRuleStatement() throws RecognitionException {
         EObject current = null;
 
@@ -6039,13 +6070,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2198:2: (iv_ruleStatement= ruleStatement EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2199:2: iv_ruleStatement= ruleStatement EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2204:2: (iv_ruleStatement= ruleStatement EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2205:2: iv_ruleStatement= ruleStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleStatement_in_entryRuleStatement4674);
+            pushFollow(FOLLOW_ruleStatement_in_entryRuleStatement4684);
             iv_ruleStatement=ruleStatement();
 
             state._fsp--;
@@ -6053,7 +6084,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStatement4684); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStatement4694); if (state.failed) return current;
 
             }
 
@@ -6071,7 +6102,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatement"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2206:1: ruleStatement returns [EObject current=null] : (this_SendTrigger_0= ruleSendTrigger | this_Variable_1= ruleVariable | this_InformTimer_2= ruleInformTimer | this_NoOp_3= ruleNoOp | this_Invoke_4= ruleInvoke | this_Assignment_5= ruleAssignment | this_WhileLoop_6= ruleWhileLoop | this_IfStatement_7= ruleIfStatement | this_LogStatement_8= ruleLogStatement ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2212:1: ruleStatement returns [EObject current=null] : (this_SendTrigger_0= ruleSendTrigger | this_Variable_1= ruleVariable | this_InformTimer_2= ruleInformTimer | this_NoOp_3= ruleNoOp | this_Invoke_4= ruleInvoke | this_Assignment_5= ruleAssignment | this_WhileLoop_6= ruleWhileLoop | this_IfStatement_7= ruleIfStatement | this_LogStatement_8= ruleLogStatement ) ;
     public final EObject ruleStatement() throws RecognitionException {
         EObject current = null;
 
@@ -6097,75 +6128,75 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2209:28: ( (this_SendTrigger_0= ruleSendTrigger | this_Variable_1= ruleVariable | this_InformTimer_2= ruleInformTimer | this_NoOp_3= ruleNoOp | this_Invoke_4= ruleInvoke | this_Assignment_5= ruleAssignment | this_WhileLoop_6= ruleWhileLoop | this_IfStatement_7= ruleIfStatement | this_LogStatement_8= ruleLogStatement ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2210:1: (this_SendTrigger_0= ruleSendTrigger | this_Variable_1= ruleVariable | this_InformTimer_2= ruleInformTimer | this_NoOp_3= ruleNoOp | this_Invoke_4= ruleInvoke | this_Assignment_5= ruleAssignment | this_WhileLoop_6= ruleWhileLoop | this_IfStatement_7= ruleIfStatement | this_LogStatement_8= ruleLogStatement )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2215:28: ( (this_SendTrigger_0= ruleSendTrigger | this_Variable_1= ruleVariable | this_InformTimer_2= ruleInformTimer | this_NoOp_3= ruleNoOp | this_Invoke_4= ruleInvoke | this_Assignment_5= ruleAssignment | this_WhileLoop_6= ruleWhileLoop | this_IfStatement_7= ruleIfStatement | this_LogStatement_8= ruleLogStatement ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2216:1: (this_SendTrigger_0= ruleSendTrigger | this_Variable_1= ruleVariable | this_InformTimer_2= ruleInformTimer | this_NoOp_3= ruleNoOp | this_Invoke_4= ruleInvoke | this_Assignment_5= ruleAssignment | this_WhileLoop_6= ruleWhileLoop | this_IfStatement_7= ruleIfStatement | this_LogStatement_8= ruleLogStatement )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2210:1: (this_SendTrigger_0= ruleSendTrigger | this_Variable_1= ruleVariable | this_InformTimer_2= ruleInformTimer | this_NoOp_3= ruleNoOp | this_Invoke_4= ruleInvoke | this_Assignment_5= ruleAssignment | this_WhileLoop_6= ruleWhileLoop | this_IfStatement_7= ruleIfStatement | this_LogStatement_8= ruleLogStatement )
-            int alt40=9;
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2216:1: (this_SendTrigger_0= ruleSendTrigger | this_Variable_1= ruleVariable | this_InformTimer_2= ruleInformTimer | this_NoOp_3= ruleNoOp | this_Invoke_4= ruleInvoke | this_Assignment_5= ruleAssignment | this_WhileLoop_6= ruleWhileLoop | this_IfStatement_7= ruleIfStatement | this_LogStatement_8= ruleLogStatement )
+            int alt41=9;
             switch ( input.LA(1) ) {
             case 55:
                 {
-                alt40=1;
+                alt41=1;
                 }
                 break;
             case 54:
                 {
-                alt40=2;
+                alt41=2;
                 }
                 break;
             case 56:
                 {
-                alt40=3;
+                alt41=3;
                 }
                 break;
             case 58:
                 {
-                alt40=4;
+                alt41=4;
                 }
                 break;
             case 59:
                 {
-                alt40=5;
+                alt41=5;
                 }
                 break;
             case RULE_ID:
                 {
-                alt40=6;
+                alt41=6;
                 }
                 break;
             case 50:
                 {
-                alt40=7;
+                alt41=7;
                 }
                 break;
             case 51:
                 {
-                alt40=8;
+                alt41=8;
                 }
                 break;
             case 60:
                 {
-                alt40=9;
+                alt41=9;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 40, 0, input);
+                    new NoViableAltException("", 41, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt40) {
+            switch (alt41) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2211:5: this_SendTrigger_0= ruleSendTrigger
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2217:5: this_SendTrigger_0= ruleSendTrigger
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getSendTriggerParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleSendTrigger_in_ruleStatement4731);
+                    pushFollow(FOLLOW_ruleSendTrigger_in_ruleStatement4741);
                     this_SendTrigger_0=ruleSendTrigger();
 
                     state._fsp--;
@@ -6180,14 +6211,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2221:5: this_Variable_1= ruleVariable
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2227:5: this_Variable_1= ruleVariable
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getVariableParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleVariable_in_ruleStatement4758);
+                    pushFollow(FOLLOW_ruleVariable_in_ruleStatement4768);
                     this_Variable_1=ruleVariable();
 
                     state._fsp--;
@@ -6202,14 +6233,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2231:5: this_InformTimer_2= ruleInformTimer
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2237:5: this_InformTimer_2= ruleInformTimer
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getInformTimerParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleInformTimer_in_ruleStatement4785);
+                    pushFollow(FOLLOW_ruleInformTimer_in_ruleStatement4795);
                     this_InformTimer_2=ruleInformTimer();
 
                     state._fsp--;
@@ -6224,14 +6255,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2241:5: this_NoOp_3= ruleNoOp
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2247:5: this_NoOp_3= ruleNoOp
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getNoOpParserRuleCall_3()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNoOp_in_ruleStatement4812);
+                    pushFollow(FOLLOW_ruleNoOp_in_ruleStatement4822);
                     this_NoOp_3=ruleNoOp();
 
                     state._fsp--;
@@ -6246,14 +6277,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2251:5: this_Invoke_4= ruleInvoke
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2257:5: this_Invoke_4= ruleInvoke
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getInvokeParserRuleCall_4()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleInvoke_in_ruleStatement4839);
+                    pushFollow(FOLLOW_ruleInvoke_in_ruleStatement4849);
                     this_Invoke_4=ruleInvoke();
 
                     state._fsp--;
@@ -6268,14 +6299,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2261:5: this_Assignment_5= ruleAssignment
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2267:5: this_Assignment_5= ruleAssignment
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getAssignmentParserRuleCall_5()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleAssignment_in_ruleStatement4866);
+                    pushFollow(FOLLOW_ruleAssignment_in_ruleStatement4876);
                     this_Assignment_5=ruleAssignment();
 
                     state._fsp--;
@@ -6290,14 +6321,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2271:5: this_WhileLoop_6= ruleWhileLoop
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2277:5: this_WhileLoop_6= ruleWhileLoop
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getWhileLoopParserRuleCall_6()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleWhileLoop_in_ruleStatement4893);
+                    pushFollow(FOLLOW_ruleWhileLoop_in_ruleStatement4903);
                     this_WhileLoop_6=ruleWhileLoop();
 
                     state._fsp--;
@@ -6312,14 +6343,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2281:5: this_IfStatement_7= ruleIfStatement
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2287:5: this_IfStatement_7= ruleIfStatement
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getIfStatementParserRuleCall_7()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIfStatement_in_ruleStatement4920);
+                    pushFollow(FOLLOW_ruleIfStatement_in_ruleStatement4930);
                     this_IfStatement_7=ruleIfStatement();
 
                     state._fsp--;
@@ -6334,14 +6365,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2291:5: this_LogStatement_8= ruleLogStatement
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2297:5: this_LogStatement_8= ruleLogStatement
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getStatementAccess().getLogStatementParserRuleCall_8()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleLogStatement_in_ruleStatement4947);
+                    pushFollow(FOLLOW_ruleLogStatement_in_ruleStatement4957);
                     this_LogStatement_8=ruleLogStatement();
 
                     state._fsp--;
@@ -6378,7 +6409,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVariable"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2307:1: entryRuleVariable returns [EObject current=null] : iv_ruleVariable= ruleVariable EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2313:1: entryRuleVariable returns [EObject current=null] : iv_ruleVariable= ruleVariable EOF ;
     public final EObject entryRuleVariable() throws RecognitionException {
         EObject current = null;
 
@@ -6386,13 +6417,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2308:2: (iv_ruleVariable= ruleVariable EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2309:2: iv_ruleVariable= ruleVariable EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2314:2: (iv_ruleVariable= ruleVariable EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2315:2: iv_ruleVariable= ruleVariable EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getVariableRule()); 
             }
-            pushFollow(FOLLOW_ruleVariable_in_entryRuleVariable4982);
+            pushFollow(FOLLOW_ruleVariable_in_entryRuleVariable4992);
             iv_ruleVariable=ruleVariable();
 
             state._fsp--;
@@ -6400,7 +6431,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleVariable; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVariable4992); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVariable5002); if (state.failed) return current;
 
             }
 
@@ -6418,7 +6449,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVariable"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2316:1: ruleVariable returns [EObject current=null] : (otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )? ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2322:1: ruleVariable returns [EObject current=null] : (otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )? ) ;
     public final EObject ruleVariable() throws RecognitionException {
         EObject current = null;
 
@@ -6432,30 +6463,30 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2319:28: ( (otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )? ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2320:1: (otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )? )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2325:28: ( (otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )? ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2326:1: (otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )? )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2320:1: (otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )? )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2320:3: otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )?
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2326:1: (otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )? )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2326:3: otherlv_0= 'var' ( (lv_var_1_0= ruleLocalVar ) ) ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )?
             {
-            otherlv_0=(Token)match(input,54,FOLLOW_54_in_ruleVariable5029); if (state.failed) return current;
+            otherlv_0=(Token)match(input,54,FOLLOW_54_in_ruleVariable5039); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getVariableAccess().getVarKeyword_0());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2324:1: ( (lv_var_1_0= ruleLocalVar ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2325:1: (lv_var_1_0= ruleLocalVar )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2330:1: ( (lv_var_1_0= ruleLocalVar ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2331:1: (lv_var_1_0= ruleLocalVar )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2325:1: (lv_var_1_0= ruleLocalVar )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2326:3: lv_var_1_0= ruleLocalVar
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2331:1: (lv_var_1_0= ruleLocalVar )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2332:3: lv_var_1_0= ruleLocalVar
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getVariableAccess().getVarLocalVarParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleLocalVar_in_ruleVariable5050);
+            pushFollow(FOLLOW_ruleLocalVar_in_ruleVariable5060);
             lv_var_1_0=ruleLocalVar();
 
             state._fsp--;
@@ -6479,24 +6510,24 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2342:2: ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )?
-            int alt41=2;
-            int LA41_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2348:2: ( ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) ) )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
 
-            if ( (LA41_0==16) ) {
-                alt41=1;
+            if ( (LA42_0==16) ) {
+                alt42=1;
             }
-            switch (alt41) {
+            switch (alt42) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2342:3: ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2348:3: ( (lv_assign_2_0= ':=' ) ) ( (lv_exp_3_0= ruleExpression ) )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2342:3: ( (lv_assign_2_0= ':=' ) )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2343:1: (lv_assign_2_0= ':=' )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2348:3: ( (lv_assign_2_0= ':=' ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2349:1: (lv_assign_2_0= ':=' )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2343:1: (lv_assign_2_0= ':=' )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2344:3: lv_assign_2_0= ':='
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2349:1: (lv_assign_2_0= ':=' )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2350:3: lv_assign_2_0= ':='
                     {
-                    lv_assign_2_0=(Token)match(input,16,FOLLOW_16_in_ruleVariable5069); if (state.failed) return current;
+                    lv_assign_2_0=(Token)match(input,16,FOLLOW_16_in_ruleVariable5079); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_assign_2_0, grammarAccess.getVariableAccess().getAssignColonEqualsSignKeyword_2_0_0());
@@ -6516,18 +6547,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2357:2: ( (lv_exp_3_0= ruleExpression ) )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2358:1: (lv_exp_3_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2363:2: ( (lv_exp_3_0= ruleExpression ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2364:1: (lv_exp_3_0= ruleExpression )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2358:1: (lv_exp_3_0= ruleExpression )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2359:3: lv_exp_3_0= ruleExpression
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2364:1: (lv_exp_3_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2365:3: lv_exp_3_0= ruleExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getVariableAccess().getExpExpressionParserRuleCall_2_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleVariable5103);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleVariable5113);
                     lv_exp_3_0=ruleExpression();
 
                     state._fsp--;
@@ -6580,7 +6611,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSendTrigger"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2383:1: entryRuleSendTrigger returns [EObject current=null] : iv_ruleSendTrigger= ruleSendTrigger EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2389:1: entryRuleSendTrigger returns [EObject current=null] : iv_ruleSendTrigger= ruleSendTrigger EOF ;
     public final EObject entryRuleSendTrigger() throws RecognitionException {
         EObject current = null;
 
@@ -6588,13 +6619,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2384:2: (iv_ruleSendTrigger= ruleSendTrigger EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2385:2: iv_ruleSendTrigger= ruleSendTrigger EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2390:2: (iv_ruleSendTrigger= ruleSendTrigger EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2391:2: iv_ruleSendTrigger= ruleSendTrigger EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSendTriggerRule()); 
             }
-            pushFollow(FOLLOW_ruleSendTrigger_in_entryRuleSendTrigger5141);
+            pushFollow(FOLLOW_ruleSendTrigger_in_entryRuleSendTrigger5151);
             iv_ruleSendTrigger=ruleSendTrigger();
 
             state._fsp--;
@@ -6602,7 +6633,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleSendTrigger; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSendTrigger5151); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSendTrigger5161); if (state.failed) return current;
 
             }
 
@@ -6620,7 +6651,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSendTrigger"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2392:1: ruleSendTrigger returns [EObject current=null] : (otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )* ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2398:1: ruleSendTrigger returns [EObject current=null] : (otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )* ) ;
     public final EObject ruleSendTrigger() throws RecognitionException {
         EObject current = null;
 
@@ -6634,30 +6665,30 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2395:28: ( (otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )* ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2396:1: (otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2401:28: ( (otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )* ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2402:1: (otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )* )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2396:1: (otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )* )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2396:3: otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )*
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2402:1: (otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2402:3: otherlv_0= 'send' ( (lv_triggers_1_0= ruleTrigger_out ) ) (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )*
             {
-            otherlv_0=(Token)match(input,55,FOLLOW_55_in_ruleSendTrigger5188); if (state.failed) return current;
+            otherlv_0=(Token)match(input,55,FOLLOW_55_in_ruleSendTrigger5198); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getSendTriggerAccess().getSendKeyword_0());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2400:1: ( (lv_triggers_1_0= ruleTrigger_out ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2401:1: (lv_triggers_1_0= ruleTrigger_out )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2406:1: ( (lv_triggers_1_0= ruleTrigger_out ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2407:1: (lv_triggers_1_0= ruleTrigger_out )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2401:1: (lv_triggers_1_0= ruleTrigger_out )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2402:3: lv_triggers_1_0= ruleTrigger_out
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2407:1: (lv_triggers_1_0= ruleTrigger_out )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2408:3: lv_triggers_1_0= ruleTrigger_out
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getSendTriggerAccess().getTriggersTrigger_outParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleTrigger_out_in_ruleSendTrigger5209);
+            pushFollow(FOLLOW_ruleTrigger_out_in_ruleSendTrigger5219);
             lv_triggers_1_0=ruleTrigger_out();
 
             state._fsp--;
@@ -6681,39 +6712,39 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2418:2: (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )*
-            loop42:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2424:2: (otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) ) )*
+            loop43:
             do {
-                int alt42=2;
-                int LA42_0 = input.LA(1);
+                int alt43=2;
+                int LA43_0 = input.LA(1);
 
-                if ( (LA42_0==34) ) {
-                    alt42=1;
+                if ( (LA43_0==34) ) {
+                    alt43=1;
                 }
 
 
-                switch (alt42) {
+                switch (alt43) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2418:4: otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2424:4: otherlv_2= 'and' ( (lv_triggers_3_0= ruleTrigger_out ) )
             	    {
-            	    otherlv_2=(Token)match(input,34,FOLLOW_34_in_ruleSendTrigger5222); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,34,FOLLOW_34_in_ruleSendTrigger5232); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getSendTriggerAccess().getAndKeyword_2_0());
             	          
             	    }
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2422:1: ( (lv_triggers_3_0= ruleTrigger_out ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2423:1: (lv_triggers_3_0= ruleTrigger_out )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2428:1: ( (lv_triggers_3_0= ruleTrigger_out ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2429:1: (lv_triggers_3_0= ruleTrigger_out )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2423:1: (lv_triggers_3_0= ruleTrigger_out )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2424:3: lv_triggers_3_0= ruleTrigger_out
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2429:1: (lv_triggers_3_0= ruleTrigger_out )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2430:3: lv_triggers_3_0= ruleTrigger_out
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getSendTriggerAccess().getTriggersTrigger_outParserRuleCall_2_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleTrigger_out_in_ruleSendTrigger5243);
+            	    pushFollow(FOLLOW_ruleTrigger_out_in_ruleSendTrigger5253);
             	    lv_triggers_3_0=ruleTrigger_out();
 
             	    state._fsp--;
@@ -6742,7 +6773,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop42;
+            	    break loop43;
                 }
             } while (true);
 
@@ -6769,7 +6800,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInformTimer"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2448:1: entryRuleInformTimer returns [EObject current=null] : iv_ruleInformTimer= ruleInformTimer EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2454:1: entryRuleInformTimer returns [EObject current=null] : iv_ruleInformTimer= ruleInformTimer EOF ;
     public final EObject entryRuleInformTimer() throws RecognitionException {
         EObject current = null;
 
@@ -6777,13 +6808,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2449:2: (iv_ruleInformTimer= ruleInformTimer EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2450:2: iv_ruleInformTimer= ruleInformTimer EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2455:2: (iv_ruleInformTimer= ruleInformTimer EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2456:2: iv_ruleInformTimer= ruleInformTimer EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInformTimerRule()); 
             }
-            pushFollow(FOLLOW_ruleInformTimer_in_entryRuleInformTimer5281);
+            pushFollow(FOLLOW_ruleInformTimer_in_entryRuleInformTimer5291);
             iv_ruleInformTimer=ruleInformTimer();
 
             state._fsp--;
@@ -6791,7 +6822,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleInformTimer; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInformTimer5291); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInformTimer5301); if (state.failed) return current;
 
             }
 
@@ -6809,7 +6840,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInformTimer"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2457:1: ruleInformTimer returns [EObject current=null] : (otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2463:1: ruleInformTimer returns [EObject current=null] : (otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) ) ) ;
     public final EObject ruleInformTimer() throws RecognitionException {
         EObject current = null;
 
@@ -6822,23 +6853,23 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2460:28: ( (otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2461:1: (otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2466:28: ( (otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2467:1: (otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2461:1: (otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2461:3: otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2467:1: (otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2467:3: otherlv_0= 'inform' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'in' ( (lv_time_3_0= ruleAdditiveExpression ) )
             {
-            otherlv_0=(Token)match(input,56,FOLLOW_56_in_ruleInformTimer5328); if (state.failed) return current;
+            otherlv_0=(Token)match(input,56,FOLLOW_56_in_ruleInformTimer5338); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getInformTimerAccess().getInformKeyword_0());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2465:1: ( (otherlv_1= RULE_ID ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2466:1: (otherlv_1= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2471:1: ( (otherlv_1= RULE_ID ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2472:1: (otherlv_1= RULE_ID )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2466:1: (otherlv_1= RULE_ID )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2467:3: otherlv_1= RULE_ID
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2472:1: (otherlv_1= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2473:3: otherlv_1= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -6847,7 +6878,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInformTimer5348); if (state.failed) return current;
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInformTimer5358); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_1, grammarAccess.getInformTimerAccess().getTimerPortTimerPortCrossReference_1_0()); 
@@ -6859,24 +6890,24 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,57,FOLLOW_57_in_ruleInformTimer5360); if (state.failed) return current;
+            otherlv_2=(Token)match(input,57,FOLLOW_57_in_ruleInformTimer5370); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getInformTimerAccess().getInKeyword_2());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2482:1: ( (lv_time_3_0= ruleAdditiveExpression ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2483:1: (lv_time_3_0= ruleAdditiveExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2488:1: ( (lv_time_3_0= ruleAdditiveExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2489:1: (lv_time_3_0= ruleAdditiveExpression )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2483:1: (lv_time_3_0= ruleAdditiveExpression )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2484:3: lv_time_3_0= ruleAdditiveExpression
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2489:1: (lv_time_3_0= ruleAdditiveExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2490:3: lv_time_3_0= ruleAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getInformTimerAccess().getTimeAdditiveExpressionParserRuleCall_3_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleAdditiveExpression_in_ruleInformTimer5381);
+            pushFollow(FOLLOW_ruleAdditiveExpression_in_ruleInformTimer5391);
             lv_time_3_0=ruleAdditiveExpression();
 
             state._fsp--;
@@ -6923,7 +6954,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNoOp"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2508:1: entryRuleNoOp returns [EObject current=null] : iv_ruleNoOp= ruleNoOp EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2514:1: entryRuleNoOp returns [EObject current=null] : iv_ruleNoOp= ruleNoOp EOF ;
     public final EObject entryRuleNoOp() throws RecognitionException {
         EObject current = null;
 
@@ -6931,13 +6962,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2509:2: (iv_ruleNoOp= ruleNoOp EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2510:2: iv_ruleNoOp= ruleNoOp EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2515:2: (iv_ruleNoOp= ruleNoOp EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2516:2: iv_ruleNoOp= ruleNoOp EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNoOpRule()); 
             }
-            pushFollow(FOLLOW_ruleNoOp_in_entryRuleNoOp5417);
+            pushFollow(FOLLOW_ruleNoOp_in_entryRuleNoOp5427);
             iv_ruleNoOp=ruleNoOp();
 
             state._fsp--;
@@ -6945,7 +6976,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNoOp; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNoOp5427); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNoOp5437); if (state.failed) return current;
 
             }
 
@@ -6963,7 +6994,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNoOp"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2517:1: ruleNoOp returns [EObject current=null] : ( () otherlv_1= 'noop' ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2523:1: ruleNoOp returns [EObject current=null] : ( () otherlv_1= 'noop' ) ;
     public final EObject ruleNoOp() throws RecognitionException {
         EObject current = null;
 
@@ -6972,14 +7003,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2520:28: ( ( () otherlv_1= 'noop' ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2521:1: ( () otherlv_1= 'noop' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2526:28: ( ( () otherlv_1= 'noop' ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2527:1: ( () otherlv_1= 'noop' )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2521:1: ( () otherlv_1= 'noop' )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2521:2: () otherlv_1= 'noop'
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2527:1: ( () otherlv_1= 'noop' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2527:2: () otherlv_1= 'noop'
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2521:2: ()
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2522:5: 
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2527:2: ()
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2528:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -6991,7 +7022,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,58,FOLLOW_58_in_ruleNoOp5473); if (state.failed) return current;
+            otherlv_1=(Token)match(input,58,FOLLOW_58_in_ruleNoOp5483); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getNoOpAccess().getNoopKeyword_1());
@@ -7020,7 +7051,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInvoke"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2539:1: entryRuleInvoke returns [EObject current=null] : iv_ruleInvoke= ruleInvoke EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2545:1: entryRuleInvoke returns [EObject current=null] : iv_ruleInvoke= ruleInvoke EOF ;
     public final EObject entryRuleInvoke() throws RecognitionException {
         EObject current = null;
 
@@ -7028,13 +7059,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2540:2: (iv_ruleInvoke= ruleInvoke EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2541:2: iv_ruleInvoke= ruleInvoke EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2546:2: (iv_ruleInvoke= ruleInvoke EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2547:2: iv_ruleInvoke= ruleInvoke EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInvokeRule()); 
             }
-            pushFollow(FOLLOW_ruleInvoke_in_entryRuleInvoke5509);
+            pushFollow(FOLLOW_ruleInvoke_in_entryRuleInvoke5519);
             iv_ruleInvoke=ruleInvoke();
 
             state._fsp--;
@@ -7042,7 +7073,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleInvoke; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInvoke5519); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInvoke5529); if (state.failed) return current;
 
             }
 
@@ -7060,7 +7091,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInvoke"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2548:1: ruleInvoke returns [EObject current=null] : (otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')' ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2554:1: ruleInvoke returns [EObject current=null] : (otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')' ) ;
     public final EObject ruleInvoke() throws RecognitionException {
         EObject current = null;
 
@@ -7077,23 +7108,23 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2551:28: ( (otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')' ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2552:1: (otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2557:28: ( (otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')' ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2558:1: (otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')' )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2552:1: (otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')' )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2552:3: otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')'
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2558:1: (otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2558:3: otherlv_0= 'call' ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )? otherlv_6= ')'
             {
-            otherlv_0=(Token)match(input,59,FOLLOW_59_in_ruleInvoke5556); if (state.failed) return current;
+            otherlv_0=(Token)match(input,59,FOLLOW_59_in_ruleInvoke5566); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getInvokeAccess().getCallKeyword_0());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2556:1: ( (otherlv_1= RULE_ID ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2557:1: (otherlv_1= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2562:1: ( (otherlv_1= RULE_ID ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2563:1: (otherlv_1= RULE_ID )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2557:1: (otherlv_1= RULE_ID )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2558:3: otherlv_1= RULE_ID
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2563:1: (otherlv_1= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2564:3: otherlv_1= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -7102,7 +7133,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInvoke5576); if (state.failed) return current;
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleInvoke5586); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_1, grammarAccess.getInvokeAccess().getOperationOperationCrossReference_1_0()); 
@@ -7114,35 +7145,35 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleInvoke5588); if (state.failed) return current;
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleInvoke5598); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getInvokeAccess().getLeftParenthesisKeyword_2());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2573:1: ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )?
-            int alt44=2;
-            int LA44_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2579:1: ( ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )* )?
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA44_0==RULE_ID||(LA44_0>=RULE_INT && LA44_0<=RULE_BOOLEAN)||LA44_0==20||LA44_0==72||LA44_0==76) ) {
-                alt44=1;
+            if ( (LA45_0==RULE_ID||(LA45_0>=RULE_INT && LA45_0<=RULE_BOOLEAN)||LA45_0==20||LA45_0==72||LA45_0==76) ) {
+                alt45=1;
             }
-            switch (alt44) {
+            switch (alt45) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2573:2: ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )*
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2579:2: ( (lv_parameters_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )*
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2573:2: ( (lv_parameters_3_0= ruleExpression ) )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2574:1: (lv_parameters_3_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2579:2: ( (lv_parameters_3_0= ruleExpression ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2580:1: (lv_parameters_3_0= ruleExpression )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2574:1: (lv_parameters_3_0= ruleExpression )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2575:3: lv_parameters_3_0= ruleExpression
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2580:1: (lv_parameters_3_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2581:3: lv_parameters_3_0= ruleExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getInvokeAccess().getParametersExpressionParserRuleCall_3_0_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleInvoke5610);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleInvoke5620);
                     lv_parameters_3_0=ruleExpression();
 
                     state._fsp--;
@@ -7166,39 +7197,39 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2591:2: (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )*
-                    loop43:
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2597:2: (otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) ) )*
+                    loop44:
                     do {
-                        int alt43=2;
-                        int LA43_0 = input.LA(1);
+                        int alt44=2;
+                        int LA44_0 = input.LA(1);
 
-                        if ( (LA43_0==21) ) {
-                            alt43=1;
+                        if ( (LA44_0==21) ) {
+                            alt44=1;
                         }
 
 
-                        switch (alt43) {
+                        switch (alt44) {
                     	case 1 :
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2591:4: otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2597:4: otherlv_4= ',' ( (lv_parameters_5_0= ruleExpression ) )
                     	    {
-                    	    otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleInvoke5623); if (state.failed) return current;
+                    	    otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleInvoke5633); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_4, grammarAccess.getInvokeAccess().getCommaKeyword_3_1_0());
                     	          
                     	    }
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2595:1: ( (lv_parameters_5_0= ruleExpression ) )
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2596:1: (lv_parameters_5_0= ruleExpression )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2601:1: ( (lv_parameters_5_0= ruleExpression ) )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2602:1: (lv_parameters_5_0= ruleExpression )
                     	    {
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2596:1: (lv_parameters_5_0= ruleExpression )
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2597:3: lv_parameters_5_0= ruleExpression
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2602:1: (lv_parameters_5_0= ruleExpression )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2603:3: lv_parameters_5_0= ruleExpression
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getInvokeAccess().getParametersExpressionParserRuleCall_3_1_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleExpression_in_ruleInvoke5644);
+                    	    pushFollow(FOLLOW_ruleExpression_in_ruleInvoke5654);
                     	    lv_parameters_5_0=ruleExpression();
 
                     	    state._fsp--;
@@ -7227,7 +7258,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop43;
+                    	    break loop44;
                         }
                     } while (true);
 
@@ -7237,7 +7268,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,22,FOLLOW_22_in_ruleInvoke5660); if (state.failed) return current;
+            otherlv_6=(Token)match(input,22,FOLLOW_22_in_ruleInvoke5670); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getInvokeAccess().getRightParenthesisKeyword_4());
@@ -7266,7 +7297,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssignment"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2625:1: entryRuleAssignment returns [EObject current=null] : iv_ruleAssignment= ruleAssignment EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2631:1: entryRuleAssignment returns [EObject current=null] : iv_ruleAssignment= ruleAssignment EOF ;
     public final EObject entryRuleAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -7274,13 +7305,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2626:2: (iv_ruleAssignment= ruleAssignment EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2627:2: iv_ruleAssignment= ruleAssignment EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2632:2: (iv_ruleAssignment= ruleAssignment EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2633:2: iv_ruleAssignment= ruleAssignment EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAssignmentRule()); 
             }
-            pushFollow(FOLLOW_ruleAssignment_in_entryRuleAssignment5696);
+            pushFollow(FOLLOW_ruleAssignment_in_entryRuleAssignment5706);
             iv_ruleAssignment=ruleAssignment();
 
             state._fsp--;
@@ -7288,7 +7319,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAssignment; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAssignment5706); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAssignment5716); if (state.failed) return current;
 
             }
 
@@ -7306,7 +7337,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssignment"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2634:1: ruleAssignment returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2640:1: ruleAssignment returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) ) ) ;
     public final EObject ruleAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -7318,17 +7349,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2637:28: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2638:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2643:28: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2644:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2638:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2638:2: ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2644:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2644:2: ( (otherlv_0= RULE_ID ) ) otherlv_1= ':=' ( (lv_exp_2_0= ruleExpression ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2638:2: ( (otherlv_0= RULE_ID ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2639:1: (otherlv_0= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2644:2: ( (otherlv_0= RULE_ID ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2645:1: (otherlv_0= RULE_ID )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2639:1: (otherlv_0= RULE_ID )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2640:3: otherlv_0= RULE_ID
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2645:1: (otherlv_0= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2646:3: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -7337,7 +7368,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAssignment5751); if (state.failed) return current;
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAssignment5761); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_0, grammarAccess.getAssignmentAccess().getLvalueAssignableCrossReference_0_0()); 
@@ -7349,24 +7380,24 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleAssignment5763); if (state.failed) return current;
+            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleAssignment5773); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAssignmentAccess().getColonEqualsSignKeyword_1());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2655:1: ( (lv_exp_2_0= ruleExpression ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2656:1: (lv_exp_2_0= ruleExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2661:1: ( (lv_exp_2_0= ruleExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2662:1: (lv_exp_2_0= ruleExpression )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2656:1: (lv_exp_2_0= ruleExpression )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2657:3: lv_exp_2_0= ruleExpression
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2662:1: (lv_exp_2_0= ruleExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2663:3: lv_exp_2_0= ruleExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getAssignmentAccess().getExpExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleAssignment5784);
+            pushFollow(FOLLOW_ruleExpression_in_ruleAssignment5794);
             lv_exp_2_0=ruleExpression();
 
             state._fsp--;
@@ -7413,7 +7444,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssignable"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2681:1: entryRuleAssignable returns [EObject current=null] : iv_ruleAssignable= ruleAssignable EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2687:1: entryRuleAssignable returns [EObject current=null] : iv_ruleAssignable= ruleAssignable EOF ;
     public final EObject entryRuleAssignable() throws RecognitionException {
         EObject current = null;
 
@@ -7421,13 +7452,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2682:2: (iv_ruleAssignable= ruleAssignable EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2683:2: iv_ruleAssignable= ruleAssignable EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2688:2: (iv_ruleAssignable= ruleAssignable EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2689:2: iv_ruleAssignable= ruleAssignable EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAssignableRule()); 
             }
-            pushFollow(FOLLOW_ruleAssignable_in_entryRuleAssignable5820);
+            pushFollow(FOLLOW_ruleAssignable_in_entryRuleAssignable5830);
             iv_ruleAssignable=ruleAssignable();
 
             state._fsp--;
@@ -7435,7 +7466,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAssignable; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAssignable5830); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAssignable5840); if (state.failed) return current;
 
             }
 
@@ -7453,7 +7484,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssignable"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2690:1: ruleAssignable returns [EObject current=null] : (this_LocalVar_0= ruleLocalVar | this_Attribute_1= ruleAttribute ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2696:1: ruleAssignable returns [EObject current=null] : (this_LocalVar_0= ruleLocalVar | this_Attribute_1= ruleAttribute ) ;
     public final EObject ruleAssignable() throws RecognitionException {
         EObject current = null;
 
@@ -7465,36 +7496,36 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2693:28: ( (this_LocalVar_0= ruleLocalVar | this_Attribute_1= ruleAttribute ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2694:1: (this_LocalVar_0= ruleLocalVar | this_Attribute_1= ruleAttribute )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2699:28: ( (this_LocalVar_0= ruleLocalVar | this_Attribute_1= ruleAttribute ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2700:1: (this_LocalVar_0= ruleLocalVar | this_Attribute_1= ruleAttribute )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2694:1: (this_LocalVar_0= ruleLocalVar | this_Attribute_1= ruleAttribute )
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2700:1: (this_LocalVar_0= ruleLocalVar | this_Attribute_1= ruleAttribute )
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA45_0==RULE_ID) ) {
-                alt45=1;
+            if ( (LA46_0==RULE_ID) ) {
+                alt46=1;
             }
-            else if ( (LA45_0==15) ) {
-                alt45=2;
+            else if ( (LA46_0==15) ) {
+                alt46=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 45, 0, input);
+                    new NoViableAltException("", 46, 0, input);
 
                 throw nvae;
             }
-            switch (alt45) {
+            switch (alt46) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2695:5: this_LocalVar_0= ruleLocalVar
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2701:5: this_LocalVar_0= ruleLocalVar
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getAssignableAccess().getLocalVarParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleLocalVar_in_ruleAssignable5877);
+                    pushFollow(FOLLOW_ruleLocalVar_in_ruleAssignable5887);
                     this_LocalVar_0=ruleLocalVar();
 
                     state._fsp--;
@@ -7509,14 +7540,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2705:5: this_Attribute_1= ruleAttribute
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2711:5: this_Attribute_1= ruleAttribute
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getAssignableAccess().getAttributeParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleAttribute_in_ruleAssignable5904);
+                    pushFollow(FOLLOW_ruleAttribute_in_ruleAssignable5914);
                     this_Attribute_1=ruleAttribute();
 
                     state._fsp--;
@@ -7553,7 +7584,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWhileLoop"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2721:1: entryRuleWhileLoop returns [EObject current=null] : iv_ruleWhileLoop= ruleWhileLoop EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2727:1: entryRuleWhileLoop returns [EObject current=null] : iv_ruleWhileLoop= ruleWhileLoop EOF ;
     public final EObject entryRuleWhileLoop() throws RecognitionException {
         EObject current = null;
 
@@ -7561,13 +7592,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2722:2: (iv_ruleWhileLoop= ruleWhileLoop EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2723:2: iv_ruleWhileLoop= ruleWhileLoop EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2728:2: (iv_ruleWhileLoop= ruleWhileLoop EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2729:2: iv_ruleWhileLoop= ruleWhileLoop EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getWhileLoopRule()); 
             }
-            pushFollow(FOLLOW_ruleWhileLoop_in_entryRuleWhileLoop5939);
+            pushFollow(FOLLOW_ruleWhileLoop_in_entryRuleWhileLoop5949);
             iv_ruleWhileLoop=ruleWhileLoop();
 
             state._fsp--;
@@ -7575,7 +7606,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleWhileLoop; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWhileLoop5949); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWhileLoop5959); if (state.failed) return current;
 
             }
 
@@ -7593,7 +7624,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWhileLoop"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2730:1: ruleWhileLoop returns [EObject current=null] : (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}' ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2736:1: ruleWhileLoop returns [EObject current=null] : (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}' ) ;
     public final EObject ruleWhileLoop() throws RecognitionException {
         EObject current = null;
 
@@ -7608,30 +7639,30 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2733:28: ( (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}' ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2734:1: (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2739:28: ( (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}' ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2740:1: (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}' )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2734:1: (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}' )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2734:3: otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}'
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2740:1: (otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2740:3: otherlv_0= 'while' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_statements_3_0= ruleStatement ) )+ otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,50,FOLLOW_50_in_ruleWhileLoop5986); if (state.failed) return current;
+            otherlv_0=(Token)match(input,50,FOLLOW_50_in_ruleWhileLoop5996); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getWhileLoopAccess().getWhileKeyword_0());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2738:1: ( (lv_condition_1_0= ruleExpression ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2739:1: (lv_condition_1_0= ruleExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2744:1: ( (lv_condition_1_0= ruleExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2745:1: (lv_condition_1_0= ruleExpression )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2739:1: (lv_condition_1_0= ruleExpression )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2740:3: lv_condition_1_0= ruleExpression
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2745:1: (lv_condition_1_0= ruleExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2746:3: lv_condition_1_0= ruleExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getWhileLoopAccess().getConditionExpressionParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleWhileLoop6007);
+            pushFollow(FOLLOW_ruleExpression_in_ruleWhileLoop6017);
             lv_condition_1_0=ruleExpression();
 
             state._fsp--;
@@ -7655,37 +7686,37 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleWhileLoop6019); if (state.failed) return current;
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleWhileLoop6029); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getWhileLoopAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2760:1: ( (lv_statements_3_0= ruleStatement ) )+
-            int cnt46=0;
-            loop46:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2766:1: ( (lv_statements_3_0= ruleStatement ) )+
+            int cnt47=0;
+            loop47:
             do {
-                int alt46=2;
-                int LA46_0 = input.LA(1);
+                int alt47=2;
+                int LA47_0 = input.LA(1);
 
-                if ( (LA46_0==RULE_ID||(LA46_0>=50 && LA46_0<=51)||(LA46_0>=54 && LA46_0<=56)||(LA46_0>=58 && LA46_0<=60)) ) {
-                    alt46=1;
+                if ( (LA47_0==RULE_ID||(LA47_0>=50 && LA47_0<=51)||(LA47_0>=54 && LA47_0<=56)||(LA47_0>=58 && LA47_0<=60)) ) {
+                    alt47=1;
                 }
 
 
-                switch (alt46) {
+                switch (alt47) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2761:1: (lv_statements_3_0= ruleStatement )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2767:1: (lv_statements_3_0= ruleStatement )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2761:1: (lv_statements_3_0= ruleStatement )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2762:3: lv_statements_3_0= ruleStatement
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2767:1: (lv_statements_3_0= ruleStatement )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2768:3: lv_statements_3_0= ruleStatement
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getWhileLoopAccess().getStatementsStatementParserRuleCall_3_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleStatement_in_ruleWhileLoop6040);
+            	    pushFollow(FOLLOW_ruleStatement_in_ruleWhileLoop6050);
             	    lv_statements_3_0=ruleStatement();
 
             	    state._fsp--;
@@ -7711,16 +7742,16 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt46 >= 1 ) break loop46;
+            	    if ( cnt47 >= 1 ) break loop47;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(46, input);
+                            new EarlyExitException(47, input);
                         throw eee;
                 }
-                cnt46++;
+                cnt47++;
             } while (true);
 
-            otherlv_4=(Token)match(input,14,FOLLOW_14_in_ruleWhileLoop6053); if (state.failed) return current;
+            otherlv_4=(Token)match(input,14,FOLLOW_14_in_ruleWhileLoop6063); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getWhileLoopAccess().getRightCurlyBracketKeyword_4());
@@ -7749,7 +7780,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIfStatement"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2790:1: entryRuleIfStatement returns [EObject current=null] : iv_ruleIfStatement= ruleIfStatement EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2796:1: entryRuleIfStatement returns [EObject current=null] : iv_ruleIfStatement= ruleIfStatement EOF ;
     public final EObject entryRuleIfStatement() throws RecognitionException {
         EObject current = null;
 
@@ -7757,13 +7788,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2791:2: (iv_ruleIfStatement= ruleIfStatement EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2792:2: iv_ruleIfStatement= ruleIfStatement EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2797:2: (iv_ruleIfStatement= ruleIfStatement EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2798:2: iv_ruleIfStatement= ruleIfStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIfStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleIfStatement_in_entryRuleIfStatement6089);
+            pushFollow(FOLLOW_ruleIfStatement_in_entryRuleIfStatement6099);
             iv_ruleIfStatement=ruleIfStatement();
 
             state._fsp--;
@@ -7771,7 +7802,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIfStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIfStatement6099); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIfStatement6109); if (state.failed) return current;
 
             }
 
@@ -7789,7 +7820,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfStatement"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2799:1: ruleIfStatement returns [EObject current=null] : (otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )? ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2805:1: ruleIfStatement returns [EObject current=null] : (otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )? ) ;
     public final EObject ruleIfStatement() throws RecognitionException {
         EObject current = null;
 
@@ -7809,30 +7840,30 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2802:28: ( (otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )? ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2803:1: (otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )? )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2808:28: ( (otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )? ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2809:1: (otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )? )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2803:1: (otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )? )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2803:3: otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )?
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2809:1: (otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )? )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2809:3: otherlv_0= 'if' ( (lv_condition_1_0= ruleExpression ) ) otherlv_2= '{' ( (lv_thenStatements_3_0= ruleStatement ) )+ otherlv_4= '}' (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )?
             {
-            otherlv_0=(Token)match(input,51,FOLLOW_51_in_ruleIfStatement6136); if (state.failed) return current;
+            otherlv_0=(Token)match(input,51,FOLLOW_51_in_ruleIfStatement6146); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getIfStatementAccess().getIfKeyword_0());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2807:1: ( (lv_condition_1_0= ruleExpression ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2808:1: (lv_condition_1_0= ruleExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2813:1: ( (lv_condition_1_0= ruleExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2814:1: (lv_condition_1_0= ruleExpression )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2808:1: (lv_condition_1_0= ruleExpression )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2809:3: lv_condition_1_0= ruleExpression
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2814:1: (lv_condition_1_0= ruleExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2815:3: lv_condition_1_0= ruleExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getIfStatementAccess().getConditionExpressionParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleIfStatement6157);
+            pushFollow(FOLLOW_ruleExpression_in_ruleIfStatement6167);
             lv_condition_1_0=ruleExpression();
 
             state._fsp--;
@@ -7856,37 +7887,37 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleIfStatement6169); if (state.failed) return current;
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleIfStatement6179); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getIfStatementAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2829:1: ( (lv_thenStatements_3_0= ruleStatement ) )+
-            int cnt47=0;
-            loop47:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2835:1: ( (lv_thenStatements_3_0= ruleStatement ) )+
+            int cnt48=0;
+            loop48:
             do {
-                int alt47=2;
-                int LA47_0 = input.LA(1);
+                int alt48=2;
+                int LA48_0 = input.LA(1);
 
-                if ( (LA47_0==RULE_ID||(LA47_0>=50 && LA47_0<=51)||(LA47_0>=54 && LA47_0<=56)||(LA47_0>=58 && LA47_0<=60)) ) {
-                    alt47=1;
+                if ( (LA48_0==RULE_ID||(LA48_0>=50 && LA48_0<=51)||(LA48_0>=54 && LA48_0<=56)||(LA48_0>=58 && LA48_0<=60)) ) {
+                    alt48=1;
                 }
 
 
-                switch (alt47) {
+                switch (alt48) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2830:1: (lv_thenStatements_3_0= ruleStatement )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2836:1: (lv_thenStatements_3_0= ruleStatement )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2830:1: (lv_thenStatements_3_0= ruleStatement )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2831:3: lv_thenStatements_3_0= ruleStatement
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2836:1: (lv_thenStatements_3_0= ruleStatement )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2837:3: lv_thenStatements_3_0= ruleStatement
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getIfStatementAccess().getThenStatementsStatementParserRuleCall_3_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleStatement_in_ruleIfStatement6190);
+            	    pushFollow(FOLLOW_ruleStatement_in_ruleIfStatement6200);
             	    lv_thenStatements_3_0=ruleStatement();
 
             	    state._fsp--;
@@ -7912,69 +7943,69 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt47 >= 1 ) break loop47;
+            	    if ( cnt48 >= 1 ) break loop48;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(47, input);
+                            new EarlyExitException(48, input);
                         throw eee;
                 }
-                cnt47++;
+                cnt48++;
             } while (true);
 
-            otherlv_4=(Token)match(input,14,FOLLOW_14_in_ruleIfStatement6203); if (state.failed) return current;
+            otherlv_4=(Token)match(input,14,FOLLOW_14_in_ruleIfStatement6213); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getIfStatementAccess().getRightCurlyBracketKeyword_4());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2851:1: (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )?
-            int alt49=2;
-            int LA49_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2857:1: (otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}' )?
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA49_0==52) ) {
-                alt49=1;
+            if ( (LA50_0==52) ) {
+                alt50=1;
             }
-            switch (alt49) {
+            switch (alt50) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2851:3: otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}'
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2857:3: otherlv_5= 'else ' otherlv_6= '{' ( (lv_elseStatements_7_0= ruleStatement ) )+ otherlv_8= '}'
                     {
-                    otherlv_5=(Token)match(input,52,FOLLOW_52_in_ruleIfStatement6216); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,52,FOLLOW_52_in_ruleIfStatement6226); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getIfStatementAccess().getElseKeyword_5_0());
                           
                     }
-                    otherlv_6=(Token)match(input,13,FOLLOW_13_in_ruleIfStatement6228); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,13,FOLLOW_13_in_ruleIfStatement6238); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getIfStatementAccess().getLeftCurlyBracketKeyword_5_1());
                           
                     }
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2859:1: ( (lv_elseStatements_7_0= ruleStatement ) )+
-                    int cnt48=0;
-                    loop48:
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2865:1: ( (lv_elseStatements_7_0= ruleStatement ) )+
+                    int cnt49=0;
+                    loop49:
                     do {
-                        int alt48=2;
-                        int LA48_0 = input.LA(1);
+                        int alt49=2;
+                        int LA49_0 = input.LA(1);
 
-                        if ( (LA48_0==RULE_ID||(LA48_0>=50 && LA48_0<=51)||(LA48_0>=54 && LA48_0<=56)||(LA48_0>=58 && LA48_0<=60)) ) {
-                            alt48=1;
+                        if ( (LA49_0==RULE_ID||(LA49_0>=50 && LA49_0<=51)||(LA49_0>=54 && LA49_0<=56)||(LA49_0>=58 && LA49_0<=60)) ) {
+                            alt49=1;
                         }
 
 
-                        switch (alt48) {
+                        switch (alt49) {
                     	case 1 :
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2860:1: (lv_elseStatements_7_0= ruleStatement )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2866:1: (lv_elseStatements_7_0= ruleStatement )
                     	    {
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2860:1: (lv_elseStatements_7_0= ruleStatement )
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2861:3: lv_elseStatements_7_0= ruleStatement
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2866:1: (lv_elseStatements_7_0= ruleStatement )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2867:3: lv_elseStatements_7_0= ruleStatement
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getIfStatementAccess().getElseStatementsStatementParserRuleCall_5_2_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleStatement_in_ruleIfStatement6249);
+                    	    pushFollow(FOLLOW_ruleStatement_in_ruleIfStatement6259);
                     	    lv_elseStatements_7_0=ruleStatement();
 
                     	    state._fsp--;
@@ -8000,16 +8031,16 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt48 >= 1 ) break loop48;
+                    	    if ( cnt49 >= 1 ) break loop49;
                     	    if (state.backtracking>0) {state.failed=true; return current;}
                                 EarlyExitException eee =
-                                    new EarlyExitException(48, input);
+                                    new EarlyExitException(49, input);
                                 throw eee;
                         }
-                        cnt48++;
+                        cnt49++;
                     } while (true);
 
-                    otherlv_8=(Token)match(input,14,FOLLOW_14_in_ruleIfStatement6262); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,14,FOLLOW_14_in_ruleIfStatement6272); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_8, grammarAccess.getIfStatementAccess().getRightCurlyBracketKeyword_5_3());
@@ -8044,7 +8075,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLogStatement"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2889:1: entryRuleLogStatement returns [EObject current=null] : iv_ruleLogStatement= ruleLogStatement EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2895:1: entryRuleLogStatement returns [EObject current=null] : iv_ruleLogStatement= ruleLogStatement EOF ;
     public final EObject entryRuleLogStatement() throws RecognitionException {
         EObject current = null;
 
@@ -8052,13 +8083,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2890:2: (iv_ruleLogStatement= ruleLogStatement EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2891:2: iv_ruleLogStatement= ruleLogStatement EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2896:2: (iv_ruleLogStatement= ruleLogStatement EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2897:2: iv_ruleLogStatement= ruleLogStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLogStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleLogStatement_in_entryRuleLogStatement6300);
+            pushFollow(FOLLOW_ruleLogStatement_in_entryRuleLogStatement6310);
             iv_ruleLogStatement=ruleLogStatement();
 
             state._fsp--;
@@ -8066,7 +8097,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLogStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLogStatement6310); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLogStatement6320); if (state.failed) return current;
 
             }
 
@@ -8084,7 +8115,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLogStatement"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2898:1: ruleLogStatement returns [EObject current=null] : (otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2904:1: ruleLogStatement returns [EObject current=null] : (otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) ) ) ;
     public final EObject ruleLogStatement() throws RecognitionException {
         EObject current = null;
 
@@ -8097,23 +8128,23 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2901:28: ( (otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2902:1: (otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2907:28: ( (otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2908:1: (otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2902:1: (otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2902:3: otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2908:1: (otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2908:3: otherlv_0= 'log' ( (otherlv_1= RULE_ID ) ) otherlv_2= 'with' ( (lv_left_3_0= ruleStringExpression ) )
             {
-            otherlv_0=(Token)match(input,60,FOLLOW_60_in_ruleLogStatement6347); if (state.failed) return current;
+            otherlv_0=(Token)match(input,60,FOLLOW_60_in_ruleLogStatement6357); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getLogStatementAccess().getLogKeyword_0());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2906:1: ( (otherlv_1= RULE_ID ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2907:1: (otherlv_1= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2912:1: ( (otherlv_1= RULE_ID ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2913:1: (otherlv_1= RULE_ID )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2907:1: (otherlv_1= RULE_ID )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2908:3: otherlv_1= RULE_ID
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2913:1: (otherlv_1= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2914:3: otherlv_1= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -8122,7 +8153,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLogStatement6367); if (state.failed) return current;
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleLogStatement6377); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_1, grammarAccess.getLogStatementAccess().getLogPortLogPortCrossReference_1_0()); 
@@ -8134,24 +8165,24 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,61,FOLLOW_61_in_ruleLogStatement6379); if (state.failed) return current;
+            otherlv_2=(Token)match(input,61,FOLLOW_61_in_ruleLogStatement6389); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getLogStatementAccess().getWithKeyword_2());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2923:1: ( (lv_left_3_0= ruleStringExpression ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2924:1: (lv_left_3_0= ruleStringExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2929:1: ( (lv_left_3_0= ruleStringExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2930:1: (lv_left_3_0= ruleStringExpression )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2924:1: (lv_left_3_0= ruleStringExpression )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2925:3: lv_left_3_0= ruleStringExpression
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2930:1: (lv_left_3_0= ruleStringExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2931:3: lv_left_3_0= ruleStringExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getLogStatementAccess().getLeftStringExpressionParserRuleCall_3_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleStringExpression_in_ruleLogStatement6400);
+            pushFollow(FOLLOW_ruleStringExpression_in_ruleLogStatement6410);
             lv_left_3_0=ruleStringExpression();
 
             state._fsp--;
@@ -8198,7 +8229,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2949:1: entryRuleStringExpression returns [EObject current=null] : iv_ruleStringExpression= ruleStringExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2955:1: entryRuleStringExpression returns [EObject current=null] : iv_ruleStringExpression= ruleStringExpression EOF ;
     public final EObject entryRuleStringExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8206,13 +8237,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2950:2: (iv_ruleStringExpression= ruleStringExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2951:2: iv_ruleStringExpression= ruleStringExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2956:2: (iv_ruleStringExpression= ruleStringExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2957:2: iv_ruleStringExpression= ruleStringExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStringExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleStringExpression_in_entryRuleStringExpression6436);
+            pushFollow(FOLLOW_ruleStringExpression_in_entryRuleStringExpression6446);
             iv_ruleStringExpression=ruleStringExpression();
 
             state._fsp--;
@@ -8220,7 +8251,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleStringExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStringExpression6446); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStringExpression6456); if (state.failed) return current;
 
             }
 
@@ -8238,7 +8269,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2958:1: ruleStringExpression returns [EObject current=null] : (this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )* ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2964:1: ruleStringExpression returns [EObject current=null] : (this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )* ) ;
     public final EObject ruleStringExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8251,18 +8282,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2961:28: ( (this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )* ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2962:1: (this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2967:28: ( (this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )* ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2968:1: (this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )* )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2962:1: (this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )* )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2963:5: this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )*
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2968:1: (this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2969:5: this_IndividualExpression_0= ruleIndividualExpression ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getStringExpressionAccess().getIndividualExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleIndividualExpression_in_ruleStringExpression6493);
+            pushFollow(FOLLOW_ruleIndividualExpression_in_ruleStringExpression6503);
             this_IndividualExpression_0=ruleIndividualExpression();
 
             state._fsp--;
@@ -8273,26 +8304,26 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2971:1: ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )*
-            loop50:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:1: ( ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) ) )*
+            loop51:
             do {
-                int alt50=2;
-                int LA50_0 = input.LA(1);
+                int alt51=2;
+                int LA51_0 = input.LA(1);
 
-                if ( (LA50_0==62) && (synpred1_InternalUrml())) {
-                    alt50=1;
+                if ( (LA51_0==62) && (synpred1_InternalUrml())) {
+                    alt51=1;
                 }
 
 
-                switch (alt50) {
+                switch (alt51) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2971:2: ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:2: ( ( () '^' ( ( ruleIndividualExpression ) ) ) )=> ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:6: ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:7: () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2983:6: ( () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2983:7: () otherlv_2= '^' ( (lv_rest_3_0= ruleIndividualExpression ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:7: ()
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2978:5: 
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2983:7: ()
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2984:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -8304,24 +8335,24 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,62,FOLLOW_62_in_ruleStringExpression6536); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,62,FOLLOW_62_in_ruleStringExpression6546); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getStringExpressionAccess().getCircumflexAccentKeyword_1_0_1());
             	          
             	    }
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2987:1: ( (lv_rest_3_0= ruleIndividualExpression ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2988:1: (lv_rest_3_0= ruleIndividualExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2993:1: ( (lv_rest_3_0= ruleIndividualExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2994:1: (lv_rest_3_0= ruleIndividualExpression )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2988:1: (lv_rest_3_0= ruleIndividualExpression )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2989:3: lv_rest_3_0= ruleIndividualExpression
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2994:1: (lv_rest_3_0= ruleIndividualExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2995:3: lv_rest_3_0= ruleIndividualExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getStringExpressionAccess().getRestIndividualExpressionParserRuleCall_1_0_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleIndividualExpression_in_ruleStringExpression6557);
+            	    pushFollow(FOLLOW_ruleIndividualExpression_in_ruleStringExpression6567);
             	    lv_rest_3_0=ruleIndividualExpression();
 
             	    state._fsp--;
@@ -8353,7 +8384,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop50;
+            	    break loop51;
                 }
             } while (true);
 
@@ -8380,7 +8411,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIndividualExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3013:1: entryRuleIndividualExpression returns [EObject current=null] : iv_ruleIndividualExpression= ruleIndividualExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3019:1: entryRuleIndividualExpression returns [EObject current=null] : iv_ruleIndividualExpression= ruleIndividualExpression EOF ;
     public final EObject entryRuleIndividualExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8388,13 +8419,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3014:2: (iv_ruleIndividualExpression= ruleIndividualExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3015:2: iv_ruleIndividualExpression= ruleIndividualExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3020:2: (iv_ruleIndividualExpression= ruleIndividualExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3021:2: iv_ruleIndividualExpression= ruleIndividualExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIndividualExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleIndividualExpression_in_entryRuleIndividualExpression6596);
+            pushFollow(FOLLOW_ruleIndividualExpression_in_entryRuleIndividualExpression6606);
             iv_ruleIndividualExpression=ruleIndividualExpression();
 
             state._fsp--;
@@ -8402,7 +8433,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIndividualExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIndividualExpression6606); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIndividualExpression6616); if (state.failed) return current;
 
             }
 
@@ -8420,7 +8451,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIndividualExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3022:1: ruleIndividualExpression returns [EObject current=null] : ( ( (lv_expr_0_0= ruleExpression ) ) | ( (lv_str_1_0= RULE_STRING ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3028:1: ruleIndividualExpression returns [EObject current=null] : ( ( (lv_expr_0_0= ruleExpression ) ) | ( (lv_str_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleIndividualExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8431,42 +8462,42 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3025:28: ( ( ( (lv_expr_0_0= ruleExpression ) ) | ( (lv_str_1_0= RULE_STRING ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3026:1: ( ( (lv_expr_0_0= ruleExpression ) ) | ( (lv_str_1_0= RULE_STRING ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3031:28: ( ( ( (lv_expr_0_0= ruleExpression ) ) | ( (lv_str_1_0= RULE_STRING ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3032:1: ( ( (lv_expr_0_0= ruleExpression ) ) | ( (lv_str_1_0= RULE_STRING ) ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3026:1: ( ( (lv_expr_0_0= ruleExpression ) ) | ( (lv_str_1_0= RULE_STRING ) ) )
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3032:1: ( ( (lv_expr_0_0= ruleExpression ) ) | ( (lv_str_1_0= RULE_STRING ) ) )
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA51_0==RULE_ID||(LA51_0>=RULE_INT && LA51_0<=RULE_BOOLEAN)||LA51_0==20||LA51_0==72||LA51_0==76) ) {
-                alt51=1;
+            if ( (LA52_0==RULE_ID||(LA52_0>=RULE_INT && LA52_0<=RULE_BOOLEAN)||LA52_0==20||LA52_0==72||LA52_0==76) ) {
+                alt52=1;
             }
-            else if ( (LA51_0==RULE_STRING) ) {
-                alt51=2;
+            else if ( (LA52_0==RULE_STRING) ) {
+                alt52=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 51, 0, input);
+                    new NoViableAltException("", 52, 0, input);
 
                 throw nvae;
             }
-            switch (alt51) {
+            switch (alt52) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3026:2: ( (lv_expr_0_0= ruleExpression ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3032:2: ( (lv_expr_0_0= ruleExpression ) )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3026:2: ( (lv_expr_0_0= ruleExpression ) )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3027:1: (lv_expr_0_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3032:2: ( (lv_expr_0_0= ruleExpression ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3033:1: (lv_expr_0_0= ruleExpression )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3027:1: (lv_expr_0_0= ruleExpression )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3028:3: lv_expr_0_0= ruleExpression
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3033:1: (lv_expr_0_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3034:3: lv_expr_0_0= ruleExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getIndividualExpressionAccess().getExprExpressionParserRuleCall_0_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleIndividualExpression6652);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleIndividualExpression6662);
                     lv_expr_0_0=ruleExpression();
 
                     state._fsp--;
@@ -8494,15 +8525,15 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3045:6: ( (lv_str_1_0= RULE_STRING ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3051:6: ( (lv_str_1_0= RULE_STRING ) )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3045:6: ( (lv_str_1_0= RULE_STRING ) )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3046:1: (lv_str_1_0= RULE_STRING )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3051:6: ( (lv_str_1_0= RULE_STRING ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3052:1: (lv_str_1_0= RULE_STRING )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3046:1: (lv_str_1_0= RULE_STRING )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3047:3: lv_str_1_0= RULE_STRING
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3052:1: (lv_str_1_0= RULE_STRING )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3053:3: lv_str_1_0= RULE_STRING
                     {
-                    lv_str_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleIndividualExpression6675); if (state.failed) return current;
+                    lv_str_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleIndividualExpression6685); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			newLeafNode(lv_str_1_0, grammarAccess.getIndividualExpressionAccess().getStrSTRINGTerminalRuleCall_1_0()); 
@@ -8552,7 +8583,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3071:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3077:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
     public final EObject entryRuleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8560,13 +8591,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3072:2: (iv_ruleExpression= ruleExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3073:2: iv_ruleExpression= ruleExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3078:2: (iv_ruleExpression= ruleExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3079:2: iv_ruleExpression= ruleExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression6716);
+            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression6726);
             iv_ruleExpression=ruleExpression();
 
             state._fsp--;
@@ -8574,7 +8605,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression6726); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression6736); if (state.failed) return current;
 
             }
 
@@ -8592,7 +8623,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3080:1: ruleExpression returns [EObject current=null] : this_ConditionalOrExpression_0= ruleConditionalOrExpression ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3086:1: ruleExpression returns [EObject current=null] : this_ConditionalOrExpression_0= ruleConditionalOrExpression ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8602,15 +8633,15 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3083:28: (this_ConditionalOrExpression_0= ruleConditionalOrExpression )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3085:5: this_ConditionalOrExpression_0= ruleConditionalOrExpression
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3089:28: (this_ConditionalOrExpression_0= ruleConditionalOrExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3091:5: this_ConditionalOrExpression_0= ruleConditionalOrExpression
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getExpressionAccess().getConditionalOrExpressionParserRuleCall()); 
                   
             }
-            pushFollow(FOLLOW_ruleConditionalOrExpression_in_ruleExpression6772);
+            pushFollow(FOLLOW_ruleConditionalOrExpression_in_ruleExpression6782);
             this_ConditionalOrExpression_0=ruleConditionalOrExpression();
 
             state._fsp--;
@@ -8641,7 +8672,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConditionalOrExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3101:1: entryRuleConditionalOrExpression returns [EObject current=null] : iv_ruleConditionalOrExpression= ruleConditionalOrExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3107:1: entryRuleConditionalOrExpression returns [EObject current=null] : iv_ruleConditionalOrExpression= ruleConditionalOrExpression EOF ;
     public final EObject entryRuleConditionalOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8649,13 +8680,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3102:2: (iv_ruleConditionalOrExpression= ruleConditionalOrExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3103:2: iv_ruleConditionalOrExpression= ruleConditionalOrExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3108:2: (iv_ruleConditionalOrExpression= ruleConditionalOrExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3109:2: iv_ruleConditionalOrExpression= ruleConditionalOrExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getConditionalOrExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleConditionalOrExpression_in_entryRuleConditionalOrExpression6806);
+            pushFollow(FOLLOW_ruleConditionalOrExpression_in_entryRuleConditionalOrExpression6816);
             iv_ruleConditionalOrExpression=ruleConditionalOrExpression();
 
             state._fsp--;
@@ -8663,7 +8694,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleConditionalOrExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConditionalOrExpression6816); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConditionalOrExpression6826); if (state.failed) return current;
 
             }
 
@@ -8681,7 +8712,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConditionalOrExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3110:1: ruleConditionalOrExpression returns [EObject current=null] : (this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )* ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3116:1: ruleConditionalOrExpression returns [EObject current=null] : (this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )* ) ;
     public final EObject ruleConditionalOrExpression() throws RecognitionException {
         EObject current = null;
 
@@ -8694,18 +8725,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3113:28: ( (this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )* ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3114:1: (this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3119:28: ( (this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )* ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3120:1: (this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )* )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3114:1: (this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )* )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3115:5: this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )*
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3120:1: (this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3121:5: this_ConditionalAndExpression_0= ruleConditionalAndExpression ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getConditionalOrExpressionAccess().getConditionalAndExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleConditionalAndExpression_in_ruleConditionalOrExpression6863);
+            pushFollow(FOLLOW_ruleConditionalAndExpression_in_ruleConditionalOrExpression6873);
             this_ConditionalAndExpression_0=ruleConditionalAndExpression();
 
             state._fsp--;
@@ -8716,26 +8747,26 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3123:1: ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )*
-            loop52:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:1: ( ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) ) )*
+            loop53:
             do {
-                int alt52=2;
-                int LA52_0 = input.LA(1);
+                int alt53=2;
+                int LA53_0 = input.LA(1);
 
-                if ( (LA52_0==63) && (synpred2_InternalUrml())) {
-                    alt52=1;
+                if ( (LA53_0==63) && (synpred2_InternalUrml())) {
+                    alt53=1;
                 }
 
 
-                switch (alt52) {
+                switch (alt53) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3123:2: ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:2: ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )=> ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:6: ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:7: () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3135:6: ( () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3135:7: () otherlv_2= '||' ( (lv_rest_3_0= ruleConditionalAndExpression ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:7: ()
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3130:5: 
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3135:7: ()
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3136:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -8747,24 +8778,24 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,63,FOLLOW_63_in_ruleConditionalOrExpression6906); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,63,FOLLOW_63_in_ruleConditionalOrExpression6916); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getConditionalOrExpressionAccess().getVerticalLineVerticalLineKeyword_1_0_1());
             	          
             	    }
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3139:1: ( (lv_rest_3_0= ruleConditionalAndExpression ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3140:1: (lv_rest_3_0= ruleConditionalAndExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3145:1: ( (lv_rest_3_0= ruleConditionalAndExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3146:1: (lv_rest_3_0= ruleConditionalAndExpression )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3140:1: (lv_rest_3_0= ruleConditionalAndExpression )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3141:3: lv_rest_3_0= ruleConditionalAndExpression
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3146:1: (lv_rest_3_0= ruleConditionalAndExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3147:3: lv_rest_3_0= ruleConditionalAndExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getConditionalOrExpressionAccess().getRestConditionalAndExpressionParserRuleCall_1_0_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleConditionalAndExpression_in_ruleConditionalOrExpression6927);
+            	    pushFollow(FOLLOW_ruleConditionalAndExpression_in_ruleConditionalOrExpression6937);
             	    lv_rest_3_0=ruleConditionalAndExpression();
 
             	    state._fsp--;
@@ -8779,188 +8810,6 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	             			"rest",
             	              		lv_rest_3_0, 
             	              		"ConditionalAndExpression");
-            	      	        afterParserOrEnumRuleCall();
-            	      	    
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop52;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-               leaveRule(); 
-            }
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleConditionalOrExpression"
-
-
-    // $ANTLR start "entryRuleConditionalAndExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3165:1: entryRuleConditionalAndExpression returns [EObject current=null] : iv_ruleConditionalAndExpression= ruleConditionalAndExpression EOF ;
-    public final EObject entryRuleConditionalAndExpression() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleConditionalAndExpression = null;
-
-
-        try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3166:2: (iv_ruleConditionalAndExpression= ruleConditionalAndExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3167:2: iv_ruleConditionalAndExpression= ruleConditionalAndExpression EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getConditionalAndExpressionRule()); 
-            }
-            pushFollow(FOLLOW_ruleConditionalAndExpression_in_entryRuleConditionalAndExpression6966);
-            iv_ruleConditionalAndExpression=ruleConditionalAndExpression();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleConditionalAndExpression; 
-            }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConditionalAndExpression6976); if (state.failed) return current;
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleConditionalAndExpression"
-
-
-    // $ANTLR start "ruleConditionalAndExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3174:1: ruleConditionalAndExpression returns [EObject current=null] : (this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )* ) ;
-    public final EObject ruleConditionalAndExpression() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject this_RelationalOpExpression_0 = null;
-
-        EObject lv_rest_3_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3177:28: ( (this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )* ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3178:1: (this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )* )
-            {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3178:1: (this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )* )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3179:5: this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )*
-            {
-            if ( state.backtracking==0 ) {
-               
-                      newCompositeNode(grammarAccess.getConditionalAndExpressionAccess().getRelationalOpExpressionParserRuleCall_0()); 
-                  
-            }
-            pushFollow(FOLLOW_ruleRelationalOpExpression_in_ruleConditionalAndExpression7023);
-            this_RelationalOpExpression_0=ruleRelationalOpExpression();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               
-                      current = this_RelationalOpExpression_0; 
-                      afterParserOrEnumRuleCall();
-                  
-            }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3187:1: ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )*
-            loop53:
-            do {
-                int alt53=2;
-                int LA53_0 = input.LA(1);
-
-                if ( (LA53_0==64) && (synpred3_InternalUrml())) {
-                    alt53=1;
-                }
-
-
-                switch (alt53) {
-            	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3187:2: ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) )
-            	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:6: ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:7: () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) )
-            	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:7: ()
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3194:5: 
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	              current = forceCreateModelElementAndSet(
-            	                  grammarAccess.getConditionalAndExpressionAccess().getConditionalAndExpressionLeftAction_1_0_0(),
-            	                  current);
-            	          
-            	    }
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,64,FOLLOW_64_in_ruleConditionalAndExpression7066); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	          	newLeafNode(otherlv_2, grammarAccess.getConditionalAndExpressionAccess().getAmpersandAmpersandKeyword_1_0_1());
-            	          
-            	    }
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3203:1: ( (lv_rest_3_0= ruleRelationalOpExpression ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3204:1: (lv_rest_3_0= ruleRelationalOpExpression )
-            	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3204:1: (lv_rest_3_0= ruleRelationalOpExpression )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3205:3: lv_rest_3_0= ruleRelationalOpExpression
-            	    {
-            	    if ( state.backtracking==0 ) {
-            	       
-            	      	        newCompositeNode(grammarAccess.getConditionalAndExpressionAccess().getRestRelationalOpExpressionParserRuleCall_1_0_2_0()); 
-            	      	    
-            	    }
-            	    pushFollow(FOLLOW_ruleRelationalOpExpression_in_ruleConditionalAndExpression7087);
-            	    lv_rest_3_0=ruleRelationalOpExpression();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      	        if (current==null) {
-            	      	            current = createModelElementForParent(grammarAccess.getConditionalAndExpressionRule());
-            	      	        }
-            	             		set(
-            	             			current, 
-            	             			"rest",
-            	              		lv_rest_3_0, 
-            	              		"RelationalOpExpression");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -9001,11 +8850,193 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
+    // $ANTLR end "ruleConditionalOrExpression"
+
+
+    // $ANTLR start "entryRuleConditionalAndExpression"
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3171:1: entryRuleConditionalAndExpression returns [EObject current=null] : iv_ruleConditionalAndExpression= ruleConditionalAndExpression EOF ;
+    public final EObject entryRuleConditionalAndExpression() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleConditionalAndExpression = null;
+
+
+        try {
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3172:2: (iv_ruleConditionalAndExpression= ruleConditionalAndExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3173:2: iv_ruleConditionalAndExpression= ruleConditionalAndExpression EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getConditionalAndExpressionRule()); 
+            }
+            pushFollow(FOLLOW_ruleConditionalAndExpression_in_entryRuleConditionalAndExpression6976);
+            iv_ruleConditionalAndExpression=ruleConditionalAndExpression();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleConditionalAndExpression; 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConditionalAndExpression6986); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleConditionalAndExpression"
+
+
+    // $ANTLR start "ruleConditionalAndExpression"
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3180:1: ruleConditionalAndExpression returns [EObject current=null] : (this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )* ) ;
+    public final EObject ruleConditionalAndExpression() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_RelationalOpExpression_0 = null;
+
+        EObject lv_rest_3_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3183:28: ( (this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )* ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3184:1: (this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )* )
+            {
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3184:1: (this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3185:5: this_RelationalOpExpression_0= ruleRelationalOpExpression ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )*
+            {
+            if ( state.backtracking==0 ) {
+               
+                      newCompositeNode(grammarAccess.getConditionalAndExpressionAccess().getRelationalOpExpressionParserRuleCall_0()); 
+                  
+            }
+            pushFollow(FOLLOW_ruleRelationalOpExpression_in_ruleConditionalAndExpression7033);
+            this_RelationalOpExpression_0=ruleRelationalOpExpression();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               
+                      current = this_RelationalOpExpression_0; 
+                      afterParserOrEnumRuleCall();
+                  
+            }
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:1: ( ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) ) )*
+            loop54:
+            do {
+                int alt54=2;
+                int LA54_0 = input.LA(1);
+
+                if ( (LA54_0==64) && (synpred3_InternalUrml())) {
+                    alt54=1;
+                }
+
+
+                switch (alt54) {
+            	case 1 :
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:2: ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )=> ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) )
+            	    {
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3199:6: ( () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3199:7: () otherlv_2= '&&' ( (lv_rest_3_0= ruleRelationalOpExpression ) )
+            	    {
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3199:7: ()
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3200:5: 
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	              current = forceCreateModelElementAndSet(
+            	                  grammarAccess.getConditionalAndExpressionAccess().getConditionalAndExpressionLeftAction_1_0_0(),
+            	                  current);
+            	          
+            	    }
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,64,FOLLOW_64_in_ruleConditionalAndExpression7076); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	          	newLeafNode(otherlv_2, grammarAccess.getConditionalAndExpressionAccess().getAmpersandAmpersandKeyword_1_0_1());
+            	          
+            	    }
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3209:1: ( (lv_rest_3_0= ruleRelationalOpExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3210:1: (lv_rest_3_0= ruleRelationalOpExpression )
+            	    {
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3210:1: (lv_rest_3_0= ruleRelationalOpExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3211:3: lv_rest_3_0= ruleRelationalOpExpression
+            	    {
+            	    if ( state.backtracking==0 ) {
+            	       
+            	      	        newCompositeNode(grammarAccess.getConditionalAndExpressionAccess().getRestRelationalOpExpressionParserRuleCall_1_0_2_0()); 
+            	      	    
+            	    }
+            	    pushFollow(FOLLOW_ruleRelationalOpExpression_in_ruleConditionalAndExpression7097);
+            	    lv_rest_3_0=ruleRelationalOpExpression();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      	        if (current==null) {
+            	      	            current = createModelElementForParent(grammarAccess.getConditionalAndExpressionRule());
+            	      	        }
+            	             		set(
+            	             			current, 
+            	             			"rest",
+            	              		lv_rest_3_0, 
+            	              		"RelationalOpExpression");
+            	      	        afterParserOrEnumRuleCall();
+            	      	    
+            	    }
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop54;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleConditionalAndExpression"
 
 
     // $ANTLR start "entryRuleRelationalOpExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3229:1: entryRuleRelationalOpExpression returns [EObject current=null] : iv_ruleRelationalOpExpression= ruleRelationalOpExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3235:1: entryRuleRelationalOpExpression returns [EObject current=null] : iv_ruleRelationalOpExpression= ruleRelationalOpExpression EOF ;
     public final EObject entryRuleRelationalOpExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9013,13 +9044,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3230:2: (iv_ruleRelationalOpExpression= ruleRelationalOpExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3231:2: iv_ruleRelationalOpExpression= ruleRelationalOpExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3236:2: (iv_ruleRelationalOpExpression= ruleRelationalOpExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3237:2: iv_ruleRelationalOpExpression= ruleRelationalOpExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getRelationalOpExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleRelationalOpExpression_in_entryRuleRelationalOpExpression7126);
+            pushFollow(FOLLOW_ruleRelationalOpExpression_in_entryRuleRelationalOpExpression7136);
             iv_ruleRelationalOpExpression=ruleRelationalOpExpression();
 
             state._fsp--;
@@ -9027,7 +9058,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleRelationalOpExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRelationalOpExpression7136); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelationalOpExpression7146); if (state.failed) return current;
 
             }
 
@@ -9045,7 +9076,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRelationalOpExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3238:1: ruleRelationalOpExpression returns [EObject current=null] : (this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )* ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3244:1: ruleRelationalOpExpression returns [EObject current=null] : (this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )* ) ;
     public final EObject ruleRelationalOpExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9063,18 +9094,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3241:28: ( (this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )* ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3242:1: (this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3247:28: ( (this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )* ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3248:1: (this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )* )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3242:1: (this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )* )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3243:5: this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )*
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3248:1: (this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3249:5: this_AdditiveExpression_0= ruleAdditiveExpression ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getRelationalOpExpressionAccess().getAdditiveExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleAdditiveExpression_in_ruleRelationalOpExpression7183);
+            pushFollow(FOLLOW_ruleAdditiveExpression_in_ruleRelationalOpExpression7193);
             this_AdditiveExpression_0=ruleAdditiveExpression();
 
             state._fsp--;
@@ -9085,89 +9116,89 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:1: ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )*
-            loop55:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:1: ( ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) ) )*
+            loop56:
             do {
-                int alt55=2;
-                int LA55_0 = input.LA(1);
+                int alt56=2;
+                int LA56_0 = input.LA(1);
 
-                if ( (LA55_0==65) && (synpred4_InternalUrml())) {
-                    alt55=1;
+                if ( (LA56_0==65) && (synpred4_InternalUrml())) {
+                    alt56=1;
                 }
-                else if ( (LA55_0==66) && (synpred4_InternalUrml())) {
-                    alt55=1;
+                else if ( (LA56_0==66) && (synpred4_InternalUrml())) {
+                    alt56=1;
                 }
-                else if ( (LA55_0==67) && (synpred4_InternalUrml())) {
-                    alt55=1;
+                else if ( (LA56_0==67) && (synpred4_InternalUrml())) {
+                    alt56=1;
                 }
-                else if ( (LA55_0==68) && (synpred4_InternalUrml())) {
-                    alt55=1;
+                else if ( (LA56_0==68) && (synpred4_InternalUrml())) {
+                    alt56=1;
                 }
-                else if ( (LA55_0==69) && (synpred4_InternalUrml())) {
-                    alt55=1;
+                else if ( (LA56_0==69) && (synpred4_InternalUrml())) {
+                    alt56=1;
                 }
-                else if ( (LA55_0==70) && (synpred4_InternalUrml())) {
-                    alt55=1;
+                else if ( (LA56_0==70) && (synpred4_InternalUrml())) {
+                    alt56=1;
                 }
 
 
-                switch (alt55) {
+                switch (alt56) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:2: ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:2: ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) ) ( (lv_rest_13_0= ruleAdditiveExpression ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:2: ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:3: ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:2: ( ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:3: ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )=> ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3268:6: ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) )
-            	    int alt54=6;
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3274:6: ( ( () otherlv_2= '<=' ) | ( () otherlv_4= '<' ) | ( () otherlv_6= '>=' ) | ( () otherlv_8= '>' ) | ( () otherlv_10= '==' ) | ( () otherlv_12= '!=' ) )
+            	    int alt55=6;
             	    switch ( input.LA(1) ) {
             	    case 65:
             	        {
-            	        alt54=1;
+            	        alt55=1;
             	        }
             	        break;
             	    case 66:
             	        {
-            	        alt54=2;
+            	        alt55=2;
             	        }
             	        break;
             	    case 67:
             	        {
-            	        alt54=3;
+            	        alt55=3;
             	        }
             	        break;
             	    case 68:
             	        {
-            	        alt54=4;
+            	        alt55=4;
             	        }
             	        break;
             	    case 69:
             	        {
-            	        alt54=5;
+            	        alt55=5;
             	        }
             	        break;
             	    case 70:
             	        {
-            	        alt54=6;
+            	        alt55=6;
             	        }
             	        break;
             	    default:
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 54, 0, input);
+            	            new NoViableAltException("", 55, 0, input);
 
             	        throw nvae;
             	    }
 
-            	    switch (alt54) {
+            	    switch (alt55) {
             	        case 1 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3268:7: ( () otherlv_2= '<=' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3274:7: ( () otherlv_2= '<=' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3268:7: ( () otherlv_2= '<=' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3268:8: () otherlv_2= '<='
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3274:7: ( () otherlv_2= '<=' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3274:8: () otherlv_2= '<='
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3268:8: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3269:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3274:8: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3275:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9179,7 +9210,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleRelationalOpExpression7296); if (state.failed) return current;
+            	            otherlv_2=(Token)match(input,65,FOLLOW_65_in_ruleRelationalOpExpression7306); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_2, grammarAccess.getRelationalOpExpressionAccess().getLessThanSignEqualsSignKeyword_1_0_0_0_1());
@@ -9192,13 +9223,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3279:6: ( () otherlv_4= '<' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3285:6: ( () otherlv_4= '<' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3279:6: ( () otherlv_4= '<' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3279:7: () otherlv_4= '<'
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3285:6: ( () otherlv_4= '<' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3285:7: () otherlv_4= '<'
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3279:7: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3280:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3285:7: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3286:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9210,7 +9241,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_4=(Token)match(input,66,FOLLOW_66_in_ruleRelationalOpExpression7325); if (state.failed) return current;
+            	            otherlv_4=(Token)match(input,66,FOLLOW_66_in_ruleRelationalOpExpression7335); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_4, grammarAccess.getRelationalOpExpressionAccess().getLessThanSignKeyword_1_0_0_1_1());
@@ -9223,13 +9254,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 3 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3290:6: ( () otherlv_6= '>=' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3296:6: ( () otherlv_6= '>=' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3290:6: ( () otherlv_6= '>=' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3290:7: () otherlv_6= '>='
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3296:6: ( () otherlv_6= '>=' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3296:7: () otherlv_6= '>='
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3290:7: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3291:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3296:7: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3297:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9241,7 +9272,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_6=(Token)match(input,67,FOLLOW_67_in_ruleRelationalOpExpression7354); if (state.failed) return current;
+            	            otherlv_6=(Token)match(input,67,FOLLOW_67_in_ruleRelationalOpExpression7364); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_6, grammarAccess.getRelationalOpExpressionAccess().getGreaterThanSignEqualsSignKeyword_1_0_0_2_1());
@@ -9254,13 +9285,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 4 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3301:6: ( () otherlv_8= '>' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3307:6: ( () otherlv_8= '>' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3301:6: ( () otherlv_8= '>' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3301:7: () otherlv_8= '>'
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3307:6: ( () otherlv_8= '>' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3307:7: () otherlv_8= '>'
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3301:7: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3302:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3307:7: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3308:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9272,7 +9303,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_8=(Token)match(input,68,FOLLOW_68_in_ruleRelationalOpExpression7383); if (state.failed) return current;
+            	            otherlv_8=(Token)match(input,68,FOLLOW_68_in_ruleRelationalOpExpression7393); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_8, grammarAccess.getRelationalOpExpressionAccess().getGreaterThanSignKeyword_1_0_0_3_1());
@@ -9285,13 +9316,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 5 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3312:6: ( () otherlv_10= '==' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3318:6: ( () otherlv_10= '==' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3312:6: ( () otherlv_10= '==' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3312:7: () otherlv_10= '=='
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3318:6: ( () otherlv_10= '==' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3318:7: () otherlv_10= '=='
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3312:7: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3313:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3318:7: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3319:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9303,7 +9334,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_10=(Token)match(input,69,FOLLOW_69_in_ruleRelationalOpExpression7412); if (state.failed) return current;
+            	            otherlv_10=(Token)match(input,69,FOLLOW_69_in_ruleRelationalOpExpression7422); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_10, grammarAccess.getRelationalOpExpressionAccess().getEqualsSignEqualsSignKeyword_1_0_0_4_1());
@@ -9316,13 +9347,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 6 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3323:6: ( () otherlv_12= '!=' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3329:6: ( () otherlv_12= '!=' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3323:6: ( () otherlv_12= '!=' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3323:7: () otherlv_12= '!='
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3329:6: ( () otherlv_12= '!=' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3329:7: () otherlv_12= '!='
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3323:7: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3324:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3329:7: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3330:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9334,7 +9365,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_12=(Token)match(input,70,FOLLOW_70_in_ruleRelationalOpExpression7441); if (state.failed) return current;
+            	            otherlv_12=(Token)match(input,70,FOLLOW_70_in_ruleRelationalOpExpression7451); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_12, grammarAccess.getRelationalOpExpressionAccess().getExclamationMarkEqualsSignKeyword_1_0_0_5_1());
@@ -9352,18 +9383,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3333:4: ( (lv_rest_13_0= ruleAdditiveExpression ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3334:1: (lv_rest_13_0= ruleAdditiveExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3339:4: ( (lv_rest_13_0= ruleAdditiveExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3340:1: (lv_rest_13_0= ruleAdditiveExpression )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3334:1: (lv_rest_13_0= ruleAdditiveExpression )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3335:3: lv_rest_13_0= ruleAdditiveExpression
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3340:1: (lv_rest_13_0= ruleAdditiveExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3341:3: lv_rest_13_0= ruleAdditiveExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getRelationalOpExpressionAccess().getRestAdditiveExpressionParserRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleAdditiveExpression_in_ruleRelationalOpExpression7465);
+            	    pushFollow(FOLLOW_ruleAdditiveExpression_in_ruleRelationalOpExpression7475);
             	    lv_rest_13_0=ruleAdditiveExpression();
 
             	    state._fsp--;
@@ -9392,7 +9423,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop55;
+            	    break loop56;
                 }
             } while (true);
 
@@ -9419,7 +9450,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAdditiveExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3359:1: entryRuleAdditiveExpression returns [EObject current=null] : iv_ruleAdditiveExpression= ruleAdditiveExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3365:1: entryRuleAdditiveExpression returns [EObject current=null] : iv_ruleAdditiveExpression= ruleAdditiveExpression EOF ;
     public final EObject entryRuleAdditiveExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9427,13 +9458,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3360:2: (iv_ruleAdditiveExpression= ruleAdditiveExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3361:2: iv_ruleAdditiveExpression= ruleAdditiveExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3366:2: (iv_ruleAdditiveExpression= ruleAdditiveExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3367:2: iv_ruleAdditiveExpression= ruleAdditiveExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAdditiveExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression7503);
+            pushFollow(FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression7513);
             iv_ruleAdditiveExpression=ruleAdditiveExpression();
 
             state._fsp--;
@@ -9441,7 +9472,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAdditiveExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditiveExpression7513); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditiveExpression7523); if (state.failed) return current;
 
             }
 
@@ -9459,7 +9490,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAdditiveExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3368:1: ruleAdditiveExpression returns [EObject current=null] : (this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )* ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3374:1: ruleAdditiveExpression returns [EObject current=null] : (this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )* ) ;
     public final EObject ruleAdditiveExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9473,18 +9504,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3371:28: ( (this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )* ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3372:1: (this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3377:28: ( (this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )* ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3378:1: (this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )* )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3372:1: (this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )* )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3373:5: this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )*
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3378:1: (this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3379:5: this_MultiplicativeExpression_0= ruleMultiplicativeExpression ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getAdditiveExpressionAccess().getMultiplicativeExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression7560);
+            pushFollow(FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression7570);
             this_MultiplicativeExpression_0=ruleMultiplicativeExpression();
 
             state._fsp--;
@@ -9495,53 +9526,53 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:1: ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )*
-            loop57:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:1: ( ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) ) )*
+            loop58:
             do {
-                int alt57=2;
-                int LA57_0 = input.LA(1);
+                int alt58=2;
+                int LA58_0 = input.LA(1);
 
-                if ( (LA57_0==71) && (synpred5_InternalUrml())) {
-                    alt57=1;
+                if ( (LA58_0==71) && (synpred5_InternalUrml())) {
+                    alt58=1;
                 }
-                else if ( (LA57_0==72) && (synpred5_InternalUrml())) {
-                    alt57=1;
+                else if ( (LA58_0==72) && (synpred5_InternalUrml())) {
+                    alt58=1;
                 }
 
 
-                switch (alt57) {
+                switch (alt58) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:2: ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:2: ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) ) ( (lv_rest_5_0= ruleMultiplicativeExpression ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:2: ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:3: ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:2: ( ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:3: ( ( ( () '+' ) | ( () '-' ) ) )=> ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3386:6: ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) )
-            	    int alt56=2;
-            	    int LA56_0 = input.LA(1);
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3392:6: ( ( () otherlv_2= '+' ) | ( () otherlv_4= '-' ) )
+            	    int alt57=2;
+            	    int LA57_0 = input.LA(1);
 
-            	    if ( (LA56_0==71) ) {
-            	        alt56=1;
+            	    if ( (LA57_0==71) ) {
+            	        alt57=1;
             	    }
-            	    else if ( (LA56_0==72) ) {
-            	        alt56=2;
+            	    else if ( (LA57_0==72) ) {
+            	        alt57=2;
             	    }
             	    else {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 56, 0, input);
+            	            new NoViableAltException("", 57, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt56) {
+            	    switch (alt57) {
             	        case 1 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3386:7: ( () otherlv_2= '+' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3392:7: ( () otherlv_2= '+' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3386:7: ( () otherlv_2= '+' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3386:8: () otherlv_2= '+'
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3392:7: ( () otherlv_2= '+' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3392:8: () otherlv_2= '+'
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3386:8: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3392:8: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3393:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9553,7 +9584,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_2=(Token)match(input,71,FOLLOW_71_in_ruleAdditiveExpression7613); if (state.failed) return current;
+            	            otherlv_2=(Token)match(input,71,FOLLOW_71_in_ruleAdditiveExpression7623); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_2, grammarAccess.getAdditiveExpressionAccess().getPlusSignKeyword_1_0_0_0_1());
@@ -9566,13 +9597,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3397:6: ( () otherlv_4= '-' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3403:6: ( () otherlv_4= '-' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3397:6: ( () otherlv_4= '-' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3397:7: () otherlv_4= '-'
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3403:6: ( () otherlv_4= '-' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3403:7: () otherlv_4= '-'
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3397:7: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3398:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3403:7: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3404:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9584,7 +9615,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_4=(Token)match(input,72,FOLLOW_72_in_ruleAdditiveExpression7642); if (state.failed) return current;
+            	            otherlv_4=(Token)match(input,72,FOLLOW_72_in_ruleAdditiveExpression7652); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_4, grammarAccess.getAdditiveExpressionAccess().getHyphenMinusKeyword_1_0_0_1_1());
@@ -9602,18 +9633,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3407:4: ( (lv_rest_5_0= ruleMultiplicativeExpression ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3408:1: (lv_rest_5_0= ruleMultiplicativeExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3413:4: ( (lv_rest_5_0= ruleMultiplicativeExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3414:1: (lv_rest_5_0= ruleMultiplicativeExpression )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3408:1: (lv_rest_5_0= ruleMultiplicativeExpression )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3409:3: lv_rest_5_0= ruleMultiplicativeExpression
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3414:1: (lv_rest_5_0= ruleMultiplicativeExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3415:3: lv_rest_5_0= ruleMultiplicativeExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getAdditiveExpressionAccess().getRestMultiplicativeExpressionParserRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression7666);
+            	    pushFollow(FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression7676);
             	    lv_rest_5_0=ruleMultiplicativeExpression();
 
             	    state._fsp--;
@@ -9642,7 +9673,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop57;
+            	    break loop58;
                 }
             } while (true);
 
@@ -9669,7 +9700,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMultiplicativeExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3433:1: entryRuleMultiplicativeExpression returns [EObject current=null] : iv_ruleMultiplicativeExpression= ruleMultiplicativeExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3439:1: entryRuleMultiplicativeExpression returns [EObject current=null] : iv_ruleMultiplicativeExpression= ruleMultiplicativeExpression EOF ;
     public final EObject entryRuleMultiplicativeExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9677,13 +9708,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3434:2: (iv_ruleMultiplicativeExpression= ruleMultiplicativeExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3435:2: iv_ruleMultiplicativeExpression= ruleMultiplicativeExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3440:2: (iv_ruleMultiplicativeExpression= ruleMultiplicativeExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3441:2: iv_ruleMultiplicativeExpression= ruleMultiplicativeExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMultiplicativeExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression7704);
+            pushFollow(FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression7714);
             iv_ruleMultiplicativeExpression=ruleMultiplicativeExpression();
 
             state._fsp--;
@@ -9691,7 +9722,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMultiplicativeExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplicativeExpression7714); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplicativeExpression7724); if (state.failed) return current;
 
             }
 
@@ -9709,7 +9740,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMultiplicativeExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3442:1: ruleMultiplicativeExpression returns [EObject current=null] : (this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )* ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3448:1: ruleMultiplicativeExpression returns [EObject current=null] : (this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )* ) ;
     public final EObject ruleMultiplicativeExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9724,18 +9755,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3445:28: ( (this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )* ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3446:1: (this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3451:28: ( (this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )* ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3452:1: (this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )* )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3446:1: (this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )* )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3447:5: this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )*
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3452:1: (this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )* )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3453:5: this_UnaryExpression_0= ruleUnaryExpression ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getMultiplicativeExpressionAccess().getUnaryExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleMultiplicativeExpression7761);
+            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleMultiplicativeExpression7771);
             this_UnaryExpression_0=ruleUnaryExpression();
 
             state._fsp--;
@@ -9746,65 +9777,65 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:1: ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )*
-            loop59:
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:1: ( ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) ) )*
+            loop60:
             do {
-                int alt59=2;
-                int LA59_0 = input.LA(1);
+                int alt60=2;
+                int LA60_0 = input.LA(1);
 
-                if ( (LA59_0==73) && (synpred6_InternalUrml())) {
-                    alt59=1;
+                if ( (LA60_0==73) && (synpred6_InternalUrml())) {
+                    alt60=1;
                 }
-                else if ( (LA59_0==74) && (synpred6_InternalUrml())) {
-                    alt59=1;
+                else if ( (LA60_0==74) && (synpred6_InternalUrml())) {
+                    alt60=1;
                 }
-                else if ( (LA59_0==75) && (synpred6_InternalUrml())) {
-                    alt59=1;
+                else if ( (LA60_0==75) && (synpred6_InternalUrml())) {
+                    alt60=1;
                 }
 
 
-                switch (alt59) {
+                switch (alt60) {
             	case 1 :
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:2: ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:2: ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) ) ( (lv_rest_7_0= ruleUnaryExpression ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:2: ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:3: ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:2: ( ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:3: ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )=> ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3463:6: ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) )
-            	    int alt58=3;
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3469:6: ( ( () otherlv_2= '*' ) | ( () otherlv_4= '/' ) | ( () otherlv_6= '%' ) )
+            	    int alt59=3;
             	    switch ( input.LA(1) ) {
             	    case 73:
             	        {
-            	        alt58=1;
+            	        alt59=1;
             	        }
             	        break;
             	    case 74:
             	        {
-            	        alt58=2;
+            	        alt59=2;
             	        }
             	        break;
             	    case 75:
             	        {
-            	        alt58=3;
+            	        alt59=3;
             	        }
             	        break;
             	    default:
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 58, 0, input);
+            	            new NoViableAltException("", 59, 0, input);
 
             	        throw nvae;
             	    }
 
-            	    switch (alt58) {
+            	    switch (alt59) {
             	        case 1 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3463:7: ( () otherlv_2= '*' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3469:7: ( () otherlv_2= '*' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3463:7: ( () otherlv_2= '*' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3463:8: () otherlv_2= '*'
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3469:7: ( () otherlv_2= '*' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3469:8: () otherlv_2= '*'
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3463:8: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3464:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3469:8: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3470:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9816,7 +9847,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_2=(Token)match(input,73,FOLLOW_73_in_ruleMultiplicativeExpression7829); if (state.failed) return current;
+            	            otherlv_2=(Token)match(input,73,FOLLOW_73_in_ruleMultiplicativeExpression7839); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_2, grammarAccess.getMultiplicativeExpressionAccess().getAsteriskKeyword_1_0_0_0_1());
@@ -9829,13 +9860,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3474:6: ( () otherlv_4= '/' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3480:6: ( () otherlv_4= '/' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3474:6: ( () otherlv_4= '/' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3474:7: () otherlv_4= '/'
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3480:6: ( () otherlv_4= '/' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3480:7: () otherlv_4= '/'
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3474:7: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3475:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3480:7: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3481:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9847,7 +9878,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_4=(Token)match(input,74,FOLLOW_74_in_ruleMultiplicativeExpression7858); if (state.failed) return current;
+            	            otherlv_4=(Token)match(input,74,FOLLOW_74_in_ruleMultiplicativeExpression7868); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_4, grammarAccess.getMultiplicativeExpressionAccess().getSolidusKeyword_1_0_0_1_1());
@@ -9860,13 +9891,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 3 :
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3485:6: ( () otherlv_6= '%' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3491:6: ( () otherlv_6= '%' )
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3485:6: ( () otherlv_6= '%' )
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3485:7: () otherlv_6= '%'
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3491:6: ( () otherlv_6= '%' )
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3491:7: () otherlv_6= '%'
             	            {
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3485:7: ()
-            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3486:5: 
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3491:7: ()
+            	            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3492:5: 
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -9878,7 +9909,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_6=(Token)match(input,75,FOLLOW_75_in_ruleMultiplicativeExpression7887); if (state.failed) return current;
+            	            otherlv_6=(Token)match(input,75,FOLLOW_75_in_ruleMultiplicativeExpression7897); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_6, grammarAccess.getMultiplicativeExpressionAccess().getPercentSignKeyword_1_0_0_2_1());
@@ -9896,18 +9927,18 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3495:4: ( (lv_rest_7_0= ruleUnaryExpression ) )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3496:1: (lv_rest_7_0= ruleUnaryExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3501:4: ( (lv_rest_7_0= ruleUnaryExpression ) )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3502:1: (lv_rest_7_0= ruleUnaryExpression )
             	    {
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3496:1: (lv_rest_7_0= ruleUnaryExpression )
-            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3497:3: lv_rest_7_0= ruleUnaryExpression
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3502:1: (lv_rest_7_0= ruleUnaryExpression )
+            	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3503:3: lv_rest_7_0= ruleUnaryExpression
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getMultiplicativeExpressionAccess().getRestUnaryExpressionParserRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleUnaryExpression_in_ruleMultiplicativeExpression7911);
+            	    pushFollow(FOLLOW_ruleUnaryExpression_in_ruleMultiplicativeExpression7921);
             	    lv_rest_7_0=ruleUnaryExpression();
 
             	    state._fsp--;
@@ -9936,7 +9967,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop59;
+            	    break loop60;
                 }
             } while (true);
 
@@ -9963,7 +9994,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUnaryExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3521:1: entryRuleUnaryExpression returns [EObject current=null] : iv_ruleUnaryExpression= ruleUnaryExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3527:1: entryRuleUnaryExpression returns [EObject current=null] : iv_ruleUnaryExpression= ruleUnaryExpression EOF ;
     public final EObject entryRuleUnaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -9971,13 +10002,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3522:2: (iv_ruleUnaryExpression= ruleUnaryExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3523:2: iv_ruleUnaryExpression= ruleUnaryExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3528:2: (iv_ruleUnaryExpression= ruleUnaryExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3529:2: iv_ruleUnaryExpression= ruleUnaryExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getUnaryExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression7949);
+            pushFollow(FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression7959);
             iv_ruleUnaryExpression=ruleUnaryExpression();
 
             state._fsp--;
@@ -9985,7 +10016,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleUnaryExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnaryExpression7959); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnaryExpression7969); if (state.failed) return current;
 
             }
 
@@ -10003,7 +10034,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnaryExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3530:1: ruleUnaryExpression returns [EObject current=null] : (this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus | ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3536:1: ruleUnaryExpression returns [EObject current=null] : (this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus | ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) ) ) ;
     public final EObject ruleUnaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10016,36 +10047,36 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3533:28: ( (this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus | ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3534:1: (this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus | ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3539:28: ( (this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus | ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3540:1: (this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus | ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3534:1: (this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus | ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) ) )
-            int alt60=2;
-            int LA60_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3540:1: (this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus | ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) ) )
+            int alt61=2;
+            int LA61_0 = input.LA(1);
 
-            if ( (LA60_0==RULE_ID||(LA60_0>=RULE_INT && LA60_0<=RULE_BOOLEAN)||LA60_0==20||LA60_0==76) ) {
-                alt60=1;
+            if ( (LA61_0==RULE_ID||(LA61_0>=RULE_INT && LA61_0<=RULE_BOOLEAN)||LA61_0==20||LA61_0==76) ) {
+                alt61=1;
             }
-            else if ( (LA60_0==72) ) {
-                alt60=2;
+            else if ( (LA61_0==72) ) {
+                alt61=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 60, 0, input);
+                    new NoViableAltException("", 61, 0, input);
 
                 throw nvae;
             }
-            switch (alt60) {
+            switch (alt61) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3535:5: this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3541:5: this_UnaryExpressionNotPlusMinus_0= ruleUnaryExpressionNotPlusMinus
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getUnaryExpressionAccess().getUnaryExpressionNotPlusMinusParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleUnaryExpressionNotPlusMinus_in_ruleUnaryExpression8006);
+                    pushFollow(FOLLOW_ruleUnaryExpressionNotPlusMinus_in_ruleUnaryExpression8016);
                     this_UnaryExpressionNotPlusMinus_0=ruleUnaryExpressionNotPlusMinus();
 
                     state._fsp--;
@@ -10060,13 +10091,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3544:6: ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3550:6: ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3544:6: ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3544:7: () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3550:6: ( () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3550:7: () otherlv_2= '-' ( (lv_exp_3_0= ruleUnaryExpression ) )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3544:7: ()
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3545:5: 
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3550:7: ()
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3551:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -10078,24 +10109,24 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_2=(Token)match(input,72,FOLLOW_72_in_ruleUnaryExpression8033); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,72,FOLLOW_72_in_ruleUnaryExpression8043); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getUnaryExpressionAccess().getHyphenMinusKeyword_1_1());
                           
                     }
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3554:1: ( (lv_exp_3_0= ruleUnaryExpression ) )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3555:1: (lv_exp_3_0= ruleUnaryExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3560:1: ( (lv_exp_3_0= ruleUnaryExpression ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3561:1: (lv_exp_3_0= ruleUnaryExpression )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3555:1: (lv_exp_3_0= ruleUnaryExpression )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3556:3: lv_exp_3_0= ruleUnaryExpression
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3561:1: (lv_exp_3_0= ruleUnaryExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3562:3: lv_exp_3_0= ruleUnaryExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExpUnaryExpressionParserRuleCall_1_2_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleUnaryExpression_in_ruleUnaryExpression8054);
+                    pushFollow(FOLLOW_ruleUnaryExpression_in_ruleUnaryExpression8064);
                     lv_exp_3_0=ruleUnaryExpression();
 
                     state._fsp--;
@@ -10148,7 +10179,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUnaryExpressionNotPlusMinus"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3580:1: entryRuleUnaryExpressionNotPlusMinus returns [EObject current=null] : iv_ruleUnaryExpressionNotPlusMinus= ruleUnaryExpressionNotPlusMinus EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3586:1: entryRuleUnaryExpressionNotPlusMinus returns [EObject current=null] : iv_ruleUnaryExpressionNotPlusMinus= ruleUnaryExpressionNotPlusMinus EOF ;
     public final EObject entryRuleUnaryExpressionNotPlusMinus() throws RecognitionException {
         EObject current = null;
 
@@ -10156,13 +10187,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3581:2: (iv_ruleUnaryExpressionNotPlusMinus= ruleUnaryExpressionNotPlusMinus EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3582:2: iv_ruleUnaryExpressionNotPlusMinus= ruleUnaryExpressionNotPlusMinus EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3587:2: (iv_ruleUnaryExpressionNotPlusMinus= ruleUnaryExpressionNotPlusMinus EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3588:2: iv_ruleUnaryExpressionNotPlusMinus= ruleUnaryExpressionNotPlusMinus EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getUnaryExpressionNotPlusMinusRule()); 
             }
-            pushFollow(FOLLOW_ruleUnaryExpressionNotPlusMinus_in_entryRuleUnaryExpressionNotPlusMinus8091);
+            pushFollow(FOLLOW_ruleUnaryExpressionNotPlusMinus_in_entryRuleUnaryExpressionNotPlusMinus8101);
             iv_ruleUnaryExpressionNotPlusMinus=ruleUnaryExpressionNotPlusMinus();
 
             state._fsp--;
@@ -10170,7 +10201,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleUnaryExpressionNotPlusMinus; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnaryExpressionNotPlusMinus8101); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnaryExpressionNotPlusMinus8111); if (state.failed) return current;
 
             }
 
@@ -10188,7 +10219,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnaryExpressionNotPlusMinus"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3589:1: ruleUnaryExpressionNotPlusMinus returns [EObject current=null] : (this_NotBooleanExpression_0= ruleNotBooleanExpression | this_PrimaryExpression_1= rulePrimaryExpression ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3595:1: ruleUnaryExpressionNotPlusMinus returns [EObject current=null] : (this_NotBooleanExpression_0= ruleNotBooleanExpression | this_PrimaryExpression_1= rulePrimaryExpression ) ;
     public final EObject ruleUnaryExpressionNotPlusMinus() throws RecognitionException {
         EObject current = null;
 
@@ -10200,36 +10231,36 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3592:28: ( (this_NotBooleanExpression_0= ruleNotBooleanExpression | this_PrimaryExpression_1= rulePrimaryExpression ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3593:1: (this_NotBooleanExpression_0= ruleNotBooleanExpression | this_PrimaryExpression_1= rulePrimaryExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3598:28: ( (this_NotBooleanExpression_0= ruleNotBooleanExpression | this_PrimaryExpression_1= rulePrimaryExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3599:1: (this_NotBooleanExpression_0= ruleNotBooleanExpression | this_PrimaryExpression_1= rulePrimaryExpression )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3593:1: (this_NotBooleanExpression_0= ruleNotBooleanExpression | this_PrimaryExpression_1= rulePrimaryExpression )
-            int alt61=2;
-            int LA61_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3599:1: (this_NotBooleanExpression_0= ruleNotBooleanExpression | this_PrimaryExpression_1= rulePrimaryExpression )
+            int alt62=2;
+            int LA62_0 = input.LA(1);
 
-            if ( (LA61_0==76) ) {
-                alt61=1;
+            if ( (LA62_0==76) ) {
+                alt62=1;
             }
-            else if ( (LA61_0==RULE_ID||(LA61_0>=RULE_INT && LA61_0<=RULE_BOOLEAN)||LA61_0==20) ) {
-                alt61=2;
+            else if ( (LA62_0==RULE_ID||(LA62_0>=RULE_INT && LA62_0<=RULE_BOOLEAN)||LA62_0==20) ) {
+                alt62=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 61, 0, input);
+                    new NoViableAltException("", 62, 0, input);
 
                 throw nvae;
             }
-            switch (alt61) {
+            switch (alt62) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3594:5: this_NotBooleanExpression_0= ruleNotBooleanExpression
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3600:5: this_NotBooleanExpression_0= ruleNotBooleanExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getUnaryExpressionNotPlusMinusAccess().getNotBooleanExpressionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNotBooleanExpression_in_ruleUnaryExpressionNotPlusMinus8148);
+                    pushFollow(FOLLOW_ruleNotBooleanExpression_in_ruleUnaryExpressionNotPlusMinus8158);
                     this_NotBooleanExpression_0=ruleNotBooleanExpression();
 
                     state._fsp--;
@@ -10244,14 +10275,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3604:5: this_PrimaryExpression_1= rulePrimaryExpression
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3610:5: this_PrimaryExpression_1= rulePrimaryExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getUnaryExpressionNotPlusMinusAccess().getPrimaryExpressionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_rulePrimaryExpression_in_ruleUnaryExpressionNotPlusMinus8175);
+                    pushFollow(FOLLOW_rulePrimaryExpression_in_ruleUnaryExpressionNotPlusMinus8185);
                     this_PrimaryExpression_1=rulePrimaryExpression();
 
                     state._fsp--;
@@ -10288,7 +10319,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNotBooleanExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3620:1: entryRuleNotBooleanExpression returns [EObject current=null] : iv_ruleNotBooleanExpression= ruleNotBooleanExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3626:1: entryRuleNotBooleanExpression returns [EObject current=null] : iv_ruleNotBooleanExpression= ruleNotBooleanExpression EOF ;
     public final EObject entryRuleNotBooleanExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10296,13 +10327,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3621:2: (iv_ruleNotBooleanExpression= ruleNotBooleanExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3622:2: iv_ruleNotBooleanExpression= ruleNotBooleanExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3627:2: (iv_ruleNotBooleanExpression= ruleNotBooleanExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3628:2: iv_ruleNotBooleanExpression= ruleNotBooleanExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNotBooleanExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleNotBooleanExpression_in_entryRuleNotBooleanExpression8210);
+            pushFollow(FOLLOW_ruleNotBooleanExpression_in_entryRuleNotBooleanExpression8220);
             iv_ruleNotBooleanExpression=ruleNotBooleanExpression();
 
             state._fsp--;
@@ -10310,7 +10341,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNotBooleanExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNotBooleanExpression8220); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNotBooleanExpression8230); if (state.failed) return current;
 
             }
 
@@ -10328,7 +10359,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNotBooleanExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3629:1: ruleNotBooleanExpression returns [EObject current=null] : (otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3635:1: ruleNotBooleanExpression returns [EObject current=null] : (otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) ) ) ;
     public final EObject ruleNotBooleanExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10339,30 +10370,30 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3632:28: ( (otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3633:1: (otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3638:28: ( (otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3639:1: (otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3633:1: (otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3633:3: otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3639:1: (otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3639:3: otherlv_0= '!' ( (lv_exp_1_0= ruleUnaryExpression ) )
             {
-            otherlv_0=(Token)match(input,76,FOLLOW_76_in_ruleNotBooleanExpression8257); if (state.failed) return current;
+            otherlv_0=(Token)match(input,76,FOLLOW_76_in_ruleNotBooleanExpression8267); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getNotBooleanExpressionAccess().getExclamationMarkKeyword_0());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3637:1: ( (lv_exp_1_0= ruleUnaryExpression ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3638:1: (lv_exp_1_0= ruleUnaryExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3643:1: ( (lv_exp_1_0= ruleUnaryExpression ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3644:1: (lv_exp_1_0= ruleUnaryExpression )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3638:1: (lv_exp_1_0= ruleUnaryExpression )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3639:3: lv_exp_1_0= ruleUnaryExpression
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3644:1: (lv_exp_1_0= ruleUnaryExpression )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3645:3: lv_exp_1_0= ruleUnaryExpression
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getNotBooleanExpressionAccess().getExpUnaryExpressionParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleNotBooleanExpression8278);
+            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleNotBooleanExpression8288);
             lv_exp_1_0=ruleUnaryExpression();
 
             state._fsp--;
@@ -10409,7 +10440,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimaryExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3663:1: entryRulePrimaryExpression returns [EObject current=null] : iv_rulePrimaryExpression= rulePrimaryExpression EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3669:1: entryRulePrimaryExpression returns [EObject current=null] : iv_rulePrimaryExpression= rulePrimaryExpression EOF ;
     public final EObject entryRulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10417,13 +10448,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3664:2: (iv_rulePrimaryExpression= rulePrimaryExpression EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3665:2: iv_rulePrimaryExpression= rulePrimaryExpression EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3670:2: (iv_rulePrimaryExpression= rulePrimaryExpression EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3671:2: iv_rulePrimaryExpression= rulePrimaryExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPrimaryExpressionRule()); 
             }
-            pushFollow(FOLLOW_rulePrimaryExpression_in_entryRulePrimaryExpression8314);
+            pushFollow(FOLLOW_rulePrimaryExpression_in_entryRulePrimaryExpression8324);
             iv_rulePrimaryExpression=rulePrimaryExpression();
 
             state._fsp--;
@@ -10431,7 +10462,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_rulePrimaryExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrimaryExpression8324); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePrimaryExpression8334); if (state.failed) return current;
 
             }
 
@@ -10449,7 +10480,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimaryExpression"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3672:1: rulePrimaryExpression returns [EObject current=null] : (this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3678:1: rulePrimaryExpression returns [EObject current=null] : (this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) ) ;
     public final EObject rulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10463,36 +10494,36 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3675:28: ( (this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3676:1: (this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3681:28: ( (this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3682:1: (this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3676:1: (this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) )
-            int alt62=2;
-            int LA62_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3682:1: (this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier | (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' ) )
+            int alt63=2;
+            int LA63_0 = input.LA(1);
 
-            if ( (LA62_0==RULE_ID||(LA62_0>=RULE_INT && LA62_0<=RULE_BOOLEAN)) ) {
-                alt62=1;
+            if ( (LA63_0==RULE_ID||(LA63_0>=RULE_INT && LA63_0<=RULE_BOOLEAN)) ) {
+                alt63=1;
             }
-            else if ( (LA62_0==20) ) {
-                alt62=2;
+            else if ( (LA63_0==20) ) {
+                alt63=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 62, 0, input);
+                    new NoViableAltException("", 63, 0, input);
 
                 throw nvae;
             }
-            switch (alt62) {
+            switch (alt63) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3677:5: this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3683:5: this_LiteralOrIdentifier_0= ruleLiteralOrIdentifier
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getLiteralOrIdentifierParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleLiteralOrIdentifier_in_rulePrimaryExpression8371);
+                    pushFollow(FOLLOW_ruleLiteralOrIdentifier_in_rulePrimaryExpression8381);
                     this_LiteralOrIdentifier_0=ruleLiteralOrIdentifier();
 
                     state._fsp--;
@@ -10507,12 +10538,12 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3686:6: (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3692:6: (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3686:6: (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3686:8: otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')'
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3692:6: (otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')' )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3692:8: otherlv_1= '(' this_Expression_2= ruleExpression otherlv_3= ')'
                     {
-                    otherlv_1=(Token)match(input,20,FOLLOW_20_in_rulePrimaryExpression8389); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,20,FOLLOW_20_in_rulePrimaryExpression8399); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_1_0());
@@ -10523,7 +10554,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionParserRuleCall_1_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_rulePrimaryExpression8411);
+                    pushFollow(FOLLOW_ruleExpression_in_rulePrimaryExpression8421);
                     this_Expression_2=ruleExpression();
 
                     state._fsp--;
@@ -10534,7 +10565,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                               afterParserOrEnumRuleCall();
                           
                     }
-                    otherlv_3=(Token)match(input,22,FOLLOW_22_in_rulePrimaryExpression8422); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,22,FOLLOW_22_in_rulePrimaryExpression8432); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_1_2());
@@ -10569,7 +10600,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLiteralOrIdentifier"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3711:1: entryRuleLiteralOrIdentifier returns [EObject current=null] : iv_ruleLiteralOrIdentifier= ruleLiteralOrIdentifier EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3717:1: entryRuleLiteralOrIdentifier returns [EObject current=null] : iv_ruleLiteralOrIdentifier= ruleLiteralOrIdentifier EOF ;
     public final EObject entryRuleLiteralOrIdentifier() throws RecognitionException {
         EObject current = null;
 
@@ -10577,13 +10608,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3712:2: (iv_ruleLiteralOrIdentifier= ruleLiteralOrIdentifier EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3713:2: iv_ruleLiteralOrIdentifier= ruleLiteralOrIdentifier EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3718:2: (iv_ruleLiteralOrIdentifier= ruleLiteralOrIdentifier EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3719:2: iv_ruleLiteralOrIdentifier= ruleLiteralOrIdentifier EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLiteralOrIdentifierRule()); 
             }
-            pushFollow(FOLLOW_ruleLiteralOrIdentifier_in_entryRuleLiteralOrIdentifier8459);
+            pushFollow(FOLLOW_ruleLiteralOrIdentifier_in_entryRuleLiteralOrIdentifier8469);
             iv_ruleLiteralOrIdentifier=ruleLiteralOrIdentifier();
 
             state._fsp--;
@@ -10591,7 +10622,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLiteralOrIdentifier; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteralOrIdentifier8469); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteralOrIdentifier8479); if (state.failed) return current;
 
             }
 
@@ -10609,7 +10640,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteralOrIdentifier"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3720:1: ruleLiteralOrIdentifier returns [EObject current=null] : (this_Literal_0= ruleLiteral | this_Identifier_1= ruleIdentifier ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3726:1: ruleLiteralOrIdentifier returns [EObject current=null] : (this_Literal_0= ruleLiteral | this_Identifier_1= ruleIdentifier ) ;
     public final EObject ruleLiteralOrIdentifier() throws RecognitionException {
         EObject current = null;
 
@@ -10621,29 +10652,29 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3723:28: ( (this_Literal_0= ruleLiteral | this_Identifier_1= ruleIdentifier ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3724:1: (this_Literal_0= ruleLiteral | this_Identifier_1= ruleIdentifier )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3729:28: ( (this_Literal_0= ruleLiteral | this_Identifier_1= ruleIdentifier ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3730:1: (this_Literal_0= ruleLiteral | this_Identifier_1= ruleIdentifier )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3724:1: (this_Literal_0= ruleLiteral | this_Identifier_1= ruleIdentifier )
-            int alt63=2;
-            int LA63_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3730:1: (this_Literal_0= ruleLiteral | this_Identifier_1= ruleIdentifier )
+            int alt64=2;
+            int LA64_0 = input.LA(1);
 
-            if ( ((LA63_0>=RULE_INT && LA63_0<=RULE_BOOLEAN)) ) {
-                alt63=1;
+            if ( ((LA64_0>=RULE_INT && LA64_0<=RULE_BOOLEAN)) ) {
+                alt64=1;
             }
-            else if ( (LA63_0==RULE_ID) ) {
-                int LA63_2 = input.LA(2);
+            else if ( (LA64_0==RULE_ID) ) {
+                int LA64_2 = input.LA(2);
 
-                if ( (LA63_2==20) ) {
-                    alt63=1;
+                if ( (LA64_2==EOF||LA64_2==RULE_ID||(LA64_2>=13 && LA64_2<=15)||(LA64_2>=21 && LA64_2<=22)||(LA64_2>=25 && LA64_2<=29)||LA64_2==32||(LA64_2>=35 && LA64_2<=36)||(LA64_2>=50 && LA64_2<=51)||(LA64_2>=53 && LA64_2<=56)||(LA64_2>=58 && LA64_2<=60)||(LA64_2>=62 && LA64_2<=75)) ) {
+                    alt64=2;
                 }
-                else if ( (LA63_2==EOF||LA63_2==RULE_ID||(LA63_2>=13 && LA63_2<=15)||(LA63_2>=21 && LA63_2<=22)||(LA63_2>=25 && LA63_2<=29)||LA63_2==32||(LA63_2>=35 && LA63_2<=36)||(LA63_2>=50 && LA63_2<=51)||(LA63_2>=53 && LA63_2<=56)||(LA63_2>=58 && LA63_2<=60)||(LA63_2>=62 && LA63_2<=75)) ) {
-                    alt63=2;
+                else if ( (LA64_2==20) ) {
+                    alt64=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 63, 2, input);
+                        new NoViableAltException("", 64, 2, input);
 
                     throw nvae;
                 }
@@ -10651,20 +10682,20 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 63, 0, input);
+                    new NoViableAltException("", 64, 0, input);
 
                 throw nvae;
             }
-            switch (alt63) {
+            switch (alt64) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3725:5: this_Literal_0= ruleLiteral
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3731:5: this_Literal_0= ruleLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralOrIdentifierAccess().getLiteralParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleLiteral_in_ruleLiteralOrIdentifier8516);
+                    pushFollow(FOLLOW_ruleLiteral_in_ruleLiteralOrIdentifier8526);
                     this_Literal_0=ruleLiteral();
 
                     state._fsp--;
@@ -10679,14 +10710,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3735:5: this_Identifier_1= ruleIdentifier
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3741:5: this_Identifier_1= ruleIdentifier
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralOrIdentifierAccess().getIdentifierParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIdentifier_in_ruleLiteralOrIdentifier8543);
+                    pushFollow(FOLLOW_ruleIdentifier_in_ruleLiteralOrIdentifier8553);
                     this_Identifier_1=ruleIdentifier();
 
                     state._fsp--;
@@ -10723,7 +10754,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLiteral"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3751:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3757:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
     public final EObject entryRuleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -10731,13 +10762,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3752:2: (iv_ruleLiteral= ruleLiteral EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3753:2: iv_ruleLiteral= ruleLiteral EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3758:2: (iv_ruleLiteral= ruleLiteral EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3759:2: iv_ruleLiteral= ruleLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleLiteral_in_entryRuleLiteral8578);
+            pushFollow(FOLLOW_ruleLiteral_in_entryRuleLiteral8588);
             iv_ruleLiteral=ruleLiteral();
 
             state._fsp--;
@@ -10745,7 +10776,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteral8588); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteral8598); if (state.failed) return current;
 
             }
 
@@ -10763,7 +10794,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteral"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3760:1: ruleLiteral returns [EObject current=null] : (this_IntLiteral_0= ruleIntLiteral | this_BoolLiteral_1= ruleBoolLiteral | this_FunctionCall_2= ruleFunctionCall ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3766:1: ruleLiteral returns [EObject current=null] : (this_IntLiteral_0= ruleIntLiteral | this_BoolLiteral_1= ruleBoolLiteral | this_FunctionCall_2= ruleFunctionCall ) ;
     public final EObject ruleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -10777,45 +10808,45 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3763:28: ( (this_IntLiteral_0= ruleIntLiteral | this_BoolLiteral_1= ruleBoolLiteral | this_FunctionCall_2= ruleFunctionCall ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3764:1: (this_IntLiteral_0= ruleIntLiteral | this_BoolLiteral_1= ruleBoolLiteral | this_FunctionCall_2= ruleFunctionCall )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3769:28: ( (this_IntLiteral_0= ruleIntLiteral | this_BoolLiteral_1= ruleBoolLiteral | this_FunctionCall_2= ruleFunctionCall ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3770:1: (this_IntLiteral_0= ruleIntLiteral | this_BoolLiteral_1= ruleBoolLiteral | this_FunctionCall_2= ruleFunctionCall )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3764:1: (this_IntLiteral_0= ruleIntLiteral | this_BoolLiteral_1= ruleBoolLiteral | this_FunctionCall_2= ruleFunctionCall )
-            int alt64=3;
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3770:1: (this_IntLiteral_0= ruleIntLiteral | this_BoolLiteral_1= ruleBoolLiteral | this_FunctionCall_2= ruleFunctionCall )
+            int alt65=3;
             switch ( input.LA(1) ) {
             case RULE_INT:
                 {
-                alt64=1;
+                alt65=1;
                 }
                 break;
             case RULE_BOOLEAN:
                 {
-                alt64=2;
+                alt65=2;
                 }
                 break;
             case RULE_ID:
                 {
-                alt64=3;
+                alt65=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 64, 0, input);
+                    new NoViableAltException("", 65, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt64) {
+            switch (alt65) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3765:5: this_IntLiteral_0= ruleIntLiteral
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3771:5: this_IntLiteral_0= ruleIntLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralAccess().getIntLiteralParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIntLiteral_in_ruleLiteral8635);
+                    pushFollow(FOLLOW_ruleIntLiteral_in_ruleLiteral8645);
                     this_IntLiteral_0=ruleIntLiteral();
 
                     state._fsp--;
@@ -10830,14 +10861,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3775:5: this_BoolLiteral_1= ruleBoolLiteral
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3781:5: this_BoolLiteral_1= ruleBoolLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralAccess().getBoolLiteralParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBoolLiteral_in_ruleLiteral8662);
+                    pushFollow(FOLLOW_ruleBoolLiteral_in_ruleLiteral8672);
                     this_BoolLiteral_1=ruleBoolLiteral();
 
                     state._fsp--;
@@ -10852,14 +10883,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3785:5: this_FunctionCall_2= ruleFunctionCall
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3791:5: this_FunctionCall_2= ruleFunctionCall
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralAccess().getFunctionCallParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleFunctionCall_in_ruleLiteral8689);
+                    pushFollow(FOLLOW_ruleFunctionCall_in_ruleLiteral8699);
                     this_FunctionCall_2=ruleFunctionCall();
 
                     state._fsp--;
@@ -10896,7 +10927,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIntLiteral"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3801:1: entryRuleIntLiteral returns [EObject current=null] : iv_ruleIntLiteral= ruleIntLiteral EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3807:1: entryRuleIntLiteral returns [EObject current=null] : iv_ruleIntLiteral= ruleIntLiteral EOF ;
     public final EObject entryRuleIntLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -10904,13 +10935,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3802:2: (iv_ruleIntLiteral= ruleIntLiteral EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3803:2: iv_ruleIntLiteral= ruleIntLiteral EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3808:2: (iv_ruleIntLiteral= ruleIntLiteral EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3809:2: iv_ruleIntLiteral= ruleIntLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIntLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleIntLiteral_in_entryRuleIntLiteral8724);
+            pushFollow(FOLLOW_ruleIntLiteral_in_entryRuleIntLiteral8734);
             iv_ruleIntLiteral=ruleIntLiteral();
 
             state._fsp--;
@@ -10918,7 +10949,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIntLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIntLiteral8734); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntLiteral8744); if (state.failed) return current;
 
             }
 
@@ -10936,7 +10967,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntLiteral"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3810:1: ruleIntLiteral returns [EObject current=null] : ( () ( (lv_int_1_0= RULE_INT ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3816:1: ruleIntLiteral returns [EObject current=null] : ( () ( (lv_int_1_0= RULE_INT ) ) ) ;
     public final EObject ruleIntLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -10945,14 +10976,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3813:28: ( ( () ( (lv_int_1_0= RULE_INT ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3814:1: ( () ( (lv_int_1_0= RULE_INT ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3819:28: ( ( () ( (lv_int_1_0= RULE_INT ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3820:1: ( () ( (lv_int_1_0= RULE_INT ) ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3814:1: ( () ( (lv_int_1_0= RULE_INT ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3814:2: () ( (lv_int_1_0= RULE_INT ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3820:1: ( () ( (lv_int_1_0= RULE_INT ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3820:2: () ( (lv_int_1_0= RULE_INT ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3814:2: ()
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3815:5: 
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3820:2: ()
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3821:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -10964,13 +10995,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3820:2: ( (lv_int_1_0= RULE_INT ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3821:1: (lv_int_1_0= RULE_INT )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3826:2: ( (lv_int_1_0= RULE_INT ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3827:1: (lv_int_1_0= RULE_INT )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3821:1: (lv_int_1_0= RULE_INT )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3822:3: lv_int_1_0= RULE_INT
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3827:1: (lv_int_1_0= RULE_INT )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3828:3: lv_int_1_0= RULE_INT
             {
-            lv_int_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntLiteral8785); if (state.failed) return current;
+            lv_int_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntLiteral8795); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_int_1_0, grammarAccess.getIntLiteralAccess().getIntINTTerminalRuleCall_1_0()); 
@@ -11017,7 +11048,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIdentifier"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3846:1: entryRuleIdentifier returns [EObject current=null] : iv_ruleIdentifier= ruleIdentifier EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3852:1: entryRuleIdentifier returns [EObject current=null] : iv_ruleIdentifier= ruleIdentifier EOF ;
     public final EObject entryRuleIdentifier() throws RecognitionException {
         EObject current = null;
 
@@ -11025,13 +11056,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3847:2: (iv_ruleIdentifier= ruleIdentifier EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3848:2: iv_ruleIdentifier= ruleIdentifier EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3853:2: (iv_ruleIdentifier= ruleIdentifier EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3854:2: iv_ruleIdentifier= ruleIdentifier EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIdentifierRule()); 
             }
-            pushFollow(FOLLOW_ruleIdentifier_in_entryRuleIdentifier8826);
+            pushFollow(FOLLOW_ruleIdentifier_in_entryRuleIdentifier8836);
             iv_ruleIdentifier=ruleIdentifier();
 
             state._fsp--;
@@ -11039,7 +11070,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIdentifier; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIdentifier8836); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIdentifier8846); if (state.failed) return current;
 
             }
 
@@ -11057,7 +11088,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIdentifier"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3855:1: ruleIdentifier returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3861:1: ruleIdentifier returns [EObject current=null] : ( (otherlv_0= RULE_ID ) ) ;
     public final EObject ruleIdentifier() throws RecognitionException {
         EObject current = null;
 
@@ -11066,14 +11097,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3858:28: ( ( (otherlv_0= RULE_ID ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3859:1: ( (otherlv_0= RULE_ID ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3864:28: ( ( (otherlv_0= RULE_ID ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3865:1: ( (otherlv_0= RULE_ID ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3859:1: ( (otherlv_0= RULE_ID ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3860:1: (otherlv_0= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3865:1: ( (otherlv_0= RULE_ID ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3866:1: (otherlv_0= RULE_ID )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3860:1: (otherlv_0= RULE_ID )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3861:3: otherlv_0= RULE_ID
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3866:1: (otherlv_0= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3867:3: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -11082,7 +11113,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleIdentifier8880); if (state.failed) return current;
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleIdentifier8890); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_0, grammarAccess.getIdentifierAccess().getIdIdentifiableCrossReference_0()); 
@@ -11114,7 +11145,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFunctionCall"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3882:1: entryRuleFunctionCall returns [EObject current=null] : iv_ruleFunctionCall= ruleFunctionCall EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3888:1: entryRuleFunctionCall returns [EObject current=null] : iv_ruleFunctionCall= ruleFunctionCall EOF ;
     public final EObject entryRuleFunctionCall() throws RecognitionException {
         EObject current = null;
 
@@ -11122,13 +11153,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3883:2: (iv_ruleFunctionCall= ruleFunctionCall EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3884:2: iv_ruleFunctionCall= ruleFunctionCall EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3889:2: (iv_ruleFunctionCall= ruleFunctionCall EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3890:2: iv_ruleFunctionCall= ruleFunctionCall EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getFunctionCallRule()); 
             }
-            pushFollow(FOLLOW_ruleFunctionCall_in_entryRuleFunctionCall8917);
+            pushFollow(FOLLOW_ruleFunctionCall_in_entryRuleFunctionCall8927);
             iv_ruleFunctionCall=ruleFunctionCall();
 
             state._fsp--;
@@ -11136,7 +11167,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleFunctionCall; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFunctionCall8927); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFunctionCall8937); if (state.failed) return current;
 
             }
 
@@ -11154,7 +11185,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunctionCall"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3891:1: ruleFunctionCall returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')' ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3897:1: ruleFunctionCall returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')' ) ;
     public final EObject ruleFunctionCall() throws RecognitionException {
         EObject current = null;
 
@@ -11170,14 +11201,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3894:28: ( ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')' ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3895:1: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3900:28: ( ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')' ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3901:1: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')' )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3895:1: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')' )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3895:2: () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')'
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3901:1: ( () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')' )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3901:2: () ( (otherlv_1= RULE_ID ) ) otherlv_2= '(' ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )? otherlv_6= ')'
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3895:2: ()
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3896:5: 
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3901:2: ()
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3902:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -11189,11 +11220,11 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3901:2: ( (otherlv_1= RULE_ID ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3902:1: (otherlv_1= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3907:2: ( (otherlv_1= RULE_ID ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3908:1: (otherlv_1= RULE_ID )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3902:1: (otherlv_1= RULE_ID )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3903:3: otherlv_1= RULE_ID
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3908:1: (otherlv_1= RULE_ID )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3909:3: otherlv_1= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -11202,7 +11233,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFunctionCall8981); if (state.failed) return current;
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFunctionCall8991); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_1, grammarAccess.getFunctionCallAccess().getCallOperationCrossReference_1_0()); 
@@ -11214,35 +11245,35 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleFunctionCall8993); if (state.failed) return current;
+            otherlv_2=(Token)match(input,20,FOLLOW_20_in_ruleFunctionCall9003); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getFunctionCallAccess().getLeftParenthesisKeyword_2());
                   
             }
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3918:1: ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )?
-            int alt66=2;
-            int LA66_0 = input.LA(1);
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3924:1: ( ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )* )?
+            int alt67=2;
+            int LA67_0 = input.LA(1);
 
-            if ( (LA66_0==RULE_ID||(LA66_0>=RULE_INT && LA66_0<=RULE_BOOLEAN)||LA66_0==20||LA66_0==72||LA66_0==76) ) {
-                alt66=1;
+            if ( (LA67_0==RULE_ID||(LA67_0>=RULE_INT && LA67_0<=RULE_BOOLEAN)||LA67_0==20||LA67_0==72||LA67_0==76) ) {
+                alt67=1;
             }
-            switch (alt66) {
+            switch (alt67) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3918:2: ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )*
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3924:2: ( (lv_params_3_0= ruleExpression ) ) (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )*
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3918:2: ( (lv_params_3_0= ruleExpression ) )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3919:1: (lv_params_3_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3924:2: ( (lv_params_3_0= ruleExpression ) )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3925:1: (lv_params_3_0= ruleExpression )
                     {
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3919:1: (lv_params_3_0= ruleExpression )
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3920:3: lv_params_3_0= ruleExpression
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3925:1: (lv_params_3_0= ruleExpression )
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3926:3: lv_params_3_0= ruleExpression
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getFunctionCallAccess().getParamsExpressionParserRuleCall_3_0_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleFunctionCall9015);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleFunctionCall9025);
                     lv_params_3_0=ruleExpression();
 
                     state._fsp--;
@@ -11266,39 +11297,39 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3936:2: (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )*
-                    loop65:
+                    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3942:2: (otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) ) )*
+                    loop66:
                     do {
-                        int alt65=2;
-                        int LA65_0 = input.LA(1);
+                        int alt66=2;
+                        int LA66_0 = input.LA(1);
 
-                        if ( (LA65_0==21) ) {
-                            alt65=1;
+                        if ( (LA66_0==21) ) {
+                            alt66=1;
                         }
 
 
-                        switch (alt65) {
+                        switch (alt66) {
                     	case 1 :
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3936:4: otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3942:4: otherlv_4= ',' ( (lv_params_5_0= ruleExpression ) )
                     	    {
-                    	    otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleFunctionCall9028); if (state.failed) return current;
+                    	    otherlv_4=(Token)match(input,21,FOLLOW_21_in_ruleFunctionCall9038); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_4, grammarAccess.getFunctionCallAccess().getCommaKeyword_3_1_0());
                     	          
                     	    }
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3940:1: ( (lv_params_5_0= ruleExpression ) )
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3941:1: (lv_params_5_0= ruleExpression )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3946:1: ( (lv_params_5_0= ruleExpression ) )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3947:1: (lv_params_5_0= ruleExpression )
                     	    {
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3941:1: (lv_params_5_0= ruleExpression )
-                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3942:3: lv_params_5_0= ruleExpression
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3947:1: (lv_params_5_0= ruleExpression )
+                    	    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3948:3: lv_params_5_0= ruleExpression
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
                     	      	        newCompositeNode(grammarAccess.getFunctionCallAccess().getParamsExpressionParserRuleCall_3_1_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleExpression_in_ruleFunctionCall9049);
+                    	    pushFollow(FOLLOW_ruleExpression_in_ruleFunctionCall9059);
                     	    lv_params_5_0=ruleExpression();
 
                     	    state._fsp--;
@@ -11327,7 +11358,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop65;
+                    	    break loop66;
                         }
                     } while (true);
 
@@ -11337,7 +11368,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,22,FOLLOW_22_in_ruleFunctionCall9065); if (state.failed) return current;
+            otherlv_6=(Token)match(input,22,FOLLOW_22_in_ruleFunctionCall9075); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getFunctionCallAccess().getRightParenthesisKeyword_4());
@@ -11366,7 +11397,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBoolLiteral"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3970:1: entryRuleBoolLiteral returns [EObject current=null] : iv_ruleBoolLiteral= ruleBoolLiteral EOF ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3976:1: entryRuleBoolLiteral returns [EObject current=null] : iv_ruleBoolLiteral= ruleBoolLiteral EOF ;
     public final EObject entryRuleBoolLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -11374,13 +11405,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3971:2: (iv_ruleBoolLiteral= ruleBoolLiteral EOF )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3972:2: iv_ruleBoolLiteral= ruleBoolLiteral EOF
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3977:2: (iv_ruleBoolLiteral= ruleBoolLiteral EOF )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3978:2: iv_ruleBoolLiteral= ruleBoolLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBoolLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleBoolLiteral_in_entryRuleBoolLiteral9101);
+            pushFollow(FOLLOW_ruleBoolLiteral_in_entryRuleBoolLiteral9111);
             iv_ruleBoolLiteral=ruleBoolLiteral();
 
             state._fsp--;
@@ -11388,7 +11419,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleBoolLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBoolLiteral9111); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBoolLiteral9121); if (state.failed) return current;
 
             }
 
@@ -11406,7 +11437,7 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBoolLiteral"
-    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3979:1: ruleBoolLiteral returns [EObject current=null] : ( () ( (lv_true_1_0= RULE_BOOLEAN ) ) ) ;
+    // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3985:1: ruleBoolLiteral returns [EObject current=null] : ( () ( (lv_true_1_0= RULE_BOOLEAN ) ) ) ;
     public final EObject ruleBoolLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -11415,14 +11446,14 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3982:28: ( ( () ( (lv_true_1_0= RULE_BOOLEAN ) ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3983:1: ( () ( (lv_true_1_0= RULE_BOOLEAN ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3988:28: ( ( () ( (lv_true_1_0= RULE_BOOLEAN ) ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3989:1: ( () ( (lv_true_1_0= RULE_BOOLEAN ) ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3983:1: ( () ( (lv_true_1_0= RULE_BOOLEAN ) ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3983:2: () ( (lv_true_1_0= RULE_BOOLEAN ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3989:1: ( () ( (lv_true_1_0= RULE_BOOLEAN ) ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3989:2: () ( (lv_true_1_0= RULE_BOOLEAN ) )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3983:2: ()
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3984:5: 
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3989:2: ()
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3990:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -11434,13 +11465,13 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3989:2: ( (lv_true_1_0= RULE_BOOLEAN ) )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3990:1: (lv_true_1_0= RULE_BOOLEAN )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3995:2: ( (lv_true_1_0= RULE_BOOLEAN ) )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3996:1: (lv_true_1_0= RULE_BOOLEAN )
             {
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3990:1: (lv_true_1_0= RULE_BOOLEAN )
-            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3991:3: lv_true_1_0= RULE_BOOLEAN
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3996:1: (lv_true_1_0= RULE_BOOLEAN )
+            // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3997:3: lv_true_1_0= RULE_BOOLEAN
             {
-            lv_true_1_0=(Token)match(input,RULE_BOOLEAN,FOLLOW_RULE_BOOLEAN_in_ruleBoolLiteral9162); if (state.failed) return current;
+            lv_true_1_0=(Token)match(input,RULE_BOOLEAN,FOLLOW_RULE_BOOLEAN_in_ruleBoolLiteral9172); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_true_1_0, grammarAccess.getBoolLiteralAccess().getTrueBOOLEANTerminalRuleCall_1_0()); 
@@ -11487,25 +11518,25 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalUrml
     public final void synpred1_InternalUrml_fragment() throws RecognitionException {   
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2971:2: ( ( () '^' ( ( ruleIndividualExpression ) ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2971:3: ( () '^' ( ( ruleIndividualExpression ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:2: ( ( () '^' ( ( ruleIndividualExpression ) ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:3: ( () '^' ( ( ruleIndividualExpression ) ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2971:3: ( () '^' ( ( ruleIndividualExpression ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2971:4: () '^' ( ( ruleIndividualExpression ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:3: ( () '^' ( ( ruleIndividualExpression ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:4: () '^' ( ( ruleIndividualExpression ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2971:4: ()
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2972:1: 
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2977:4: ()
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2978:1: 
         {
         }
 
-        match(input,62,FOLLOW_62_in_synpred1_InternalUrml6508); if (state.failed) return ;
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2973:1: ( ( ruleIndividualExpression ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2974:1: ( ruleIndividualExpression )
+        match(input,62,FOLLOW_62_in_synpred1_InternalUrml6518); if (state.failed) return ;
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2979:1: ( ( ruleIndividualExpression ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2980:1: ( ruleIndividualExpression )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2974:1: ( ruleIndividualExpression )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2975:1: ruleIndividualExpression
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2980:1: ( ruleIndividualExpression )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:2981:1: ruleIndividualExpression
         {
-        pushFollow(FOLLOW_ruleIndividualExpression_in_synpred1_InternalUrml6515);
+        pushFollow(FOLLOW_ruleIndividualExpression_in_synpred1_InternalUrml6525);
         ruleIndividualExpression();
 
         state._fsp--;
@@ -11526,25 +11557,25 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred2_InternalUrml
     public final void synpred2_InternalUrml_fragment() throws RecognitionException {   
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3123:2: ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3123:3: ( () '||' ( ( ruleConditionalAndExpression ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:2: ( ( () '||' ( ( ruleConditionalAndExpression ) ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:3: ( () '||' ( ( ruleConditionalAndExpression ) ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3123:3: ( () '||' ( ( ruleConditionalAndExpression ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3123:4: () '||' ( ( ruleConditionalAndExpression ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:3: ( () '||' ( ( ruleConditionalAndExpression ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:4: () '||' ( ( ruleConditionalAndExpression ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3123:4: ()
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3124:1: 
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3129:4: ()
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3130:1: 
         {
         }
 
-        match(input,63,FOLLOW_63_in_synpred2_InternalUrml6878); if (state.failed) return ;
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3125:1: ( ( ruleConditionalAndExpression ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3126:1: ( ruleConditionalAndExpression )
+        match(input,63,FOLLOW_63_in_synpred2_InternalUrml6888); if (state.failed) return ;
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3131:1: ( ( ruleConditionalAndExpression ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3132:1: ( ruleConditionalAndExpression )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3126:1: ( ruleConditionalAndExpression )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3127:1: ruleConditionalAndExpression
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3132:1: ( ruleConditionalAndExpression )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3133:1: ruleConditionalAndExpression
         {
-        pushFollow(FOLLOW_ruleConditionalAndExpression_in_synpred2_InternalUrml6885);
+        pushFollow(FOLLOW_ruleConditionalAndExpression_in_synpred2_InternalUrml6895);
         ruleConditionalAndExpression();
 
         state._fsp--;
@@ -11565,25 +11596,25 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred3_InternalUrml
     public final void synpred3_InternalUrml_fragment() throws RecognitionException {   
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3187:2: ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3187:3: ( () '&&' ( ( ruleRelationalOpExpression ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:2: ( ( () '&&' ( ( ruleRelationalOpExpression ) ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:3: ( () '&&' ( ( ruleRelationalOpExpression ) ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3187:3: ( () '&&' ( ( ruleRelationalOpExpression ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3187:4: () '&&' ( ( ruleRelationalOpExpression ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:3: ( () '&&' ( ( ruleRelationalOpExpression ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:4: () '&&' ( ( ruleRelationalOpExpression ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3187:4: ()
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3188:1: 
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3193:4: ()
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3194:1: 
         {
         }
 
-        match(input,64,FOLLOW_64_in_synpred3_InternalUrml7038); if (state.failed) return ;
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3189:1: ( ( ruleRelationalOpExpression ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3190:1: ( ruleRelationalOpExpression )
+        match(input,64,FOLLOW_64_in_synpred3_InternalUrml7048); if (state.failed) return ;
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3195:1: ( ( ruleRelationalOpExpression ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3196:1: ( ruleRelationalOpExpression )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3190:1: ( ruleRelationalOpExpression )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3191:1: ruleRelationalOpExpression
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3196:1: ( ruleRelationalOpExpression )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3197:1: ruleRelationalOpExpression
         {
-        pushFollow(FOLLOW_ruleRelationalOpExpression_in_synpred3_InternalUrml7045);
+        pushFollow(FOLLOW_ruleRelationalOpExpression_in_synpred3_InternalUrml7055);
         ruleRelationalOpExpression();
 
         state._fsp--;
@@ -11604,63 +11635,63 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred4_InternalUrml
     public final void synpred4_InternalUrml_fragment() throws RecognitionException {   
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:3: ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:4: ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:3: ( ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:4: ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:4: ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) )
-        int alt67=6;
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:4: ( ( () '<=' ) | ( () '<' ) | ( () '>=' ) | ( () '>' ) | ( () '==' ) | ( () '!=' ) )
+        int alt68=6;
         switch ( input.LA(1) ) {
         case 65:
             {
-            alt67=1;
+            alt68=1;
             }
             break;
         case 66:
             {
-            alt67=2;
+            alt68=2;
             }
             break;
         case 67:
             {
-            alt67=3;
+            alt68=3;
             }
             break;
         case 68:
             {
-            alt67=4;
+            alt68=4;
             }
             break;
         case 69:
             {
-            alt67=5;
+            alt68=5;
             }
             break;
         case 70:
             {
-            alt67=6;
+            alt68=6;
             }
             break;
         default:
             if (state.backtracking>0) {state.failed=true; return ;}
             NoViableAltException nvae =
-                new NoViableAltException("", 67, 0, input);
+                new NoViableAltException("", 68, 0, input);
 
             throw nvae;
         }
 
-        switch (alt67) {
+        switch (alt68) {
             case 1 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:5: ( () '<=' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:5: ( () '<=' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:5: ( () '<=' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:6: () '<='
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:5: ( () '<=' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:6: () '<='
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3251:6: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3252:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:6: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3258:1: 
                 {
                 }
 
-                match(input,65,FOLLOW_65_in_synpred4_InternalUrml7200); if (state.failed) return ;
+                match(input,65,FOLLOW_65_in_synpred4_InternalUrml7210); if (state.failed) return ;
 
                 }
 
@@ -11668,17 +11699,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 2 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3254:6: ( () '<' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3260:6: ( () '<' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3254:6: ( () '<' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3254:7: () '<'
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3260:6: ( () '<' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3260:7: () '<'
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3254:7: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3255:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3260:7: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3261:1: 
                 {
                 }
 
-                match(input,66,FOLLOW_66_in_synpred4_InternalUrml7215); if (state.failed) return ;
+                match(input,66,FOLLOW_66_in_synpred4_InternalUrml7225); if (state.failed) return ;
 
                 }
 
@@ -11686,17 +11717,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 3 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:6: ( () '>=' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3263:6: ( () '>=' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:6: ( () '>=' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:7: () '>='
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3263:6: ( () '>=' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3263:7: () '>='
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3257:7: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3258:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3263:7: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3264:1: 
                 {
                 }
 
-                match(input,67,FOLLOW_67_in_synpred4_InternalUrml7230); if (state.failed) return ;
+                match(input,67,FOLLOW_67_in_synpred4_InternalUrml7240); if (state.failed) return ;
 
                 }
 
@@ -11704,17 +11735,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 4 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3260:6: ( () '>' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3266:6: ( () '>' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3260:6: ( () '>' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3260:7: () '>'
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3266:6: ( () '>' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3266:7: () '>'
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3260:7: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3261:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3266:7: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3267:1: 
                 {
                 }
 
-                match(input,68,FOLLOW_68_in_synpred4_InternalUrml7245); if (state.failed) return ;
+                match(input,68,FOLLOW_68_in_synpred4_InternalUrml7255); if (state.failed) return ;
 
                 }
 
@@ -11722,17 +11753,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 5 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3263:6: ( () '==' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3269:6: ( () '==' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3263:6: ( () '==' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3263:7: () '=='
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3269:6: ( () '==' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3269:7: () '=='
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3263:7: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3264:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3269:7: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3270:1: 
                 {
                 }
 
-                match(input,69,FOLLOW_69_in_synpred4_InternalUrml7260); if (state.failed) return ;
+                match(input,69,FOLLOW_69_in_synpred4_InternalUrml7270); if (state.failed) return ;
 
                 }
 
@@ -11740,17 +11771,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 6 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3266:6: ( () '!=' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3272:6: ( () '!=' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3266:6: ( () '!=' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3266:7: () '!='
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3272:6: ( () '!=' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3272:7: () '!='
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3266:7: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3267:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3272:7: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3273:1: 
                 {
                 }
 
-                match(input,70,FOLLOW_70_in_synpred4_InternalUrml7275); if (state.failed) return ;
+                match(input,70,FOLLOW_70_in_synpred4_InternalUrml7285); if (state.failed) return ;
 
                 }
 
@@ -11767,39 +11798,39 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred5_InternalUrml
     public final void synpred5_InternalUrml_fragment() throws RecognitionException {   
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:3: ( ( ( () '+' ) | ( () '-' ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:4: ( ( () '+' ) | ( () '-' ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:3: ( ( ( () '+' ) | ( () '-' ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:4: ( ( () '+' ) | ( () '-' ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:4: ( ( () '+' ) | ( () '-' ) )
-        int alt68=2;
-        int LA68_0 = input.LA(1);
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:4: ( ( () '+' ) | ( () '-' ) )
+        int alt69=2;
+        int LA69_0 = input.LA(1);
 
-        if ( (LA68_0==71) ) {
-            alt68=1;
+        if ( (LA69_0==71) ) {
+            alt69=1;
         }
-        else if ( (LA68_0==72) ) {
-            alt68=2;
+        else if ( (LA69_0==72) ) {
+            alt69=2;
         }
         else {
             if (state.backtracking>0) {state.failed=true; return ;}
             NoViableAltException nvae =
-                new NoViableAltException("", 68, 0, input);
+                new NoViableAltException("", 69, 0, input);
 
             throw nvae;
         }
-        switch (alt68) {
+        switch (alt69) {
             case 1 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:5: ( () '+' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:5: ( () '+' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:5: ( () '+' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:6: () '+'
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:5: ( () '+' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:6: () '+'
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3381:6: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3382:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3387:6: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3388:1: 
                 {
                 }
 
-                match(input,71,FOLLOW_71_in_synpred5_InternalUrml7577); if (state.failed) return ;
+                match(input,71,FOLLOW_71_in_synpred5_InternalUrml7587); if (state.failed) return ;
 
                 }
 
@@ -11807,17 +11838,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 2 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3384:6: ( () '-' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3390:6: ( () '-' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3384:6: ( () '-' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3384:7: () '-'
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3390:6: ( () '-' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3390:7: () '-'
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3384:7: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3385:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3390:7: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3391:1: 
                 {
                 }
 
-                match(input,72,FOLLOW_72_in_synpred5_InternalUrml7592); if (state.failed) return ;
+                match(input,72,FOLLOW_72_in_synpred5_InternalUrml7602); if (state.failed) return ;
 
                 }
 
@@ -11834,48 +11865,48 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred6_InternalUrml
     public final void synpred6_InternalUrml_fragment() throws RecognitionException {   
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:3: ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:4: ( ( () '*' ) | ( () '/' ) | ( () '%' ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:3: ( ( ( () '*' ) | ( () '/' ) | ( () '%' ) ) )
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:4: ( ( () '*' ) | ( () '/' ) | ( () '%' ) )
         {
-        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:4: ( ( () '*' ) | ( () '/' ) | ( () '%' ) )
-        int alt69=3;
+        // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:4: ( ( () '*' ) | ( () '/' ) | ( () '%' ) )
+        int alt70=3;
         switch ( input.LA(1) ) {
         case 73:
             {
-            alt69=1;
+            alt70=1;
             }
             break;
         case 74:
             {
-            alt69=2;
+            alt70=2;
             }
             break;
         case 75:
             {
-            alt69=3;
+            alt70=3;
             }
             break;
         default:
             if (state.backtracking>0) {state.failed=true; return ;}
             NoViableAltException nvae =
-                new NoViableAltException("", 69, 0, input);
+                new NoViableAltException("", 70, 0, input);
 
             throw nvae;
         }
 
-        switch (alt69) {
+        switch (alt70) {
             case 1 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:5: ( () '*' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:5: ( () '*' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:5: ( () '*' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:6: () '*'
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:5: ( () '*' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:6: () '*'
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3455:6: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3456:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:6: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3462:1: 
                 {
                 }
 
-                match(input,73,FOLLOW_73_in_synpred6_InternalUrml7778); if (state.failed) return ;
+                match(input,73,FOLLOW_73_in_synpred6_InternalUrml7788); if (state.failed) return ;
 
                 }
 
@@ -11883,17 +11914,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 2 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3458:6: ( () '/' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3464:6: ( () '/' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3458:6: ( () '/' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3458:7: () '/'
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3464:6: ( () '/' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3464:7: () '/'
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3458:7: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3459:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3464:7: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3465:1: 
                 {
                 }
 
-                match(input,74,FOLLOW_74_in_synpred6_InternalUrml7793); if (state.failed) return ;
+                match(input,74,FOLLOW_74_in_synpred6_InternalUrml7803); if (state.failed) return ;
 
                 }
 
@@ -11901,17 +11932,17 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case 3 :
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:6: ( () '%' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3467:6: ( () '%' )
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:6: ( () '%' )
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:7: () '%'
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3467:6: ( () '%' )
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3467:7: () '%'
                 {
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3461:7: ()
-                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3462:1: 
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3467:7: ()
+                // ../ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/parser/antlr/internal/InternalUrml.g:3468:1: 
                 {
                 }
 
-                match(input,75,FOLLOW_75_in_synpred6_InternalUrml7808); if (state.failed) return ;
+                match(input,75,FOLLOW_75_in_synpred6_InternalUrml7818); if (state.failed) return ;
 
                 }
 
@@ -12220,191 +12251,191 @@ public class InternalUrmlParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_14_in_ruleIfStatementOperation4441 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleReturnStatement_in_entryRuleReturnStatement4479 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleReturnStatement4489 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleReturnStatement4526 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleReturnStatement4547 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleActionCode_in_entryRuleActionCode4583 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleActionCode4593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleActionCode4638 = new BitSet(new long[]{0x1DCC000000000012L});
-    public static final BitSet FOLLOW_ruleStatement_in_entryRuleStatement4674 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStatement4684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSendTrigger_in_ruleStatement4731 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariable_in_ruleStatement4758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInformTimer_in_ruleStatement4785 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNoOp_in_ruleStatement4812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInvoke_in_ruleStatement4839 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssignment_in_ruleStatement4866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWhileLoop_in_ruleStatement4893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIfStatement_in_ruleStatement4920 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLogStatement_in_ruleStatement4947 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariable_in_entryRuleVariable4982 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVariable4992 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleVariable5029 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleLocalVar_in_ruleVariable5050 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_16_in_ruleVariable5069 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleVariable5103 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSendTrigger_in_entryRuleSendTrigger5141 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSendTrigger5151 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleSendTrigger5188 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTrigger_out_in_ruleSendTrigger5209 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_34_in_ruleSendTrigger5222 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleTrigger_out_in_ruleSendTrigger5243 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_ruleInformTimer_in_entryRuleInformTimer5281 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInformTimer5291 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleInformTimer5328 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleInformTimer5348 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_57_in_ruleInformTimer5360 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleInformTimer5381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNoOp_in_entryRuleNoOp5417 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNoOp5427 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleNoOp5473 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInvoke_in_entryRuleInvoke5509 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInvoke5519 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleInvoke5556 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleInvoke5576 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleInvoke5588 = new BitSet(new long[]{0x00000000005000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleInvoke5610 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_21_in_ruleInvoke5623 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleInvoke5644 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_22_in_ruleInvoke5660 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssignment_in_entryRuleAssignment5696 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAssignment5706 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAssignment5751 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleAssignment5763 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleAssignment5784 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssignable_in_entryRuleAssignable5820 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAssignable5830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLocalVar_in_ruleAssignable5877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAttribute_in_ruleAssignable5904 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWhileLoop_in_entryRuleWhileLoop5939 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWhileLoop5949 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleWhileLoop5986 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleWhileLoop6007 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleWhileLoop6019 = new BitSet(new long[]{0x1DCC000000000010L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleWhileLoop6040 = new BitSet(new long[]{0x1DCC000000004010L});
-    public static final BitSet FOLLOW_14_in_ruleWhileLoop6053 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIfStatement_in_entryRuleIfStatement6089 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIfStatement6099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleIfStatement6136 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleIfStatement6157 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleIfStatement6169 = new BitSet(new long[]{0x1DCC000000000010L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleIfStatement6190 = new BitSet(new long[]{0x1DCC000000004010L});
-    public static final BitSet FOLLOW_14_in_ruleIfStatement6203 = new BitSet(new long[]{0x0010000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleIfStatement6216 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleIfStatement6228 = new BitSet(new long[]{0x1DCC000000000010L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleIfStatement6249 = new BitSet(new long[]{0x1DCC000000004010L});
-    public static final BitSet FOLLOW_14_in_ruleIfStatement6262 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLogStatement_in_entryRuleLogStatement6300 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLogStatement6310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleLogStatement6347 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleLogStatement6367 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_61_in_ruleLogStatement6379 = new BitSet(new long[]{0x00000000001000F0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleStringExpression_in_ruleLogStatement6400 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringExpression_in_entryRuleStringExpression6436 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStringExpression6446 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIndividualExpression_in_ruleStringExpression6493 = new BitSet(new long[]{0x4000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleStringExpression6536 = new BitSet(new long[]{0x00000000001000F0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleIndividualExpression_in_ruleStringExpression6557 = new BitSet(new long[]{0x4000000000000002L});
-    public static final BitSet FOLLOW_ruleIndividualExpression_in_entryRuleIndividualExpression6596 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIndividualExpression6606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleIndividualExpression6652 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleIndividualExpression6675 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression6716 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExpression6726 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConditionalOrExpression_in_ruleExpression6772 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConditionalOrExpression_in_entryRuleConditionalOrExpression6806 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConditionalOrExpression6816 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConditionalAndExpression_in_ruleConditionalOrExpression6863 = new BitSet(new long[]{0x8000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleConditionalOrExpression6906 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleConditionalAndExpression_in_ruleConditionalOrExpression6927 = new BitSet(new long[]{0x8000000000000002L});
-    public static final BitSet FOLLOW_ruleConditionalAndExpression_in_entryRuleConditionalAndExpression6966 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConditionalAndExpression6976 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelationalOpExpression_in_ruleConditionalAndExpression7023 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
-    public static final BitSet FOLLOW_64_in_ruleConditionalAndExpression7066 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleRelationalOpExpression_in_ruleConditionalAndExpression7087 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
-    public static final BitSet FOLLOW_ruleRelationalOpExpression_in_entryRuleRelationalOpExpression7126 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRelationalOpExpression7136 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleRelationalOpExpression7183 = new BitSet(new long[]{0x0000000000000002L,0x000000000000007EL});
-    public static final BitSet FOLLOW_65_in_ruleRelationalOpExpression7296 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_66_in_ruleRelationalOpExpression7325 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_67_in_ruleRelationalOpExpression7354 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_68_in_ruleRelationalOpExpression7383 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_69_in_ruleRelationalOpExpression7412 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_70_in_ruleRelationalOpExpression7441 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleRelationalOpExpression7465 = new BitSet(new long[]{0x0000000000000002L,0x000000000000007EL});
-    public static final BitSet FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression7503 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAdditiveExpression7513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression7560 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000180L});
-    public static final BitSet FOLLOW_71_in_ruleAdditiveExpression7613 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_72_in_ruleAdditiveExpression7642 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression7666 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000180L});
-    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression7704 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicativeExpression7714 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleMultiplicativeExpression7761 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000E00L});
-    public static final BitSet FOLLOW_73_in_ruleMultiplicativeExpression7829 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_74_in_ruleMultiplicativeExpression7858 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_75_in_ruleMultiplicativeExpression7887 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleMultiplicativeExpression7911 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000E00L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression7949 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnaryExpression7959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnaryExpressionNotPlusMinus_in_ruleUnaryExpression8006 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_ruleUnaryExpression8033 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleUnaryExpression8054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnaryExpressionNotPlusMinus_in_entryRuleUnaryExpressionNotPlusMinus8091 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnaryExpressionNotPlusMinus8101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotBooleanExpression_in_ruleUnaryExpressionNotPlusMinus8148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimaryExpression_in_ruleUnaryExpressionNotPlusMinus8175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotBooleanExpression_in_entryRuleNotBooleanExpression8210 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNotBooleanExpression8220 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_ruleNotBooleanExpression8257 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleNotBooleanExpression8278 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrimaryExpression_in_entryRulePrimaryExpression8314 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrimaryExpression8324 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLiteralOrIdentifier_in_rulePrimaryExpression8371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rulePrimaryExpression8389 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_rulePrimaryExpression8411 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_rulePrimaryExpression8422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLiteralOrIdentifier_in_entryRuleLiteralOrIdentifier8459 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLiteralOrIdentifier8469 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLiteral_in_ruleLiteralOrIdentifier8516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIdentifier_in_ruleLiteralOrIdentifier8543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLiteral_in_entryRuleLiteral8578 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLiteral8588 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntLiteral_in_ruleLiteral8635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBoolLiteral_in_ruleLiteral8662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionCall_in_ruleLiteral8689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntLiteral_in_entryRuleIntLiteral8724 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIntLiteral8734 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIntLiteral8785 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIdentifier_in_entryRuleIdentifier8826 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIdentifier8836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleIdentifier8880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFunctionCall_in_entryRuleFunctionCall8917 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFunctionCall8927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFunctionCall8981 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleFunctionCall8993 = new BitSet(new long[]{0x00000000005000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleFunctionCall9015 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_21_in_ruleFunctionCall9028 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleFunctionCall9049 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_22_in_ruleFunctionCall9065 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBoolLiteral_in_entryRuleBoolLiteral9101 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBoolLiteral9111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_BOOLEAN_in_ruleBoolLiteral9162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_synpred1_InternalUrml6508 = new BitSet(new long[]{0x00000000001000F0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleIndividualExpression_in_synpred1_InternalUrml6515 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_synpred2_InternalUrml6878 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleConditionalAndExpression_in_synpred2_InternalUrml6885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_synpred3_InternalUrml7038 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
-    public static final BitSet FOLLOW_ruleRelationalOpExpression_in_synpred3_InternalUrml7045 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_synpred4_InternalUrml7200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_synpred4_InternalUrml7215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_synpred4_InternalUrml7230 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_synpred4_InternalUrml7245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_synpred4_InternalUrml7260 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_synpred4_InternalUrml7275 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_synpred5_InternalUrml7577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_synpred5_InternalUrml7592 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_synpred6_InternalUrml7778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_synpred6_InternalUrml7793 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_synpred6_InternalUrml7808 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleReturnStatement4535 = new BitSet(new long[]{0x00000000001000D2L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleReturnStatement4556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleActionCode_in_entryRuleActionCode4593 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleActionCode4603 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleActionCode4648 = new BitSet(new long[]{0x1DCC000000000012L});
+    public static final BitSet FOLLOW_ruleStatement_in_entryRuleStatement4684 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStatement4694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSendTrigger_in_ruleStatement4741 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleStatement4768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInformTimer_in_ruleStatement4795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNoOp_in_ruleStatement4822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInvoke_in_ruleStatement4849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssignment_in_ruleStatement4876 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWhileLoop_in_ruleStatement4903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIfStatement_in_ruleStatement4930 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLogStatement_in_ruleStatement4957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_entryRuleVariable4992 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVariable5002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleVariable5039 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_ruleVariable5060 = new BitSet(new long[]{0x0000000000010002L});
+    public static final BitSet FOLLOW_16_in_ruleVariable5079 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleVariable5113 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSendTrigger_in_entryRuleSendTrigger5151 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSendTrigger5161 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleSendTrigger5198 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleTrigger_out_in_ruleSendTrigger5219 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_34_in_ruleSendTrigger5232 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleTrigger_out_in_ruleSendTrigger5253 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_ruleInformTimer_in_entryRuleInformTimer5291 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInformTimer5301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleInformTimer5338 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleInformTimer5358 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_57_in_ruleInformTimer5370 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleInformTimer5391 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNoOp_in_entryRuleNoOp5427 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNoOp5437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleNoOp5483 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInvoke_in_entryRuleInvoke5519 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInvoke5529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleInvoke5566 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleInvoke5586 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleInvoke5598 = new BitSet(new long[]{0x00000000005000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleInvoke5620 = new BitSet(new long[]{0x0000000000600000L});
+    public static final BitSet FOLLOW_21_in_ruleInvoke5633 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleInvoke5654 = new BitSet(new long[]{0x0000000000600000L});
+    public static final BitSet FOLLOW_22_in_ruleInvoke5670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssignment_in_entryRuleAssignment5706 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAssignment5716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAssignment5761 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleAssignment5773 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleAssignment5794 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssignable_in_entryRuleAssignable5830 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAssignable5840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_ruleAssignable5887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAttribute_in_ruleAssignable5914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWhileLoop_in_entryRuleWhileLoop5949 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWhileLoop5959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleWhileLoop5996 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleWhileLoop6017 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleWhileLoop6029 = new BitSet(new long[]{0x1DCC000000000010L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleWhileLoop6050 = new BitSet(new long[]{0x1DCC000000004010L});
+    public static final BitSet FOLLOW_14_in_ruleWhileLoop6063 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIfStatement_in_entryRuleIfStatement6099 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIfStatement6109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleIfStatement6146 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleIfStatement6167 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleIfStatement6179 = new BitSet(new long[]{0x1DCC000000000010L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleIfStatement6200 = new BitSet(new long[]{0x1DCC000000004010L});
+    public static final BitSet FOLLOW_14_in_ruleIfStatement6213 = new BitSet(new long[]{0x0010000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleIfStatement6226 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleIfStatement6238 = new BitSet(new long[]{0x1DCC000000000010L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleIfStatement6259 = new BitSet(new long[]{0x1DCC000000004010L});
+    public static final BitSet FOLLOW_14_in_ruleIfStatement6272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLogStatement_in_entryRuleLogStatement6310 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLogStatement6320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleLogStatement6357 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleLogStatement6377 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_61_in_ruleLogStatement6389 = new BitSet(new long[]{0x00000000001000F0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleStringExpression_in_ruleLogStatement6410 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringExpression_in_entryRuleStringExpression6446 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStringExpression6456 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIndividualExpression_in_ruleStringExpression6503 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleStringExpression6546 = new BitSet(new long[]{0x00000000001000F0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleIndividualExpression_in_ruleStringExpression6567 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_ruleIndividualExpression_in_entryRuleIndividualExpression6606 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIndividualExpression6616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleIndividualExpression6662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleIndividualExpression6685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression6726 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpression6736 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConditionalOrExpression_in_ruleExpression6782 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConditionalOrExpression_in_entryRuleConditionalOrExpression6816 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConditionalOrExpression6826 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConditionalAndExpression_in_ruleConditionalOrExpression6873 = new BitSet(new long[]{0x8000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleConditionalOrExpression6916 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleConditionalAndExpression_in_ruleConditionalOrExpression6937 = new BitSet(new long[]{0x8000000000000002L});
+    public static final BitSet FOLLOW_ruleConditionalAndExpression_in_entryRuleConditionalAndExpression6976 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConditionalAndExpression6986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelationalOpExpression_in_ruleConditionalAndExpression7033 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
+    public static final BitSet FOLLOW_64_in_ruleConditionalAndExpression7076 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleRelationalOpExpression_in_ruleConditionalAndExpression7097 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
+    public static final BitSet FOLLOW_ruleRelationalOpExpression_in_entryRuleRelationalOpExpression7136 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelationalOpExpression7146 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleRelationalOpExpression7193 = new BitSet(new long[]{0x0000000000000002L,0x000000000000007EL});
+    public static final BitSet FOLLOW_65_in_ruleRelationalOpExpression7306 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_66_in_ruleRelationalOpExpression7335 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_67_in_ruleRelationalOpExpression7364 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_68_in_ruleRelationalOpExpression7393 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_69_in_ruleRelationalOpExpression7422 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_70_in_ruleRelationalOpExpression7451 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleRelationalOpExpression7475 = new BitSet(new long[]{0x0000000000000002L,0x000000000000007EL});
+    public static final BitSet FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression7513 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAdditiveExpression7523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression7570 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000180L});
+    public static final BitSet FOLLOW_71_in_ruleAdditiveExpression7623 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_72_in_ruleAdditiveExpression7652 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression7676 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000180L});
+    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression7714 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicativeExpression7724 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleMultiplicativeExpression7771 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000E00L});
+    public static final BitSet FOLLOW_73_in_ruleMultiplicativeExpression7839 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_74_in_ruleMultiplicativeExpression7868 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_75_in_ruleMultiplicativeExpression7897 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleMultiplicativeExpression7921 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000E00L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression7959 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnaryExpression7969 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnaryExpressionNotPlusMinus_in_ruleUnaryExpression8016 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleUnaryExpression8043 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleUnaryExpression8064 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnaryExpressionNotPlusMinus_in_entryRuleUnaryExpressionNotPlusMinus8101 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnaryExpressionNotPlusMinus8111 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotBooleanExpression_in_ruleUnaryExpressionNotPlusMinus8158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimaryExpression_in_ruleUnaryExpressionNotPlusMinus8185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotBooleanExpression_in_entryRuleNotBooleanExpression8220 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNotBooleanExpression8230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleNotBooleanExpression8267 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleNotBooleanExpression8288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrimaryExpression_in_entryRulePrimaryExpression8324 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePrimaryExpression8334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteralOrIdentifier_in_rulePrimaryExpression8381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rulePrimaryExpression8399 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_rulePrimaryExpression8421 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_rulePrimaryExpression8432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteralOrIdentifier_in_entryRuleLiteralOrIdentifier8469 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLiteralOrIdentifier8479 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteral_in_ruleLiteralOrIdentifier8526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIdentifier_in_ruleLiteralOrIdentifier8553 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteral_in_entryRuleLiteral8588 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLiteral8598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntLiteral_in_ruleLiteral8645 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBoolLiteral_in_ruleLiteral8672 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionCall_in_ruleLiteral8699 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntLiteral_in_entryRuleIntLiteral8734 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntLiteral8744 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIntLiteral8795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIdentifier_in_entryRuleIdentifier8836 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIdentifier8846 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleIdentifier8890 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunctionCall_in_entryRuleFunctionCall8927 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFunctionCall8937 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFunctionCall8991 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleFunctionCall9003 = new BitSet(new long[]{0x00000000005000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleFunctionCall9025 = new BitSet(new long[]{0x0000000000600000L});
+    public static final BitSet FOLLOW_21_in_ruleFunctionCall9038 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleFunctionCall9059 = new BitSet(new long[]{0x0000000000600000L});
+    public static final BitSet FOLLOW_22_in_ruleFunctionCall9075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBoolLiteral_in_entryRuleBoolLiteral9111 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBoolLiteral9121 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_BOOLEAN_in_ruleBoolLiteral9172 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_synpred1_InternalUrml6518 = new BitSet(new long[]{0x00000000001000F0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleIndividualExpression_in_synpred1_InternalUrml6525 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_synpred2_InternalUrml6888 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleConditionalAndExpression_in_synpred2_InternalUrml6895 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_synpred3_InternalUrml7048 = new BitSet(new long[]{0x00000000001000D0L,0x0000000000001100L});
+    public static final BitSet FOLLOW_ruleRelationalOpExpression_in_synpred3_InternalUrml7055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_synpred4_InternalUrml7210 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_synpred4_InternalUrml7225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_synpred4_InternalUrml7240 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_synpred4_InternalUrml7255 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_synpred4_InternalUrml7270 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_synpred4_InternalUrml7285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_synpred5_InternalUrml7587 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_synpred5_InternalUrml7602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_synpred6_InternalUrml7788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_synpred6_InternalUrml7803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_synpred6_InternalUrml7818 = new BitSet(new long[]{0x0000000000000002L});
 
 }

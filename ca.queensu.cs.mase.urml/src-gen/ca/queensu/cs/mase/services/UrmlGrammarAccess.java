@@ -1391,25 +1391,29 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class ReturnStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ReturnStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cReturnKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cReturnValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cReturnValueExpressionParserRuleCall_1_0 = (RuleCall)cReturnValueAssignment_1.eContents().get(0);
+		private final Action cReturnStatementAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cReturnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cReturnValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cReturnValueExpressionParserRuleCall_2_0 = (RuleCall)cReturnValueAssignment_2.eContents().get(0);
 		
 		//ReturnStatement:
-		//	"return" returnValue=Expression;
+		//	{ReturnStatement} "return" returnValue=Expression?;
 		public ParserRule getRule() { return rule; }
 
-		//"return" returnValue=Expression
+		//{ReturnStatement} "return" returnValue=Expression?
 		public Group getGroup() { return cGroup; }
 
-		//"return"
-		public Keyword getReturnKeyword_0() { return cReturnKeyword_0; }
+		//{ReturnStatement}
+		public Action getReturnStatementAction_0() { return cReturnStatementAction_0; }
 
-		//returnValue=Expression
-		public Assignment getReturnValueAssignment_1() { return cReturnValueAssignment_1; }
+		//"return"
+		public Keyword getReturnKeyword_1() { return cReturnKeyword_1; }
+
+		//returnValue=Expression?
+		public Assignment getReturnValueAssignment_2() { return cReturnValueAssignment_2; }
 
 		//Expression
-		public RuleCall getReturnValueExpressionParserRuleCall_1_0() { return cReturnValueExpressionParserRuleCall_1_0; }
+		public RuleCall getReturnValueExpressionParserRuleCall_2_0() { return cReturnValueExpressionParserRuleCall_2_0; }
 	}
 
 	public class ActionCodeElements extends AbstractParserRuleElementFinder {
@@ -2944,7 +2948,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ReturnStatement:
-	//	"return" returnValue=Expression;
+	//	{ReturnStatement} "return" returnValue=Expression?;
 	public ReturnStatementElements getReturnStatementAccess() {
 		return (pReturnStatement != null) ? pReturnStatement : (pReturnStatement = new ReturnStatementElements());
 	}

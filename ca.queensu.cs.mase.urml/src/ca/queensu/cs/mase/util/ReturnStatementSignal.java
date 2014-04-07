@@ -1,7 +1,6 @@
 package ca.queensu.cs.mase.util;
 
-import ca.queensu.cs.mase.urml.LocalVar;
-import ca.queensu.cs.mase.urml.UrmlFactory;
+import ca.queensu.cs.mase.types.Value;
 
 /**
  * A dirty (really dirty) trick. When we have met a "return" statement from the
@@ -12,9 +11,12 @@ import ca.queensu.cs.mase.urml.UrmlFactory;
  * 
  */
 public class ReturnStatementSignal extends RuntimeException {
+	private Value val;
 	private static final long serialVersionUID = 1719831731643766253L;
-	/**
-	 * Variable name for the return value
-	 */
-	public static final LocalVar RETURN_STRING = UrmlFactory.eINSTANCE.createLocalVar();
+	public ReturnStatementSignal(Value val_) {
+		val = val_;
+	}
+	public Value getVal() {
+		return val;
+	}
 }

@@ -74,6 +74,12 @@ public class StatementExecuter {
 		stmtExecDispatcher.invoke(st, ctx);
 	}
 
+	// operation-specific statements
+
+	public static void interpret(StatementOperation st, CapsuleContext ctx) {
+		stmtExecDispatcher.invoke(st, ctx);
+	}
+
 	/**
 	 * Get the line number where the EObject {@code obj} appears in the parsed
 	 * file
@@ -244,17 +250,13 @@ public class StatementExecuter {
 			EList<StatementOperation> stmts = inv.getOperation()
 					.getOperationCode().getStatements();
 			for (StatementOperation so : stmts)
-				execute(so, ctx);
+				interpret(so, ctx);
 		} catch (ReturnStatementSignal ret) {
 		}
 		ctx.callStackOfLocalVars().pop();
 	}
 
 	// operation-specific statements
-
-	public void execute(StatementOperation st, CapsuleContext ctx) {
-		stmtExecDispatcher.invoke(st, ctx);
-	}
 
 	private void compute(WhileLoopOperation loop, CapsuleContext ctx) {
 		while (true) {
@@ -267,7 +269,7 @@ public class StatementExecuter {
 			if (!testResult.getVal())
 				break;
 			for (StatementOperation so : loop.getStatements())
-				execute(so, ctx);
+				interpret(so, ctx);
 		}
 	}
 
@@ -280,18 +282,18 @@ public class StatementExecuter {
 		Bool testResult = (Bool) evalResult;
 		if (testResult.getVal())
 			for (StatementOperation so : ifSt.getThenStatements())
-				execute(so, ctx);
+				interpret(so, ctx);
 		else
 			for (StatementOperation so : ifSt.getElseStatements())
-				execute(so, ctx);
+				interpret(so, ctx);
 	}
 
 	private void compute(ReturnStatement rtn, CapsuleContext ctx) {
-		
-		ctx.callStackOfLocalVars()
-				.peek()
-				.put(ReturnStatementSignal.RETURN_STRING,
-						ExpressionEvaluator.interpret(rtn.getReturnValue(), ctx));
-		throw new ReturnStatementSignal();
+		if (rtn.getReturnValue() == null) {
+			throw new ReturnStatementSignal(null);
+		} else {
+			throw new ReturnStatementSignal(ExpressionEvaluator.interpret(
+					rtn.getReturnValue(), ctx));
+		}
 	}
 }

@@ -228,10 +228,12 @@ public class ExpressionEvaluator {
 				&& ctx.getAttributes().containsKey((Attribute) ident)) {
 			return ctx.getAttributes().get((Attribute) ident);
 		} else if (ident instanceof LocalVar
-				&& ctx.callStackOfLocalVars().peek().containsKey((LocalVar) ident)) {
+				&& ctx.callStackOfLocalVars().peek()
+						.containsKey((LocalVar) ident)) {
 			return ctx.callStackOfLocalVars().peek().get((LocalVar) ident);
 		} else if (ident instanceof IncomingVariable
-				&& ctx.getTriggerIncomingVars().containsKey((IncomingVariable) ident)) {
+				&& ctx.getTriggerIncomingVars().containsKey(
+						(IncomingVariable) ident)) {
 			return ctx.getTriggerIncomingVars().get((IncomingVariable) ident);
 		} else {
 			throw new NoSuchIdentifierException(
@@ -263,30 +265,28 @@ public class ExpressionEvaluator {
 		}
 
 		// create new envt with formal params assigned
-		HashMap<LocalVar, Value> newEnvt = new HashMap<>();
+		HashMap<LocalVar, Value> newStackFrame = new HashMap<>();
 		for (int i = 0; i < formalParam; i++) {
 			LocalVar formalParameter = exp.getCall().getLocalVars().get(i);
 			Value actualArgument = ExpressionEvaluator.interpret(exp
 					.getParams().get(i), ctx);
-			newEnvt.put(formalParameter, actualArgument);
+			newStackFrame.put(formalParameter, actualArgument);
 		}
 
-		ctx.callStackOfLocalVars().push(newEnvt);
+		ctx.callStackOfLocalVars().push(newStackFrame);
 
 		try {
-			StatementExecuter stmtExec = new StatementExecuter();
 			for (StatementOperation stmtOp : exp.getCall().getOperationCode()
 					.getStatements())
-				stmtExec.execute(stmtOp, ctx);
-			throw new ReturnStatementNotFoundException("line "
-					+ getLineNumber(exp)
-					+ ": cannot find a return statement in a function.");
+				StatementExecuter.interpret(stmtOp, ctx);
+
 		} catch (ReturnStatementSignal re) {
+			Value returnVal = re.getVal();
+			ctx.callStackOfLocalVars().pop();
+			return returnVal;
 		}
-		Value returnVal = ctx.callStackOfLocalVars().peek()
-				.get(ReturnStatementSignal.RETURN_STRING);
-		ctx.callStackOfLocalVars().pop();
-		return returnVal;
+		throw new ReturnStatementNotFoundException("line " + getLineNumber(exp)
+				+ ": cannot find a return statement in a function.");
 	}
 
 	private Bool evalExpToBool(Expression exp, CapsuleContext ctx) {
