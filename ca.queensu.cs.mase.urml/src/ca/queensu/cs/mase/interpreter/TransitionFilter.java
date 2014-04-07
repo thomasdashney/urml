@@ -106,7 +106,7 @@ public class TransitionFilter {
 			toReturn = chooseNextTransition(nextTransitionList);
 
 		if (toReturn.getTimerPort() != null) {
-			ctx.getTimeout().remove(toReturn.getTimerPort().getName());
+			ctx.getTimeoutInstants().remove(toReturn.getTimerPort().getName());
 		} else if (toReturn.getTriggers().size() != 0) {
 			collectTriggerVars(toReturn, ctx);
 			ctx.getMessageQueue().poll();
@@ -146,11 +146,11 @@ public class TransitionFilter {
 			CapsuleContext ctx) {
 		TimerPort timerPort = t.getTimerPort();
 		if (timerPort != null) {
-			if (ctx.getTimeout().containsKey(timerPort)) {
-				Instant timeoutInstant = ctx.getTimeout().get(timerPort);
+			if (ctx.getTimeoutInstants().containsKey(timerPort)) {
+				Instant timeoutInstant = ctx.getTimeoutInstants().get(timerPort);
 				if (Instant.now().isAfter(timeoutInstant)) {
 					toReturn.add(t);
-					ctx.getTimeout().remove(timerPort);
+					ctx.getTimeoutInstants().remove(timerPort);
 				}
 			}
 		}
@@ -265,7 +265,7 @@ public class TransitionFilter {
 	}
 
 	private void collectTriggerVars(Transition transition, CapsuleContext ctx) {
-		ctx.setTriggerVars(new HashMap<IncomingVariable, Value>());
+		ctx.setTriggerIncomingVars(new HashMap<IncomingVariable, Value>());
 		for (Trigger_in trigger : transition.getTriggers()) {
 			Port triggerPort = trigger.getFrom();
 			Signal triggerSignal = trigger.getSignal();
@@ -275,13 +275,13 @@ public class TransitionFilter {
 			}
 			if (triggerPort == msg.getPort()
 					&& triggerSignal == msg.getSignal()) {
-				ctx.setTriggerVars(new HashMap<IncomingVariable, Value>());
+				ctx.setTriggerIncomingVars(new HashMap<IncomingVariable, Value>());
 				EList<IncomingVariable> triggerParams = trigger.getParameters();
 				EList<Value> msgParams = msg.getParameters();
 				for (int index = 0; index < triggerParams.size(); index++) {
 					IncomingVariable parameterName = triggerParams.get(index);
 					Value parameterValue = msgParams.get(index);
-					ctx.getTriggerVars().put(parameterName, parameterValue);
+					ctx.getTriggerIncomingVars().put(parameterName, parameterValue);
 				}
 			}
 		}

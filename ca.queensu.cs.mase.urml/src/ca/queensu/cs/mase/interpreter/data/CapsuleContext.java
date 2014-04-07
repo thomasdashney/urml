@@ -79,12 +79,12 @@ public class CapsuleContext {
 	/**
 	 * The timeout queue of this "thread"
 	 */
-	private Map<TimerPort, Instant> timeout = new HashMap<>();
+	private Map<TimerPort, Instant> timeoutInstants = new HashMap<>();
 
 	/**
 	 * The trigger variables
 	 */
-	private Map<IncomingVariable, Value> triggerVars = null;
+	private Map<IncomingVariable, Value> triggerIncomingVars = null;
 
 	/**
 	 * Given a state, determines the outgoing transitions from that state
@@ -93,12 +93,12 @@ public class CapsuleContext {
 			.newLinkedHashListMultimap();
 
 	/**
-	 * Environment used for interpreting expressions and statements
+	 * Capsule attributes
 	 */
 	private Map<Attribute, Value> attributes = new HashMap<>();
 
 	/**
-	 * Call stack used for storing multiple environments
+	 * Call stack used for storing local variables
 	 */
 	private Stack<Map<LocalVar, Value>> callStackOfLocalVars = new Stack<>();
 	private PrintStream out;
@@ -175,12 +175,12 @@ public class CapsuleContext {
 		return messageQueue;
 	}
 
-	public Map<IncomingVariable, Value> getTriggerVars() {
-		return triggerVars;
+	public Map<IncomingVariable, Value> getTriggerIncomingVars() {
+		return triggerIncomingVars;
 	}
 
-	public void setTriggerVars(Map<IncomingVariable, Value> triggerVars) {
-		this.triggerVars = triggerVars;
+	public void setTriggerIncomingVars(Map<IncomingVariable, Value> triggerVars) {
+		this.triggerIncomingVars = triggerVars;
 	}
 
 	public TreeNode<CapsuleContext> getTreeNode() {
@@ -191,8 +191,8 @@ public class CapsuleContext {
 		treeNode = tn;
 	}
 
-	public Map<TimerPort, Instant> getTimeout() {
-		return timeout;
+	public Map<TimerPort, Instant> getTimeoutInstants() {
+		return timeoutInstants;
 	}
 
 	public Multimap<State_, Transition> getOutgoingTransitions() {
@@ -248,8 +248,6 @@ public class CapsuleContext {
 		for (Attribute a : capsule.getAttributes()) {
 			Value value = a.getDefaultValue() != null ? ExpressionEvaluator
 					.interpret(a.getDefaultValue(), this) : null;
-			// logger.debug(name + "   attribute: " + a.getName() + " " +
-			// value);
 			getAttributes().put(a, value);
 		}
 	}

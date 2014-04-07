@@ -181,7 +181,7 @@ public class StatementExecuter {
 		Int time = (Int) evalResult;
 		final TimerPort timeout = ifm.getTimerPort();
 		Instant timeoutInstant = Instant.now().plusMillis(time.getVal());
-		ctx.getTimeout().put(timeout, timeoutInstant);
+		ctx.getTimeoutInstants().put(timeout, timeoutInstant);
 	}
 
 	private void compute(WhileLoop loop, CapsuleContext ctx) {

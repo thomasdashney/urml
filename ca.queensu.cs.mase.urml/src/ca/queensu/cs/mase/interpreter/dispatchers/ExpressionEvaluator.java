@@ -231,8 +231,8 @@ public class ExpressionEvaluator {
 				&& ctx.callStackOfLocalVars().peek().containsKey((LocalVar) ident)) {
 			return ctx.callStackOfLocalVars().peek().get((LocalVar) ident);
 		} else if (ident instanceof IncomingVariable
-				&& ctx.getTriggerVars().containsKey((IncomingVariable) ident)) {
-			return ctx.getTriggerVars().get((IncomingVariable) ident);
+				&& ctx.getTriggerIncomingVars().containsKey((IncomingVariable) ident)) {
+			return ctx.getTriggerIncomingVars().get((IncomingVariable) ident);
 		} else {
 			throw new NoSuchIdentifierException(
 					String.format(

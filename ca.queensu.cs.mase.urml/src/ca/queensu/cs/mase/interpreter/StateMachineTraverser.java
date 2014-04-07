@@ -207,8 +207,8 @@ public class StateMachineTraverser {
 		if (transition.getAction() != null) {
 			execute(transition.getAction().getStatements(), ctx);
 		}
-		if (ctx.getTriggerVars() != null) {
-			ctx.setTriggerVars(null);
+		if (ctx.getTriggerIncomingVars() != null) {
+			ctx.setTriggerIncomingVars(null);
 		}
 	}
 
