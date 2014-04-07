@@ -159,8 +159,8 @@ public class StatementExecuter {
 		Value result = ExpressionEvaluator.interpret(asgn.getExp(), ctx);
 		Assignable lval = asgn.getLvalue();
 		if (lval instanceof Attribute) {
-			if (ctx.getEnvt().containsKey((Attribute) lval)) {
-				ctx.getEnvt().put((Attribute) lval, result);
+			if (ctx.getAttributes().containsKey((Attribute) lval)) {
+				ctx.getAttributes().put((Attribute) lval, result);
 				return;
 			}
 		} else if (lval instanceof VarDecl) {

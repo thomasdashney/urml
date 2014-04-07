@@ -95,7 +95,7 @@ public class CapsuleContext {
 	/**
 	 * Environment used for interpreting expressions and statements
 	 */
-	private Map<Attribute, Value> envt = new HashMap<>();
+	private Map<Attribute, Value> attributes = new HashMap<>();
 
 	/**
 	 * Call stack used for storing multiple environments
@@ -203,8 +203,8 @@ public class CapsuleContext {
 		return callStack;
 	}
 
-	public Map<Attribute, Value> getEnvt() {
-		return envt;
+	public Map<Attribute, Value> getAttributes() {
+		return attributes;
 	}
 
 	private CapsuleContext() {
@@ -245,13 +245,12 @@ public class CapsuleContext {
 	}
 
 	private void registerAttributes() {
-		Capsule c = capsule;
-		for (final Attribute a : c.getAttributes()) {
+		for (Attribute a : capsule.getAttributes()) {
 			Value value = a.getDefaultValue() != null ? ExpressionEvaluator
 					.interpret(a.getDefaultValue(), this) : null;
 			// logger.debug(name + "   attribute: " + a.getName() + " " +
 			// value);
-			getEnvt().put(a, value);
+			getAttributes().put(a, value);
 		}
 	}
 

@@ -225,8 +225,8 @@ public class ExpressionEvaluator {
 	private Value compute(Identifier exp, CapsuleContext ctx) {
 		Identifiable ident = exp.getId();
 		if (ident instanceof Attribute
-				&& ctx.getEnvt().containsKey((Attribute) ident)) {
-			return ctx.getEnvt().get((Attribute) ident);
+				&& ctx.getAttributes().containsKey((Attribute) ident)) {
+			return ctx.getAttributes().get((Attribute) ident);
 		} else if (ident instanceof VarDecl
 				&& ctx.getCallStack().peek().containsKey((VarDecl) ident)) {
 			return ctx.getCallStack().peek().get((VarDecl) ident);
