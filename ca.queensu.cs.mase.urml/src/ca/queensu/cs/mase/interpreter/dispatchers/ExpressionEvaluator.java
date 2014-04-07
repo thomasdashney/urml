@@ -21,6 +21,7 @@ import ca.queensu.cs.mase.types.Bool;
 import ca.queensu.cs.mase.types.Int;
 import ca.queensu.cs.mase.types.None;
 import ca.queensu.cs.mase.types.Value;
+import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.BoolLiteral;
 import ca.queensu.cs.mase.urml.ConditionalAndExpression;
 import ca.queensu.cs.mase.urml.ConditionalOrExpression;
@@ -30,7 +31,9 @@ import ca.queensu.cs.mase.urml.Expression;
 import ca.queensu.cs.mase.urml.FunctionCall;
 import ca.queensu.cs.mase.urml.GreaterThan;
 import ca.queensu.cs.mase.urml.GreaterThanOrEqual;
+import ca.queensu.cs.mase.urml.Identifiable;
 import ca.queensu.cs.mase.urml.Identifier;
+import ca.queensu.cs.mase.urml.IncomingVariable;
 import ca.queensu.cs.mase.urml.IntLiteral;
 import ca.queensu.cs.mase.urml.Invoke;
 import ca.queensu.cs.mase.urml.LessThan;
@@ -44,6 +47,7 @@ import ca.queensu.cs.mase.urml.Plus;
 import ca.queensu.cs.mase.urml.ReturnStatement;
 import ca.queensu.cs.mase.urml.StatementOperation;
 import ca.queensu.cs.mase.urml.UnaryExpression;
+import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.util.ReturnStatementSignal;
 
 /**
@@ -219,20 +223,21 @@ public class ExpressionEvaluator {
 	}
 
 	private Value compute(Identifier exp, CapsuleContext ctx) {
-		String identifierName = exp.getId().getName();
-
-		if (ctx.getEnvt().containsKey(identifierName)) {
-			return ctx.getEnvt().get(identifierName);
-		} else if (ctx.getCallStack().peek().containsKey(identifierName)) {
-			return ctx.getCallStack().peek().get(identifierName);
-		} else if (ctx.getTriggerVars() != null
-				&& ctx.getTriggerVars().containsKey(identifierName)) {
-			return ctx.getTriggerVars().get(identifierName);
+		Identifiable ident = exp.getId();
+		if (ident instanceof Attribute
+				&& ctx.getEnvt().containsKey((Attribute) ident)) {
+			return ctx.getEnvt().get((Attribute) ident);
+		} else if (ident instanceof VarDecl
+				&& ctx.getCallStack().peek().containsKey((VarDecl) ident)) {
+			return ctx.getCallStack().peek().get((VarDecl) ident);
+		} else if (ident instanceof IncomingVariable
+				&& ctx.getTriggerVars().containsKey((IncomingVariable) ident)) {
+			return ctx.getTriggerVars().get((IncomingVariable) ident);
 		} else {
 			throw new NoSuchIdentifierException(
 					String.format(
 							"line %d: no such identifier %s from current scope or capsule attribute",
-							getLineNumber(exp), identifierName));
+							getLineNumber(exp), ident.getName()));
 		}
 	}
 
@@ -258,10 +263,9 @@ public class ExpressionEvaluator {
 		}
 
 		// create new envt with formal params assigned
-		HashMap<String, Value> newEnvt = new HashMap<>();
+		HashMap<VarDecl, Value> newEnvt = new HashMap<>();
 		for (int i = 0; i < formalParam; i++) {
-			String formalParameter = exp.getCall().getVarDecls().get(i)
-					.getName();
+			final VarDecl formalParameter = exp.getCall().getVarDecls().get(i);
 			Value actualArgument = ExpressionEvaluator.interpret(exp
 					.getParams().get(i), ctx);
 			newEnvt.put(formalParameter, actualArgument);
@@ -279,7 +283,8 @@ public class ExpressionEvaluator {
 					+ ": cannot find a return statement in a function.");
 		} catch (ReturnStatementSignal re) {
 		}
-		Value returnVal = ctx.getCallStack().peek().get("return");
+		Value returnVal = ctx.getCallStack().peek()
+				.get(ReturnStatementSignal.RETURN_STRING);
 		ctx.getCallStack().pop();
 		return returnVal;
 	}

@@ -19,9 +19,11 @@ import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.CapsuleInst;
+import ca.queensu.cs.mase.urml.IncomingVariable;
 import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.TimerPort;
 import ca.queensu.cs.mase.urml.Transition;
+import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.util.MessageDesc;
 import ca.queensu.cs.mase.util.TreeNode;
 
@@ -82,7 +84,7 @@ public class CapsuleContext {
 	/**
 	 * The trigger variables
 	 */
-	private Map<String, Value> triggerVars = null;
+	private Map<IncomingVariable, Value> triggerVars = null;
 
 	/**
 	 * Given a state, determines the outgoing transitions from that state
@@ -93,12 +95,12 @@ public class CapsuleContext {
 	/**
 	 * Environment used for interpreting expressions and statements
 	 */
-	private Map<String, Value> envt = new HashMap<>();
+	private Map<Attribute, Value> envt = new HashMap<>();
 
 	/**
 	 * Call stack used for storing multiple environments
 	 */
-	private Stack<Map<String, Value>> callStack = new Stack<>();
+	private Stack<Map<VarDecl, Value>> callStack = new Stack<>();
 	private PrintStream out;
 
 	/**
@@ -173,11 +175,11 @@ public class CapsuleContext {
 		return messageQueue;
 	}
 
-	public Map<String, Value> getTriggerVars() {
+	public Map<IncomingVariable, Value> getTriggerVars() {
 		return triggerVars;
 	}
 
-	public void setTriggerVars(Map<String, Value> triggerVars) {
+	public void setTriggerVars(Map<IncomingVariable, Value> triggerVars) {
 		this.triggerVars = triggerVars;
 	}
 
@@ -197,11 +199,11 @@ public class CapsuleContext {
 		return targetTransitions;
 	}
 
-	public Stack<Map<String, Value>> getCallStack() {
+	public Stack<Map<VarDecl, Value>> getCallStack() {
 		return callStack;
 	}
 
-	public Map<String, Value> getEnvt() {
+	public Map<Attribute, Value> getEnvt() {
 		return envt;
 	}
 
@@ -244,12 +246,12 @@ public class CapsuleContext {
 
 	private void registerAttributes() {
 		Capsule c = capsule;
-		for (Attribute a : c.getAttributes()) {
+		for (final Attribute a : c.getAttributes()) {
 			Value value = a.getDefaultValue() != null ? ExpressionEvaluator
 					.interpret(a.getDefaultValue(), this) : null;
 			// logger.debug(name + "   attribute: " + a.getName() + " " +
 			// value);
-			getEnvt().put(a.getName(), value);
+			getEnvt().put(a, value);
 		}
 	}
 

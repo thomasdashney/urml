@@ -265,7 +265,7 @@ public class TransitionFilter {
 	}
 
 	private void collectTriggerVars(Transition transition, CapsuleContext ctx) {
-		ctx.setTriggerVars(new HashMap<String, Value>());
+		ctx.setTriggerVars(new HashMap<IncomingVariable, Value>());
 		for (Trigger_in trigger : transition.getTriggers()) {
 			Port triggerPort = trigger.getFrom();
 			Signal triggerSignal = trigger.getSignal();
@@ -275,11 +275,11 @@ public class TransitionFilter {
 			}
 			if (triggerPort == msg.getPort()
 					&& triggerSignal == msg.getSignal()) {
-				ctx.setTriggerVars(new HashMap<String, Value>());
+				ctx.setTriggerVars(new HashMap<IncomingVariable, Value>());
 				EList<IncomingVariable> triggerParams = trigger.getParameters();
 				EList<Value> msgParams = msg.getParameters();
 				for (int index = 0; index < triggerParams.size(); index++) {
-					String parameterName = triggerParams.get(index).getName();
+					IncomingVariable parameterName = triggerParams.get(index);
 					Value parameterValue = msgParams.get(index);
 					ctx.getTriggerVars().put(parameterName, parameterValue);
 				}

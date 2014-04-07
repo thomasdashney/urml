@@ -21,6 +21,7 @@ import ca.queensu.cs.mase.urml.StateMachine;
 import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.Statement;
 import ca.queensu.cs.mase.urml.Transition;
+import ca.queensu.cs.mase.urml.VarDecl;
 
 public class StateMachineTraverser {
 
@@ -252,7 +253,7 @@ public class StateMachineTraverser {
 	 *            capsule
 	 */
 	private void execute(EList<Statement> statements, CapsuleContext ctx) {
-		ctx.getCallStack().push(new HashMap<String, Value>());
+		ctx.getCallStack().push(new HashMap<VarDecl, Value>());
 		for (Statement st : statements) {
 			StatementExecuter.interpret(st, ctx);
 		}

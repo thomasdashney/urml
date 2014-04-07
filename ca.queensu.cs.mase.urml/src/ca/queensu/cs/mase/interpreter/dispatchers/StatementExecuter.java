@@ -25,7 +25,9 @@ import ca.queensu.cs.mase.interpreter.data.CapsuleContextPortPair;
 import ca.queensu.cs.mase.types.Bool;
 import ca.queensu.cs.mase.types.Int;
 import ca.queensu.cs.mase.types.Value;
+import ca.queensu.cs.mase.urml.Assignable;
 import ca.queensu.cs.mase.urml.Assignment;
+import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.ConcatenateExpression;
 import ca.queensu.cs.mase.urml.Expression;
 import ca.queensu.cs.mase.urml.IfStatement;
@@ -42,6 +44,7 @@ import ca.queensu.cs.mase.urml.StatementOperation;
 import ca.queensu.cs.mase.urml.StringExpression;
 import ca.queensu.cs.mase.urml.TimerPort;
 import ca.queensu.cs.mase.urml.Trigger_out;
+import ca.queensu.cs.mase.urml.UrmlFactory;
 import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.urml.Variable;
 import ca.queensu.cs.mase.urml.WhileLoop;
@@ -97,7 +100,6 @@ public class StatementExecuter {
 				EList<Expression> toParams = to.getParameters();
 				EList<Value> toParamValues = new BasicEList<>(toParams.size());
 				for (Expression argument : toParams) {
-					new ExpressionEvaluator();
 					toParamValues.add(ExpressionEvaluator.interpret(argument,
 							ctx));
 				}
@@ -117,8 +119,8 @@ public class StatementExecuter {
 	}
 
 	private void compute(Variable var, CapsuleContext ctx) {
-		Map<String, Value> envt = ctx.getCallStack().peek();
-		String lvalue = var.getVar().getName();
+		Map<VarDecl, Value> envt = ctx.getCallStack().peek();
+		VarDecl lvalue = var.getVar();
 		if (var.isAssign()) {
 			Value v = ExpressionEvaluator.interpret(var.getExp(), ctx);
 			envt.put(lvalue, v);
@@ -154,21 +156,24 @@ public class StatementExecuter {
 	}
 
 	private void compute(Assignment asgn, CapsuleContext ctx) {
-		ExpressionEvaluator expEval = new ExpressionEvaluator();
 		Value result = ExpressionEvaluator.interpret(asgn.getExp(), ctx);
-		String lvalue = asgn.getLvalue().getName();
-		Map<String, Value> currCall = ctx.getCallStack().peek();
-		if (currCall.containsKey(lvalue))
-			currCall.put(lvalue, result);
-		else if (ctx.getEnvt().containsKey(lvalue))
-			ctx.getEnvt().put(lvalue, result);
-		else
-			throw new IllegalStateException("can't find " + lvalue
-					+ " from capsule attribute or current scope");
+		Assignable lval = asgn.getLvalue();
+		if (lval instanceof Attribute) {
+			if (ctx.getEnvt().containsKey((Attribute) lval)) {
+				ctx.getEnvt().put((Attribute) lval, result);
+				return;
+			}
+		} else if (lval instanceof VarDecl) {
+			if (ctx.getCallStack().peek().containsKey((VarDecl) lval)) {
+				ctx.getCallStack().peek().put((VarDecl) lval, result);
+				return;
+			}
+		}
+		throw new IllegalStateException("can't find " + lval.getName()
+				+ " from capsule attribute or current scope");
 	}
 
 	private void compute(InformTimer ifm, CapsuleContext ctx) {
-		ExpressionEvaluator expEval = new ExpressionEvaluator();
 		Value evalResult = ExpressionEvaluator.interpret(ifm.getTime(), ctx);
 		if (!(evalResult instanceof Int))
 			throw new IllegalStateException(ctx.getName() + " " + evalResult
@@ -190,12 +195,11 @@ public class StatementExecuter {
 			if (!testResult.getVal())
 				break;
 			for (Statement s : loop.getStatements())
-				interpret(s, ctx);
+				StatementExecuter.interpret(s, ctx);
 		}
 	}
 
 	private void compute(IfStatement ifSt, CapsuleContext ctx) {
-		ExpressionEvaluator expEval = new ExpressionEvaluator();
 		Value evalResult = ExpressionEvaluator.interpret(ifSt.getCondition(),
 				ctx);
 		if (!(evalResult instanceof Bool)) {
@@ -226,11 +230,10 @@ public class StatementExecuter {
 					+ ")");
 
 		// create a new environment with formal parameters assigned
-		HashMap<String, Value> newEnvt = new HashMap<>();
-		ExpressionEvaluator expEval = new ExpressionEvaluator();
+		HashMap<VarDecl, Value> newEnvt = new HashMap<>();
 		for (int i = 0; i < formalParam; i++) {
-			String formalParameter = inv.getOperation().getVarDecls().get(i)
-					.getName();
+			final VarDecl formalParameter = inv.getOperation().getVarDecls()
+					.get(i);
 			Value actualArgument = ExpressionEvaluator.interpret(inv
 					.getParameters().get(i), ctx);
 			newEnvt.put(formalParameter, actualArgument);
@@ -254,7 +257,6 @@ public class StatementExecuter {
 	}
 
 	private void compute(WhileLoopOperation loop, CapsuleContext ctx) {
-		ExpressionEvaluator expEval = new ExpressionEvaluator();
 		while (true) {
 			Value result = ExpressionEvaluator.interpret(loop.getCondition(),
 					ctx);
@@ -270,7 +272,6 @@ public class StatementExecuter {
 	}
 
 	private void compute(IfStatementOperation ifSt, CapsuleContext ctx) {
-		ExpressionEvaluator expEval = new ExpressionEvaluator();
 		Value evalResult = ExpressionEvaluator.interpret(ifSt.getCondition(),
 				ctx);
 		if (!(evalResult instanceof Bool))
@@ -286,7 +287,7 @@ public class StatementExecuter {
 	}
 
 	private void compute(ReturnStatement rtn, CapsuleContext ctx) {
-		ExpressionEvaluator expEval = new ExpressionEvaluator();
+		
 		ctx.getCallStack()
 				.peek()
 				.put(ReturnStatementSignal.RETURN_STRING,
