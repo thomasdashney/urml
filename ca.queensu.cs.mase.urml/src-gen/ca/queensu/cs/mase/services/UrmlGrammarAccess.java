@@ -70,14 +70,14 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
-	public class VarDeclElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarDecl");
+	public class LocalVarElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LocalVar");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		/// ******************************************************************
 		// * Data and Variables
-		// ****************************************************************** / VarDecl:
+		// ****************************************************************** / LocalVar:
 		//	name=ID;
 		public ParserRule getRule() { return rule; }
 
@@ -219,19 +219,19 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cVarDeclsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cVarDeclsVarDeclParserRuleCall_2_0_0 = (RuleCall)cVarDeclsAssignment_2_0.eContents().get(0);
+		private final Assignment cLocalVarsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cLocalVarsLocalVarParserRuleCall_2_0_0 = (RuleCall)cLocalVarsAssignment_2_0.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
 		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cVarDeclsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cVarDeclsVarDeclParserRuleCall_2_1_1_0 = (RuleCall)cVarDeclsAssignment_2_1_1.eContents().get(0);
+		private final Assignment cLocalVarsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cLocalVarsLocalVarParserRuleCall_2_1_1_0 = (RuleCall)cLocalVarsAssignment_2_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Signal:
-		//	name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")";
+		//	name=ID "(" (LocalVars+=LocalVar ("," LocalVars+=LocalVar)*)? ")";
 		public ParserRule getRule() { return rule; }
 
-		//name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")"
+		//name=ID "(" (LocalVars+=LocalVar ("," LocalVars+=LocalVar)*)? ")"
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -243,26 +243,26 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//(varDecls+=VarDecl ("," varDecls+=VarDecl)*)?
+		//(LocalVars+=LocalVar ("," LocalVars+=LocalVar)*)?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//varDecls+=VarDecl
-		public Assignment getVarDeclsAssignment_2_0() { return cVarDeclsAssignment_2_0; }
+		//LocalVars+=LocalVar
+		public Assignment getLocalVarsAssignment_2_0() { return cLocalVarsAssignment_2_0; }
 
-		//VarDecl
-		public RuleCall getVarDeclsVarDeclParserRuleCall_2_0_0() { return cVarDeclsVarDeclParserRuleCall_2_0_0; }
+		//LocalVar
+		public RuleCall getLocalVarsLocalVarParserRuleCall_2_0_0() { return cLocalVarsLocalVarParserRuleCall_2_0_0; }
 
-		//("," varDecls+=VarDecl)*
+		//("," LocalVars+=LocalVar)*
 		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//","
 		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
 
-		//varDecls+=VarDecl
-		public Assignment getVarDeclsAssignment_2_1_1() { return cVarDeclsAssignment_2_1_1; }
+		//LocalVars+=LocalVar
+		public Assignment getLocalVarsAssignment_2_1_1() { return cLocalVarsAssignment_2_1_1; }
 
-		//VarDecl
-		public RuleCall getVarDeclsVarDeclParserRuleCall_2_1_1_0() { return cVarDeclsVarDeclParserRuleCall_2_1_1_0; }
+		//LocalVar
+		public RuleCall getLocalVarsLocalVarParserRuleCall_2_1_1_0() { return cLocalVarsLocalVarParserRuleCall_2_1_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -410,12 +410,12 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cVarDeclsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cVarDeclsVarDeclParserRuleCall_3_0_0 = (RuleCall)cVarDeclsAssignment_3_0.eContents().get(0);
+		private final Assignment cLocalVarsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cLocalVarsLocalVarParserRuleCall_3_0_0 = (RuleCall)cLocalVarsAssignment_3_0.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
 		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cVarDeclsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cVarDeclsVarDeclParserRuleCall_3_1_1_0 = (RuleCall)cVarDeclsAssignment_3_1_1.eContents().get(0);
+		private final Assignment cLocalVarsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cLocalVarsLocalVarParserRuleCall_3_1_1_0 = (RuleCall)cLocalVarsAssignment_3_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cOperationCodeAssignment_6 = (Assignment)cGroup.eContents().get(6);
@@ -423,10 +423,10 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Operation:
-		//	"operation" name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")" "{" operationCode=OperationCode "}";
+		//	"operation" name=ID "(" (LocalVars+=LocalVar ("," LocalVars+=LocalVar)*)? ")" "{" operationCode=OperationCode "}";
 		public ParserRule getRule() { return rule; }
 
-		//"operation" name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")" "{" operationCode=OperationCode "}"
+		//"operation" name=ID "(" (LocalVars+=LocalVar ("," LocalVars+=LocalVar)*)? ")" "{" operationCode=OperationCode "}"
 		public Group getGroup() { return cGroup; }
 
 		//"operation"
@@ -441,26 +441,26 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 
-		//(varDecls+=VarDecl ("," varDecls+=VarDecl)*)?
+		//(LocalVars+=LocalVar ("," LocalVars+=LocalVar)*)?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//varDecls+=VarDecl
-		public Assignment getVarDeclsAssignment_3_0() { return cVarDeclsAssignment_3_0; }
+		//LocalVars+=LocalVar
+		public Assignment getLocalVarsAssignment_3_0() { return cLocalVarsAssignment_3_0; }
 
-		//VarDecl
-		public RuleCall getVarDeclsVarDeclParserRuleCall_3_0_0() { return cVarDeclsVarDeclParserRuleCall_3_0_0; }
+		//LocalVar
+		public RuleCall getLocalVarsLocalVarParserRuleCall_3_0_0() { return cLocalVarsLocalVarParserRuleCall_3_0_0; }
 
-		//("," varDecls+=VarDecl)*
+		//("," LocalVars+=LocalVar)*
 		public Group getGroup_3_1() { return cGroup_3_1; }
 
 		//","
 		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
 
-		//varDecls+=VarDecl
-		public Assignment getVarDeclsAssignment_3_1_1() { return cVarDeclsAssignment_3_1_1; }
+		//LocalVars+=LocalVar
+		public Assignment getLocalVarsAssignment_3_1_1() { return cLocalVarsAssignment_3_1_1; }
 
-		//VarDecl
-		public RuleCall getVarDeclsVarDeclParserRuleCall_3_1_1_0() { return cVarDeclsVarDeclParserRuleCall_3_1_1_0; }
+		//LocalVar
+		public RuleCall getLocalVarsLocalVarParserRuleCall_3_1_1_0() { return cLocalVarsLocalVarParserRuleCall_3_1_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -1482,7 +1482,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cVarAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cVarVarDeclParserRuleCall_1_0 = (RuleCall)cVarAssignment_1.eContents().get(0);
+		private final RuleCall cVarLocalVarParserRuleCall_1_0 = (RuleCall)cVarAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Assignment cAssignAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
 		private final Keyword cAssignColonEqualsSignKeyword_2_0_0 = (Keyword)cAssignAssignment_2_0.eContents().get(0);
@@ -1490,20 +1490,20 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpExpressionParserRuleCall_2_1_0 = (RuleCall)cExpAssignment_2_1.eContents().get(0);
 		
 		//Variable:
-		//	"var" var=VarDecl (assign?=":=" exp=Expression)?;
+		//	"var" var=LocalVar (assign?=":=" exp=Expression)?;
 		public ParserRule getRule() { return rule; }
 
-		//"var" var=VarDecl (assign?=":=" exp=Expression)?
+		//"var" var=LocalVar (assign?=":=" exp=Expression)?
 		public Group getGroup() { return cGroup; }
 
 		//"var"
 		public Keyword getVarKeyword_0() { return cVarKeyword_0; }
 
-		//var=VarDecl
+		//var=LocalVar
 		public Assignment getVarAssignment_1() { return cVarAssignment_1; }
 
-		//VarDecl
-		public RuleCall getVarVarDeclParserRuleCall_1_0() { return cVarVarDeclParserRuleCall_1_0; }
+		//LocalVar
+		public RuleCall getVarLocalVarParserRuleCall_1_0() { return cVarLocalVarParserRuleCall_1_0; }
 
 		//(assign?=":=" exp=Expression)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -1724,18 +1724,18 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class AssignableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Assignable");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cVarDeclParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLocalVarParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cAttributeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Assignable:
-		//	VarDecl | Attribute;
+		//	LocalVar | Attribute;
 		public ParserRule getRule() { return rule; }
 
-		//VarDecl | Attribute
+		//LocalVar | Attribute
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//VarDecl
-		public RuleCall getVarDeclParserRuleCall_0() { return cVarDeclParserRuleCall_0; }
+		//LocalVar
+		public RuleCall getLocalVarParserRuleCall_0() { return cLocalVarParserRuleCall_0; }
 
 		//Attribute
 		public RuleCall getAttributeParserRuleCall_1() { return cAttributeParserRuleCall_1; }
@@ -2606,7 +2606,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private ModelElements pModel;
-	private VarDeclElements pVarDecl;
+	private LocalVarElements pLocalVar;
 	private AttributeElements pAttribute;
 	private ProtocolElements pProtocol;
 	private SignalElements pSignal;
@@ -2711,14 +2711,14 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	/// ******************************************************************
 	// * Data and Variables
-	// ****************************************************************** / VarDecl:
+	// ****************************************************************** / LocalVar:
 	//	name=ID;
-	public VarDeclElements getVarDeclAccess() {
-		return (pVarDecl != null) ? pVarDecl : (pVarDecl = new VarDeclElements());
+	public LocalVarElements getLocalVarAccess() {
+		return (pLocalVar != null) ? pLocalVar : (pLocalVar = new LocalVarElements());
 	}
 	
-	public ParserRule getVarDeclRule() {
-		return getVarDeclAccess().getRule();
+	public ParserRule getLocalVarRule() {
+		return getLocalVarAccess().getRule();
 	}
 
 	//Attribute:
@@ -2745,7 +2745,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Signal:
-	//	name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")";
+	//	name=ID "(" (LocalVars+=LocalVar ("," LocalVars+=LocalVar)*)? ")";
 	public SignalElements getSignalAccess() {
 		return (pSignal != null) ? pSignal : (pSignal = new SignalElements());
 	}
@@ -2771,7 +2771,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Operation:
-	//	"operation" name=ID "(" (varDecls+=VarDecl ("," varDecls+=VarDecl)*)? ")" "{" operationCode=OperationCode "}";
+	//	"operation" name=ID "(" (LocalVars+=LocalVar ("," LocalVars+=LocalVar)*)? ")" "{" operationCode=OperationCode "}";
 	public OperationElements getOperationAccess() {
 		return (pOperation != null) ? pOperation : (pOperation = new OperationElements());
 	}
@@ -2975,7 +2975,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Variable:
-	//	"var" var=VarDecl (assign?=":=" exp=Expression)?;
+	//	"var" var=LocalVar (assign?=":=" exp=Expression)?;
 	public VariableElements getVariableAccess() {
 		return (pVariable != null) ? pVariable : (pVariable = new VariableElements());
 	}
@@ -3035,7 +3035,7 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Assignable:
-	//	VarDecl | Attribute;
+	//	LocalVar | Attribute;
 	public AssignableElements getAssignableAccess() {
 		return (pAssignable != null) ? pAssignable : (pAssignable = new AssignableElements());
 	}

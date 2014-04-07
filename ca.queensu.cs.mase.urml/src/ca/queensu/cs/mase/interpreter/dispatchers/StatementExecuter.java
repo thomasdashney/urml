@@ -34,6 +34,7 @@ import ca.queensu.cs.mase.urml.IfStatement;
 import ca.queensu.cs.mase.urml.IfStatementOperation;
 import ca.queensu.cs.mase.urml.InformTimer;
 import ca.queensu.cs.mase.urml.Invoke;
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.LogStatement;
 import ca.queensu.cs.mase.urml.NoOp;
 import ca.queensu.cs.mase.urml.Port;
@@ -45,7 +46,6 @@ import ca.queensu.cs.mase.urml.StringExpression;
 import ca.queensu.cs.mase.urml.TimerPort;
 import ca.queensu.cs.mase.urml.Trigger_out;
 import ca.queensu.cs.mase.urml.UrmlFactory;
-import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.urml.Variable;
 import ca.queensu.cs.mase.urml.WhileLoop;
 import ca.queensu.cs.mase.urml.WhileLoopOperation;
@@ -119,8 +119,8 @@ public class StatementExecuter {
 	}
 
 	private void compute(Variable var, CapsuleContext ctx) {
-		Map<VarDecl, Value> envt = ctx.getCallStack().peek();
-		VarDecl lvalue = var.getVar();
+		Map<LocalVar, Value> envt = ctx.callStackOfLocalVars().peek();
+		LocalVar lvalue = var.getVar();
 		if (var.isAssign()) {
 			Value v = ExpressionEvaluator.interpret(var.getExp(), ctx);
 			envt.put(lvalue, v);
@@ -163,9 +163,9 @@ public class StatementExecuter {
 				ctx.getAttributes().put((Attribute) lval, result);
 				return;
 			}
-		} else if (lval instanceof VarDecl) {
-			if (ctx.getCallStack().peek().containsKey((VarDecl) lval)) {
-				ctx.getCallStack().peek().put((VarDecl) lval, result);
+		} else if (lval instanceof LocalVar) {
+			if (ctx.callStackOfLocalVars().peek().containsKey((LocalVar) lval)) {
+				ctx.callStackOfLocalVars().peek().put((LocalVar) lval, result);
 				return;
 			}
 		}
@@ -220,7 +220,7 @@ public class StatementExecuter {
 
 		// check if # of formal parameters (from the operation header)
 		// and # of actual arguments (from the invocation) are equal
-		int formalParam = inv.getOperation().getVarDecls().size();
+		int formalParam = inv.getOperation().getLocalVars().size();
 		int actualArgs = inv.getParameters().size();
 		if (formalParam != actualArgs)
 			throw new IllegalStateException(ctx.getName()
@@ -230,16 +230,16 @@ public class StatementExecuter {
 					+ ")");
 
 		// create a new environment with formal parameters assigned
-		HashMap<VarDecl, Value> newEnvt = new HashMap<>();
+		HashMap<LocalVar, Value> newEnvt = new HashMap<>();
 		for (int i = 0; i < formalParam; i++) {
-			final VarDecl formalParameter = inv.getOperation().getVarDecls()
+			final LocalVar formalParameter = inv.getOperation().getLocalVars()
 					.get(i);
 			Value actualArgument = ExpressionEvaluator.interpret(inv
 					.getParameters().get(i), ctx);
 			newEnvt.put(formalParameter, actualArgument);
 		}
 
-		ctx.getCallStack().push(newEnvt);
+		ctx.callStackOfLocalVars().push(newEnvt);
 		try {
 			EList<StatementOperation> stmts = inv.getOperation()
 					.getOperationCode().getStatements();
@@ -247,7 +247,7 @@ public class StatementExecuter {
 				execute(so, ctx);
 		} catch (ReturnStatementSignal ret) {
 		}
-		ctx.getCallStack().pop();
+		ctx.callStackOfLocalVars().pop();
 	}
 
 	// operation-specific statements
@@ -288,7 +288,7 @@ public class StatementExecuter {
 
 	private void compute(ReturnStatement rtn, CapsuleContext ctx) {
 		
-		ctx.getCallStack()
+		ctx.callStackOfLocalVars()
 				.peek()
 				.put(ReturnStatementSignal.RETURN_STRING,
 						ExpressionEvaluator.interpret(rtn.getReturnValue(), ctx));

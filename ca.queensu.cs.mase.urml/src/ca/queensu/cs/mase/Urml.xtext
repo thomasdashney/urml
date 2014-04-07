@@ -17,7 +17,7 @@ Model
  ******************************************************************/
 
 
-VarDecl
+LocalVar
 	: 	name=ID 
 	;
 
@@ -40,7 +40,7 @@ Protocol
 
 Signal
 	:	name=ID 
-		'(' (varDecls+=VarDecl (',' varDecls+=VarDecl)*)? ')'
+		'(' (LocalVars+=LocalVar (',' LocalVars+=LocalVar)*)? ')'
 	;
 
 /****************************************************************
@@ -68,7 +68,7 @@ Capsule
 
 Operation
 	:	'operation' name=ID 
-		'(' (varDecls+=VarDecl (',' varDecls+=VarDecl)*)? ')' 
+		'(' (LocalVars+=LocalVar (',' LocalVars+=LocalVar)*)? ')' 
 		'{'
 			operationCode=OperationCode
 		'}'
@@ -197,7 +197,7 @@ Statement
 	| 	LogStatement
 	;
 Variable 
-	:	'var' var=VarDecl (assign?=':=' exp=Expression)?
+	:	'var' var=LocalVar (assign?=':=' exp=Expression)?
 	;
 SendTrigger 
 	:	'send' triggers+=Trigger_out  ('and' triggers+=Trigger_out)*
@@ -219,7 +219,7 @@ Assignment
 	;	
 	
 Assignable 
-	:	VarDecl | Attribute  ;
+	:	LocalVar | Attribute  ;
 
 WhileLoop 
 	:	'while' condition=Expression '{' statements+=Statement+ '}'

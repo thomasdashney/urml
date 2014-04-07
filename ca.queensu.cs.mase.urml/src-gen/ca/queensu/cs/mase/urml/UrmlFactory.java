@@ -32,13 +32,13 @@ public interface UrmlFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Var Decl</em>'.
+   * Returns a new object of class '<em>Local Var</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Var Decl</em>'.
+   * @return a new object of class '<em>Local Var</em>'.
    * @generated
    */
-  VarDecl createVarDecl();
+  LocalVar createLocalVar();
 
   /**
    * Returns a new object of class '<em>Attribute</em>'.

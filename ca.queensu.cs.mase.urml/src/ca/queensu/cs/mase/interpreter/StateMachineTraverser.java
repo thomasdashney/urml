@@ -17,11 +17,11 @@ import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.dispatchers.StatementExecuter;
 import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Capsule;
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.StateMachine;
 import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.Statement;
 import ca.queensu.cs.mase.urml.Transition;
-import ca.queensu.cs.mase.urml.VarDecl;
 
 public class StateMachineTraverser {
 
@@ -253,11 +253,11 @@ public class StateMachineTraverser {
 	 *            capsule
 	 */
 	private void execute(EList<Statement> statements, CapsuleContext ctx) {
-		ctx.getCallStack().push(new HashMap<VarDecl, Value>());
+		ctx.callStackOfLocalVars().push(new HashMap<LocalVar, Value>());
 		for (Statement st : statements) {
 			StatementExecuter.interpret(st, ctx);
 		}
-		ctx.getCallStack().pop();
+		ctx.callStackOfLocalVars().pop();
 	}
 
 	/**

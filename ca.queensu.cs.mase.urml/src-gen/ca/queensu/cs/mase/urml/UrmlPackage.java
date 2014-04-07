@@ -159,14 +159,14 @@ public interface UrmlPackage extends EPackage
   int ASSIGNABLE_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.VarDeclImpl <em>Var Decl</em>}' class.
+   * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.LocalVarImpl <em>Local Var</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see ca.queensu.cs.mase.urml.impl.VarDeclImpl
-   * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getVarDecl()
+   * @see ca.queensu.cs.mase.urml.impl.LocalVarImpl
+   * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getLocalVar()
    * @generated
    */
-  int VAR_DECL = 1;
+  int LOCAL_VAR = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -175,16 +175,16 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VAR_DECL__NAME = ASSIGNABLE__NAME;
+  int LOCAL_VAR__NAME = ASSIGNABLE__NAME;
 
   /**
-   * The number of structural features of the '<em>Var Decl</em>' class.
+   * The number of structural features of the '<em>Local Var</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_DECL_FEATURE_COUNT = ASSIGNABLE_FEATURE_COUNT + 0;
+  int LOCAL_VAR_FEATURE_COUNT = ASSIGNABLE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -289,13 +289,13 @@ public interface UrmlPackage extends EPackage
   int SIGNAL__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Var Decls</b></em>' containment reference list.
+   * The feature id for the '<em><b>Local Vars</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIGNAL__VAR_DECLS = 1;
+  int SIGNAL__LOCAL_VARS = 1;
 
   /**
    * The number of structural features of the '<em>Signal</em>' class.
@@ -444,13 +444,13 @@ public interface UrmlPackage extends EPackage
   int OPERATION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Var Decls</b></em>' containment reference list.
+   * The feature id for the '<em><b>Local Vars</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__VAR_DECLS = 1;
+  int OPERATION__LOCAL_VARS = 1;
 
   /**
    * The feature id for the '<em><b>Operation Code</b></em>' containment reference.
@@ -2338,14 +2338,14 @@ public interface UrmlPackage extends EPackage
   EReference getModel_Protocols();
 
   /**
-   * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.VarDecl <em>Var Decl</em>}'.
+   * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.LocalVar <em>Local Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Var Decl</em>'.
-   * @see ca.queensu.cs.mase.urml.VarDecl
+   * @return the meta object for class '<em>Local Var</em>'.
+   * @see ca.queensu.cs.mase.urml.LocalVar
    * @generated
    */
-  EClass getVarDecl();
+  EClass getLocalVar();
 
   /**
    * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.Attribute <em>Attribute</em>}'.
@@ -2433,15 +2433,15 @@ public interface UrmlPackage extends EPackage
   EAttribute getSignal_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ca.queensu.cs.mase.urml.Signal#getVarDecls <em>Var Decls</em>}'.
+   * Returns the meta object for the containment reference list '{@link ca.queensu.cs.mase.urml.Signal#getLocalVars <em>Local Vars</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Var Decls</em>'.
-   * @see ca.queensu.cs.mase.urml.Signal#getVarDecls()
+   * @return the meta object for the containment reference list '<em>Local Vars</em>'.
+   * @see ca.queensu.cs.mase.urml.Signal#getLocalVars()
    * @see #getSignal()
    * @generated
    */
-  EReference getSignal_VarDecls();
+  EReference getSignal_LocalVars();
 
   /**
    * Returns the meta object for class '{@link ca.queensu.cs.mase.urml.Capsule <em>Capsule</em>}'.
@@ -2596,15 +2596,15 @@ public interface UrmlPackage extends EPackage
   EAttribute getOperation_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ca.queensu.cs.mase.urml.Operation#getVarDecls <em>Var Decls</em>}'.
+   * Returns the meta object for the containment reference list '{@link ca.queensu.cs.mase.urml.Operation#getLocalVars <em>Local Vars</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Var Decls</em>'.
-   * @see ca.queensu.cs.mase.urml.Operation#getVarDecls()
+   * @return the meta object for the containment reference list '<em>Local Vars</em>'.
+   * @see ca.queensu.cs.mase.urml.Operation#getLocalVars()
    * @see #getOperation()
    * @generated
    */
-  EReference getOperation_VarDecls();
+  EReference getOperation_LocalVars();
 
   /**
    * Returns the meta object for the containment reference '{@link ca.queensu.cs.mase.urml.Operation#getOperationCode <em>Operation Code</em>}'.
@@ -4240,14 +4240,14 @@ public interface UrmlPackage extends EPackage
     EReference MODEL__PROTOCOLS = eINSTANCE.getModel_Protocols();
 
     /**
-     * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.VarDeclImpl <em>Var Decl</em>}' class.
+     * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.LocalVarImpl <em>Local Var</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ca.queensu.cs.mase.urml.impl.VarDeclImpl
-     * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getVarDecl()
+     * @see ca.queensu.cs.mase.urml.impl.LocalVarImpl
+     * @see ca.queensu.cs.mase.urml.impl.UrmlPackageImpl#getLocalVar()
      * @generated
      */
-    EClass VAR_DECL = eINSTANCE.getVarDecl();
+    EClass LOCAL_VAR = eINSTANCE.getLocalVar();
 
     /**
      * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -4320,12 +4320,12 @@ public interface UrmlPackage extends EPackage
     EAttribute SIGNAL__NAME = eINSTANCE.getSignal_Name();
 
     /**
-     * The meta object literal for the '<em><b>Var Decls</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Local Vars</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SIGNAL__VAR_DECLS = eINSTANCE.getSignal_VarDecls();
+    EReference SIGNAL__LOCAL_VARS = eINSTANCE.getSignal_LocalVars();
 
     /**
      * The meta object literal for the '{@link ca.queensu.cs.mase.urml.impl.CapsuleImpl <em>Capsule</em>}' class.
@@ -4444,12 +4444,12 @@ public interface UrmlPackage extends EPackage
     EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
 
     /**
-     * The meta object literal for the '<em><b>Var Decls</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Local Vars</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OPERATION__VAR_DECLS = eINSTANCE.getOperation_VarDecls();
+    EReference OPERATION__LOCAL_VARS = eINSTANCE.getOperation_LocalVars();
 
     /**
      * The meta object literal for the '<em><b>Operation Code</b></em>' containment reference feature.

@@ -25,6 +25,7 @@ import ca.queensu.cs.mase.urml.IntLiteral;
 import ca.queensu.cs.mase.urml.Invoke;
 import ca.queensu.cs.mase.urml.LessThan;
 import ca.queensu.cs.mase.urml.LessThanOrEqual;
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.LogPort;
 import ca.queensu.cs.mase.urml.LogStatement;
 import ca.queensu.cs.mase.urml.Minus;
@@ -51,7 +52,6 @@ import ca.queensu.cs.mase.urml.Trigger_in;
 import ca.queensu.cs.mase.urml.Trigger_out;
 import ca.queensu.cs.mase.urml.UnaryExpression;
 import ca.queensu.cs.mase.urml.UrmlPackage;
-import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.urml.Variable;
 import ca.queensu.cs.mase.urml.WhileLoop;
 import ca.queensu.cs.mase.urml.WhileLoopOperation;
@@ -495,6 +495,14 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case UrmlPackage.LOCAL_VAR:
+				if(context == grammarAccess.getAssignableRule() ||
+				   context == grammarAccess.getIdentifiableRule() ||
+				   context == grammarAccess.getLocalVarRule()) {
+					sequence_LocalVar(context, (LocalVar) semanticObject); 
+					return; 
+				}
+				else break;
 			case UrmlPackage.LOG_PORT:
 				if(context == grammarAccess.getLogPortRule()) {
 					sequence_LogPort(context, (LogPort) semanticObject); 
@@ -798,14 +806,6 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				   context == grammarAccess.getUnaryExpressionRule() ||
 				   context == grammarAccess.getUnaryExpressionNotPlusMinusRule()) {
 					sequence_UnaryExpression(context, (UnaryExpression) semanticObject); 
-					return; 
-				}
-				else break;
-			case UrmlPackage.VAR_DECL:
-				if(context == grammarAccess.getAssignableRule() ||
-				   context == grammarAccess.getIdentifiableRule() ||
-				   context == grammarAccess.getVarDeclRule()) {
-					sequence_VarDecl(context, (VarDecl) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1131,6 +1131,22 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     name=ID
 	 */
+	protected void sequence_LocalVar(EObject context, LocalVar semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.IDENTIFIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.IDENTIFIABLE__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLocalVarAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=ID
+	 */
 	protected void sequence_LogPort(EObject context, LogPort semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.LOG_PORT__NAME) == ValueTransient.YES)
@@ -1264,7 +1280,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (varDecls+=VarDecl varDecls+=VarDecl*)? operationCode=OperationCode)
+	 *     (name=ID (LocalVars+=LocalVar LocalVars+=LocalVar*)? operationCode=OperationCode)
 	 */
 	protected void sequence_Operation(EObject context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1430,7 +1446,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (varDecls+=VarDecl varDecls+=VarDecl*)?)
+	 *     (name=ID (LocalVars+=LocalVar LocalVars+=LocalVar*)?)
 	 */
 	protected void sequence_Signal(EObject context, Signal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1532,23 +1548,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_VarDecl(EObject context, VarDecl semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.IDENTIFIABLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.IDENTIFIABLE__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarDeclAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (var=VarDecl (assign?=':=' exp=Expression)?)
+	 *     (var=LocalVar (assign?=':=' exp=Expression)?)
 	 */
 	protected void sequence_Variable(EObject context, Variable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

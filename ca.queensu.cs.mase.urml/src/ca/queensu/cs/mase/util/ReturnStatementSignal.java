@@ -1,7 +1,7 @@
 package ca.queensu.cs.mase.util;
 
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.UrmlFactory;
-import ca.queensu.cs.mase.urml.VarDecl;
 
 /**
  * A dirty (really dirty) trick. When we have met a "return" statement from the
@@ -16,5 +16,5 @@ public class ReturnStatementSignal extends RuntimeException {
 	/**
 	 * Variable name for the return value
 	 */
-	public static final VarDecl RETURN_STRING = UrmlFactory.eINSTANCE.createVarDecl();
+	public static final LocalVar RETURN_STRING = UrmlFactory.eINSTANCE.createLocalVar();
 }

@@ -32,12 +32,12 @@ public interface Variable extends StatementOperation, Statement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Var</em>' containment reference.
-   * @see #setVar(VarDecl)
+   * @see #setVar(LocalVar)
    * @see ca.queensu.cs.mase.urml.UrmlPackage#getVariable_Var()
    * @model containment="true"
    * @generated
    */
-  VarDecl getVar();
+  LocalVar getVar();
 
   /**
    * Sets the value of the '{@link ca.queensu.cs.mase.urml.Variable#getVar <em>Var</em>}' containment reference.
@@ -47,7 +47,7 @@ public interface Variable extends StatementOperation, Statement
    * @see #getVar()
    * @generated
    */
-  void setVar(VarDecl value);
+  void setVar(LocalVar value);
 
   /**
    * Returns the value of the '<em><b>Assign</b></em>' attribute.

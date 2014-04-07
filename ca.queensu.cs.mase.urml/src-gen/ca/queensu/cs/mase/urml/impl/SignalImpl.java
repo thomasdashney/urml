@@ -2,9 +2,9 @@
  */
 package ca.queensu.cs.mase.urml.impl;
 
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.Signal;
 import ca.queensu.cs.mase.urml.UrmlPackage;
-import ca.queensu.cs.mase.urml.VarDecl;
 
 import java.util.Collection;
 
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.SignalImpl#getName <em>Name</em>}</li>
- *   <li>{@link ca.queensu.cs.mase.urml.impl.SignalImpl#getVarDecls <em>Var Decls</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.impl.SignalImpl#getLocalVars <em>Local Vars</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,14 +59,14 @@ public class SignalImpl extends MinimalEObjectImpl.Container implements Signal
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVarDecls() <em>Var Decls</em>}' containment reference list.
+   * The cached value of the '{@link #getLocalVars() <em>Local Vars</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVarDecls()
+   * @see #getLocalVars()
    * @generated
    * @ordered
    */
-  protected EList<VarDecl> varDecls;
+  protected EList<LocalVar> localVars;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,13 +117,13 @@ public class SignalImpl extends MinimalEObjectImpl.Container implements Signal
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<VarDecl> getVarDecls()
+  public EList<LocalVar> getLocalVars()
   {
-    if (varDecls == null)
+    if (localVars == null)
     {
-      varDecls = new EObjectContainmentEList<VarDecl>(VarDecl.class, this, UrmlPackage.SIGNAL__VAR_DECLS);
+      localVars = new EObjectContainmentEList<LocalVar>(LocalVar.class, this, UrmlPackage.SIGNAL__LOCAL_VARS);
     }
-    return varDecls;
+    return localVars;
   }
 
   /**
@@ -136,8 +136,8 @@ public class SignalImpl extends MinimalEObjectImpl.Container implements Signal
   {
     switch (featureID)
     {
-      case UrmlPackage.SIGNAL__VAR_DECLS:
-        return ((InternalEList<?>)getVarDecls()).basicRemove(otherEnd, msgs);
+      case UrmlPackage.SIGNAL__LOCAL_VARS:
+        return ((InternalEList<?>)getLocalVars()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -154,8 +154,8 @@ public class SignalImpl extends MinimalEObjectImpl.Container implements Signal
     {
       case UrmlPackage.SIGNAL__NAME:
         return getName();
-      case UrmlPackage.SIGNAL__VAR_DECLS:
-        return getVarDecls();
+      case UrmlPackage.SIGNAL__LOCAL_VARS:
+        return getLocalVars();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -174,9 +174,9 @@ public class SignalImpl extends MinimalEObjectImpl.Container implements Signal
       case UrmlPackage.SIGNAL__NAME:
         setName((String)newValue);
         return;
-      case UrmlPackage.SIGNAL__VAR_DECLS:
-        getVarDecls().clear();
-        getVarDecls().addAll((Collection<? extends VarDecl>)newValue);
+      case UrmlPackage.SIGNAL__LOCAL_VARS:
+        getLocalVars().clear();
+        getLocalVars().addAll((Collection<? extends LocalVar>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -195,8 +195,8 @@ public class SignalImpl extends MinimalEObjectImpl.Container implements Signal
       case UrmlPackage.SIGNAL__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case UrmlPackage.SIGNAL__VAR_DECLS:
-        getVarDecls().clear();
+      case UrmlPackage.SIGNAL__LOCAL_VARS:
+        getLocalVars().clear();
         return;
     }
     super.eUnset(featureID);
@@ -214,8 +214,8 @@ public class SignalImpl extends MinimalEObjectImpl.Container implements Signal
     {
       case UrmlPackage.SIGNAL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case UrmlPackage.SIGNAL__VAR_DECLS:
-        return varDecls != null && !varDecls.isEmpty();
+      case UrmlPackage.SIGNAL__LOCAL_VARS:
+        return localVars != null && !localVars.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -2,10 +2,10 @@
  */
 package ca.queensu.cs.mase.urml.impl;
 
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.Operation;
 import ca.queensu.cs.mase.urml.OperationCode;
 import ca.queensu.cs.mase.urml.UrmlPackage;
-import ca.queensu.cs.mase.urml.VarDecl;
 
 import java.util.Collection;
 
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.OperationImpl#getName <em>Name</em>}</li>
- *   <li>{@link ca.queensu.cs.mase.urml.impl.OperationImpl#getVarDecls <em>Var Decls</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.impl.OperationImpl#getLocalVars <em>Local Vars</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.OperationImpl#getOperationCode <em>Operation Code</em>}</li>
  * </ul>
  * </p>
@@ -61,14 +61,14 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVarDecls() <em>Var Decls</em>}' containment reference list.
+   * The cached value of the '{@link #getLocalVars() <em>Local Vars</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVarDecls()
+   * @see #getLocalVars()
    * @generated
    * @ordered
    */
-  protected EList<VarDecl> varDecls;
+  protected EList<LocalVar> localVars;
 
   /**
    * The cached value of the '{@link #getOperationCode() <em>Operation Code</em>}' containment reference.
@@ -129,13 +129,13 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<VarDecl> getVarDecls()
+  public EList<LocalVar> getLocalVars()
   {
-    if (varDecls == null)
+    if (localVars == null)
     {
-      varDecls = new EObjectContainmentEList<VarDecl>(VarDecl.class, this, UrmlPackage.OPERATION__VAR_DECLS);
+      localVars = new EObjectContainmentEList<LocalVar>(LocalVar.class, this, UrmlPackage.OPERATION__LOCAL_VARS);
     }
-    return varDecls;
+    return localVars;
   }
 
   /**
@@ -196,8 +196,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
   {
     switch (featureID)
     {
-      case UrmlPackage.OPERATION__VAR_DECLS:
-        return ((InternalEList<?>)getVarDecls()).basicRemove(otherEnd, msgs);
+      case UrmlPackage.OPERATION__LOCAL_VARS:
+        return ((InternalEList<?>)getLocalVars()).basicRemove(otherEnd, msgs);
       case UrmlPackage.OPERATION__OPERATION_CODE:
         return basicSetOperationCode(null, msgs);
     }
@@ -216,8 +216,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     {
       case UrmlPackage.OPERATION__NAME:
         return getName();
-      case UrmlPackage.OPERATION__VAR_DECLS:
-        return getVarDecls();
+      case UrmlPackage.OPERATION__LOCAL_VARS:
+        return getLocalVars();
       case UrmlPackage.OPERATION__OPERATION_CODE:
         return getOperationCode();
     }
@@ -238,9 +238,9 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
       case UrmlPackage.OPERATION__NAME:
         setName((String)newValue);
         return;
-      case UrmlPackage.OPERATION__VAR_DECLS:
-        getVarDecls().clear();
-        getVarDecls().addAll((Collection<? extends VarDecl>)newValue);
+      case UrmlPackage.OPERATION__LOCAL_VARS:
+        getLocalVars().clear();
+        getLocalVars().addAll((Collection<? extends LocalVar>)newValue);
         return;
       case UrmlPackage.OPERATION__OPERATION_CODE:
         setOperationCode((OperationCode)newValue);
@@ -262,8 +262,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
       case UrmlPackage.OPERATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case UrmlPackage.OPERATION__VAR_DECLS:
-        getVarDecls().clear();
+      case UrmlPackage.OPERATION__LOCAL_VARS:
+        getLocalVars().clear();
         return;
       case UrmlPackage.OPERATION__OPERATION_CODE:
         setOperationCode((OperationCode)null);
@@ -284,8 +284,8 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     {
       case UrmlPackage.OPERATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case UrmlPackage.OPERATION__VAR_DECLS:
-        return varDecls != null && !varDecls.isEmpty();
+      case UrmlPackage.OPERATION__LOCAL_VARS:
+        return localVars != null && !localVars.isEmpty();
       case UrmlPackage.OPERATION__OPERATION_CODE:
         return operationCode != null;
     }

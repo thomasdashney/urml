@@ -12,7 +12,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Model/capsules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Model/protocols"/>
     </genClasses>
-    <genClasses ecoreClass="Urml.ecore#//VarDecl"/>
+    <genClasses ecoreClass="Urml.ecore#//LocalVar"/>
     <genClasses ecoreClass="Urml.ecore#//Attribute">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Attribute/defaultValue"/>
     </genClasses>
@@ -23,7 +23,7 @@
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//Signal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Signal/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Signal/varDecls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Signal/LocalVars"/>
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//Capsule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Capsule/root"/>
@@ -40,7 +40,7 @@
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Urml.ecore#//Operation/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Operation/varDecls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Operation/LocalVars"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Urml.ecore#//Operation/operationCode"/>
     </genClasses>
     <genClasses ecoreClass="Urml.ecore#//TimerPort">

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ca.queensu.cs.mase.urml.Signal#getName <em>Name</em>}</li>
- *   <li>{@link ca.queensu.cs.mase.urml.Signal#getVarDecls <em>Var Decls</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.Signal#getLocalVars <em>Local Vars</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,19 +52,19 @@ public interface Signal extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Var Decls</b></em>' containment reference list.
-   * The list contents are of type {@link ca.queensu.cs.mase.urml.VarDecl}.
+   * Returns the value of the '<em><b>Local Vars</b></em>' containment reference list.
+   * The list contents are of type {@link ca.queensu.cs.mase.urml.LocalVar}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var Decls</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Local Vars</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var Decls</em>' containment reference list.
-   * @see ca.queensu.cs.mase.urml.UrmlPackage#getSignal_VarDecls()
+   * @return the value of the '<em>Local Vars</em>' containment reference list.
+   * @see ca.queensu.cs.mase.urml.UrmlPackage#getSignal_LocalVars()
    * @model containment="true"
    * @generated
    */
-  EList<VarDecl> getVarDecls();
+  EList<LocalVar> getLocalVars();
 
 } // Signal

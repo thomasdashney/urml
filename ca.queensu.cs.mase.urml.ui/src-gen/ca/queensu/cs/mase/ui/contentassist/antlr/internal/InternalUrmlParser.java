@@ -222,25 +222,25 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleModel"
 
 
-    // $ANTLR start "entryRuleVarDecl"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:89:1: entryRuleVarDecl : ruleVarDecl EOF ;
-    public final void entryRuleVarDecl() throws RecognitionException {
+    // $ANTLR start "entryRuleLocalVar"
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:89:1: entryRuleLocalVar : ruleLocalVar EOF ;
+    public final void entryRuleLocalVar() throws RecognitionException {
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:90:1: ( ruleVarDecl EOF )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:91:1: ruleVarDecl EOF
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:90:1: ( ruleLocalVar EOF )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:91:1: ruleLocalVar EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getVarDeclRule()); 
+               before(grammarAccess.getLocalVarRule()); 
             }
-            pushFollow(FOLLOW_ruleVarDecl_in_entryRuleVarDecl127);
-            ruleVarDecl();
+            pushFollow(FOLLOW_ruleLocalVar_in_entryRuleLocalVar127);
+            ruleLocalVar();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getVarDeclRule()); 
+               after(grammarAccess.getLocalVarRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVarDecl134); if (state.failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLocalVar134); if (state.failed) return ;
 
             }
 
@@ -253,30 +253,30 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleVarDecl"
+    // $ANTLR end "entryRuleLocalVar"
 
 
-    // $ANTLR start "ruleVarDecl"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:98:1: ruleVarDecl : ( ( rule__VarDecl__NameAssignment ) ) ;
-    public final void ruleVarDecl() throws RecognitionException {
+    // $ANTLR start "ruleLocalVar"
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:98:1: ruleLocalVar : ( ( rule__LocalVar__NameAssignment ) ) ;
+    public final void ruleLocalVar() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:102:2: ( ( ( rule__VarDecl__NameAssignment ) ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:103:1: ( ( rule__VarDecl__NameAssignment ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:102:2: ( ( ( rule__LocalVar__NameAssignment ) ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:103:1: ( ( rule__LocalVar__NameAssignment ) )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:103:1: ( ( rule__VarDecl__NameAssignment ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:104:1: ( rule__VarDecl__NameAssignment )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:103:1: ( ( rule__LocalVar__NameAssignment ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:104:1: ( rule__LocalVar__NameAssignment )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getVarDeclAccess().getNameAssignment()); 
+               before(grammarAccess.getLocalVarAccess().getNameAssignment()); 
             }
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:105:1: ( rule__VarDecl__NameAssignment )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:105:2: rule__VarDecl__NameAssignment
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:105:1: ( rule__LocalVar__NameAssignment )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:105:2: rule__LocalVar__NameAssignment
             {
-            pushFollow(FOLLOW_rule__VarDecl__NameAssignment_in_ruleVarDecl160);
-            rule__VarDecl__NameAssignment();
+            pushFollow(FOLLOW_rule__LocalVar__NameAssignment_in_ruleLocalVar160);
+            rule__LocalVar__NameAssignment();
 
             state._fsp--;
             if (state.failed) return ;
@@ -284,7 +284,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getVarDeclAccess().getNameAssignment()); 
+               after(grammarAccess.getLocalVarAccess().getNameAssignment()); 
             }
 
             }
@@ -304,7 +304,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleVarDecl"
+    // $ANTLR end "ruleLocalVar"
 
 
     // $ANTLR start "entryRuleAttribute"
@@ -6021,13 +6021,13 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Assignable__Alternatives"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1835:1: rule__Assignable__Alternatives : ( ( ruleVarDecl ) | ( ruleAttribute ) );
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1835:1: rule__Assignable__Alternatives : ( ( ruleLocalVar ) | ( ruleAttribute ) );
     public final void rule__Assignable__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1839:1: ( ( ruleVarDecl ) | ( ruleAttribute ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1839:1: ( ( ruleLocalVar ) | ( ruleAttribute ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -6046,21 +6046,21 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
             }
             switch (alt10) {
                 case 1 :
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1840:1: ( ruleVarDecl )
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1840:1: ( ruleLocalVar )
                     {
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1840:1: ( ruleVarDecl )
-                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1841:1: ruleVarDecl
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1840:1: ( ruleLocalVar )
+                    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:1841:1: ruleLocalVar
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getAssignableAccess().getVarDeclParserRuleCall_0()); 
+                       before(grammarAccess.getAssignableAccess().getLocalVarParserRuleCall_0()); 
                     }
-                    pushFollow(FOLLOW_ruleVarDecl_in_rule__Assignable__Alternatives3991);
-                    ruleVarDecl();
+                    pushFollow(FOLLOW_ruleLocalVar_in_rule__Assignable__Alternatives3991);
+                    ruleLocalVar();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getAssignableAccess().getVarDeclParserRuleCall_0()); 
+                       after(grammarAccess.getAssignableAccess().getLocalVarParserRuleCall_0()); 
                     }
 
                     }
@@ -9618,26 +9618,26 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Signal__Group_2__0__Impl"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:2999:1: rule__Signal__Group_2__0__Impl : ( ( rule__Signal__VarDeclsAssignment_2_0 ) ) ;
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:2999:1: rule__Signal__Group_2__0__Impl : ( ( rule__Signal__LocalVarsAssignment_2_0 ) ) ;
     public final void rule__Signal__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3003:1: ( ( ( rule__Signal__VarDeclsAssignment_2_0 ) ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3004:1: ( ( rule__Signal__VarDeclsAssignment_2_0 ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3003:1: ( ( ( rule__Signal__LocalVarsAssignment_2_0 ) ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3004:1: ( ( rule__Signal__LocalVarsAssignment_2_0 ) )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3004:1: ( ( rule__Signal__VarDeclsAssignment_2_0 ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3005:1: ( rule__Signal__VarDeclsAssignment_2_0 )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3004:1: ( ( rule__Signal__LocalVarsAssignment_2_0 ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3005:1: ( rule__Signal__LocalVarsAssignment_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSignalAccess().getVarDeclsAssignment_2_0()); 
+               before(grammarAccess.getSignalAccess().getLocalVarsAssignment_2_0()); 
             }
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3006:1: ( rule__Signal__VarDeclsAssignment_2_0 )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3006:2: rule__Signal__VarDeclsAssignment_2_0
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3006:1: ( rule__Signal__LocalVarsAssignment_2_0 )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3006:2: rule__Signal__LocalVarsAssignment_2_0
             {
-            pushFollow(FOLLOW_rule__Signal__VarDeclsAssignment_2_0_in_rule__Signal__Group_2__0__Impl6381);
-            rule__Signal__VarDeclsAssignment_2_0();
+            pushFollow(FOLLOW_rule__Signal__LocalVarsAssignment_2_0_in_rule__Signal__Group_2__0__Impl6381);
+            rule__Signal__LocalVarsAssignment_2_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -9645,7 +9645,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSignalAccess().getVarDeclsAssignment_2_0()); 
+               after(grammarAccess.getSignalAccess().getLocalVarsAssignment_2_0()); 
             }
 
             }
@@ -9883,26 +9883,26 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Signal__Group_2_1__1__Impl"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3090:1: rule__Signal__Group_2_1__1__Impl : ( ( rule__Signal__VarDeclsAssignment_2_1_1 ) ) ;
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3090:1: rule__Signal__Group_2_1__1__Impl : ( ( rule__Signal__LocalVarsAssignment_2_1_1 ) ) ;
     public final void rule__Signal__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3094:1: ( ( ( rule__Signal__VarDeclsAssignment_2_1_1 ) ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3095:1: ( ( rule__Signal__VarDeclsAssignment_2_1_1 ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3094:1: ( ( ( rule__Signal__LocalVarsAssignment_2_1_1 ) ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3095:1: ( ( rule__Signal__LocalVarsAssignment_2_1_1 ) )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3095:1: ( ( rule__Signal__VarDeclsAssignment_2_1_1 ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3096:1: ( rule__Signal__VarDeclsAssignment_2_1_1 )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3095:1: ( ( rule__Signal__LocalVarsAssignment_2_1_1 ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3096:1: ( rule__Signal__LocalVarsAssignment_2_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSignalAccess().getVarDeclsAssignment_2_1_1()); 
+               before(grammarAccess.getSignalAccess().getLocalVarsAssignment_2_1_1()); 
             }
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3097:1: ( rule__Signal__VarDeclsAssignment_2_1_1 )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3097:2: rule__Signal__VarDeclsAssignment_2_1_1
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3097:1: ( rule__Signal__LocalVarsAssignment_2_1_1 )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3097:2: rule__Signal__LocalVarsAssignment_2_1_1
             {
-            pushFollow(FOLLOW_rule__Signal__VarDeclsAssignment_2_1_1_in_rule__Signal__Group_2_1__1__Impl6562);
-            rule__Signal__VarDeclsAssignment_2_1_1();
+            pushFollow(FOLLOW_rule__Signal__LocalVarsAssignment_2_1_1_in_rule__Signal__Group_2_1__1__Impl6562);
+            rule__Signal__LocalVarsAssignment_2_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -9910,7 +9910,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSignalAccess().getVarDeclsAssignment_2_1_1()); 
+               after(grammarAccess.getSignalAccess().getLocalVarsAssignment_2_1_1()); 
             }
 
             }
@@ -11331,26 +11331,26 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_3__0__Impl"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3634:1: rule__Operation__Group_3__0__Impl : ( ( rule__Operation__VarDeclsAssignment_3_0 ) ) ;
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3634:1: rule__Operation__Group_3__0__Impl : ( ( rule__Operation__LocalVarsAssignment_3_0 ) ) ;
     public final void rule__Operation__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3638:1: ( ( ( rule__Operation__VarDeclsAssignment_3_0 ) ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3639:1: ( ( rule__Operation__VarDeclsAssignment_3_0 ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3638:1: ( ( ( rule__Operation__LocalVarsAssignment_3_0 ) ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3639:1: ( ( rule__Operation__LocalVarsAssignment_3_0 ) )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3639:1: ( ( rule__Operation__VarDeclsAssignment_3_0 ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3640:1: ( rule__Operation__VarDeclsAssignment_3_0 )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3639:1: ( ( rule__Operation__LocalVarsAssignment_3_0 ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3640:1: ( rule__Operation__LocalVarsAssignment_3_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getOperationAccess().getVarDeclsAssignment_3_0()); 
+               before(grammarAccess.getOperationAccess().getLocalVarsAssignment_3_0()); 
             }
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3641:1: ( rule__Operation__VarDeclsAssignment_3_0 )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3641:2: rule__Operation__VarDeclsAssignment_3_0
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3641:1: ( rule__Operation__LocalVarsAssignment_3_0 )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3641:2: rule__Operation__LocalVarsAssignment_3_0
             {
-            pushFollow(FOLLOW_rule__Operation__VarDeclsAssignment_3_0_in_rule__Operation__Group_3__0__Impl7630);
-            rule__Operation__VarDeclsAssignment_3_0();
+            pushFollow(FOLLOW_rule__Operation__LocalVarsAssignment_3_0_in_rule__Operation__Group_3__0__Impl7630);
+            rule__Operation__LocalVarsAssignment_3_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11358,7 +11358,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getOperationAccess().getVarDeclsAssignment_3_0()); 
+               after(grammarAccess.getOperationAccess().getLocalVarsAssignment_3_0()); 
             }
 
             }
@@ -11596,26 +11596,26 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_3_1__1__Impl"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3725:1: rule__Operation__Group_3_1__1__Impl : ( ( rule__Operation__VarDeclsAssignment_3_1_1 ) ) ;
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3725:1: rule__Operation__Group_3_1__1__Impl : ( ( rule__Operation__LocalVarsAssignment_3_1_1 ) ) ;
     public final void rule__Operation__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3729:1: ( ( ( rule__Operation__VarDeclsAssignment_3_1_1 ) ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3730:1: ( ( rule__Operation__VarDeclsAssignment_3_1_1 ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3729:1: ( ( ( rule__Operation__LocalVarsAssignment_3_1_1 ) ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3730:1: ( ( rule__Operation__LocalVarsAssignment_3_1_1 ) )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3730:1: ( ( rule__Operation__VarDeclsAssignment_3_1_1 ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3731:1: ( rule__Operation__VarDeclsAssignment_3_1_1 )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3730:1: ( ( rule__Operation__LocalVarsAssignment_3_1_1 ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3731:1: ( rule__Operation__LocalVarsAssignment_3_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getOperationAccess().getVarDeclsAssignment_3_1_1()); 
+               before(grammarAccess.getOperationAccess().getLocalVarsAssignment_3_1_1()); 
             }
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3732:1: ( rule__Operation__VarDeclsAssignment_3_1_1 )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3732:2: rule__Operation__VarDeclsAssignment_3_1_1
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3732:1: ( rule__Operation__LocalVarsAssignment_3_1_1 )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:3732:2: rule__Operation__LocalVarsAssignment_3_1_1
             {
-            pushFollow(FOLLOW_rule__Operation__VarDeclsAssignment_3_1_1_in_rule__Operation__Group_3_1__1__Impl7811);
-            rule__Operation__VarDeclsAssignment_3_1_1();
+            pushFollow(FOLLOW_rule__Operation__LocalVarsAssignment_3_1_1_in_rule__Operation__Group_3_1__1__Impl7811);
+            rule__Operation__LocalVarsAssignment_3_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -11623,7 +11623,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getOperationAccess().getVarDeclsAssignment_3_1_1()); 
+               after(grammarAccess.getOperationAccess().getLocalVarsAssignment_3_1_1()); 
             }
 
             }
@@ -31709,9 +31709,9 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Model__ProtocolsAssignment_3_1"
 
 
-    // $ANTLR start "rule__VarDecl__NameAssignment"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11243:1: rule__VarDecl__NameAssignment : ( RULE_ID ) ;
-    public final void rule__VarDecl__NameAssignment() throws RecognitionException {
+    // $ANTLR start "rule__LocalVar__NameAssignment"
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11243:1: rule__LocalVar__NameAssignment : ( RULE_ID ) ;
+    public final void rule__LocalVar__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -31723,11 +31723,11 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
             // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11249:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getVarDeclAccess().getNameIDTerminalRuleCall_0()); 
+               before(grammarAccess.getLocalVarAccess().getNameIDTerminalRuleCall_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__VarDecl__NameAssignment22551); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__LocalVar__NameAssignment22551); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getVarDeclAccess().getNameIDTerminalRuleCall_0()); 
+               after(grammarAccess.getLocalVarAccess().getNameIDTerminalRuleCall_0()); 
             }
 
             }
@@ -31747,7 +31747,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__VarDecl__NameAssignment"
+    // $ANTLR end "rule__LocalVar__NameAssignment"
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_1"
@@ -32008,29 +32008,29 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Signal__NameAssignment_0"
 
 
-    // $ANTLR start "rule__Signal__VarDeclsAssignment_2_0"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11348:1: rule__Signal__VarDeclsAssignment_2_0 : ( ruleVarDecl ) ;
-    public final void rule__Signal__VarDeclsAssignment_2_0() throws RecognitionException {
+    // $ANTLR start "rule__Signal__LocalVarsAssignment_2_0"
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11348:1: rule__Signal__LocalVarsAssignment_2_0 : ( ruleLocalVar ) ;
+    public final void rule__Signal__LocalVarsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11352:1: ( ( ruleVarDecl ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11353:1: ( ruleVarDecl )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11352:1: ( ( ruleLocalVar ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11353:1: ( ruleLocalVar )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11353:1: ( ruleVarDecl )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11354:1: ruleVarDecl
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11353:1: ( ruleLocalVar )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11354:1: ruleLocalVar
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSignalAccess().getVarDeclsVarDeclParserRuleCall_2_0_0()); 
+               before(grammarAccess.getSignalAccess().getLocalVarsLocalVarParserRuleCall_2_0_0()); 
             }
-            pushFollow(FOLLOW_ruleVarDecl_in_rule__Signal__VarDeclsAssignment_2_022768);
-            ruleVarDecl();
+            pushFollow(FOLLOW_ruleLocalVar_in_rule__Signal__LocalVarsAssignment_2_022768);
+            ruleLocalVar();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSignalAccess().getVarDeclsVarDeclParserRuleCall_2_0_0()); 
+               after(grammarAccess.getSignalAccess().getLocalVarsLocalVarParserRuleCall_2_0_0()); 
             }
 
             }
@@ -32050,32 +32050,32 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Signal__VarDeclsAssignment_2_0"
+    // $ANTLR end "rule__Signal__LocalVarsAssignment_2_0"
 
 
-    // $ANTLR start "rule__Signal__VarDeclsAssignment_2_1_1"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11363:1: rule__Signal__VarDeclsAssignment_2_1_1 : ( ruleVarDecl ) ;
-    public final void rule__Signal__VarDeclsAssignment_2_1_1() throws RecognitionException {
+    // $ANTLR start "rule__Signal__LocalVarsAssignment_2_1_1"
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11363:1: rule__Signal__LocalVarsAssignment_2_1_1 : ( ruleLocalVar ) ;
+    public final void rule__Signal__LocalVarsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11367:1: ( ( ruleVarDecl ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11368:1: ( ruleVarDecl )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11367:1: ( ( ruleLocalVar ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11368:1: ( ruleLocalVar )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11368:1: ( ruleVarDecl )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11369:1: ruleVarDecl
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11368:1: ( ruleLocalVar )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11369:1: ruleLocalVar
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSignalAccess().getVarDeclsVarDeclParserRuleCall_2_1_1_0()); 
+               before(grammarAccess.getSignalAccess().getLocalVarsLocalVarParserRuleCall_2_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleVarDecl_in_rule__Signal__VarDeclsAssignment_2_1_122799);
-            ruleVarDecl();
+            pushFollow(FOLLOW_ruleLocalVar_in_rule__Signal__LocalVarsAssignment_2_1_122799);
+            ruleLocalVar();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSignalAccess().getVarDeclsVarDeclParserRuleCall_2_1_1_0()); 
+               after(grammarAccess.getSignalAccess().getLocalVarsLocalVarParserRuleCall_2_1_1_0()); 
             }
 
             }
@@ -32095,7 +32095,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Signal__VarDeclsAssignment_2_1_1"
+    // $ANTLR end "rule__Signal__LocalVarsAssignment_2_1_1"
 
 
     // $ANTLR start "rule__Capsule__RootAssignment_0"
@@ -32638,29 +32638,29 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Operation__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Operation__VarDeclsAssignment_3_0"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11566:1: rule__Operation__VarDeclsAssignment_3_0 : ( ruleVarDecl ) ;
-    public final void rule__Operation__VarDeclsAssignment_3_0() throws RecognitionException {
+    // $ANTLR start "rule__Operation__LocalVarsAssignment_3_0"
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11566:1: rule__Operation__LocalVarsAssignment_3_0 : ( ruleLocalVar ) ;
+    public final void rule__Operation__LocalVarsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11570:1: ( ( ruleVarDecl ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11571:1: ( ruleVarDecl )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11570:1: ( ( ruleLocalVar ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11571:1: ( ruleLocalVar )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11571:1: ( ruleVarDecl )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11572:1: ruleVarDecl
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11571:1: ( ruleLocalVar )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11572:1: ruleLocalVar
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getOperationAccess().getVarDeclsVarDeclParserRuleCall_3_0_0()); 
+               before(grammarAccess.getOperationAccess().getLocalVarsLocalVarParserRuleCall_3_0_0()); 
             }
-            pushFollow(FOLLOW_ruleVarDecl_in_rule__Operation__VarDeclsAssignment_3_023215);
-            ruleVarDecl();
+            pushFollow(FOLLOW_ruleLocalVar_in_rule__Operation__LocalVarsAssignment_3_023215);
+            ruleLocalVar();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getOperationAccess().getVarDeclsVarDeclParserRuleCall_3_0_0()); 
+               after(grammarAccess.getOperationAccess().getLocalVarsLocalVarParserRuleCall_3_0_0()); 
             }
 
             }
@@ -32680,32 +32680,32 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Operation__VarDeclsAssignment_3_0"
+    // $ANTLR end "rule__Operation__LocalVarsAssignment_3_0"
 
 
-    // $ANTLR start "rule__Operation__VarDeclsAssignment_3_1_1"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11581:1: rule__Operation__VarDeclsAssignment_3_1_1 : ( ruleVarDecl ) ;
-    public final void rule__Operation__VarDeclsAssignment_3_1_1() throws RecognitionException {
+    // $ANTLR start "rule__Operation__LocalVarsAssignment_3_1_1"
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11581:1: rule__Operation__LocalVarsAssignment_3_1_1 : ( ruleLocalVar ) ;
+    public final void rule__Operation__LocalVarsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11585:1: ( ( ruleVarDecl ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11586:1: ( ruleVarDecl )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11585:1: ( ( ruleLocalVar ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11586:1: ( ruleLocalVar )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11586:1: ( ruleVarDecl )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11587:1: ruleVarDecl
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11586:1: ( ruleLocalVar )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:11587:1: ruleLocalVar
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getOperationAccess().getVarDeclsVarDeclParserRuleCall_3_1_1_0()); 
+               before(grammarAccess.getOperationAccess().getLocalVarsLocalVarParserRuleCall_3_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleVarDecl_in_rule__Operation__VarDeclsAssignment_3_1_123246);
-            ruleVarDecl();
+            pushFollow(FOLLOW_ruleLocalVar_in_rule__Operation__LocalVarsAssignment_3_1_123246);
+            ruleLocalVar();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getOperationAccess().getVarDeclsVarDeclParserRuleCall_3_1_1_0()); 
+               after(grammarAccess.getOperationAccess().getLocalVarsLocalVarParserRuleCall_3_1_1_0()); 
             }
 
             }
@@ -32725,7 +32725,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Operation__VarDeclsAssignment_3_1_1"
+    // $ANTLR end "rule__Operation__LocalVarsAssignment_3_1_1"
 
 
     // $ANTLR start "rule__Operation__OperationCodeAssignment_6"
@@ -34854,28 +34854,28 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Variable__VarAssignment_1"
-    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12347:1: rule__Variable__VarAssignment_1 : ( ruleVarDecl ) ;
+    // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12347:1: rule__Variable__VarAssignment_1 : ( ruleLocalVar ) ;
     public final void rule__Variable__VarAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12351:1: ( ( ruleVarDecl ) )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12352:1: ( ruleVarDecl )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12351:1: ( ( ruleLocalVar ) )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12352:1: ( ruleLocalVar )
             {
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12352:1: ( ruleVarDecl )
-            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12353:1: ruleVarDecl
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12352:1: ( ruleLocalVar )
+            // ../ca.queensu.cs.mase.urml.ui/src-gen/ca/queensu/cs/mase/ui/contentassist/antlr/internal/InternalUrml.g:12353:1: ruleLocalVar
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getVariableAccess().getVarVarDeclParserRuleCall_1_0()); 
+               before(grammarAccess.getVariableAccess().getVarLocalVarParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleVarDecl_in_rule__Variable__VarAssignment_124815);
-            ruleVarDecl();
+            pushFollow(FOLLOW_ruleLocalVar_in_rule__Variable__VarAssignment_124815);
+            ruleLocalVar();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getVariableAccess().getVarVarDeclParserRuleCall_1_0()); 
+               after(grammarAccess.getVariableAccess().getVarLocalVarParserRuleCall_1_0()); 
             }
 
             }
@@ -36479,9 +36479,9 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel67 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModel74 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Model__Group__0_in_ruleModel100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVarDecl_in_entryRuleVarDecl127 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVarDecl134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__VarDecl__NameAssignment_in_ruleVarDecl160 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_entryRuleLocalVar127 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLocalVar134 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__LocalVar__NameAssignment_in_ruleLocalVar160 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAttribute_in_entryRuleAttribute187 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAttribute194 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Attribute__Group__0_in_ruleAttribute220 = new BitSet(new long[]{0x0000000000000002L});
@@ -36671,7 +36671,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleWhileLoop_in_rule__Statement__Alternatives3925 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleIfStatement_in_rule__Statement__Alternatives3942 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLogStatement_in_rule__Statement__Alternatives3959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVarDecl_in_rule__Assignable__Alternatives3991 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_rule__Assignable__Alternatives3991 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAttribute_in_rule__Assignable__Alternatives4008 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__IndividualExpression__ExprAssignment_0_in_rule__IndividualExpression__Alternatives4040 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__IndividualExpression__StrAssignment_1_in_rule__IndividualExpression__Alternatives4058 = new BitSet(new long[]{0x0000000000000002L});
@@ -36776,14 +36776,14 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_21_in_rule__Signal__Group__3__Impl6312 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Signal__Group_2__0__Impl_in_rule__Signal__Group_2__06351 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_rule__Signal__Group_2__1_in_rule__Signal__Group_2__06354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Signal__VarDeclsAssignment_2_0_in_rule__Signal__Group_2__0__Impl6381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Signal__LocalVarsAssignment_2_0_in_rule__Signal__Group_2__0__Impl6381 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Signal__Group_2__1__Impl_in_rule__Signal__Group_2__16411 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Signal__Group_2_1__0_in_rule__Signal__Group_2__1__Impl6438 = new BitSet(new long[]{0x0000000000400002L});
     public static final BitSet FOLLOW_rule__Signal__Group_2_1__0__Impl_in_rule__Signal__Group_2_1__06473 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Signal__Group_2_1__1_in_rule__Signal__Group_2_1__06476 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_22_in_rule__Signal__Group_2_1__0__Impl6504 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Signal__Group_2_1__1__Impl_in_rule__Signal__Group_2_1__16535 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Signal__VarDeclsAssignment_2_1_1_in_rule__Signal__Group_2_1__1__Impl6562 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Signal__LocalVarsAssignment_2_1_1_in_rule__Signal__Group_2_1__1__Impl6562 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Capsule__Group__0__Impl_in_rule__Capsule__Group__06596 = new BitSet(new long[]{0x0000000000800000L,0x0000000000000200L});
     public static final BitSet FOLLOW_rule__Capsule__Group__1_in_rule__Capsule__Group__06599 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Capsule__RootAssignment_0_in_rule__Capsule__Group__0__Impl6626 = new BitSet(new long[]{0x0000000000000002L});
@@ -36831,14 +36831,14 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_14_in_rule__Operation__Group__7__Impl7553 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Operation__Group_3__0__Impl_in_rule__Operation__Group_3__07600 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_rule__Operation__Group_3__1_in_rule__Operation__Group_3__07603 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Operation__VarDeclsAssignment_3_0_in_rule__Operation__Group_3__0__Impl7630 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Operation__LocalVarsAssignment_3_0_in_rule__Operation__Group_3__0__Impl7630 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Operation__Group_3__1__Impl_in_rule__Operation__Group_3__17660 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Operation__Group_3_1__0_in_rule__Operation__Group_3__1__Impl7687 = new BitSet(new long[]{0x0000000000400002L});
     public static final BitSet FOLLOW_rule__Operation__Group_3_1__0__Impl_in_rule__Operation__Group_3_1__07722 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Operation__Group_3_1__1_in_rule__Operation__Group_3_1__07725 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_22_in_rule__Operation__Group_3_1__0__Impl7753 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Operation__Group_3_1__1__Impl_in_rule__Operation__Group_3_1__17784 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Operation__VarDeclsAssignment_3_1_1_in_rule__Operation__Group_3_1__1__Impl7811 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Operation__LocalVarsAssignment_3_1_1_in_rule__Operation__Group_3_1__1__Impl7811 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TimerPort__Group__0__Impl_in_rule__TimerPort__Group__07845 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__TimerPort__Group__1_in_rule__TimerPort__Group__07848 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_26_in_rule__TimerPort__Group__0__Impl7876 = new BitSet(new long[]{0x0000000000000002L});
@@ -37449,15 +37449,15 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_ID_in_rule__Model__NameAssignment_122458 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCapsule_in_rule__Model__CapsulesAssignment_3_022489 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProtocol_in_rule__Model__ProtocolsAssignment_3_122520 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__VarDecl__NameAssignment22551 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__LocalVar__NameAssignment22551 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Attribute__NameAssignment_122582 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_rule__Attribute__DefaultValueAssignment_2_122613 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Protocol__NameAssignment_122644 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSignal_in_rule__Protocol__IncomingMessagesAssignment_3_222675 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSignal_in_rule__Protocol__OutgoingMessagesAssignment_4_222706 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Signal__NameAssignment_022737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVarDecl_in_rule__Signal__VarDeclsAssignment_2_022768 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVarDecl_in_rule__Signal__VarDeclsAssignment_2_1_122799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_rule__Signal__LocalVarsAssignment_2_022768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_rule__Signal__LocalVarsAssignment_2_1_122799 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_73_in_rule__Capsule__RootAssignment_022835 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Capsule__NameAssignment_222874 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePort_in_rule__Capsule__InterfacePortsAssignment_4_0_122905 = new BitSet(new long[]{0x0000000000000002L});
@@ -37470,8 +37470,8 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleOperation_in_rule__Capsule__OperationsAssignment_4_723122 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStateMachine_in_rule__Capsule__StatemachinesAssignment_4_823153 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Operation__NameAssignment_123184 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVarDecl_in_rule__Operation__VarDeclsAssignment_3_023215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVarDecl_in_rule__Operation__VarDeclsAssignment_3_1_123246 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_rule__Operation__LocalVarsAssignment_3_023215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_rule__Operation__LocalVarsAssignment_3_1_123246 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOperationCode_in_rule__Operation__OperationCodeAssignment_623277 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__TimerPort__NameAssignment_123308 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__LogPort__NameAssignment_123339 = new BitSet(new long[]{0x0000000000000002L});
@@ -37517,7 +37517,7 @@ public class InternalUrmlParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleStatementOperation_in_rule__IfStatementOperation__ElseStatementsAssignment_5_224722 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_rule__ReturnStatement__ReturnValueAssignment_124753 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStatement_in_rule__ActionCode__StatementsAssignment24784 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVarDecl_in_rule__Variable__VarAssignment_124815 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLocalVar_in_rule__Variable__VarAssignment_124815 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_16_in_rule__Variable__AssignAssignment_2_024851 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpression_in_rule__Variable__ExpAssignment_2_124890 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTrigger_out_in_rule__SendTrigger__TriggersAssignment_124921 = new BitSet(new long[]{0x0000000000000002L});

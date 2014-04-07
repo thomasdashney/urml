@@ -3,8 +3,8 @@
 package ca.queensu.cs.mase.urml.impl;
 
 import ca.queensu.cs.mase.urml.Expression;
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.UrmlPackage;
-import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.urml.Variable;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -40,7 +40,7 @@ public class VariableImpl extends StatementOperationImpl implements Variable
    * @generated
    * @ordered
    */
-  protected VarDecl var;
+  protected LocalVar var;
 
   /**
    * The default value of the '{@link #isAssign() <em>Assign</em>}' attribute.
@@ -98,7 +98,7 @@ public class VariableImpl extends StatementOperationImpl implements Variable
    * <!-- end-user-doc -->
    * @generated
    */
-  public VarDecl getVar()
+  public LocalVar getVar()
   {
     return var;
   }
@@ -108,9 +108,9 @@ public class VariableImpl extends StatementOperationImpl implements Variable
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVar(VarDecl newVar, NotificationChain msgs)
+  public NotificationChain basicSetVar(LocalVar newVar, NotificationChain msgs)
   {
-    VarDecl oldVar = var;
+    LocalVar oldVar = var;
     var = newVar;
     if (eNotificationRequired())
     {
@@ -125,7 +125,7 @@ public class VariableImpl extends StatementOperationImpl implements Variable
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVar(VarDecl newVar)
+  public void setVar(LocalVar newVar)
   {
     if (newVar != var)
     {
@@ -261,7 +261,7 @@ public class VariableImpl extends StatementOperationImpl implements Variable
     switch (featureID)
     {
       case UrmlPackage.VARIABLE__VAR:
-        setVar((VarDecl)newValue);
+        setVar((LocalVar)newValue);
         return;
       case UrmlPackage.VARIABLE__ASSIGN:
         setAssign((Boolean)newValue);
@@ -284,7 +284,7 @@ public class VariableImpl extends StatementOperationImpl implements Variable
     switch (featureID)
     {
       case UrmlPackage.VARIABLE__VAR:
-        setVar((VarDecl)null);
+        setVar((LocalVar)null);
         return;
       case UrmlPackage.VARIABLE__ASSIGN:
         setAssign(ASSIGN_EDEFAULT);

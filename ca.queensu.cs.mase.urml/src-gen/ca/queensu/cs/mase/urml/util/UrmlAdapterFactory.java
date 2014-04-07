@@ -80,9 +80,9 @@ public class UrmlAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseVarDecl(VarDecl object)
+      public Adapter caseLocalVar(LocalVar object)
       {
-        return createVarDeclAdapter();
+        return createLocalVarAdapter();
       }
       @Override
       public Adapter caseAttribute(Attribute object)
@@ -407,16 +407,16 @@ public class UrmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link ca.queensu.cs.mase.urml.VarDecl <em>Var Decl</em>}'.
+   * Creates a new adapter for an object of class '{@link ca.queensu.cs.mase.urml.LocalVar <em>Local Var</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see ca.queensu.cs.mase.urml.VarDecl
+   * @see ca.queensu.cs.mase.urml.LocalVar
    * @generated
    */
-  public Adapter createVarDeclAdapter()
+  public Adapter createLocalVarAdapter()
   {
     return null;
   }

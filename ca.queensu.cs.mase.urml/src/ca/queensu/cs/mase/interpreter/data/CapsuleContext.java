@@ -20,10 +20,10 @@ import ca.queensu.cs.mase.urml.Attribute;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.IncomingVariable;
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.TimerPort;
 import ca.queensu.cs.mase.urml.Transition;
-import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.util.MessageDesc;
 import ca.queensu.cs.mase.util.TreeNode;
 
@@ -100,7 +100,7 @@ public class CapsuleContext {
 	/**
 	 * Call stack used for storing multiple environments
 	 */
-	private Stack<Map<VarDecl, Value>> callStack = new Stack<>();
+	private Stack<Map<LocalVar, Value>> callStackOfLocalVars = new Stack<>();
 	private PrintStream out;
 
 	/**
@@ -199,8 +199,8 @@ public class CapsuleContext {
 		return targetTransitions;
 	}
 
-	public Stack<Map<VarDecl, Value>> getCallStack() {
-		return callStack;
+	public Stack<Map<LocalVar, Value>> callStackOfLocalVars() {
+		return callStackOfLocalVars;
 	}
 
 	public Map<Attribute, Value> getAttributes() {

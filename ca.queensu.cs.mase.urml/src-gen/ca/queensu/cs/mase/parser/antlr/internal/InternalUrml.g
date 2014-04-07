@@ -151,17 +151,17 @@ ruleModel returns [EObject current=null]
 
 
 
-// Entry rule entryRuleVarDecl
-entryRuleVarDecl returns [EObject current=null] 
+// Entry rule entryRuleLocalVar
+entryRuleLocalVar returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getVarDeclRule()); }
-	 iv_ruleVarDecl=ruleVarDecl 
-	 { $current=$iv_ruleVarDecl.current; } 
+	{ newCompositeNode(grammarAccess.getLocalVarRule()); }
+	 iv_ruleLocalVar=ruleLocalVar 
+	 { $current=$iv_ruleLocalVar.current; } 
 	 EOF 
 ;
 
-// Rule VarDecl
-ruleVarDecl returns [EObject current=null] 
+// Rule LocalVar
+ruleLocalVar returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
@@ -169,11 +169,11 @@ ruleVarDecl returns [EObject current=null]
 (
 		lv_name_0_0=RULE_ID
 		{
-			newLeafNode(lv_name_0_0, grammarAccess.getVarDeclAccess().getNameIDTerminalRuleCall_0()); 
+			newLeafNode(lv_name_0_0, grammarAccess.getLocalVarAccess().getNameIDTerminalRuleCall_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getVarDeclRule());
+	            $current = createModelElement(grammarAccess.getLocalVarRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -405,17 +405,17 @@ ruleSignal returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSignalAccess().getVarDeclsVarDeclParserRuleCall_2_0_0()); 
+	        newCompositeNode(grammarAccess.getSignalAccess().getLocalVarsLocalVarParserRuleCall_2_0_0()); 
 	    }
-		lv_varDecls_2_0=ruleVarDecl		{
+		lv_LocalVars_2_0=ruleLocalVar		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSignalRule());
 	        }
        		add(
        			$current, 
-       			"varDecls",
-        		lv_varDecls_2_0, 
-        		"VarDecl");
+       			"LocalVars",
+        		lv_LocalVars_2_0, 
+        		"LocalVar");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -427,17 +427,17 @@ ruleSignal returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSignalAccess().getVarDeclsVarDeclParserRuleCall_2_1_1_0()); 
+	        newCompositeNode(grammarAccess.getSignalAccess().getLocalVarsLocalVarParserRuleCall_2_1_1_0()); 
 	    }
-		lv_varDecls_4_0=ruleVarDecl		{
+		lv_LocalVars_4_0=ruleLocalVar		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSignalRule());
 	        }
        		add(
        			$current, 
-       			"varDecls",
-        		lv_varDecls_4_0, 
-        		"VarDecl");
+       			"LocalVars",
+        		lv_LocalVars_4_0, 
+        		"LocalVar");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -736,17 +736,17 @@ ruleOperation returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getOperationAccess().getVarDeclsVarDeclParserRuleCall_3_0_0()); 
+	        newCompositeNode(grammarAccess.getOperationAccess().getLocalVarsLocalVarParserRuleCall_3_0_0()); 
 	    }
-		lv_varDecls_3_0=ruleVarDecl		{
+		lv_LocalVars_3_0=ruleLocalVar		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getOperationRule());
 	        }
        		add(
        			$current, 
-       			"varDecls",
-        		lv_varDecls_3_0, 
-        		"VarDecl");
+       			"LocalVars",
+        		lv_LocalVars_3_0, 
+        		"LocalVar");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -758,17 +758,17 @@ ruleOperation returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getOperationAccess().getVarDeclsVarDeclParserRuleCall_3_1_1_0()); 
+	        newCompositeNode(grammarAccess.getOperationAccess().getLocalVarsLocalVarParserRuleCall_3_1_1_0()); 
 	    }
-		lv_varDecls_5_0=ruleVarDecl		{
+		lv_LocalVars_5_0=ruleLocalVar		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getOperationRule());
 	        }
        		add(
        			$current, 
-       			"varDecls",
-        		lv_varDecls_5_0, 
-        		"VarDecl");
+       			"LocalVars",
+        		lv_LocalVars_5_0, 
+        		"LocalVar");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2324,9 +2324,9 @@ ruleVariable returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVariableAccess().getVarVarDeclParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getVariableAccess().getVarLocalVarParserRuleCall_1_0()); 
 	    }
-		lv_var_1_0=ruleVarDecl		{
+		lv_var_1_0=ruleLocalVar		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariableRule());
 	        }
@@ -2334,7 +2334,7 @@ ruleVariable returns [EObject current=null]
        			$current, 
        			"var",
         		lv_var_1_0, 
-        		"VarDecl");
+        		"LocalVar");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2693,11 +2693,11 @@ ruleAssignable returns [EObject current=null]
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getAssignableAccess().getVarDeclParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getAssignableAccess().getLocalVarParserRuleCall_0()); 
     }
-    this_VarDecl_0=ruleVarDecl
+    this_LocalVar_0=ruleLocalVar
     { 
-        $current = $this_VarDecl_0.current; 
+        $current = $this_LocalVar_0.current; 
         afterParserOrEnumRuleCall();
     }
 

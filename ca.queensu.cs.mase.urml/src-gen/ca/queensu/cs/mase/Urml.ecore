@@ -8,7 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="protocols" upperBound="-1"
         eType="#//Protocol" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VarDecl" eSuperTypes="#//Assignable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalVar" eSuperTypes="#//Assignable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Assignable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="#//Expression"
         containment="true"/>
@@ -22,8 +22,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Signal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="varDecls" upperBound="-1"
-        eType="#//VarDecl" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LocalVars" upperBound="-1"
+        eType="#//LocalVar" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Capsule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -49,8 +49,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="varDecls" upperBound="-1"
-        eType="#//VarDecl" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LocalVars" upperBound="-1"
+        eType="#//LocalVar" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operationCode" eType="#//OperationCode"
         containment="true"/>
   </eClassifiers>
@@ -146,7 +146,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Statement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//StatementOperation #//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//VarDecl"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//LocalVar"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="assign" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"

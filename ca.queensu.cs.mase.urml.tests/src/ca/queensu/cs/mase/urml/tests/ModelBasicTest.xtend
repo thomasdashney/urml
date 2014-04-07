@@ -110,7 +110,7 @@ class ModelBasicTest {
 		val one = model.protocols.get(0)
 		Assert::assertTrue(one.incomingMessages.size == 1)
 		val signal1 = one.incomingMessages.get(0)
-		Assert::assertTrue(signal1.varDecls.size == 0)
+		Assert::assertTrue(signal1.localVars.size == 0)
 		Assert::assertEquals("signal1", signal1.name)
 	}
 	
@@ -133,9 +133,9 @@ class ModelBasicTest {
 		Assert::assertTrue(one.incomingMessages.size == 2)
 		val signal1 = one.incomingMessages.get(0)
 		val signal2 = one.incomingMessages.get(1)
-		Assert::assertTrue(signal1.varDecls.size == 0)
+		Assert::assertTrue(signal1.localVars.size == 0)
 		Assert::assertEquals("signal1", signal1.name)
-		Assert::assertTrue(signal2.varDecls.size == 0)
+		Assert::assertTrue(signal2.localVars.size == 0)
 		Assert::assertEquals("signal2", signal2.name)
 	}
 	
@@ -153,8 +153,8 @@ class ModelBasicTest {
 		
 		model.assertNoErrors
 		val one = model.protocols.get(0).incomingMessages.get(0)
-		Assert::assertTrue(one.varDecls.size == 1)
-		Assert::assertEquals("a", one.varDecls.get(0).name)
+		Assert::assertTrue(one.localVars.size == 1)
+		Assert::assertEquals("a", one.localVars.get(0).name)
 	}
 	
 	@Test
@@ -171,9 +171,9 @@ class ModelBasicTest {
 		
 		model.assertNoErrors
 		val one = model.protocols.get(0).incomingMessages.get(0)
-		Assert::assertTrue(one.varDecls.size == 2)
-		Assert::assertEquals("a", one.varDecls.get(0).name)
-		Assert::assertEquals("b", one.varDecls.get(1).name)
+		Assert::assertTrue(one.localVars.size == 2)
+		Assert::assertEquals("a", one.localVars.get(0).name)
+		Assert::assertEquals("b", one.localVars.get(1).name)
 	}
 	
 	def void testCapsuleAttribute() {
@@ -319,7 +319,7 @@ class ModelBasicTest {
 		
 		val oper = model.capsules.get(0).operations.get(0)
 		Assert::assertEquals(oper.name, "oper")
-		Assert::assertEquals(oper.varDecls.size, 0)
+		Assert::assertEquals(oper.localVars.size, 0)
 		val noop = oper.operationCode.statements.get(0)
 		Assert::assertTrue(noop instanceof NoOp)
 	}

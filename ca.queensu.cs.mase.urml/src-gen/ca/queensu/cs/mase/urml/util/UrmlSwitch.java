@@ -79,12 +79,12 @@ public class UrmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UrmlPackage.VAR_DECL:
+      case UrmlPackage.LOCAL_VAR:
       {
-        VarDecl varDecl = (VarDecl)theEObject;
-        T result = caseVarDecl(varDecl);
-        if (result == null) result = caseAssignable(varDecl);
-        if (result == null) result = caseIdentifiable(varDecl);
+        LocalVar localVar = (LocalVar)theEObject;
+        T result = caseLocalVar(localVar);
+        if (result == null) result = caseAssignable(localVar);
+        if (result == null) result = caseIdentifiable(localVar);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -553,17 +553,17 @@ public class UrmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Var Decl</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Local Var</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Var Decl</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Local Var</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVarDecl(VarDecl object)
+  public T caseLocalVar(LocalVar object)
   {
     return null;
   }

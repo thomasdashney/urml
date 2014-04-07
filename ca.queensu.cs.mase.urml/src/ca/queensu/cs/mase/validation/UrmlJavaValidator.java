@@ -44,7 +44,7 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 	@Check
 	public void checkParamNumConsistent(Trigger_out to) {
 		int toParamNum = to.getParameters().size();
-		int signalVarDeclNum = to.getSignal().getVarDecls().size();
+		int signalVarDeclNum = to.getSignal().getLocalVars().size();
 		if (toParamNum != signalVarDeclNum) {
 			error("Number of arguments sent from the trigger is not "
 					+ "consistent to that defined from the protocol ",
@@ -55,7 +55,7 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 
 	@Check
 	public void checkParamNumConsistent(Trigger_in ti) {
-		if (ti.getParameters().size() != ti.getSignal().getVarDecls().size())
+		if (ti.getParameters().size() != ti.getSignal().getLocalVars().size())
 			error("Number of arguments received from the trigger is "
 					+ "not consistent to that defined from the protocol",
 					UrmlPackage.eINSTANCE.getTrigger_in_Parameters(),
@@ -64,7 +64,7 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 
 	@Check
 	public void checkParamNumConsistent(Invoke inv) {
-		int formalParameterNum = inv.getOperation().getVarDecls().size();
+		int formalParameterNum = inv.getOperation().getLocalVars().size();
 		int actualArgumentNum = inv.getParameters().size();
 		if (formalParameterNum != actualArgumentNum)
 			error("Number of actual arguments in invocation ("
@@ -77,7 +77,7 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 
 	@Check
 	public void checkParamNumConsistent(FunctionCall call) {
-		int formalParameterNum = call.getCall().getVarDecls().size();
+		int formalParameterNum = call.getCall().getLocalVars().size();
 		int actualArgumentNum = call.getParams().size();
 		if (formalParameterNum != actualArgumentNum)
 			error("Number of actual arguments in function call ("

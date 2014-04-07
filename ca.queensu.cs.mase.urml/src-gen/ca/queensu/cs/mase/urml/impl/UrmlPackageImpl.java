@@ -30,6 +30,7 @@ import ca.queensu.cs.mase.urml.Invoke;
 import ca.queensu.cs.mase.urml.LessThan;
 import ca.queensu.cs.mase.urml.LessThanOrEqual;
 import ca.queensu.cs.mase.urml.Literal;
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.LogPort;
 import ca.queensu.cs.mase.urml.LogStatement;
 import ca.queensu.cs.mase.urml.Minus;
@@ -59,7 +60,6 @@ import ca.queensu.cs.mase.urml.Trigger_out;
 import ca.queensu.cs.mase.urml.UnaryExpression;
 import ca.queensu.cs.mase.urml.UrmlFactory;
 import ca.queensu.cs.mase.urml.UrmlPackage;
-import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.urml.Variable;
 import ca.queensu.cs.mase.urml.WhileLoop;
 import ca.queensu.cs.mase.urml.WhileLoopOperation;
@@ -91,7 +91,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass varDeclEClass = null;
+  private EClass localVarEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -600,9 +600,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getVarDecl()
+  public EClass getLocalVar()
   {
-    return varDeclEClass;
+    return localVarEClass;
   }
 
   /**
@@ -690,7 +690,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSignal_VarDecls()
+  public EReference getSignal_LocalVars()
   {
     return (EReference)signalEClass.getEStructuralFeatures().get(1);
   }
@@ -840,7 +840,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getOperation_VarDecls()
+  public EReference getOperation_LocalVars()
   {
     return (EReference)operationEClass.getEStructuralFeatures().get(1);
   }
@@ -2360,7 +2360,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     createEReference(modelEClass, MODEL__CAPSULES);
     createEReference(modelEClass, MODEL__PROTOCOLS);
 
-    varDeclEClass = createEClass(VAR_DECL);
+    localVarEClass = createEClass(LOCAL_VAR);
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEReference(attributeEClass, ATTRIBUTE__DEFAULT_VALUE);
@@ -2372,7 +2372,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
 
     signalEClass = createEClass(SIGNAL);
     createEAttribute(signalEClass, SIGNAL__NAME);
-    createEReference(signalEClass, SIGNAL__VAR_DECLS);
+    createEReference(signalEClass, SIGNAL__LOCAL_VARS);
 
     capsuleEClass = createEClass(CAPSULE);
     createEAttribute(capsuleEClass, CAPSULE__ROOT);
@@ -2389,7 +2389,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
 
     operationEClass = createEClass(OPERATION);
     createEAttribute(operationEClass, OPERATION__NAME);
-    createEReference(operationEClass, OPERATION__VAR_DECLS);
+    createEReference(operationEClass, OPERATION__LOCAL_VARS);
     createEReference(operationEClass, OPERATION__OPERATION_CODE);
 
     timerPortEClass = createEClass(TIMER_PORT);
@@ -2621,7 +2621,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    varDeclEClass.getESuperTypes().add(this.getAssignable());
+    localVarEClass.getESuperTypes().add(this.getAssignable());
     attributeEClass.getESuperTypes().add(this.getAssignable());
     incomingVariableEClass.getESuperTypes().add(this.getIdentifiable());
     whileLoopOperationEClass.getESuperTypes().add(this.getStatementOperation());
@@ -2670,7 +2670,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEReference(getModel_Capsules(), this.getCapsule(), null, "capsules", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Protocols(), this.getProtocol(), null, "protocols", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(varDeclEClass, VarDecl.class, "VarDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(localVarEClass, LocalVar.class, "LocalVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAttribute_DefaultValue(), this.getExpression(), null, "defaultValue", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2682,7 +2682,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
 
     initEClass(signalEClass, Signal.class, "Signal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSignal_Name(), ecorePackage.getEString(), "name", null, 0, 1, Signal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSignal_VarDecls(), this.getVarDecl(), null, "varDecls", null, 0, -1, Signal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSignal_LocalVars(), this.getLocalVar(), null, "LocalVars", null, 0, -1, Signal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(capsuleEClass, Capsule.class, "Capsule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCapsule_Root(), ecorePackage.getEBoolean(), "root", null, 0, 1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2699,7 +2699,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperation_VarDecls(), this.getVarDecl(), null, "varDecls", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperation_LocalVars(), this.getLocalVar(), null, "LocalVars", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperation_OperationCode(), this.getOperationCode(), null, "operationCode", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(timerPortEClass, TimerPort.class, "TimerPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2779,7 +2779,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVariable_Var(), this.getVarDecl(), null, "var", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_Var(), this.getLocalVar(), null, "var", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVariable_Assign(), ecorePackage.getEBoolean(), "assign", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVariable_Exp(), this.getExpression(), null, "exp", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

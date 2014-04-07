@@ -38,6 +38,7 @@ import ca.queensu.cs.mase.urml.IntLiteral;
 import ca.queensu.cs.mase.urml.Invoke;
 import ca.queensu.cs.mase.urml.LessThan;
 import ca.queensu.cs.mase.urml.LessThanOrEqual;
+import ca.queensu.cs.mase.urml.LocalVar;
 import ca.queensu.cs.mase.urml.Minus;
 import ca.queensu.cs.mase.urml.Modulo;
 import ca.queensu.cs.mase.urml.Multiply;
@@ -47,7 +48,6 @@ import ca.queensu.cs.mase.urml.Plus;
 import ca.queensu.cs.mase.urml.ReturnStatement;
 import ca.queensu.cs.mase.urml.StatementOperation;
 import ca.queensu.cs.mase.urml.UnaryExpression;
-import ca.queensu.cs.mase.urml.VarDecl;
 import ca.queensu.cs.mase.util.ReturnStatementSignal;
 
 /**
@@ -227,9 +227,9 @@ public class ExpressionEvaluator {
 		if (ident instanceof Attribute
 				&& ctx.getAttributes().containsKey((Attribute) ident)) {
 			return ctx.getAttributes().get((Attribute) ident);
-		} else if (ident instanceof VarDecl
-				&& ctx.getCallStack().peek().containsKey((VarDecl) ident)) {
-			return ctx.getCallStack().peek().get((VarDecl) ident);
+		} else if (ident instanceof LocalVar
+				&& ctx.callStackOfLocalVars().peek().containsKey((LocalVar) ident)) {
+			return ctx.callStackOfLocalVars().peek().get((LocalVar) ident);
 		} else if (ident instanceof IncomingVariable
 				&& ctx.getTriggerVars().containsKey((IncomingVariable) ident)) {
 			return ctx.getTriggerVars().get((IncomingVariable) ident);
@@ -253,7 +253,7 @@ public class ExpressionEvaluator {
 	private Value compute(FunctionCall exp, CapsuleContext ctx) {
 
 		// check if formal param # == actual arguments #
-		int formalParam = exp.getCall().getVarDecls().size();
+		int formalParam = exp.getCall().getLocalVars().size();
 		int actualArgs = exp.getParams().size();
 		if (formalParam != actualArgs) {
 			throw new IllegalStateException(
@@ -263,15 +263,15 @@ public class ExpressionEvaluator {
 		}
 
 		// create new envt with formal params assigned
-		HashMap<VarDecl, Value> newEnvt = new HashMap<>();
+		HashMap<LocalVar, Value> newEnvt = new HashMap<>();
 		for (int i = 0; i < formalParam; i++) {
-			final VarDecl formalParameter = exp.getCall().getVarDecls().get(i);
+			LocalVar formalParameter = exp.getCall().getLocalVars().get(i);
 			Value actualArgument = ExpressionEvaluator.interpret(exp
 					.getParams().get(i), ctx);
 			newEnvt.put(formalParameter, actualArgument);
 		}
 
-		ctx.getCallStack().push(newEnvt);
+		ctx.callStackOfLocalVars().push(newEnvt);
 
 		try {
 			StatementExecuter stmtExec = new StatementExecuter();
@@ -283,9 +283,9 @@ public class ExpressionEvaluator {
 					+ ": cannot find a return statement in a function.");
 		} catch (ReturnStatementSignal re) {
 		}
-		Value returnVal = ctx.getCallStack().peek()
+		Value returnVal = ctx.callStackOfLocalVars().peek()
 				.get(ReturnStatementSignal.RETURN_STRING);
-		ctx.getCallStack().pop();
+		ctx.callStackOfLocalVars().pop();
 		return returnVal;
 	}
 

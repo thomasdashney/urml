@@ -65,7 +65,7 @@ public class UrmlFactoryImpl extends EFactoryImpl implements UrmlFactory
     switch (eClass.getClassifierID())
     {
       case UrmlPackage.MODEL: return createModel();
-      case UrmlPackage.VAR_DECL: return createVarDecl();
+      case UrmlPackage.LOCAL_VAR: return createLocalVar();
       case UrmlPackage.ATTRIBUTE: return createAttribute();
       case UrmlPackage.PROTOCOL: return createProtocol();
       case UrmlPackage.SIGNAL: return createSignal();
@@ -144,10 +144,10 @@ public class UrmlFactoryImpl extends EFactoryImpl implements UrmlFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public VarDecl createVarDecl()
+  public LocalVar createLocalVar()
   {
-    VarDeclImpl varDecl = new VarDeclImpl();
-    return varDecl;
+    LocalVarImpl localVar = new LocalVarImpl();
+    return localVar;
   }
 
   /**
