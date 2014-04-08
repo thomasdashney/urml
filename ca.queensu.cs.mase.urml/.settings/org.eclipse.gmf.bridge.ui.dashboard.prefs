@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/Urml.genmodel
+gmf_dashboard/domainModel=platform\:/resource/ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/Urml.ecore
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/ca.queensu.cs.mase.urml/src-gen/ca/queensu/cs/mase/Urml.gmfgraph
