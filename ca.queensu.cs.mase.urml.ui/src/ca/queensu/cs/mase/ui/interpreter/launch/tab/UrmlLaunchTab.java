@@ -2,7 +2,6 @@ package ca.queensu.cs.mase.ui.interpreter.launch.tab;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
@@ -19,17 +18,9 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Spinner;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 
 import ca.queensu.cs.mase.ui.interpreter.launch.IUrmlLaunchConfigurationConstants;
-import ca.queensu.cs.mase.ui.interpreter.launch.ResourceFileSelectionDialog;
 import ca.queensu.cs.mase.ui.interpreter.launch.tab.util.SelectionListener2;
-
-import com.google.inject.Inject;
-
-import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.ModifyEvent;
 
 /**
  * The launch tab for an urml file
