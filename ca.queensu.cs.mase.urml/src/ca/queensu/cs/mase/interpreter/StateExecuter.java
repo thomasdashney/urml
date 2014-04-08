@@ -23,7 +23,7 @@ import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.Statement;
 import ca.queensu.cs.mase.urml.Transition;
 
-public class StateMachineTraverser {
+public class StateExecuter {
 
 	/**
 	 * The output stream
@@ -51,7 +51,7 @@ public class StateMachineTraverser {
 	 * @param config
 	 *            execution config for the interpreter
 	 */
-	public StateMachineTraverser(BufferedReader in, PrintStream out,
+	public StateExecuter(BufferedReader in, PrintStream out,
 			ExecutionConfig config) {
 		this.in = in;
 		this.out = out;

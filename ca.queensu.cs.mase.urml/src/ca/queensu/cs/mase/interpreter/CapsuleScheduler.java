@@ -82,6 +82,14 @@ public class CapsuleScheduler {
 		}
 	}
 
+	/**
+	 * Check if we want to stop looping
+	 * @param ctxNode
+	 * @param capsuleContexts
+	 * @param terminateInstant
+	 * @param terminateStateNum
+	 * @return
+	 */
 	private boolean checkExitCondition(TreeNode<CapsuleContext> ctxNode,
 			TreeNode<CapsuleContext> capsuleContexts,
 			Optional<Instant> terminateInstant, OptionalLong terminateStateNum) {
@@ -90,7 +98,7 @@ public class CapsuleScheduler {
 			// exit condition: quit looping if the state machines in all
 			// the capsules (which counting the capsules which do not
 			// have state machines) have reached the final state
-			boolean capsuleHasReachedFinalState = !new StateMachineTraverser(
+			boolean capsuleHasReachedFinalState = !new StateExecuter(
 					in, out, config).executeNextState(ctx);
 			ctx.hasReachedFinalState(capsuleHasReachedFinalState);
 			if (checkAllCapsulesReachedFinalState(capsuleContexts)) {
