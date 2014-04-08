@@ -428,7 +428,7 @@
 <extension
       point="org.eclipse.debug.ui.launchConfigurationTabGroups">
    <launchConfigurationTabGroup
-         class="ca.queensu.cs.mase.ui.interpreter.launch.UrmlLaunchConfigurationTabGroup"
+         class="ca.queensu.cs.mase.ui.interpreter.launch.tab.UrmlLaunchConfigurationTabGroup"
          description="Launch Urml Model"
          id="ca.queensu.cs.mase.ui.interpreter.launch.urmlLaunchConfigurationTabGroup"
          type="ca.queensu.cs.mase.ui.interpreter.launch.urmlLaunch">

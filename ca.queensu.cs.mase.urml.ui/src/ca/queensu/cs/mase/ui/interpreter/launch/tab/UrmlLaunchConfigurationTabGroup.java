@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.ui.interpreter.launch;
+package ca.queensu.cs.mase.ui.interpreter.launch.tab;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.CommonTab;

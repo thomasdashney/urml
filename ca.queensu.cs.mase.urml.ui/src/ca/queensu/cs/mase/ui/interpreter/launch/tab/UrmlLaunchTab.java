@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.ui.interpreter.launch;
+package ca.queensu.cs.mase.ui.interpreter.launch.tab;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -21,6 +21,9 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+
+import ca.queensu.cs.mase.ui.interpreter.launch.IUrmlLaunchConfigurationConstants;
+import ca.queensu.cs.mase.ui.interpreter.launch.ResourceFileSelectionDialog;
 
 import com.google.inject.Inject;
 

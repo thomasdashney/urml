@@ -74,10 +74,10 @@ public class StateExecuter {
 		if (ctx.getCurrentState() == null) {
 			// can't find the current state; assume we are getting into the
 			// first state
-			return findExecuteFirstState(ctx);
+			return findExecuteFirstStateAndCheckIfFinal(ctx);
 		} else {
 			// find the next state
-			return findExecuteNextState(ctx);
+			return findExecuteNextStateAndCheckIfFinal(ctx);
 		}
 	}
 
@@ -90,7 +90,7 @@ public class StateExecuter {
 	 *            the capsule context
 	 * @return true if the first state (i.e. current state) is not a final state
 	 */
-	private boolean findExecuteFirstState(CapsuleContext ctx) {
+	private boolean findExecuteFirstStateAndCheckIfFinal(CapsuleContext ctx) {
 		State_ firstState = findFirstState(ctx);
 		if (firstState == null) {
 			// no initial transition; assume no final state
@@ -133,7 +133,7 @@ public class StateExecuter {
 	 *            the current capsule context
 	 * @return true if the current state is not a final state; otherwise false
 	 */
-	private boolean findExecuteNextState(CapsuleContext ctx) {
+	private boolean findExecuteNextStateAndCheckIfFinal(CapsuleContext ctx) {
 		State_ currentState = ctx.getCurrentState();
 		// if current state is a final state, simply return false
 		if (currentState.isFinal()) {

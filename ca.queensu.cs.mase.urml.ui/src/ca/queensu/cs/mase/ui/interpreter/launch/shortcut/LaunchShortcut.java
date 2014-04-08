@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.ui.interpreter.launch;
+package ca.queensu.cs.mase.ui.interpreter.launch.shortcut;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.debug.ui.ILaunchShortcut;
@@ -27,6 +27,7 @@ import com.google.inject.Inject;
 
 import ca.queensu.cs.mase.interpreter.ExecutionConfig;
 import ca.queensu.cs.mase.interpreter.UrmlInterpreter;
+import ca.queensu.cs.mase.ui.interpreter.launch.InterpreterThread;
 import ca.queensu.cs.mase.urml.Model;
 
 public abstract class LaunchShortcut implements ILaunchShortcut {
