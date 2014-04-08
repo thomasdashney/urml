@@ -99,7 +99,7 @@ public class CapsuleScheduler {
 			// the capsules (which counting the capsules which do not
 			// have state machines) have reached the final state
 			boolean capsuleHasReachedFinalState = !new StateExecuter(
-					in, out, config).executeNextState(ctx);
+					in, out, config).executeNextStateAndCheckIfNotFinal(ctx);
 			ctx.hasReachedFinalState(capsuleHasReachedFinalState);
 			if (checkAllCapsulesReachedFinalState(capsuleContexts)) {
 				return true;

@@ -8,13 +8,19 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.xtext.EcoreUtil2;
 
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.dispatchers.StatementExecuter;
+import ca.queensu.cs.mase.interpreter.filters.ConfiguredFilter;
+import ca.queensu.cs.mase.interpreter.filters.GuardFilter;
+import ca.queensu.cs.mase.interpreter.filters.TriggerFilter;
+import ca.queensu.cs.mase.interpreter.transitionUtil.Transitions;
 import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.LocalVar;
@@ -70,14 +76,14 @@ public class StateExecuter {
 	 * @return true if the current state is not a final state; otherwise returns
 	 *         false.
 	 */
-	public boolean executeNextState(CapsuleContext ctx) {
+	public boolean executeNextStateAndCheckIfNotFinal(CapsuleContext ctx) {
 		if (ctx.getCurrentState() == null) {
 			// can't find the current state; assume we are getting into the
 			// first state
-			return findExecuteFirstStateAndCheckIfFinal(ctx);
+			return findExecuteFirstStateAndCheckIfNotFinal(ctx);
 		} else {
 			// find the next state
-			return findExecuteNextStateAndCheckIfFinal(ctx);
+			return findExecuteNextStateAndCheckIfNotFinal(ctx);
 		}
 	}
 
@@ -90,7 +96,7 @@ public class StateExecuter {
 	 *            the capsule context
 	 * @return true if the first state (i.e. current state) is not a final state
 	 */
-	private boolean findExecuteFirstStateAndCheckIfFinal(CapsuleContext ctx) {
+	private boolean findExecuteFirstStateAndCheckIfNotFinal(CapsuleContext ctx) {
 		State_ firstState = findFirstState(ctx);
 		if (firstState == null) {
 			// no initial transition; assume no final state
@@ -104,7 +110,8 @@ public class StateExecuter {
 
 	/**
 	 * Find the first state by finding the initial transition and then executing
-	 * it.
+	 * it. Note that the first state is <strong>NOT</strong> executed and thus
+	 * the client is responsible for running its entry code.
 	 * 
 	 * @param ctx
 	 *            the capsule context
@@ -133,7 +140,7 @@ public class StateExecuter {
 	 *            the current capsule context
 	 * @return true if the current state is not a final state; otherwise false
 	 */
-	private boolean findExecuteNextStateAndCheckIfFinal(CapsuleContext ctx) {
+	private boolean findExecuteNextStateAndCheckIfNotFinal(CapsuleContext ctx) {
 		State_ currentState = ctx.getCurrentState();
 		// if current state is a final state, simply return false
 		if (currentState.isFinal()) {
@@ -146,7 +153,7 @@ public class StateExecuter {
 			// sub-state machine.
 			Transition init = findInitialTransition(subSm);
 			if (init == null) {
-				return true;
+				return true; // TODO stuck? can throw an exception here.
 			}
 			runActionForTransition(init, ctx);
 			ctx.setPreviousState(ctx.getCurrentState());
@@ -156,9 +163,12 @@ public class StateExecuter {
 			// the current state does not have a sub-state machine.
 			// just find the next transition from the current state.
 			Transition currentTransition = findNextTransition(ctx);
+
 			if (currentTransition == null) {
-				return true;
+				return true; // TODO we are stuck here.
 			}
+			
+			Transitions.preprocess(currentTransition, ctx);
 			runExitActionEntryCode(currentTransition, ctx);
 			State_ toState = currentTransition.getTo();
 			ctx.setPreviousState(ctx.getCurrentState());
@@ -166,6 +176,8 @@ public class StateExecuter {
 		}
 		return true;
 	}
+
+
 
 	/**
 	 * Finds the first appearing initial transition in the state machine
@@ -194,22 +206,22 @@ public class StateExecuter {
 	}
 
 	/**
-	 * Execute the action code for the transition {@code transition}
+	 * Execute the action code for the transition {@code transition}. Note that
+	 * the variables for transition's incoming triggers are good <strong>ONLY
+	 * FOR</strong> action code in the transition; hence, after the action code
+	 * is executed, such incoming variables are all removed.
 	 * 
 	 * @param transition
 	 *            transition whose action code is to be executed
 	 * @param ctx
-	 *            persistent information relevant to the currently running
-	 *            capsule
+	 *            information relevant to the currently running capsule
 	 */
-	private void runActionCodeForTransition(Transition transition,
+	private void runActionCodeForTransition(@NonNull Transition transition,
 			CapsuleContext ctx) {
 		if (transition.getAction() != null) {
 			execute(transition.getAction().getStatements(), ctx);
 		}
-		if (ctx.getTriggerIncomingVars() != null) {
-			ctx.setTriggerIncomingVars(null);
-		}
+		ctx.setTriggerIncomingVars(null);
 	}
 
 	/**
@@ -218,8 +230,7 @@ public class StateExecuter {
 	 * @param terminal
 	 *            state terminal whose entry code is to be executed
 	 * @param ctx
-	 *            persistent information relevant to the currently running
-	 *            capsule
+	 *            information relevant to the currently running capsule
 	 */
 	private void runEntryCodeForState(State_ state, CapsuleContext ctx) {
 		if (state.getEntryCode() != null) {
@@ -233,8 +244,7 @@ public class StateExecuter {
 	 * @param terminal
 	 *            state terminal whose exit code is to be executed
 	 * @param ctx
-	 *            persistent information relevant to the currently running
-	 *            capsule
+	 *            information relevant to the currently running capsule
 	 */
 	private void runExitCodeForState(State_ state, CapsuleContext ctx) {
 		if (state.getExitCode() != null) {
@@ -249,8 +259,7 @@ public class StateExecuter {
 	 * @param statements
 	 *            a list of statements
 	 * @param ctx
-	 *            persistent information relevant to the currently running
-	 *            capsule
+	 *            information relevant to the currently running capsule
 	 */
 	private void execute(EList<Statement> statements, CapsuleContext ctx) {
 		ctx.callStackOfLocalVars().push(new HashMap<LocalVar, Value>());
@@ -288,15 +297,14 @@ public class StateExecuter {
 					stateToGoThrough.eContainer(), State_.class);
 		} while (stateToGoThrough != null);
 
-		TransitionFilter f = new TransitionFilter(in, out, config);
 		Transition[] withoutCheck = candidateEnabledTrans
 				.toArray(new Transition[0]);
 		// only the transitions that pass the guard remain
-		Transition[] withGuard = f.filterGuard(withoutCheck, ctx);
+		Transition[] withGuard = GuardFilter.filter(withoutCheck, ctx);
 		// only the transitions that are triggered remain
-		Transition[] withGuardTrigger = f.filterTrigger(withGuard, ctx);
+		Transition[] withGuardTrigger = TriggerFilter.filter(withGuard, ctx);
 		// select the next transition based on the execution config
-		return f.chooseNextTransition(withGuardTrigger, ctx);
+		return new ConfiguredFilter(in, out, config).filter(withGuardTrigger, ctx);
 	}
 
 	/**
@@ -367,9 +375,9 @@ public class StateExecuter {
 	 * @param currentTransition
 	 *            the transition to be executed
 	 * @param ctx
-	 *            persistent information relevant to the current capsule
+	 *            information relevant to the current capsule
 	 */
-	private void runActionForTransition(Transition currentTransition,
+	private void runActionForTransition(@NonNull Transition currentTransition,
 			CapsuleContext ctx) {
 		runActionCodeForTransition(currentTransition, ctx);
 
