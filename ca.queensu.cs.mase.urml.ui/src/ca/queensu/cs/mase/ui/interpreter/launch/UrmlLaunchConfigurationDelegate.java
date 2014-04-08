@@ -94,7 +94,7 @@ public class UrmlLaunchConfigurationDelegate extends
 		myConsole.clearConsole();
 
 		// register this new console into a console view
-		registerConsoleToView(myConsole);
+		Display.getDefault().asyncExec(() -> registerConsoleToView(myConsole));
 
 		// create a new input/output stream for the console
 		IOConsoleOutputStream out = myConsole.newOutputStream();
@@ -201,21 +201,18 @@ public class UrmlLaunchConfigurationDelegate extends
 	 * @param event
 	 *            the source event
 	 */
-	private void registerConsoleToView(final IOConsole console) {
-		Display.getDefault().asyncExec(
-				() -> {
-					IWorkbenchWindow window = PlatformUI.getWorkbench()
-							.getActiveWorkbenchWindow();
-					IWorkbenchPage page = window.getActivePage();
+	private void registerConsoleToView(IOConsole console) {
+		IWorkbenchWindow window = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow();
+		IWorkbenchPage page = window.getActivePage();
 
-					try {
-						IConsoleView view = (IConsoleView) page
-								.showView(IConsoleConstants.ID_CONSOLE_VIEW);
-						view.display(console);
-					} catch (PartInitException e) {
-						e.printStackTrace();
-					}
-				});
+		try {
+			IConsoleView view = (IConsoleView) page
+					.showView(IConsoleConstants.ID_CONSOLE_VIEW);
+			view.display(console);
+		} catch (PartInitException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -230,7 +227,7 @@ public class UrmlLaunchConfigurationDelegate extends
 	private IOConsole findConsole(String name) {
 		IConsoleManager conMan = ConsolePlugin.getDefault().getConsoleManager();
 		Optional<IConsole> existingConsole = Stream.of(conMan.getConsoles())
-				.findFirst();
+				.filter(c -> c.getName().equals(name)).findFirst();
 		if (existingConsole.isPresent()) {
 			return (IOConsole) existingConsole.get();
 		} else {

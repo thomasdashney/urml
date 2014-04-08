@@ -71,40 +71,50 @@ public class CapsuleScheduler {
 			// round robin fashion.
 			for (TreeNode<CapsuleContext> ctxNode : Iterables.cycle(Lists
 					.newArrayList(capsuleContexts))) {
-				CapsuleContext ctx = ctxNode.data;
-				if (ctx.getCapsule().getStatemachines().size() != 0) {
-					// exit condition: quit looping if the state machines in all
-					// the capsules (which counting the capsules which do not
-					// have state machines) have reached the final state
-					boolean capsuleHasReachedFinalState = !new StateMachineTraverser(
-							in, out, config).executeNextState(ctx);
-					ctx.hasReachedFinalState(capsuleHasReachedFinalState);
-					if (checkAllCapsulesReachedFinalState(capsuleContexts)) {
-						break;
-					}
-				}
-				if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_SECONDS) {
-					// exit condition: quit looping if we have passed beyond the
-					// the number of milliseconds to end the whole
-					// interpretation
-					if (Instant.now().isAfter(terminateInstant.get())) {
-						break; 
-					}
-				}
-				if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_TRANSITIONS) {
-					// exit condition: quit looping if we have passed beyond the
-					// number of transitions to interpret
-					terminateStateNum = OptionalLong.of(terminateStateNum
-							.getAsLong() + 1L);
-					if (terminateStateNum.getAsLong() == config.duration) {
-						break;
-					}
+				if (checkExitCondition(ctxNode, capsuleContexts,
+						terminateInstant, terminateStateNum)) {
+					break;
 				}
 			}
 		} catch (ClassCastException | NoSuchIdentifierException
 				| ConnectorException e) {
 			out.println(e);
 		}
+	}
+
+	private boolean checkExitCondition(TreeNode<CapsuleContext> ctxNode,
+			TreeNode<CapsuleContext> capsuleContexts,
+			Optional<Instant> terminateInstant, OptionalLong terminateStateNum) {
+		CapsuleContext ctx = ctxNode.data;
+		if (ctx.getCapsule().getStatemachines().size() != 0) {
+			// exit condition: quit looping if the state machines in all
+			// the capsules (which counting the capsules which do not
+			// have state machines) have reached the final state
+			boolean capsuleHasReachedFinalState = !new StateMachineTraverser(
+					in, out, config).executeNextState(ctx);
+			ctx.hasReachedFinalState(capsuleHasReachedFinalState);
+			if (checkAllCapsulesReachedFinalState(capsuleContexts)) {
+				return true;
+			}
+		}
+		if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_SECONDS) {
+			// exit condition: quit looping if we have passed beyond the
+			// the number of milliseconds to end the whole
+			// interpretation
+			if (Instant.now().isAfter(terminateInstant.get())) {
+				return true;
+			}
+		}
+		if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_TRANSITIONS) {
+			// exit condition: quit looping if we have passed beyond the
+			// number of transitions to interpret
+			terminateStateNum = OptionalLong
+					.of(terminateStateNum.getAsLong() + 1L);
+			if (terminateStateNum.getAsLong() == config.duration) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

@@ -69,6 +69,5 @@ public class UrmlInterpreter {
 		TreeNode<CapsuleContext> rootCtx = new CapsuleContextTreeGenerator(model, out)
 				.getRootContextNode();
 		new CapsuleScheduler(in, out, config).loopCapsuleCtxFromTree(rootCtx);
-		System.out.println("EXIT");
 	}
 }
