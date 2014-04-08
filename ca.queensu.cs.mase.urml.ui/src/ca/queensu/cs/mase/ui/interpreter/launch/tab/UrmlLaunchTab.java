@@ -24,6 +24,7 @@ import org.eclipse.swt.events.SelectionEvent;
 
 import ca.queensu.cs.mase.ui.interpreter.launch.IUrmlLaunchConfigurationConstants;
 import ca.queensu.cs.mase.ui.interpreter.launch.ResourceFileSelectionDialog;
+import ca.queensu.cs.mase.ui.interpreter.launch.tab.util.SelectionListener2;
 
 import com.google.inject.Inject;
 
@@ -80,21 +81,20 @@ public class UrmlLaunchTab extends AbstractLaunchConfigurationTab {
 				false, 1, 1));
 
 		Button btnBrowse = new Button(grpFile, SWT.NONE);
-		btnBrowse.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				ResourceFileSelectionDialog dialog = new ResourceFileSelectionDialog(
-						"Open Urml Model", "Find an urml file to open",
-						new String[] { "urml" }, "urml");
-				dialog.open();
-				if (dialog.getReturnCode() == Window.OK) {
-					IResource result = (IResource) dialog.getResult()[0];
-					String location = result.getFullPath().toString();
-					txtModeltoload.setText(location);
-					updateLaunchConfigurationDialog();
-				}
-			}
-		});
+		btnBrowse
+				.addSelectionListener((SelectionListener2) e -> {
+					ResourceFileSelectionDialog dialog = new ResourceFileSelectionDialog(
+							"Open Urml Model", "Find an urml file to open",
+							new String[] { "urml" }, "urml");
+					dialog.open();
+					if (dialog.getReturnCode() == Window.OK) {
+						IResource result = (IResource) dialog.getResult()[0];
+						String location = result.getFullPath().toString();
+						txtModeltoload.setText(location);
+						updateLaunchConfigurationDialog();
+					}
+				});
+
 		btnBrowse.setText("Browse...");
 
 		Group grpExecutionOptions = new Group(composite, SWT.NONE);
@@ -127,12 +127,9 @@ public class UrmlLaunchTab extends AbstractLaunchConfigurationTab {
 		grpExitConditions.setText("Exit Conditions");
 
 		btnExitAfterSeconds = new Button(grpExitConditions, SWT.RADIO);
-		btnExitAfterSeconds.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				spinnerExitAfterSeconds.setEnabled(true);
-				spinnerExitAfterTransitions.setEnabled(false);
-			}
+		btnExitAfterSeconds.addSelectionListener((SelectionListener2) e -> {
+			spinnerExitAfterSeconds.setEnabled(true);
+			spinnerExitAfterTransitions.setEnabled(false);
 		});
 		btnExitAfterSeconds.setText("Exit after: ");
 
@@ -146,13 +143,12 @@ public class UrmlLaunchTab extends AbstractLaunchConfigurationTab {
 		lblSeconds.setText("milliseconds");
 
 		btnExitAfterTransitions = new Button(grpExitConditions, SWT.RADIO);
-		btnExitAfterTransitions.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				spinnerExitAfterTransitions.setEnabled(true);
-				spinnerExitAfterSeconds.setEnabled(false);
-			}
-		});
+		btnExitAfterTransitions
+				.addSelectionListener((SelectionListener2) e -> {
+					spinnerExitAfterTransitions.setEnabled(true);
+					spinnerExitAfterSeconds.setEnabled(false);
+				});
+
 		btnExitAfterTransitions.setText("Exit after:");
 
 		spinnerExitAfterTransitions = new Spinner(grpExitConditions, SWT.BORDER);
@@ -165,12 +161,9 @@ public class UrmlLaunchTab extends AbstractLaunchConfigurationTab {
 
 		btnNoConditions = new Button(grpExitConditions, SWT.RADIO);
 		btnNoConditions.setText("No conditions");
-		btnNoConditions.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				spinnerExitAfterSeconds.setEnabled(false);
-				spinnerExitAfterTransitions.setEnabled(false);
-			}
+		btnNoConditions.addSelectionListener((SelectionListener2) e -> {
+			spinnerExitAfterSeconds.setEnabled(false);
+			spinnerExitAfterTransitions.setEnabled(false);
 		});
 		new Label(grpExitConditions, SWT.NONE);
 		new Label(grpExitConditions, SWT.NONE);
