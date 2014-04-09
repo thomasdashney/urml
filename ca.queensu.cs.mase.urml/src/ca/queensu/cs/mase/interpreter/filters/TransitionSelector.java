@@ -8,7 +8,6 @@ import java.util.List;
 import org.eclipse.xtext.EcoreUtil2;
 
 import ca.queensu.cs.mase.interpreter.ExecutionConfig;
-import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.Transition;
 
@@ -36,8 +35,7 @@ public class TransitionSelector {
 	 * @return the single transition to be executed next, or {@code null} if no
 	 *         such transition is available
 	 */
-	public Transition select(List<Transition> nextTransitionList,
-			CapsuleContext ctx) {
+	public Transition select(List<Transition> nextTransitionList) {
 		if (nextTransitionList.size() == 0)
 			return null;
 		else if (nextTransitionList.size() == 1)
@@ -67,15 +65,15 @@ public class TransitionSelector {
 			int index = generateRandomNumber(0, trans.size() - 1);
 			return trans.get(index);
 		case INTERACTIVE:
-			int transitionSelection = 0;
 			try {
-				transitionSelection = userSelectTransition(trans);
+				int transitionSelection = userSelectTransition(trans);
+				return trans.get(transitionSelection);
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.printStackTrace(out);
 			}
-			return trans.get(transitionSelection);
+			return null;
 		default:
-			throw new IllegalArgumentException("wrong choice: choose 1 to 3");
+			throw new IllegalArgumentException("bad execution configuration");
 		}
 	}
 

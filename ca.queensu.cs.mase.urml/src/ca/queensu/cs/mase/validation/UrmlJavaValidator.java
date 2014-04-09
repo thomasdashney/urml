@@ -184,25 +184,26 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 		}
 	}
 
-	public static String CONNECTOR_SAME_CAPSULE = "ca.queensu.cs.mase.ConnectorSameCapsule";
-
-	@Check
-	public void connectorCannotHavePortsFromSameCapsule(Connector conn) {
-		Port port1 = conn.getPort1();
-		Port port2 = conn.getPort2();
-
-		Capsule cap1 = EcoreUtil2.getContainerOfType(port1, Capsule.class);
-		Capsule cap2 = EcoreUtil2.getContainerOfType(port2, Capsule.class);
-
-		if (cap1 == cap2) {
-			for (EStructuralFeature feature : new EStructuralFeature[] {
-					UrmlPackage.eINSTANCE.getConnector_Port1(),
-					UrmlPackage.eINSTANCE.getConnector_Port2() }) {
-				error("two sides of a connector cannot belong to the same capsule",
-						feature, CONNECTOR_SAME_CAPSULE);
-			}
-		}
-	}
+	// public static String CONNECTOR_SAME_CAPSULE =
+	// "ca.queensu.cs.mase.ConnectorSameCapsule";
+	//
+	// @Check
+	// public void connectorCannotHavePortsFromSameCapsule(Connector conn) {
+	// Port port1 = conn.getPort1();
+	// Port port2 = conn.getPort2();
+	//
+	// Capsule cap1 = EcoreUtil2.getContainerOfType(port1, Capsule.class);
+	// Capsule cap2 = EcoreUtil2.getContainerOfType(port2, Capsule.class);
+	//
+	// if (cap1 == cap2) {
+	// for (EStructuralFeature feature : new EStructuralFeature[] {
+	// UrmlPackage.eINSTANCE.getConnector_Port1(),
+	// UrmlPackage.eINSTANCE.getConnector_Port2() }) {
+	// error("two sides of a connector cannot belong to the same capsule",
+	// feature, CONNECTOR_SAME_CAPSULE);
+	// }
+	// }
+	// }
 
 	public static String MORE_THAN_ONE_STATEMACHINE = "ca.queensu.cs.mase.MoreThanOneStateMachine";
 
@@ -231,18 +232,15 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 
 	@Check
 	public void checkFunctionMustReturnSomething(FunctionCall f) {
-		Stream<StatementOperation> s = f.getCall().getOperationCode()
-				.getStatements().stream()
-				.filter(o -> o instanceof ReturnStatement);
-		if (!s.findAny().isPresent()) {
+		List<ReturnStatement> list = EcoreUtil2.getAllContentsOfType(
+				f.getCall(), ReturnStatement.class);
+		if (list.size() == 0) {
 			error("Function call must return something",
 					UrmlPackage.eINSTANCE.getFunctionCall_Call());
 		} else {
-			s.map(obj -> (ReturnStatement) obj)
-					.filter(r -> r.getReturnValue() == null)
-					.forEach(
-							r -> error("This function must return something",
-									r, null, -1));
+			for (ReturnStatement rs : list)
+				if (rs.getReturnValue() == null)
+					error("This function must return something", rs, null, -1);
 		}
 	}
 

@@ -39,9 +39,6 @@ public class UrmlInterpreter {
 	 */
 	private ExecutionConfig config;
 
-	public interface Factory {
-		UrmlInterpreter create(Model m);
-	}
 	/**
 	 * Main constructor
 	 * 

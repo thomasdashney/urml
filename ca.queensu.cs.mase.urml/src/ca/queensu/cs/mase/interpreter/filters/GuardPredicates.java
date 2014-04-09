@@ -1,6 +1,5 @@
 package ca.queensu.cs.mase.interpreter.filters;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
@@ -10,19 +9,16 @@ import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Expression;
 import ca.queensu.cs.mase.urml.Transition;
 
-public class GuardPredicate implements Predicate<Transition> {
+public class GuardPredicates {
 
-	private CapsuleContext ctx;
-	public GuardPredicate(CapsuleContext ctx_) {
-		ctx = ctx_;
+	public static Predicate<Transition> evalsToTrue(CapsuleContext ctx) {
+		return t -> evaluateGuard(t, ctx).getVal();
 	}
-	
-	@Override
-	public boolean test(Transition t) {
-		Bool guardValue = evaluateGuard(t, ctx);
-		return guardValue.getVal();
+
+	public static Predicate<Transition> hasNoGuard() {
+		return t -> t.getGuard() == null;
 	}
-	
+
 	/**
 	 * Determines the boolean value of the guard of the given transition
 	 * {@code t}
@@ -34,7 +30,7 @@ public class GuardPredicate implements Predicate<Transition> {
 	 * @return the boolean value to which the guard expression of {@code t}
 	 *         evaluates
 	 */
-	private Bool evaluateGuard(Transition t, CapsuleContext ci) {
+	private static Bool evaluateGuard(Transition t, CapsuleContext ci) {
 		Expression guard = t.getGuard();
 		Value guardValue = ExpressionEvaluator.interpret(guard, ci);
 		if (!(guardValue instanceof Bool))
@@ -42,6 +38,5 @@ public class GuardPredicate implements Predicate<Transition> {
 					"the guard does not evaluate to a boolean value");
 		return (Bool) guardValue;
 	}
-	
 
 }

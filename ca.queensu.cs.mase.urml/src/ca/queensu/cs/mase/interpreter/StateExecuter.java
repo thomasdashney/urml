@@ -8,7 +8,6 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,11 +17,9 @@ import org.eclipse.xtext.EcoreUtil2;
 
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.dispatchers.StatementExecuter;
-import ca.queensu.cs.mase.interpreter.filters.DefaultTriggerPredicate;
-import ca.queensu.cs.mase.interpreter.filters.GuardPredicate;
-import ca.queensu.cs.mase.interpreter.filters.MessageTriggerPredicate;
-import ca.queensu.cs.mase.interpreter.filters.TimeoutTriggerPredicate;
+import ca.queensu.cs.mase.interpreter.filters.GuardPredicates;
 import ca.queensu.cs.mase.interpreter.filters.TransitionSelector;
+import ca.queensu.cs.mase.interpreter.filters.TriggerPredicates;
 import ca.queensu.cs.mase.interpreter.transitionUtil.Transitions;
 import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Capsule;
@@ -300,14 +297,14 @@ public class StateExecuter {
 
 		List<Transition> filtered = candidateEnabledTrans
 				.stream()
-				.filter(((Predicate<Transition>) t -> t.getGuard() == null)
-						.or(new GuardPredicate(ctx)))
-				.filter(new DefaultTriggerPredicate().or(
-						new MessageTriggerPredicate(ctx)).or(
-						new TimeoutTriggerPredicate(ctx)))
+				.filter(GuardPredicates.hasNoGuard().or(
+						GuardPredicates.evalsToTrue(ctx)))
+				.filter(TriggerPredicates.isDefault()
+						.or(TriggerPredicates.hasActivatedMessages(ctx))
+						.or(TriggerPredicates.hasActivatedTimeouts(ctx)))
 				.collect(Collectors.toList());
-		Transition selected = new TransitionSelector(in, out, config).select(
-				filtered, ctx);
+		Transition selected = new TransitionSelector(in, out, config)
+				.select(filtered);
 		return selected;
 
 	}
