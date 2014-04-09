@@ -419,7 +419,7 @@
 <extension
       point="org.eclipse.debug.core.launchConfigurationTypes">
    <launchConfigurationType
-         delegate="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.UrmlLaunchConfigurationDelegate"
+         delegate="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.tab.UrmlLaunchConfigurationDelegate"
          id="ca.queensu.cs.mase.ui.interpreter.launch.urmlLaunch"
          modes="run"
          name="Urml Model">
@@ -437,7 +437,7 @@
 <extension
       point="org.eclipse.debug.ui.launchShortcuts">
    <shortcut
-         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.LaunchShortcutFirstTransition"
+         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.shortcut.LaunchShortcutFirstTransition"
          id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
          label="Urml Model (First transition)"
          modes="run">
@@ -457,7 +457,7 @@
          </contextualLaunch>
    </shortcut>
       <shortcut
-         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.LaunchShortcutRandomTransition"
+         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.shortcut.LaunchShortcutRandomTransition"
          id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
          label="Urml Model (Random transition)"
          modes="run">
@@ -477,7 +477,7 @@
          </contextualLaunch>
    </shortcut>
    <shortcut
-         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.LaunchShortcutInteractive"
+         class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.shortcut.LaunchShortcutInteractive"
          id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
          label="Urml Model (Interactive)"
          modes="run">

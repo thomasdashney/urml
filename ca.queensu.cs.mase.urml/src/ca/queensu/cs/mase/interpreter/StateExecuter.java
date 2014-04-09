@@ -8,7 +8,8 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.annotation.NonNull;
@@ -17,9 +18,11 @@ import org.eclipse.xtext.EcoreUtil2;
 
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.dispatchers.StatementExecuter;
-import ca.queensu.cs.mase.interpreter.filters.ConfiguredFilter;
-import ca.queensu.cs.mase.interpreter.filters.GuardFilter;
-import ca.queensu.cs.mase.interpreter.filters.TriggerFilter;
+import ca.queensu.cs.mase.interpreter.filters.DefaultTriggerPredicate;
+import ca.queensu.cs.mase.interpreter.filters.GuardPredicate;
+import ca.queensu.cs.mase.interpreter.filters.MessageTriggerPredicate;
+import ca.queensu.cs.mase.interpreter.filters.TimeoutTriggerPredicate;
+import ca.queensu.cs.mase.interpreter.filters.TransitionSelector;
 import ca.queensu.cs.mase.interpreter.transitionUtil.Transitions;
 import ca.queensu.cs.mase.types.Value;
 import ca.queensu.cs.mase.urml.Capsule;
@@ -167,7 +170,7 @@ public class StateExecuter {
 			if (currentTransition == null) {
 				return true; // TODO we are stuck here.
 			}
-			
+
 			Transitions.preprocess(currentTransition, ctx);
 			runExitActionEntryCode(currentTransition, ctx);
 			State_ toState = currentTransition.getTo();
@@ -176,8 +179,6 @@ public class StateExecuter {
 		}
 		return true;
 	}
-
-
 
 	/**
 	 * Finds the first appearing initial transition in the state machine
@@ -297,14 +298,18 @@ public class StateExecuter {
 					stateToGoThrough.eContainer(), State_.class);
 		} while (stateToGoThrough != null);
 
-		Transition[] withoutCheck = candidateEnabledTrans
-				.toArray(new Transition[0]);
-		// only the transitions that pass the guard remain
-		Transition[] withGuard = GuardFilter.filter(withoutCheck, ctx);
-		// only the transitions that are triggered remain
-		Transition[] withGuardTrigger = TriggerFilter.filter(withGuard, ctx);
-		// select the next transition based on the execution config
-		return new ConfiguredFilter(in, out, config).filter(withGuardTrigger, ctx);
+		List<Transition> filtered = candidateEnabledTrans
+				.stream()
+				.filter(((Predicate<Transition>) t -> t.getGuard() == null)
+						.or(new GuardPredicate(ctx)))
+				.filter(new DefaultTriggerPredicate().or(
+						new MessageTriggerPredicate(ctx)).or(
+						new TimeoutTriggerPredicate(ctx)))
+				.collect(Collectors.toList());
+		Transition selected = new TransitionSelector(in, out, config).select(
+				filtered, ctx);
+		return selected;
+
 	}
 
 	/**
