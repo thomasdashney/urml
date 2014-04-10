@@ -49,6 +49,7 @@ import ca.queensu.cs.mase.urml.ReturnStatement;
 import ca.queensu.cs.mase.urml.StatementOperation;
 import ca.queensu.cs.mase.urml.UnaryExpression;
 import ca.queensu.cs.mase.util.ReturnStatementSignal;
+import ca.queensu.cs.mase.util.UrmlInterruptedException;
 
 /**
  * An expression evaluator used for the URML language
@@ -67,15 +68,8 @@ public class ExpressionEvaluator {
 	 * matched and for the arguments, their compile-time type is matched);
 	 * multiple dispatch is also known as "multi-methods" in the PL literature
 	 */
-	private static PolymorphicDispatcher<Value> expEvalDispatcher;
-	static {
-
-		Predicate<Method> methodFilter = PolymorphicDispatcher.Predicates
-				.forName("compute", 2);
-		List<ExpressionEvaluator> targets = Collections
-				.singletonList(new ExpressionEvaluator());
-		expEvalDispatcher = new PolymorphicDispatcher<>(targets, methodFilter);
-	}
+	private static PolymorphicDispatcher<Value> expEvalDispatcher = PolymorphicDispatcher
+			.createForSingleTarget("compute", 2, 3, new ExpressionEvaluator());
 
 	/**
 	 * Evaluates the expression {@code exp} based on the environment as
@@ -89,8 +83,12 @@ public class ExpressionEvaluator {
 	 * @return a {@link Value} that wraps either a boolean or an integer, that
 	 *         represents the result of the evaluation of the expression
 	 *         {@code exp}
+	 * @
+	 *             if interrupted
 	 */
 	public static Value interpret(Expression exp, CapsuleContext ctx) {
+		if (Thread.currentThread().isInterrupted())
+			throw new UrmlInterruptedException();
 		return expEvalDispatcher.invoke(exp, ctx);
 	}
 
@@ -122,83 +120,97 @@ public class ExpressionEvaluator {
 		return new Bool(boolLiteral.isTrue());
 	}
 
-	private Value compute(NotBooleanExpression exp, CapsuleContext ctx) {
+	private Value compute(NotBooleanExpression exp, CapsuleContext ctx)
+			 {
 		Bool b = evalExpToBool(exp.getExp(), ctx);
 		return new Bool(!b.getVal());
 	}
 
-	private Value compute(UnaryExpression exp, CapsuleContext ctx) {
+	private Value compute(UnaryExpression exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getExp(), ctx);
 		return new Int(-a.getVal());
 	}
 
-	private Value compute(ConditionalOrExpression exp, CapsuleContext ctx) {
+	private Value compute(ConditionalOrExpression exp, CapsuleContext ctx)
+			 {
 		Bool a = evalExpToBool(exp.getLeft(), ctx);
 		Bool b = evalExpToBool(exp.getRest(), ctx);
 		return new Bool(a.getVal() || b.getVal());
 	}
 
-	private Value compute(ConditionalAndExpression exp, CapsuleContext ctx) {
+	private Value compute(ConditionalAndExpression exp, CapsuleContext ctx)
+			 {
 		Bool a = evalExpToBool(exp.getLeft(), ctx);
 		Bool b = evalExpToBool(exp.getRest(), ctx);
 		return new Bool(a.getVal() && b.getVal());
 	}
 
-	private Value compute(Plus exp, CapsuleContext ctx) {
+	private Value compute(Plus exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Int(a.getVal() + b.getVal());
 	}
 
-	private Value compute(Minus exp, CapsuleContext ctx) {
+	private Value compute(Minus exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Int(a.getVal() - b.getVal());
 	}
 
-	private Value compute(Multiply exp, CapsuleContext ctx) {
+	private Value compute(Multiply exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Int(a.getVal() * b.getVal());
 	}
 
-	private Value compute(Divide exp, CapsuleContext ctx) {
+	private Value compute(Divide exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Int(a.getVal() / b.getVal());
 	}
 
-	private Value compute(Modulo exp, CapsuleContext ctx) {
+	private Value compute(Modulo exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Int(a.getVal() % b.getVal());
 	}
 
-	private Value compute(LessThanOrEqual exp, CapsuleContext ctx) {
+	private Value compute(LessThanOrEqual exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Bool(a.getVal() <= b.getVal());
 	}
 
-	private Value compute(LessThan exp, CapsuleContext ctx) {
+	private Value compute(LessThan exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Bool(a.getVal() < b.getVal());
 	}
 
-	private Value compute(GreaterThanOrEqual exp, CapsuleContext ctx) {
+	private Value compute(GreaterThanOrEqual exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Bool(a.getVal() >= b.getVal());
 	}
 
-	private Value compute(GreaterThan exp, CapsuleContext ctx) {
+	private Value compute(GreaterThan exp, CapsuleContext ctx)
+			 {
 		Int a = evalExpToInt(exp.getLeft(), ctx);
 		Int b = evalExpToInt(exp.getRest(), ctx);
 		return new Bool(a.getVal() > b.getVal());
 	}
 
-	private Value compute(Equal exp, CapsuleContext ctx) {
+	private Value compute(Equal exp, CapsuleContext ctx)
+			 {
 		try {
 			Int a = evalExpToInt(exp.getLeft(), ctx);
 			Int b = evalExpToInt(exp.getRest(), ctx);
@@ -210,7 +222,8 @@ public class ExpressionEvaluator {
 		}
 	}
 
-	private Value compute(NotEqual exp, CapsuleContext ctx) {
+	private Value compute(NotEqual exp, CapsuleContext ctx)
+			 {
 		try {
 			Int a = evalExpToInt(exp.getLeft(), ctx);
 			Int b = evalExpToInt(exp.getRest(), ctx);
@@ -252,7 +265,8 @@ public class ExpressionEvaluator {
 		return node.getStartLine();
 	}
 
-	private Value compute(FunctionCall exp, CapsuleContext ctx) {
+	private Value compute(FunctionCall exp, CapsuleContext ctx)
+			 {
 
 		// check if formal param # == actual arguments #
 		int formalParam = exp.getCall().getLocalVars().size();
@@ -276,6 +290,7 @@ public class ExpressionEvaluator {
 		ctx.callStackOfLocalVars().push(newStackFrame);
 
 		try {
+
 			for (StatementOperation stmtOp : exp.getCall().getOperationCode()
 					.getStatements())
 				StatementExecuter.interpret(stmtOp, ctx);
@@ -289,8 +304,9 @@ public class ExpressionEvaluator {
 				+ ": cannot find a return statement in a function.");
 	}
 
-	private Bool evalExpToBool(Expression exp, CapsuleContext ctx) {
-		Value val = expEvalDispatcher.invoke(exp, ctx);
+	private Bool evalExpToBool(Expression exp, CapsuleContext ctx)
+			 {
+		Value val = interpret(exp, ctx);
 		if (!(val instanceof Bool))
 			throw new ClassCastException(String.format(
 					"line %d: %s is not a boolean", getLineNumber(exp),
@@ -298,8 +314,9 @@ public class ExpressionEvaluator {
 		return (Bool) val;
 	}
 
-	private Int evalExpToInt(Expression exp, CapsuleContext ctx) {
-		Value val = expEvalDispatcher.invoke(exp, ctx);
+	private Int evalExpToInt(Expression exp, CapsuleContext ctx)
+			 {
+		Value val = interpret(exp, ctx);
 		if (!(val instanceof Int))
 			throw new ClassCastException(String.format(
 					"line %d: %s is not an integer", getLineNumber(exp), val));

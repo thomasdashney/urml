@@ -76,15 +76,17 @@ public class StateExecuter {
 	 * @return true if the current state is not a final state; otherwise returns
 	 *         false.
 	 */
-	public boolean executeNextStateAndCheckIfNotFinal(CapsuleContext ctx) {
+	public void executeNextState(CapsuleContext ctx) {
+		boolean hasReachedFinalState;
 		if (ctx.getCurrentState() == null) {
 			// can't find the current state; assume we are getting into the
 			// first state
-			return findExecuteFirstStateAndCheckIfNotFinal(ctx);
+			hasReachedFinalState = findExecuteFirstStateAndCheckIfFinal(ctx);
 		} else {
 			// find the next state
-			return findExecuteNextStateAndCheckIfNotFinal(ctx);
+			hasReachedFinalState = findExecuteNextStateAndCheckIfFinal(ctx);
 		}
+		ctx.hasReachedFinalState(hasReachedFinalState);
 	}
 
 	/**
@@ -96,16 +98,16 @@ public class StateExecuter {
 	 *            the capsule context
 	 * @return true if the first state (i.e. current state) is not a final state
 	 */
-	private boolean findExecuteFirstStateAndCheckIfNotFinal(CapsuleContext ctx) {
+	private boolean findExecuteFirstStateAndCheckIfFinal(CapsuleContext ctx) {
 		State_ firstState = findFirstState(ctx);
 		if (firstState == null) {
 			// no initial transition; assume no final state
-			return true;
+			return false;
 		}
 		ctx.setPreviousState(null);
 		ctx.setCurrentState(firstState);
 		runEntryCodeForState(firstState, ctx);
-		return !firstState.isFinal();
+		return firstState.isFinal();
 	}
 
 	/**
@@ -126,7 +128,7 @@ public class StateExecuter {
 		if (init == null) {
 			return null;
 		}
-		runActionForTransition(init, ctx);
+		runActionCodeForTransition(init, ctx);
 		return init.getTo();
 	}
 
@@ -138,13 +140,13 @@ public class StateExecuter {
 	 * 
 	 * @param ctx
 	 *            the current capsule context
-	 * @return true if the current state is not a final state; otherwise false
+	 * @return true if the current state is a final state; otherwise false
 	 */
-	private boolean findExecuteNextStateAndCheckIfNotFinal(CapsuleContext ctx) {
+	private boolean findExecuteNextStateAndCheckIfFinal(CapsuleContext ctx) {
 		State_ currentState = ctx.getCurrentState();
 		// if current state is a final state, simply return false
 		if (currentState.isFinal()) {
-			return false;
+			return true;
 		}
 
 		StateMachine subSm = currentState.getSubstatemachine();
@@ -153,9 +155,9 @@ public class StateExecuter {
 			// sub-state machine.
 			Transition init = findInitialTransition(subSm);
 			if (init == null) {
-				return true; // TODO stuck? can throw an exception here.
+				return false; // TODO stuck? can throw an exception here.
 			}
-			runActionForTransition(init, ctx);
+			runActionCodeForTransition(init, ctx);
 			ctx.setPreviousState(ctx.getCurrentState());
 			ctx.setCurrentState(init.getTo());
 			runEntryCodeForState(ctx.getCurrentState(), ctx);
@@ -165,16 +167,16 @@ public class StateExecuter {
 			Transition currentTransition = findNextTransition(ctx);
 
 			if (currentTransition == null) {
-				return true; // TODO we are stuck here.
+				return false; // TODO we are stuck here.
 			}
 
 			Transitions.preprocess(currentTransition, ctx);
-			runExitActionEntryCode(currentTransition, ctx);
+			chainExitActionEntryCode(currentTransition, ctx);
 			State_ toState = currentTransition.getTo();
 			ctx.setPreviousState(ctx.getCurrentState());
 			ctx.setCurrentState(toState);
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -222,6 +224,7 @@ public class StateExecuter {
 		ctx.setTriggerIncomingVars(null);
 	}
 
+
 	/**
 	 * Execute the entry code for the state {@code terminal}
 	 * 
@@ -248,23 +251,6 @@ public class StateExecuter {
 		if (state.getExitCode() != null) {
 			execute(state.getExitCode().getStatements(), ctx);
 		}
-	}
-
-	/**
-	 * Given a list of statements, execute it as a whole --- with a single scope
-	 * (i.e., a call stack is made for this unit of statement list)
-	 * 
-	 * @param statements
-	 *            a list of statements
-	 * @param ctx
-	 *            information relevant to the currently running capsule
-	 */
-	private void execute(EList<Statement> statements, CapsuleContext ctx) {
-		ctx.callStackOfLocalVars().push(new HashMap<LocalVar, Value>());
-		for (Statement st : statements) {
-			StatementExecuter.interpret(st, ctx);
-		}
-		ctx.callStackOfLocalVars().pop();
 	}
 
 	/**
@@ -309,6 +295,26 @@ public class StateExecuter {
 
 	}
 
+	private void chainExitActionEntryCode(Transition t, CapsuleContext ctx) {
+		State_ from = t.getFrom();
+		State_ to = t.getTo();
+		Deque<State_> fromWithAncestors = getStateWithAncestors(from);
+		Deque<State_> toWithAncestors = getStateWithAncestors(to);
+		removeCommonAncestors(fromWithAncestors, toWithAncestors);
+	
+		while (!fromWithAncestors.isEmpty()) {
+			State_ toLeave = fromWithAncestors.removeLast();
+			runExitCodeForState(toLeave, ctx);
+		}
+	
+		runActionCodeForTransition(t, ctx);
+	
+		while (!toWithAncestors.isEmpty()) {
+			State_ toEnter = toWithAncestors.pop();
+			runEntryCodeForState(toEnter, ctx);
+		}
+	}
+
 	/**
 	 * Given a state, retrieve its ancestors along the state itself in a deque
 	 * 
@@ -350,38 +356,20 @@ public class StateExecuter {
 		}
 	}
 
-	private void runExitActionEntryCode(Transition t, CapsuleContext ctx) {
-		State_ from = t.getFrom();
-		State_ to = t.getTo();
-		Deque<State_> fromWithAncestors = getStateWithAncestors(from);
-		Deque<State_> toWithAncestors = getStateWithAncestors(to);
-		removeCommonAncestors(fromWithAncestors, toWithAncestors);
-
-		while (!fromWithAncestors.isEmpty()) {
-			State_ toLeave = fromWithAncestors.removeLast();
-			runExitCodeForState(toLeave, ctx);
-		}
-
-		runActionForTransition(t, ctx);
-
-		while (!toWithAncestors.isEmpty()) {
-			State_ toEnter = toWithAncestors.pop();
-			runEntryCodeForState(toEnter, ctx);
-		}
-	}
-
 	/**
-	 * Executes the given transition {@code currentTransition} by going through
-	 * its action code.
+	 * Given a list of statements, execute it as a whole --- with a single scope
+	 * (i.e., a call stack is made for this unit of statement list)
 	 * 
-	 * @param currentTransition
-	 *            the transition to be executed
+	 * @param statements
+	 *            a list of statements
 	 * @param ctx
-	 *            information relevant to the current capsule
+	 *            information relevant to the currently running capsule
 	 */
-	private void runActionForTransition(@NonNull Transition currentTransition,
-			CapsuleContext ctx) {
-		runActionCodeForTransition(currentTransition, ctx);
-
+	private void execute(EList<Statement> statements, CapsuleContext ctx) {
+		ctx.callStackOfLocalVars().push(new HashMap<LocalVar, Value>());
+		for (Statement st : statements) {
+			StatementExecuter.interpret(st, ctx);
+		}
+		ctx.callStackOfLocalVars().pop();
 	}
 }

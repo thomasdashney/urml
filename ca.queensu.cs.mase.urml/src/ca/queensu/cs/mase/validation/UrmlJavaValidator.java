@@ -1,9 +1,6 @@
 package ca.queensu.cs.mase.validation;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Stream;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.EcoreUtil2;
@@ -19,7 +16,6 @@ import ca.queensu.cs.mase.urml.Port;
 import ca.queensu.cs.mase.urml.Protocol;
 import ca.queensu.cs.mase.urml.ReturnStatement;
 import ca.queensu.cs.mase.urml.State_;
-import ca.queensu.cs.mase.urml.StatementOperation;
 import ca.queensu.cs.mase.urml.Transition;
 import ca.queensu.cs.mase.urml.Trigger_in;
 import ca.queensu.cs.mase.urml.Trigger_out;

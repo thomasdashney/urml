@@ -10,6 +10,7 @@ import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.data.CapsuleContextTreeGenerator;
 import ca.queensu.cs.mase.urml.Model;
 import ca.queensu.cs.mase.util.TreeNode;
+import ca.queensu.cs.mase.util.UrmlInterruptedException;
 
 /**
  * A prototype of an interpreter that evaluates components inside a URML model,
@@ -63,8 +64,17 @@ public class UrmlInterpreter {
 	 * Interprets the embedded model by going through each capsule in the model
 	 */
 	public void interpret() {
-		TreeNode<CapsuleContext> rootCtx = new CapsuleContextTreeGenerator(model, out)
-				.getRootContextNode();
-		new CapsuleScheduler(in, out, config).loopCapsuleCtxFromTree(rootCtx);
+		TreeNode<CapsuleContext> rootCtx = new CapsuleContextTreeGenerator(
+				model, out).getRootContextNode();
+		try {
+			new CapsuleLoop(in, out, config).loopCapsule(rootCtx);
+		} catch (UrmlInterruptedException consumed) {
+
+		}
+		System.out.println("STOP");
+	}
+
+	public void stop() {
+		Thread.currentThread().interrupt();
 	}
 }

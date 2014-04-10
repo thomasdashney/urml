@@ -51,17 +51,12 @@ import ca.queensu.cs.mase.urml.WhileLoop;
 import ca.queensu.cs.mase.urml.WhileLoopOperation;
 import ca.queensu.cs.mase.util.MessageDesc;
 import ca.queensu.cs.mase.util.ReturnStatementSignal;
+import ca.queensu.cs.mase.util.UrmlInterruptedException;
 
 @SuppressWarnings("unused")
 public class StatementExecuter {
-	private static PolymorphicDispatcher<Void> stmtExecDispatcher;
-	static {
-		Predicate<Method> filter = PolymorphicDispatcher.Predicates.forName(
-				"compute", 2);
-		List<StatementExecuter> targets = Collections
-				.singletonList(new StatementExecuter());
-		stmtExecDispatcher = new PolymorphicDispatcher<>(targets, filter);
-	}
+	private static PolymorphicDispatcher<Void> stmtExecDispatcher = PolymorphicDispatcher
+			.createForSingleTarget("compute", 2, 3, new StatementExecuter());
 
 	/**
 	 * Execute the statement {@code st} based on the environment from the
@@ -69,16 +64,39 @@ public class StatementExecuter {
 	 * 
 	 * @param st
 	 * @param ctx
+	 * @
 	 */
-	public static void interpret(Statement st, CapsuleContext ctx) {
+	public static void interpret(Statement st, CapsuleContext ctx)
+			 {
+		if (Thread.currentThread().isInterrupted())
+			throw new UrmlInterruptedException();
 		stmtExecDispatcher.invoke(st, ctx);
 	}
 
 	// operation-specific statements
 
-	public static void interpret(StatementOperation st, CapsuleContext ctx) {
+	public static void interpret(StatementOperation st, CapsuleContext ctx)
+			 {
+		if (Thread.currentThread().isInterrupted())
+			throw new UrmlInterruptedException();
 		stmtExecDispatcher.invoke(st, ctx);
 	}
+
+	// public static void interpret(Statement st, CapsuleContext ctx,
+	// boolean shouldStop) {
+	// if (shouldStop)
+	// return;
+	// else
+	// interpret(st, ctx);
+	// }
+	//
+	// public static void interpret(StatementOperation st, CapsuleContext ctx,
+	// boolean shouldStop) {
+	// if (shouldStop)
+	// return;
+	// else
+	// interpret(st,ctx);
+	// }
 
 	/**
 	 * Get the line number where the EObject {@code obj} appears in the parsed
@@ -96,7 +114,8 @@ public class StatementExecuter {
 		return node.getStartLine();
 	}
 
-	private void compute(SendTrigger st, CapsuleContext ctx) {
+	private void compute(SendTrigger st, CapsuleContext ctx)
+			 {
 		for (Trigger_out to : st.getTriggers()) {
 			try {
 				CapsuleContextPortPair opposite = OppositeFinder
@@ -124,7 +143,8 @@ public class StatementExecuter {
 		// no-op
 	}
 
-	private void compute(Variable var, CapsuleContext ctx) {
+	private void compute(Variable var, CapsuleContext ctx)
+			 {
 		Map<LocalVar, Value> envt = ctx.callStackOfLocalVars().peek();
 		LocalVar lvalue = var.getVar();
 		if (var.isAssign()) {
@@ -135,20 +155,22 @@ public class StatementExecuter {
 		}
 	}
 
-	private void compute(LogStatement log, CapsuleContext ctx) {
+	private void compute(LogStatement log, CapsuleContext ctx)
+			 {
 		ctx.log(ctx.getCapsuleInst().getName() + " logging to "
 				+ log.getLogPort().getName() + " with: "
 				+ evalStr(log.getLeft(), ctx));
 	}
 
 	private String evalConcatStr(ConcatenateExpression conStr,
-			CapsuleContext ctx) {
+			CapsuleContext ctx)  {
 		String a = evalStr(conStr.getLeft(), ctx);
 		String b = evalStr(conStr.getRest(), ctx);
 		return a + b;
 	}
 
-	private String evalStr(StringExpression strExp, CapsuleContext ctx) {
+	private String evalStr(StringExpression strExp, CapsuleContext ctx)
+			 {
 		if (strExp instanceof ConcatenateExpression) {
 			return evalConcatStr((ConcatenateExpression) strExp, ctx);
 		} else {
@@ -161,7 +183,8 @@ public class StatementExecuter {
 		}
 	}
 
-	private void compute(Assignment asgn, CapsuleContext ctx) {
+	private void compute(Assignment asgn, CapsuleContext ctx)
+			 {
 		Value result = ExpressionEvaluator.interpret(asgn.getExp(), ctx);
 		Assignable lval = asgn.getLvalue();
 		if (lval instanceof Attribute) {
@@ -179,7 +202,8 @@ public class StatementExecuter {
 				+ " from capsule attribute or current scope");
 	}
 
-	private void compute(InformTimer ifm, CapsuleContext ctx) {
+	private void compute(InformTimer ifm, CapsuleContext ctx)
+			 {
 		Value evalResult = ExpressionEvaluator.interpret(ifm.getTime(), ctx);
 		if (!(evalResult instanceof Int))
 			throw new IllegalStateException(ctx.getName() + " " + evalResult
@@ -190,7 +214,8 @@ public class StatementExecuter {
 		ctx.getTimeoutInstants().put(timeout, timeoutInstant);
 	}
 
-	private void compute(WhileLoop loop, CapsuleContext ctx) {
+	private void compute(WhileLoop loop, CapsuleContext ctx)
+			 {
 		while (true) {
 			Value result = ExpressionEvaluator.interpret(loop.getCondition(),
 					ctx);
@@ -205,7 +230,8 @@ public class StatementExecuter {
 		}
 	}
 
-	private void compute(IfStatement ifSt, CapsuleContext ctx) {
+	private void compute(IfStatement ifSt, CapsuleContext ctx)
+			 {
 		Value evalResult = ExpressionEvaluator.interpret(ifSt.getCondition(),
 				ctx);
 		if (!(evalResult instanceof Bool)) {
@@ -222,7 +248,8 @@ public class StatementExecuter {
 			interpret(s, ctx);
 	}
 
-	private void compute(Invoke inv, CapsuleContext ctx) {
+	private void compute(Invoke inv, CapsuleContext ctx)
+			 {
 
 		// check if # of formal parameters (from the operation header)
 		// and # of actual arguments (from the invocation) are equal
@@ -258,7 +285,8 @@ public class StatementExecuter {
 
 	// operation-specific statements
 
-	private void compute(WhileLoopOperation loop, CapsuleContext ctx) {
+	private void compute(WhileLoopOperation loop, CapsuleContext ctx)
+			 {
 		while (true) {
 			Value result = ExpressionEvaluator.interpret(loop.getCondition(),
 					ctx);
@@ -273,7 +301,8 @@ public class StatementExecuter {
 		}
 	}
 
-	private void compute(IfStatementOperation ifSt, CapsuleContext ctx) {
+	private void compute(IfStatementOperation ifSt, CapsuleContext ctx)
+			 {
 		Value evalResult = ExpressionEvaluator.interpret(ifSt.getCondition(),
 				ctx);
 		if (!(evalResult instanceof Bool))
@@ -288,7 +317,8 @@ public class StatementExecuter {
 				interpret(so, ctx);
 	}
 
-	private void compute(ReturnStatement rtn, CapsuleContext ctx) {
+	private void compute(ReturnStatement rtn, CapsuleContext ctx)
+			 {
 		if (rtn.getReturnValue() == null) {
 			throw new ReturnStatementSignal(null);
 		} else {

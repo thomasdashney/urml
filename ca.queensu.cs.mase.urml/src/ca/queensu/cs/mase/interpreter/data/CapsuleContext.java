@@ -226,8 +226,8 @@ public class CapsuleContext {
 	}
 
 	private void initializeCapsule() {
-		Capsule c = capsule;
-		name = c.getName();
+//		Capsule c = capsule;
+//		name = c.getName();
 		// logger.debug("initialize: capsule " + name);
 		registerAttributes();
 		registerTrans();

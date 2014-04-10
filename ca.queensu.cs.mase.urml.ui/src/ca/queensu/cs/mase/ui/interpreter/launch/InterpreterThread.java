@@ -69,8 +69,8 @@ public class InterpreterThread {
 	 */
 	public static void stop() {
 		if (isRunning()) {
-			interpreterThread.stop();
-			// unlink the interpreter thread
+//			interpreterThread.stop();
+			interpreterThread.interrupt();
 			interpreterThread = null;
 		}
 	}

@@ -22,7 +22,7 @@ public class TerminateActionDelegate implements IViewActionDelegate {
 	@Override
 	public void run(IAction action) {
 		InterpreterThread.stop();
-		action.setEnabled(false);
+		//action.setEnabled(false);
 
 	}
 

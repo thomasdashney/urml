@@ -14,7 +14,7 @@ import ca.queensu.cs.mase.util.TreeNode;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
-public class CapsuleScheduler {
+public class CapsuleLoop {
 
 	/**
 	 * The output stream
@@ -32,10 +32,10 @@ public class CapsuleScheduler {
 	 */
 	private ExecutionConfig config;
 
-	private CapsuleScheduler() {
+	private CapsuleLoop() {
 	}
 
-	public CapsuleScheduler(BufferedReader in, PrintStream out,
+	public CapsuleLoop(BufferedReader in, PrintStream out,
 			ExecutionConfig config) {
 		this();
 		this.in = in;
@@ -50,7 +50,7 @@ public class CapsuleScheduler {
 	 * @param capsuleContexts
 	 *            the list of capsule instances
 	 */
-	public void loopCapsuleCtxFromTree(TreeNode<CapsuleContext> capsuleContexts) {
+	public void loopCapsule(TreeNode<CapsuleContext> capsuleContexts) {
 
 		// get configuration data about termination conditions
 		Optional<Instant> terminateInstant;
@@ -71,40 +71,43 @@ public class CapsuleScheduler {
 			// round robin fashion.
 			for (TreeNode<CapsuleContext> ctxNode : Iterables.cycle(Lists
 					.newArrayList(capsuleContexts))) {
-				if (checkExitCondition(ctxNode, capsuleContexts,
-						terminateInstant, terminateStateNum)) {
+				executeNextState(ctxNode.data);
+				if (Thread.currentThread().isInterrupted()
+						|| checkExitCondition(capsuleContexts,
+								terminateInstant, terminateStateNum)) {
 					break;
 				}
 			}
 		} catch (ClassCastException | NoSuchIdentifierException
 				| ConnectorException e) {
-			out.println(e);
+			e.printStackTrace(out);
 		}
+	}
+
+	private void executeNextState(CapsuleContext ctx) {
+		if (ctx.getCapsule().getStatemachines().size() != 0)
+			new StateExecuter(in, out, config).executeNextState(ctx);
 	}
 
 	/**
 	 * Check if we want to stop looping
-	 * @param ctxNode
+	 * 
 	 * @param capsuleContexts
 	 * @param terminateInstant
 	 * @param terminateStateNum
 	 * @return
 	 */
-	private boolean checkExitCondition(TreeNode<CapsuleContext> ctxNode,
+	private boolean checkExitCondition(
 			TreeNode<CapsuleContext> capsuleContexts,
 			Optional<Instant> terminateInstant, OptionalLong terminateStateNum) {
-		CapsuleContext ctx = ctxNode.data;
-		if (ctx.getCapsule().getStatemachines().size() != 0) {
+
+		if (checkAllCapsulesReachedFinalState(capsuleContexts)) {
 			// exit condition: quit looping if the state machines in all
 			// the capsules (which counting the capsules which do not
 			// have state machines) have reached the final state
-			boolean capsuleHasReachedFinalState = !new StateExecuter(
-					in, out, config).executeNextStateAndCheckIfNotFinal(ctx);
-			ctx.hasReachedFinalState(capsuleHasReachedFinalState);
-			if (checkAllCapsulesReachedFinalState(capsuleContexts)) {
-				return true;
-			}
+			return true;
 		}
+
 		if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_SECONDS) {
 			// exit condition: quit looping if we have passed beyond the
 			// the number of milliseconds to end the whole
@@ -113,6 +116,7 @@ public class CapsuleScheduler {
 				return true;
 			}
 		}
+
 		if (config.exitCons == ExecutionConfig.ExitCondition.BEFORE_TRANSITIONS) {
 			// exit condition: quit looping if we have passed beyond the
 			// number of transitions to interpret
@@ -122,6 +126,7 @@ public class CapsuleScheduler {
 				return true;
 			}
 		}
+
 		return false;
 	}
 
