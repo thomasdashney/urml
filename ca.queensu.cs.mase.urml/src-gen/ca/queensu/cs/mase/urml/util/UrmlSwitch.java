@@ -268,6 +268,7 @@ public class UrmlSwitch<T> extends Switch<T>
       {
         SendTrigger sendTrigger = (SendTrigger)theEObject;
         T result = caseSendTrigger(sendTrigger);
+        if (result == null) result = caseStatementOperation(sendTrigger);
         if (result == null) result = caseStatement(sendTrigger);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -276,6 +277,7 @@ public class UrmlSwitch<T> extends Switch<T>
       {
         InformTimer informTimer = (InformTimer)theEObject;
         T result = caseInformTimer(informTimer);
+        if (result == null) result = caseStatementOperation(informTimer);
         if (result == null) result = caseStatement(informTimer);
         if (result == null) result = defaultCase(theEObject);
         return result;

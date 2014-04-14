@@ -1,5 +1,7 @@
 package ca.queensu.cs.mase.ui.interpreter.launch;
 
+import java.io.IOException;
+
 import org.eclipse.jface.action.IAction;
 
 import ca.queensu.cs.mase.interpreter.UrmlInterpreter;
@@ -15,24 +17,28 @@ public class InterpreterThread {
 	private static Thread interpreterThread = null;
 	private static IAction action = null;
 
+	private static UrmlInterpreter interp = null;
 	/**
 	 * Starts the interpreter thread that is statically linked to this class
 	 * 
 	 * @param interpreter
 	 *            the interpreter that the thread is going to execute
 	 */
-	public static void start(final UrmlInterpreter interpreter) {
+	public static void start(UrmlInterpreter interpreter) {
 		if (isRunning()) {
 			stop();
 		}
 		interpreterThread = new Thread(() -> {
+			interp = interpreter;
 			interpreter.interpret();
+
 			// the interpreter has finished successfully (i.e., without
 			// interruption from the user). Clean up by unlink the
 			// terminate action and unlink interpreter thread.
 			if (action != null) {
 				action.setEnabled(false);
 				interpreterThread = null;
+				interp = null;
 			}
 		});
 		interpreterThread.start();
@@ -69,8 +75,14 @@ public class InterpreterThread {
 	 */
 	public static void stop() {
 		if (isRunning()) {
-//			interpreterThread.stop();
-			interpreterThread.interrupt();
+//			try {
+//				interp.getIn().close();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+			interpreterThread.stop();
+			action.setEnabled(false);
+//			interpreterThread.interrupt();
 			interpreterThread = null;
 		}
 	}

@@ -2629,7 +2629,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     returnStatementEClass.getESuperTypes().add(this.getStatementOperation());
     variableEClass.getESuperTypes().add(this.getStatementOperation());
     variableEClass.getESuperTypes().add(this.getStatement());
+    sendTriggerEClass.getESuperTypes().add(this.getStatementOperation());
     sendTriggerEClass.getESuperTypes().add(this.getStatement());
+    informTimerEClass.getESuperTypes().add(this.getStatementOperation());
     informTimerEClass.getESuperTypes().add(this.getStatement());
     noOpEClass.getESuperTypes().add(this.getStatementOperation());
     noOpEClass.getESuperTypes().add(this.getStatement());

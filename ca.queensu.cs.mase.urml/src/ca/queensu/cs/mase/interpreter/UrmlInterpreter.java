@@ -77,4 +77,8 @@ public class UrmlInterpreter {
 	public void stop() {
 		Thread.currentThread().interrupt();
 	}
+	
+	public BufferedReader getIn() {
+		return in;
+	}
 }

@@ -20,7 +20,7 @@ package ca.queensu.cs.mase.urml;
  * @model
  * @generated
  */
-public interface InformTimer extends Statement
+public interface InformTimer extends StatementOperation, Statement
 {
   /**
    * Returns the value of the '<em><b>Timer Port</b></em>' reference.

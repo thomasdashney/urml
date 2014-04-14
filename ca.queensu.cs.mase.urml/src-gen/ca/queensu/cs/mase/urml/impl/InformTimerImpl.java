@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class InformTimerImpl extends StatementImpl implements InformTimer
+public class InformTimerImpl extends StatementOperationImpl implements InformTimer
 {
   /**
    * The cached value of the '{@link #getTimerPort() <em>Timer Port</em>}' reference.

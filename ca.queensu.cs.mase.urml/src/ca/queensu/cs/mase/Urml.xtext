@@ -33,8 +33,8 @@ Attribute
 
 Protocol
 	:	'protocol' name=ID '{'
-		('incoming' '{' incomingMessages+=Signal* '}')?
-		('outgoing' '{' outgoingMessages+=Signal* '}')?
+		(('incoming' '{' incomingMessages+=Signal* '}')|
+		('outgoing' '{' outgoingMessages+=Signal* '}'))*
 		'}'
 	;
 
@@ -163,6 +163,8 @@ StatementOperation
 	|	Variable
 	| 	Invoke
 	| 	Assignment
+	|   SendTrigger
+	|   InformTimer
 	| 	WhileLoopOperation
 	| 	IfStatementOperation
 	| 	LogStatement

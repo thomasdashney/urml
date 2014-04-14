@@ -289,7 +289,7 @@ public class StateExecuter {
 						.or(TriggerPredicates.hasActivatedMessages(ctx))
 						.or(TriggerPredicates.hasActivatedTimeouts(ctx)))
 				.collect(Collectors.toList());
-		Transition selected = new TransitionSelector(in, out, config)
+		Transition selected = new TransitionSelector(in, out, config, ctx)
 				.select(filtered);
 		return selected;
 

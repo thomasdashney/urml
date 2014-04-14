@@ -38,6 +38,7 @@ public class UrmlParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getModelAccess().getAlternatives_3(), "rule__Model__Alternatives_3");
+					put(grammarAccess.getProtocolAccess().getAlternatives_3(), "rule__Protocol__Alternatives_3");
 					put(grammarAccess.getCapsuleAccess().getAlternatives_4(), "rule__Capsule__Alternatives_4");
 					put(grammarAccess.getStateMachineAccess().getAlternatives_3(), "rule__StateMachine__Alternatives_3");
 					put(grammarAccess.getTransitionAccess().getAlternatives_3(), "rule__Transition__Alternatives_3");
@@ -59,8 +60,8 @@ public class UrmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getAttributeAccess().getGroup_2(), "rule__Attribute__Group_2__0");
 					put(grammarAccess.getProtocolAccess().getGroup(), "rule__Protocol__Group__0");
-					put(grammarAccess.getProtocolAccess().getGroup_3(), "rule__Protocol__Group_3__0");
-					put(grammarAccess.getProtocolAccess().getGroup_4(), "rule__Protocol__Group_4__0");
+					put(grammarAccess.getProtocolAccess().getGroup_3_0(), "rule__Protocol__Group_3_0__0");
+					put(grammarAccess.getProtocolAccess().getGroup_3_1(), "rule__Protocol__Group_3_1__0");
 					put(grammarAccess.getSignalAccess().getGroup(), "rule__Signal__Group__0");
 					put(grammarAccess.getSignalAccess().getGroup_2(), "rule__Signal__Group_2__0");
 					put(grammarAccess.getSignalAccess().getGroup_2_1(), "rule__Signal__Group_2_1__0");
@@ -157,8 +158,8 @@ public class UrmlParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
 					put(grammarAccess.getAttributeAccess().getDefaultValueAssignment_2_1(), "rule__Attribute__DefaultValueAssignment_2_1");
 					put(grammarAccess.getProtocolAccess().getNameAssignment_1(), "rule__Protocol__NameAssignment_1");
-					put(grammarAccess.getProtocolAccess().getIncomingMessagesAssignment_3_2(), "rule__Protocol__IncomingMessagesAssignment_3_2");
-					put(grammarAccess.getProtocolAccess().getOutgoingMessagesAssignment_4_2(), "rule__Protocol__OutgoingMessagesAssignment_4_2");
+					put(grammarAccess.getProtocolAccess().getIncomingMessagesAssignment_3_0_2(), "rule__Protocol__IncomingMessagesAssignment_3_0_2");
+					put(grammarAccess.getProtocolAccess().getOutgoingMessagesAssignment_3_1_2(), "rule__Protocol__OutgoingMessagesAssignment_3_1_2");
 					put(grammarAccess.getSignalAccess().getNameAssignment_0(), "rule__Signal__NameAssignment_0");
 					put(grammarAccess.getSignalAccess().getLocalVarsAssignment_2_0(), "rule__Signal__LocalVarsAssignment_2_0");
 					put(grammarAccess.getSignalAccess().getLocalVarsAssignment_2_1_1(), "rule__Signal__LocalVarsAssignment_2_1_1");

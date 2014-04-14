@@ -1244,7 +1244,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_TRIGGER__TRIGGERS = STATEMENT_FEATURE_COUNT + 0;
+  int SEND_TRIGGER__TRIGGERS = STATEMENT_OPERATION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Send Trigger</em>' class.
@@ -1253,7 +1253,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEND_TRIGGER_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int SEND_TRIGGER_FEATURE_COUNT = STATEMENT_OPERATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.InformTimerImpl <em>Inform Timer</em>}' class.
@@ -1272,7 +1272,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INFORM_TIMER__TIMER_PORT = STATEMENT_FEATURE_COUNT + 0;
+  int INFORM_TIMER__TIMER_PORT = STATEMENT_OPERATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Time</b></em>' containment reference.
@@ -1281,7 +1281,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INFORM_TIMER__TIME = STATEMENT_FEATURE_COUNT + 1;
+  int INFORM_TIMER__TIME = STATEMENT_OPERATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Inform Timer</em>' class.
@@ -1290,7 +1290,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INFORM_TIMER_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int INFORM_TIMER_FEATURE_COUNT = STATEMENT_OPERATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.NoOpImpl <em>No Op</em>}' class.

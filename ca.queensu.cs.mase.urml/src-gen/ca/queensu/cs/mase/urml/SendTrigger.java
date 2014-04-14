@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SendTrigger extends Statement
+public interface SendTrigger extends StatementOperation, Statement
 {
   /**
    * Returns the value of the '<em><b>Triggers</b></em>' containment reference list.

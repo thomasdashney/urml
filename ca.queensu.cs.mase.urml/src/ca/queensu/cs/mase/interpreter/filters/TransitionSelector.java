@@ -8,7 +8,9 @@ import java.util.List;
 import org.eclipse.xtext.EcoreUtil2;
 
 import ca.queensu.cs.mase.interpreter.ExecutionConfig;
+import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.urml.Capsule;
+import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Transition;
 
 public class TransitionSelector {
@@ -16,12 +18,14 @@ public class TransitionSelector {
 	private BufferedReader in;
 	private PrintStream out;
 	private ExecutionConfig config;
-
+	private CapsuleContext ctx;
+	
 	public TransitionSelector(BufferedReader in, PrintStream out,
-			ExecutionConfig config) {
+			ExecutionConfig config, CapsuleContext ctx) {
 		this.in = in;
 		this.out = out;
 		this.config = config;
+		this.ctx = ctx;
 	}
 
 	/**
@@ -36,12 +40,14 @@ public class TransitionSelector {
 	 *         such transition is available
 	 */
 	public Transition select(List<Transition> nextTransitionList) {
-		if (nextTransitionList.size() == 0)
+		if (nextTransitionList.size() == 0) {
 			return null;
-		else if (nextTransitionList.size() == 1)
+		} else if (nextTransitionList.size() == 1) {
 			return nextTransitionList.get(0);
-		else
+		} else {
+			out.println("NON-DETERMINISM");
 			return chooseNextTransition(nextTransitionList);
+		}
 	}
 
 	/**
@@ -88,30 +94,34 @@ public class TransitionSelector {
 	 *            execute next.
 	 * @return the transition to be executed next, as suggested by the user
 	 * @throws IOException
-	 *             when the user is malicious and does something bad to the I/O
+	 *             when the user does something bad to the I/O
 	 */
 	private int userSelectTransition(List<Transition> nextTransitionList)
 			throws IOException {
 		while (true) {
-			String capsuleName = "";
+//			String capsuleName = "";
+			CapsuleInst c = ctx.getCapsuleInst();
 			int transitionIndex = 0;
 			for (Transition tr : nextTransitionList) {
-				Capsule c = EcoreUtil2.getContainerOfType(tr, Capsule.class);
-				capsuleName = c != null ? c.getName() : "";
-				out.println(capsuleName + " " + transitionIndex + ". "
+				
+				
+				out.println(c.getName() + " " + transitionIndex + ". "
 						+ toStringForTransition(tr));
 				transitionIndex++;
 			}
-			out.println("capsule name: " + capsuleName
+			out.print("capsule name: " + c.getName()
 					+ ". choose the transition you wish to launch:");
 			// String transitionSelectionStr = in.readLine();
 			// return Integer.parseInt(transitionSelectionStr);
-			int transitionSelectionStr = Integer.parseInt(in.readLine());
-			if (transitionSelectionStr >= 0
-					&& transitionSelectionStr < nextTransitionList.size()) {
-				return transitionSelectionStr;
+			try {
+				int transitionSelectionStr = Integer.parseInt(in.readLine());
+				if (transitionSelectionStr >= 0
+						&& transitionSelectionStr < nextTransitionList.size()) {
+					return transitionSelectionStr;
+				}
+			} catch (NumberFormatException consumed) {
 			}
-			out.println(capsuleName
+			out.println(c.getName()
 					+ ": error: please choose the proper selection");
 		}
 	}

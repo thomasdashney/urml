@@ -152,11 +152,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SendTrigger" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="SendTrigger" eSuperTypes="#//StatementOperation #//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
         eType="#//Trigger_out" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InformTimer" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="InformTimer" eSuperTypes="#//StatementOperation #//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="timerPort" eType="#//TimerPort"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="time" eType="#//Expression"
         containment="true"/>

@@ -398,7 +398,8 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				else break;
 			case UrmlPackage.INFORM_TIMER:
 				if(context == grammarAccess.getInformTimerRule() ||
-				   context == grammarAccess.getStatementRule()) {
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStatementOperationRule()) {
 					sequence_InformTimer(context, (InformTimer) semanticObject); 
 					return; 
 				}
@@ -727,7 +728,8 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				else break;
 			case UrmlPackage.SEND_TRIGGER:
 				if(context == grammarAccess.getSendTriggerRule() ||
-				   context == grammarAccess.getStatementRule()) {
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStatementOperationRule()) {
 					sequence_SendTrigger(context, (SendTrigger) semanticObject); 
 					return; 
 				}
@@ -1298,7 +1300,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID incomingMessages+=Signal* outgoingMessages+=Signal*)
+	 *     (name=ID (incomingMessages+=Signal* | outgoingMessages+=Signal*)*)
 	 */
 	protected void sequence_Protocol(EObject context, Protocol semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

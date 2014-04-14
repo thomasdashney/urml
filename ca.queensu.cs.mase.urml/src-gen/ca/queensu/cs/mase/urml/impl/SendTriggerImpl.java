@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SendTriggerImpl extends StatementImpl implements SendTrigger
+public class SendTriggerImpl extends StatementOperationImpl implements SendTrigger
 {
   /**
    * The cached value of the '{@link #getTriggers() <em>Triggers</em>}' containment reference list.

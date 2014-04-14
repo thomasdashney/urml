@@ -135,28 +135,29 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cIncomingKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cIncomingMessagesAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cIncomingMessagesSignalParserRuleCall_3_2_0 = (RuleCall)cIncomingMessagesAssignment_3_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cOutgoingKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cOutgoingMessagesAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cOutgoingMessagesSignalParserRuleCall_4_2_0 = (RuleCall)cOutgoingMessagesAssignment_4_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
+		private final Keyword cIncomingKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_0_1 = (Keyword)cGroup_3_0.eContents().get(1);
+		private final Assignment cIncomingMessagesAssignment_3_0_2 = (Assignment)cGroup_3_0.eContents().get(2);
+		private final RuleCall cIncomingMessagesSignalParserRuleCall_3_0_2_0 = (RuleCall)cIncomingMessagesAssignment_3_0_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_0_3 = (Keyword)cGroup_3_0.eContents().get(3);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Keyword cOutgoingKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cOutgoingMessagesAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cOutgoingMessagesSignalParserRuleCall_3_1_2_0 = (RuleCall)cOutgoingMessagesAssignment_3_1_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_1_3 = (Keyword)cGroup_3_1.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		/// ****************************************************************
 		// * Protocol
 		// **************************************************************** / Protocol:
-		//	"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}")? ("outgoing" "{" outgoingMessages+=Signal*
-		//	"}")? "}";
+		//	"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}" | "outgoing" "{" outgoingMessages+=Signal* "}")*
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}")? ("outgoing" "{" outgoingMessages+=Signal* "}")?
+		//"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}" | "outgoing" "{" outgoingMessages+=Signal* "}")*
 		//"}"
 		public Group getGroup() { return cGroup; }
 
@@ -172,44 +173,47 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("incoming" "{" incomingMessages+=Signal* "}")?
-		public Group getGroup_3() { return cGroup_3; }
+		//("incoming" "{" incomingMessages+=Signal* "}" | "outgoing" "{" outgoingMessages+=Signal* "}")*
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+
+		//"incoming" "{" incomingMessages+=Signal* "}"
+		public Group getGroup_3_0() { return cGroup_3_0; }
 
 		//"incoming"
-		public Keyword getIncomingKeyword_3_0() { return cIncomingKeyword_3_0; }
+		public Keyword getIncomingKeyword_3_0_0() { return cIncomingKeyword_3_0_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+		public Keyword getLeftCurlyBracketKeyword_3_0_1() { return cLeftCurlyBracketKeyword_3_0_1; }
 
 		//incomingMessages+=Signal*
-		public Assignment getIncomingMessagesAssignment_3_2() { return cIncomingMessagesAssignment_3_2; }
+		public Assignment getIncomingMessagesAssignment_3_0_2() { return cIncomingMessagesAssignment_3_0_2; }
 
 		//Signal
-		public RuleCall getIncomingMessagesSignalParserRuleCall_3_2_0() { return cIncomingMessagesSignalParserRuleCall_3_2_0; }
+		public RuleCall getIncomingMessagesSignalParserRuleCall_3_0_2_0() { return cIncomingMessagesSignalParserRuleCall_3_0_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+		public Keyword getRightCurlyBracketKeyword_3_0_3() { return cRightCurlyBracketKeyword_3_0_3; }
 
-		//("outgoing" "{" outgoingMessages+=Signal* "}")?
-		public Group getGroup_4() { return cGroup_4; }
+		//"outgoing" "{" outgoingMessages+=Signal* "}"
+		public Group getGroup_3_1() { return cGroup_3_1; }
 
 		//"outgoing"
-		public Keyword getOutgoingKeyword_4_0() { return cOutgoingKeyword_4_0; }
+		public Keyword getOutgoingKeyword_3_1_0() { return cOutgoingKeyword_3_1_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
+		public Keyword getLeftCurlyBracketKeyword_3_1_1() { return cLeftCurlyBracketKeyword_3_1_1; }
 
 		//outgoingMessages+=Signal*
-		public Assignment getOutgoingMessagesAssignment_4_2() { return cOutgoingMessagesAssignment_4_2; }
+		public Assignment getOutgoingMessagesAssignment_3_1_2() { return cOutgoingMessagesAssignment_3_1_2; }
 
 		//Signal
-		public RuleCall getOutgoingMessagesSignalParserRuleCall_4_2_0() { return cOutgoingMessagesSignalParserRuleCall_4_2_0; }
+		public RuleCall getOutgoingMessagesSignalParserRuleCall_3_1_2_0() { return cOutgoingMessagesSignalParserRuleCall_3_1_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4_3() { return cRightCurlyBracketKeyword_4_3; }
+		public Keyword getRightCurlyBracketKeyword_3_1_3() { return cRightCurlyBracketKeyword_3_1_3; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class SignalElements extends AbstractParserRuleElementFinder {
@@ -1245,16 +1249,20 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariableParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cInvokeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cAssignmentParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cWhileLoopOperationParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cIfStatementOperationParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cLogStatementParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cReturnStatementParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cSendTriggerParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cInformTimerParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cWhileLoopOperationParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cIfStatementOperationParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cLogStatementParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cReturnStatementParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		
 		//StatementOperation:
-		//	NoOp | Variable | Invoke | Assignment | WhileLoopOperation | IfStatementOperation | LogStatement | ReturnStatement;
+		//	NoOp | Variable | Invoke | Assignment | SendTrigger | InformTimer | WhileLoopOperation | IfStatementOperation |
+		//	LogStatement | ReturnStatement;
 		public ParserRule getRule() { return rule; }
 
-		//NoOp | Variable | Invoke | Assignment | WhileLoopOperation | IfStatementOperation | LogStatement | ReturnStatement
+		//NoOp | Variable | Invoke | Assignment | SendTrigger | InformTimer | WhileLoopOperation | IfStatementOperation |
+		//LogStatement | ReturnStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//NoOp
@@ -1269,17 +1277,23 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Assignment
 		public RuleCall getAssignmentParserRuleCall_3() { return cAssignmentParserRuleCall_3; }
 
+		//SendTrigger
+		public RuleCall getSendTriggerParserRuleCall_4() { return cSendTriggerParserRuleCall_4; }
+
+		//InformTimer
+		public RuleCall getInformTimerParserRuleCall_5() { return cInformTimerParserRuleCall_5; }
+
 		//WhileLoopOperation
-		public RuleCall getWhileLoopOperationParserRuleCall_4() { return cWhileLoopOperationParserRuleCall_4; }
+		public RuleCall getWhileLoopOperationParserRuleCall_6() { return cWhileLoopOperationParserRuleCall_6; }
 
 		//IfStatementOperation
-		public RuleCall getIfStatementOperationParserRuleCall_5() { return cIfStatementOperationParserRuleCall_5; }
+		public RuleCall getIfStatementOperationParserRuleCall_7() { return cIfStatementOperationParserRuleCall_7; }
 
 		//LogStatement
-		public RuleCall getLogStatementParserRuleCall_6() { return cLogStatementParserRuleCall_6; }
+		public RuleCall getLogStatementParserRuleCall_8() { return cLogStatementParserRuleCall_8; }
 
 		//ReturnStatement
-		public RuleCall getReturnStatementParserRuleCall_7() { return cReturnStatementParserRuleCall_7; }
+		public RuleCall getReturnStatementParserRuleCall_9() { return cReturnStatementParserRuleCall_9; }
 	}
 
 	public class WhileLoopOperationElements extends AbstractParserRuleElementFinder {
@@ -2738,8 +2752,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	/// ****************************************************************
 	// * Protocol
 	// **************************************************************** / Protocol:
-	//	"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}")? ("outgoing" "{" outgoingMessages+=Signal*
-	//	"}")? "}";
+	//	"protocol" name=ID "{" ("incoming" "{" incomingMessages+=Signal* "}" | "outgoing" "{" outgoingMessages+=Signal* "}")*
+	//	"}";
 	public ProtocolElements getProtocolAccess() {
 		return (pProtocol != null) ? pProtocol : (pProtocol = new ProtocolElements());
 	}
@@ -2917,7 +2931,8 @@ public class UrmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//StatementOperation:
-	//	NoOp | Variable | Invoke | Assignment | WhileLoopOperation | IfStatementOperation | LogStatement | ReturnStatement;
+	//	NoOp | Variable | Invoke | Assignment | SendTrigger | InformTimer | WhileLoopOperation | IfStatementOperation |
+	//	LogStatement | ReturnStatement;
 	public StatementOperationElements getStatementOperationAccess() {
 		return (pStatementOperation != null) ? pStatementOperation : (pStatementOperation = new StatementOperationElements());
 	}

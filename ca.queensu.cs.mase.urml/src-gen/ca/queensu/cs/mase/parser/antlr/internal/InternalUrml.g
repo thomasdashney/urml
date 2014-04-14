@@ -295,18 +295,18 @@ ruleProtocol returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_2());
     }
-(	otherlv_3='incoming' 
+((	otherlv_3='incoming' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getProtocolAccess().getIncomingKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getProtocolAccess().getIncomingKeyword_3_0_0());
     }
 	otherlv_4='{' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_3_1());
+    	newLeafNode(otherlv_4, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_3_0_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProtocolAccess().getIncomingMessagesSignalParserRuleCall_3_2_0()); 
+	        newCompositeNode(grammarAccess.getProtocolAccess().getIncomingMessagesSignalParserRuleCall_3_0_2_0()); 
 	    }
 		lv_incomingMessages_5_0=ruleSignal		{
 	        if ($current==null) {
@@ -323,20 +323,21 @@ ruleProtocol returns [EObject current=null]
 )
 )*	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_3_3());
+    	newLeafNode(otherlv_6, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_3_0_3());
     }
-)?(	otherlv_7='outgoing' 
+)
+    |(	otherlv_7='outgoing' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getProtocolAccess().getOutgoingKeyword_4_0());
+    	newLeafNode(otherlv_7, grammarAccess.getProtocolAccess().getOutgoingKeyword_3_1_0());
     }
 	otherlv_8='{' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_4_1());
+    	newLeafNode(otherlv_8, grammarAccess.getProtocolAccess().getLeftCurlyBracketKeyword_3_1_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProtocolAccess().getOutgoingMessagesSignalParserRuleCall_4_2_0()); 
+	        newCompositeNode(grammarAccess.getProtocolAccess().getOutgoingMessagesSignalParserRuleCall_3_1_2_0()); 
 	    }
 		lv_outgoingMessages_9_0=ruleSignal		{
 	        if ($current==null) {
@@ -353,11 +354,11 @@ ruleProtocol returns [EObject current=null]
 )
 )*	otherlv_10='}' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_4_3());
+    	newLeafNode(otherlv_10, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_3_1_3());
     }
-)?	otherlv_11='}' 
+))*	otherlv_11='}' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_11, grammarAccess.getProtocolAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -1899,41 +1900,61 @@ ruleStatementOperation returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getStatementOperationAccess().getWhileLoopOperationParserRuleCall_4()); 
+        newCompositeNode(grammarAccess.getStatementOperationAccess().getSendTriggerParserRuleCall_4()); 
     }
-    this_WhileLoopOperation_4=ruleWhileLoopOperation
+    this_SendTrigger_4=ruleSendTrigger
     { 
-        $current = $this_WhileLoopOperation_4.current; 
+        $current = $this_SendTrigger_4.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getStatementOperationAccess().getIfStatementOperationParserRuleCall_5()); 
+        newCompositeNode(grammarAccess.getStatementOperationAccess().getInformTimerParserRuleCall_5()); 
     }
-    this_IfStatementOperation_5=ruleIfStatementOperation
+    this_InformTimer_5=ruleInformTimer
     { 
-        $current = $this_IfStatementOperation_5.current; 
+        $current = $this_InformTimer_5.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getStatementOperationAccess().getLogStatementParserRuleCall_6()); 
+        newCompositeNode(grammarAccess.getStatementOperationAccess().getWhileLoopOperationParserRuleCall_6()); 
     }
-    this_LogStatement_6=ruleLogStatement
+    this_WhileLoopOperation_6=ruleWhileLoopOperation
     { 
-        $current = $this_LogStatement_6.current; 
+        $current = $this_WhileLoopOperation_6.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getStatementOperationAccess().getReturnStatementParserRuleCall_7()); 
+        newCompositeNode(grammarAccess.getStatementOperationAccess().getIfStatementOperationParserRuleCall_7()); 
     }
-    this_ReturnStatement_7=ruleReturnStatement
+    this_IfStatementOperation_7=ruleIfStatementOperation
     { 
-        $current = $this_ReturnStatement_7.current; 
+        $current = $this_IfStatementOperation_7.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getStatementOperationAccess().getLogStatementParserRuleCall_8()); 
+    }
+    this_LogStatement_8=ruleLogStatement
+    { 
+        $current = $this_LogStatement_8.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getStatementOperationAccess().getReturnStatementParserRuleCall_9()); 
+    }
+    this_ReturnStatement_9=ruleReturnStatement
+    { 
+        $current = $this_ReturnStatement_9.current; 
         afterParserOrEnumRuleCall();
     }
 )
