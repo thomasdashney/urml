@@ -80,7 +80,10 @@ public class InterpreterThread {
 //			} catch (IOException e) {
 //				e.printStackTrace();
 //			}
+			try {
 			interpreterThread.stop();
+			} catch (ThreadDeath consumed) {
+			}
 			action.setEnabled(false);
 //			interpreterThread.interrupt();
 			interpreterThread = null;

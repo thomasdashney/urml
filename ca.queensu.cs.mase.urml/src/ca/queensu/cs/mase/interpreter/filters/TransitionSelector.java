@@ -9,6 +9,7 @@ import org.eclipse.xtext.EcoreUtil2;
 
 import ca.queensu.cs.mase.interpreter.ExecutionConfig;
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
+import ca.queensu.cs.mase.interpreter.data.CapsuleContextNextTransitionPair;
 import ca.queensu.cs.mase.urml.Capsule;
 import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Transition;
@@ -18,14 +19,15 @@ public class TransitionSelector {
 	private BufferedReader in;
 	private PrintStream out;
 	private ExecutionConfig config;
-	private CapsuleContext ctx;
-	
+
+	// private CapsuleContext ctx;
+
 	public TransitionSelector(BufferedReader in, PrintStream out,
-			ExecutionConfig config, CapsuleContext ctx) {
+			ExecutionConfig config) {
 		this.in = in;
 		this.out = out;
 		this.config = config;
-		this.ctx = ctx;
+		// this.ctx = ctx;
 	}
 
 	/**
@@ -39,7 +41,8 @@ public class TransitionSelector {
 	 * @return the single transition to be executed next, or {@code null} if no
 	 *         such transition is available
 	 */
-	public Transition select(List<Transition> nextTransitionList) {
+	public CapsuleContextNextTransitionPair select(
+			List<CapsuleContextNextTransitionPair> nextTransitionList) {
 		if (nextTransitionList.size() == 0) {
 			return null;
 		} else if (nextTransitionList.size() == 1) {
@@ -63,7 +66,8 @@ public class TransitionSelector {
 	 *            in the list
 	 * @return the single transition to be executed next
 	 */
-	private Transition chooseNextTransition(List<Transition> trans) {
+	private CapsuleContextNextTransitionPair chooseNextTransition(
+			List<CapsuleContextNextTransitionPair> trans) {
 		switch (config.multiTrans) {
 		case FIRST_TRANSITION:
 			return trans.get(0);
@@ -96,21 +100,21 @@ public class TransitionSelector {
 	 * @throws IOException
 	 *             when the user does something bad to the I/O
 	 */
-	private int userSelectTransition(List<Transition> nextTransitionList)
+	private int userSelectTransition(
+			List<CapsuleContextNextTransitionPair> nextTransitionList)
 			throws IOException {
 		while (true) {
-//			String capsuleName = "";
-			CapsuleInst c = ctx.getCapsuleInst();
+			// String capsuleName = "";
+			// CapsuleInst c = ctx.getCapsuleInst();
 			int transitionIndex = 0;
-			for (Transition tr : nextTransitionList) {
-				
-				
+			for (CapsuleContextNextTransitionPair pr : nextTransitionList) {
+				CapsuleInst c = pr.getCtx().getCapsuleInst();
+				Transition tr = pr.getTrans();
 				out.println(c.getName() + " " + transitionIndex + ". "
 						+ toStringForTransition(tr));
 				transitionIndex++;
 			}
-			out.print("capsule name: " + c.getName()
-					+ ". choose the transition you wish to launch:");
+			out.print("choose the transition you wish to launch:");
 			// String transitionSelectionStr = in.readLine();
 			// return Integer.parseInt(transitionSelectionStr);
 			try {
@@ -121,8 +125,7 @@ public class TransitionSelector {
 				}
 			} catch (NumberFormatException consumed) {
 			}
-			out.println(c.getName()
-					+ ": error: please choose the proper selection");
+			out.println("error: please choose the proper selection");
 		}
 	}
 

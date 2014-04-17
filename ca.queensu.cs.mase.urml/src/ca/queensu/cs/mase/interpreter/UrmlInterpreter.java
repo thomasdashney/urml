@@ -68,7 +68,7 @@ public class UrmlInterpreter {
 				model, out).getRootContextNode();
 		try {
 			new CapsuleLoop(in, out, config).loopCapsule(rootCtx);
-		} catch (UrmlInterruptedException consumed) {
+		} catch (UrmlInterruptedException | ThreadDeath consumed) {
 
 		}
 		System.out.println("STOP");

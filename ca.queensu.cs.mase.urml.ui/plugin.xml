@@ -440,7 +440,8 @@
          class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.shortcut.LaunchShortcutFirstTransition"
          id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
          label="Urml Model (First transition)"
-         modes="run">
+         modes="run"
+         description="When non-determinism occurs (i.e. when there are more than one enabled transitions), select the first one from the enabled transition list and then execute it.">
          <contextualLaunch>
           <enablement>
            <with variable="selection">
@@ -460,7 +461,8 @@
          class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.shortcut.LaunchShortcutRandomTransition"
          id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
          label="Urml Model (Random transition)"
-         modes="run">
+         modes="run"
+         description="When non-determinism occurs (i.e. when there are more than one enabled transitions), select a random one from the enabled transition list and then execute it.">
          <contextualLaunch>
           <enablement>
            <with variable="selection">
@@ -480,7 +482,8 @@
          class="ca.queensu.cs.mase.ui.UrmlExecutableExtensionFactory:ca.queensu.cs.mase.ui.interpreter.launch.shortcut.LaunchShortcutInteractive"
          id="ca.queensu.cs.mase.ui.interpreter.launch.shortcut"
          label="Urml Model (Interactive)"
-         modes="run">
+         modes="run"
+         description="When non-determinism occurs (i.e. when there are more than one enabled transitions), ask the user which transition to select from the enabled transition list.">
          <contextualLaunch>
           <enablement>
            <with variable="selection">
@@ -518,6 +521,34 @@
            </selection>
          </action>
    </viewContribution>
+</extension>
+<extension
+      point="org.eclipse.ui.newWizards">
+   <category
+         id="ca.queensu.cs.mase.urml.ui.newExamples"
+         name="Urml"
+         parentCategory="org.eclipse.ui.Examples">
+   </category>
+   <wizard
+         category="org.eclipse.ui.Examples/ca.queensu.cs.mase.urml.ui.newExamples"
+         class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+         id="ca.queensu.cs.mase.urml.ui.newExampleWizard"
+         name="Urml Examples">
+      <description>
+         Unpacks the examples for Urml
+      </description>
+   </wizard>
+</extension>
+<extension
+      point="org.eclipse.emf.common.ui.examples">
+   <example
+         wizardID="ca.queensu.cs.mase.urml.ui.newExampleWizard">
+      <projectDescriptor
+            name="ca.queensu.cs.mase.urml.examples"
+            description="Examples"
+            contentURI="contents/ca.queensu.cs.mase.urml.sample3.zip">
+      </projectDescriptor>
+   </example>
 </extension>
 
 </plugin>
