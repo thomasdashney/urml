@@ -3,20 +3,16 @@ package ca.queensu.cs.mase.interpreter;
 import java.io.BufferedReader;
 import java.io.PrintStream;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalLong;
 
-import ca.queensu.cs.mase.interpreter.OppositeFinder.ConnectorException;
 import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.interpreter.data.CapsuleContextNextTransitionPair;
-import ca.queensu.cs.mase.interpreter.dispatchers.ExpressionEvaluator.NoSuchIdentifierException;
 import ca.queensu.cs.mase.interpreter.filters.TransitionSelector;
 import ca.queensu.cs.mase.urml.Transition;
 import ca.queensu.cs.mase.util.TreeNode;
 
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 public class CapsuleLoop {
@@ -71,7 +67,6 @@ public class CapsuleLoop {
 		else
 			terminateStateNum = OptionalLong.empty();
 
-		// List<TreeNode<CapsuleContext>> treeNodeList = ;
 		List<CapsuleContext> capsuleCtxs = Lists.newArrayList();
 		for (TreeNode<CapsuleContext> tn : Lists.newArrayList(root)) {
 			capsuleCtxs.add(tn.data);
@@ -103,24 +98,6 @@ public class CapsuleLoop {
 				break;
 			}
 		}
-
-		// try {
-		// // loop through the capsule instances and run them in
-		// // round robin fashion.
-		// for (TreeNode<CapsuleContext> ctxNode : Iterables.cycle(Lists
-		// .newArrayList(capsuleContexts))) {
-		// executeNextState(ctxNode.data);
-		// if (Thread.currentThread().isInterrupted()
-		// || checkExitCondition(capsuleContexts,
-		// terminateInstant, terminateStateNum)) {
-		// break;
-		// }
-		// }
-		// } catch (ClassCastException | NoSuchIdentifierException
-		// | ConnectorException e) {
-		// e.printStackTrace(out);
-		// }
-
 	}
 
 	// private void executeNextState(CapsuleContext ctx) {
@@ -168,6 +145,16 @@ public class CapsuleLoop {
 		return false;
 	}
 
+	/**
+	 * Check if all the capsule instances in {@code capsuleContextsList} are in
+	 * final state. The capsule instances that do not have state machines are
+	 * not checked and assumed to be in final state.
+	 * 
+	 * @param capsuleContextsList
+	 *            to list of capsule instances
+	 * @return true if all capsule instances in the capsule instance list are at
+	 *         final state
+	 */
 	private boolean checkAllCapsulesReachedFinalState(List<CapsuleContext> ctxs) {
 		// check if all capsules has reached the final state. note
 		// that capsules that do not have state machines are ignored.

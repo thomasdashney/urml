@@ -12,7 +12,7 @@ import ca.queensu.cs.mase.urml.Trigger_in;
 import ca.queensu.cs.mase.util.MessageDesc;
 
 public class TriggerPredicates {
-	public static Predicate<Transition> isDefault() {
+	public static Predicate<Transition> hasNoTriggersDefined() {
 		return t -> t.getTriggers().size() == 0 && t.getTimerPort() == null;
 	}
 

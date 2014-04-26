@@ -1,6 +1,5 @@
 package ca.queensu.cs.mase.interpreter;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.HashMap;
@@ -91,39 +90,64 @@ public class StateExecuter {
 	// ctx.hasReachedFinalState(hasReachedFinalState);
 	// }
 
+	/**
+	 * Executes the initial transition for the capsule context @{code ctx}.
+	 * 
+	 * @param ctx
+	 */
 	public void executeInitialTransition(CapsuleContext ctx) {
 		boolean hasReachedFinalState = findExecuteFirstStateAndCheckIfFinal(ctx);
 		ctx.hasReachedFinalState(hasReachedFinalState);
 	}
 
+	/**
+	 * Finds the next enabled transitions from the current state of @{code ctx}
+	 * and returns them as a list.
+	 * 
+	 * @param ctx
+	 * @return
+	 */
 	public List<Transition> findNextTransitions(CapsuleContext ctx) {
 		State_ stateToGoThrough = ctx.getCurrentState();
 		if (stateToGoThrough == null || stateToGoThrough.isFinal()) {
+			// if no current state or current state is already final, make
+			// the state machine stop doing anything
 			return Lists.newArrayList();
 		}
-		List<Transition> candidateEnabledTrans = new ArrayList<>();
 		do {
 			// get the outgoing transitions from stateToGoThrough
 			Collection<Transition> outgoingTransitions = ctx
 					.getOutgoingTransitions().get(stateToGoThrough);
-			// add those outgoing transitions to the candidate enabled
-			// transition list
-			candidateEnabledTrans.addAll(outgoingTransitions);
-			// get current state's ancestors
+			// filter out so that only enabled transitions remain
+			List<Transition> enabledTransitions = outgoingTransitions
+					.stream()
+					.filter(GuardPredicates.hasNoGuard().or(
+							GuardPredicates.evalsToTrue(ctx)))
+					.filter(TriggerPredicates.hasNoTriggersDefined()
+							.or(TriggerPredicates.hasActivatedMessages(ctx))
+							.or(TriggerPredicates.hasActivatedTimeouts(ctx)))
+					.collect(Collectors.toList());
+			// return the enabled transitions if there is any
+			if (!enabledTransitions.isEmpty()) {
+				return enabledTransitions;
+			}
+			// get the composite state that contains the current state
 			stateToGoThrough = EcoreUtil2.getContainerOfType(
 					stateToGoThrough.eContainer(), State_.class);
 		} while (stateToGoThrough != null);
 
-		return candidateEnabledTrans
-				.stream()
-				.filter(GuardPredicates.hasNoGuard().or(
-						GuardPredicates.evalsToTrue(ctx)))
-				.filter(TriggerPredicates.isDefault()
-						.or(TriggerPredicates.hasActivatedMessages(ctx))
-						.or(TriggerPredicates.hasActivatedTimeouts(ctx)))
-				.collect(Collectors.toList());
+		return Lists.newArrayList();
 	}
 
+
+	/**
+	 * Executes the next transition from the current state of {@code ctx}.
+	 * Throws an exception if the @{code nextTrans} does not come out from the
+	 * current state of @{code ctx}.
+	 * 
+	 * @param nextTrans
+	 * @param ctx
+	 */
 	public void executeNextTransition(Transition nextTrans, CapsuleContext ctx) {
 		if (!getStateWithChildren(nextTrans.getFrom()).contains(
 				ctx.getCurrentState())) {
@@ -132,12 +156,13 @@ public class StateExecuter {
 					+ ctx.getCurrentState().getName() + " in "
 					+ ctx.getCapsule().getName());
 		}
-		Transitions.preprocess(nextTrans, ctx);
+		Transitions.processTriggers(nextTrans, ctx);
 		chainExitActionEntryCode(nextTrans, ctx);
 		State_ toState = nextTrans.getTo();
 		ctx.setPreviousState(ctx.getCurrentState());
 		ctx.setCurrentState(toState);
 		while (toState.getSubstatemachine() != null) {
+			// toState is a composite state
 			StateMachine sm = toState.getSubstatemachine();
 			Transition init = findInitialTransition(sm);
 			if (init == null) {
@@ -412,11 +437,20 @@ public class StateExecuter {
 		return stateWithParents;
 	}
 
+	/**
+	 * Given a state, retrieve all its decendants along the state itself in a
+	 * list
+	 * 
+	 * @param state
+	 * @return
+	 */
 	private List<State_> getStateWithChildren(State_ state) {
-		List<State_> toReturn = EcoreUtil2.getAllContentsOfType(state, State_.class);
+		List<State_> toReturn = EcoreUtil2.getAllContentsOfType(state,
+				State_.class);
 		toReturn.add(state);
 		return toReturn;
 	}
+
 	/**
 	 * Remove the common ancestors in both fromWithParents and toWithParents
 	 * deques

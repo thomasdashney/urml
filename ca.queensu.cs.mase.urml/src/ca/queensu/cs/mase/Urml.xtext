@@ -116,7 +116,7 @@ Transition
 		'{'
 			('guard' '{' guard=Expression '}')?
 			('triggeredBy' ((triggers+=Trigger_in  ('or' triggers+=Trigger_in)*) 
-				| 'timeout' timerPort=[TimerPort]
+				| 'timeout' timerPort=[TimerPort] | universal?='*'
 			))?
 			('action' '{' action=ActionCode '}')? 
 		'}'

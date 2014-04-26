@@ -4,7 +4,7 @@ import ca.queensu.cs.mase.interpreter.data.CapsuleContext;
 import ca.queensu.cs.mase.urml.Transition;
 
 public class Transitions {
-	public static void preprocess(Transition currentTransition,
+	public static void processTriggers(Transition currentTransition,
 			CapsuleContext ctx) {
 		if (hasTimeoutTrigger(currentTransition)) {
 			ctx.getTimeoutInstants().remove(currentTransition.getTimerPort());
