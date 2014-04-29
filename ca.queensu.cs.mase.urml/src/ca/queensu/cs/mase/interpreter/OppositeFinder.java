@@ -97,7 +97,8 @@ public class OppositeFinder {
 			pair.current = findTargetPort(conn,
 					childNode.data.getCapsuleInst(), pair.current.port);
 
-			// if current capsuleRef is null, the port is an external port of
+			// if current capsuleInstance is null, the port is an external port
+			// of
 			// the capsule; if that is the case, continue propagating up the
 			// capsules
 			if (pair.current.getCapsuleInst() != null) {
@@ -154,27 +155,26 @@ public class OppositeFinder {
 	private static CapsuleContextPortPair zoomIn(ParentNodeCurrentPair pair) {
 		TreeNode<CapsuleContext> childNode;
 		Optional<Connector> conn;
-		boolean continueLoop = true;
 		CapsuleContext currentCtx = null;
 		Port currentPort = null;
 
-		// find the child node that contains the target capsule reference
+		// find the child node that contains the current capsule instance
 		childNode = findChildNode(pair.parentNode,
 				pair.current.getCapsuleInst());
 
-		while (continueLoop) {
+		while (true) {
 			// get the capsuleCtx of the child node
 			currentCtx = childNode.data;
 			currentPort = pair.current.getPort();
 			conn = findMatchingRelayConnector(currentCtx, currentPort);
 			if (!conn.isPresent()) {
-				continueLoop = false;
+				break;
 			}
-			if (continueLoop) {
-				pair.current = findTargetPort(conn.get(), null, currentPort);
-				childNode = findChildNode(currentCtx.getTreeNode(),
-						pair.current.getCapsuleInst());
-			}
+
+			pair.current = findTargetPort(conn.get(), null, currentPort);
+			childNode = findChildNode(currentCtx.getTreeNode(),
+					pair.current.getCapsuleInst());
+
 		}
 		return new CapsuleContextPortPair(currentCtx, currentPort);
 	}
@@ -241,8 +241,8 @@ public class OppositeFinder {
 	 * @param p
 	 * @return
 	 */
-	private static Optional<Connector> findMatchingRelayConnector(CapsuleContext ctx,
-			Port p) {
+	private static Optional<Connector> findMatchingRelayConnector(
+			CapsuleContext ctx, Port p) {
 
 		// go through all the connectors in ctx
 		for (Connector conn : ctx.getCapsule().getConnectors()) {
