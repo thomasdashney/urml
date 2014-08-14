@@ -3,69 +3,217 @@
  */
 package ca.queensu.cs.mase.generator
 
+import ca.queensu.cs.mase.urml.Capsule
+import ca.queensu.cs.mase.urml.Model
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-//import ca.queensu.cs.mase.interpreter.Interpreter
+import org.eclipse.xtext.generator.IGenerator
+import ca.queensu.cs.mase.generator.launcher.LauncherGenerator
+import ca.queensu.cs.mase.urml.Protocol
+
 class UrmlGenerator implements IGenerator {
 	
+	var Model model
+
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		//TODO implement me
-//		println(resource);
-		
-//		fsa.generateFile(resource.className + ".urml-gen", 
-//			puke(resource.contents.head as Model)
-//		);
-		
-//		val x = new Interpreter()
-//		x.stuff
-//	}
-//	
-//	def className(Resource res) {
-//		var name = res.URI.lastSegment
-//		name.substring(0, name.indexOf("."))
-//	}
-//	
-//	def puke(Model model) {
-//	'''Model «model.name»
-//	«FOR capsule: model.capsules»
-//	«capsule.puke»
-//
-//	«ENDFOR»
-//	'''
-//	}
-//
-//def puke(Capsule capsule) {
-//'''Capsule «capsule.name»
-//	«FOR attrib: capsule.attributes»
-//	Attribute «attrib.name»
-//	«ENDFOR»
-//	«FOR timerPort: capsule.timerPorts»
-//	TimerPort «timerPort.name»
-//	«ENDFOR»
-//	«FOR extPort: capsule.interfacePorts»
-//	External Port «extPort.name»
-//	«ENDFOR»
-//	«FOR capref: capsule.capsuleRefs»
-//	CapsuleRef «capref.name»: «capref.type.name»
-//	«ENDFOR»
-//	«FOR conn: capsule.connectors»
-//	Connector «conn.port1.name».«conn.capsuleRef1.name» and «conn.port2.name».«conn.capsuleRef2.name»
-//	«ENDFOR»
-//	«FOR sm: capsule.statemachines»
-//	«sm.puke»
-//	«ENDFOR»'''	
-//}	
-//
-//def puke(StateMachine sm) {
-//	'''StateMachine
-//	«FOR state: sm.states»
-//		State «state.name»
-//	«ENDFOR»
-//	«FOR transition: sm.transitions»
-//		Transition «transition.name»
-//	«ENDFOR»'''
-//}
+		val fname = resource.URI.segment(resource.URI.segmentCount - 1)
+		model = resource.contents.get(0) as Model
+		var modelfname = '/model/m_' + model.name
+		var mfname = fname + modelfname
+		for (cap : model.capsules) 
+			fsa.generateFile(mfname + "/_C_" + cap.name + ".java", cap.compile)
 
-}}
+		for (prot : model.protocols)
+			fsa.generateFile(mfname + "/_P_" + prot.name + ".java", prot.compile)
+			
+		fsa.generateFile(mfname + "/Launcher.java", compileRunThis)
+		
+		#[
+			'Int.java' -> compileInt, 
+			'Bool.java' -> compileBool, 
+			'CommonObj.java' -> compileCommon,
+			'Capsule.java' -> compileCommonCapsule, 
+			'MessagePort.java' -> compilePort,
+			'Protocol.java' -> compileProtocol,
+			'Connector.java' -> compileConnector, 
+			'CapsulePortPair.java' -> compileCapPortPair,
+			'Message.java' -> compileMessage,
+			'Signal.java' -> compileSignal,
+			'State.java' -> compileState,
+			'Transition.java' -> compileTransition,
+			'TriggerIn.java' -> compileTriggerIn,
+			'TimerPort.java' -> compileTimerPort
+		].forEach[
+			fsa.generateFile(fname + '/urml/runtime/' + it.key, it.value)
+		]
+	}
+	
+	
+	private def urmlRuntime() '''
+		package urml.runtime;
+	'''
+	
+	private def modelPackage() '''
+		package model.m_Â«model.nameÂ»;
+	'''
+	
+	private def compile(Protocol p) '''
+		Â«modelPackageÂ»
+		Â«new ProtocolGenerator(p).compileÂ»
+	'''
+	
+	private def compileSignal() '''
+		Â«urmlRuntimeÂ»
+		public class Signal {}
+	'''
+	
+	private def compileMessage() '''
+		Â«urmlRuntimeÂ»
+		import java.util.*;
+		public class Message {
+			public MessagePort port;
+			public Signal signal;
+			public List<CommonObj> parameters;
+			public Message(MessagePort msgPort, Signal signal, List<CommonObj> param) {
+				this.port = msgPort;
+				this.signal = signal;
+				this.parameters = param;
+			}
+		}
+	'''
+	
+	private def compileCapPortPair() '''
+		Â«urmlRuntimeÂ»
+		public class CapsulePortPair {
+			public Capsule cap;
+			public MessagePort port;
+		}
+	'''
 
+	private def compile(Capsule cap) '''
+		Â«modelPackageÂ»
+		Â«new CapsuleGenerator(cap).compileÂ»
+	'''
+
+	private def compileInt() '''
+		Â«urmlRuntimeÂ»
+		public class Int extends CommonObj {
+			public int val;
+			public Int(int v) { val = v; }
+		}
+	'''
+
+	private def compileBool() '''
+		Â«urmlRuntimeÂ»
+		public class Bool extends CommonObj {
+			public boolean val;
+			public Bool(boolean v) { val = v; }
+		}
+	'''
+
+	private def compileCommon() '''
+		Â«urmlRuntimeÂ»
+		public class CommonObj {
+		}
+	'''
+
+	private def compileCommonCapsule() '''
+		Â«urmlRuntimeÂ»
+		Â«new CommonCapsuleGenerator().compileÂ»
+	'''
+
+	private def compileProtocol() '''
+		Â«urmlRuntimeÂ»
+		import java.util.*;
+		public class Protocol {
+			protected Protocol() {}
+			protected List<Signal> incomingSignals;
+			protected List<Signal> outgoingSignals;
+		}
+	'''
+	
+	private def compilePort() '''
+		Â«urmlRuntimeÂ»
+		public class MessagePort {
+			public String name;
+			public Protocol prot;
+			public MessagePort(String name, Protocol protocol) {
+				this.name = name;
+				this.prot = protocol;
+			}
+		}
+	'''
+	
+	private def compileTimerPort() '''
+		Â«urmlRuntimeÂ»
+		public class TimerPort {
+		}
+	'''
+	
+	private def compileConnector() '''
+		Â«urmlRuntimeÂ»
+		public class Connector {
+			public Capsule cap1;
+			public Capsule cap2;
+			public MessagePort port1;
+			public MessagePort port2;
+			public Connector(Capsule c1, MessagePort p1, Capsule c2, MessagePort p2) {
+				cap1 = c1; cap2 = c2; port1 = p1; port2 = p2;
+			}
+		}
+	'''
+	
+	private def compileRunThis() '''
+		Â«modelPackageÂ»
+		Â«new LauncherGenerator(model).compileÂ»
+	'''
+	
+	private def compileState() '''
+		Â«urmlRuntimeÂ»
+		public class State {
+			public String name;
+			public Runnable entry;
+			public Runnable exit;
+			public State(String name, Runnable entry, Runnable exit) {
+				this.name = name;
+				this.entry = entry;
+				this.exit = exit;
+			}
+			
+		}
+	'''
+	
+	private def compileTransition() '''
+		Â«urmlRuntimeÂ»
+		import java.util.*;
+		import java.util.function.*;
+		public class Transition {
+			public String name;
+			public Supplier<Boolean> guard;
+			public Consumer<List<? extends CommonObj>> action;
+			public List<TriggerIn> triggerIn;
+			public TimerPort timerPort;
+			public Transition(String name, Supplier<Boolean> guard, 
+					Consumer<List<? extends CommonObj>> action, 
+					List<TriggerIn> triggerIn, TimerPort timerPort) {
+				this.name = name;
+				this.guard = guard;
+				this.action = action;
+				this.triggerIn = triggerIn;
+				this.timerPort = timerPort;
+			}
+		}	
+	'''
+	
+	private def compileTriggerIn() '''
+		Â«urmlRuntimeÂ»
+		public class TriggerIn {
+			public MessagePort port;
+			public Signal signal;
+			public TriggerIn(MessagePort p, Signal s) {
+				port = p;
+				signal = s;
+			}
+		}	
+	'''
+}

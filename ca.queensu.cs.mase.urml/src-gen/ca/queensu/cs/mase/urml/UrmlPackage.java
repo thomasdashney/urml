@@ -113,13 +113,31 @@ public interface UrmlPackage extends EPackage
   int IDENTIFIABLE = 41;
 
   /**
+   * The feature id for the '<em><b>Is Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIABLE__IS_BOOL = 0;
+
+  /**
+   * The feature id for the '<em><b>Is Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIABLE__IS_INT = 1;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDENTIFIABLE__NAME = 0;
+  int IDENTIFIABLE__NAME = 2;
 
   /**
    * The number of structural features of the '<em>Identifiable</em>' class.
@@ -128,7 +146,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IDENTIFIABLE_FEATURE_COUNT = 1;
+  int IDENTIFIABLE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.AssignableImpl <em>Assignable</em>}' class.
@@ -139,6 +157,24 @@ public interface UrmlPackage extends EPackage
    * @generated
    */
   int ASSIGNABLE = 31;
+
+  /**
+   * The feature id for the '<em><b>Is Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNABLE__IS_BOOL = IDENTIFIABLE__IS_BOOL;
+
+  /**
+   * The feature id for the '<em><b>Is Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNABLE__IS_INT = IDENTIFIABLE__IS_INT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -169,6 +205,24 @@ public interface UrmlPackage extends EPackage
   int LOCAL_VAR = 1;
 
   /**
+   * The feature id for the '<em><b>Is Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR__IS_BOOL = ASSIGNABLE__IS_BOOL;
+
+  /**
+   * The feature id for the '<em><b>Is Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR__IS_INT = ASSIGNABLE__IS_INT;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -195,6 +249,24 @@ public interface UrmlPackage extends EPackage
    * @generated
    */
   int ATTRIBUTE = 2;
+
+  /**
+   * The feature id for the '<em><b>Is Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__IS_BOOL = ASSIGNABLE__IS_BOOL;
+
+  /**
+   * The feature id for the '<em><b>Is Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__IS_INT = ASSIGNABLE__IS_INT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -435,13 +507,40 @@ public interface UrmlPackage extends EPackage
   int OPERATION = 6;
 
   /**
+   * The feature id for the '<em><b>Is Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__IS_BOOL = 0;
+
+  /**
+   * The feature id for the '<em><b>Is Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__IS_INT = 1;
+
+  /**
+   * The feature id for the '<em><b>Is Void</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__IS_VOID = 2;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__NAME = 0;
+  int OPERATION__NAME = 3;
 
   /**
    * The feature id for the '<em><b>Local Vars</b></em>' containment reference list.
@@ -450,7 +549,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION__LOCAL_VARS = 1;
+  int OPERATION__LOCAL_VARS = 4;
 
   /**
    * The feature id for the '<em><b>Operation Code</b></em>' containment reference.
@@ -459,7 +558,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION__OPERATION_CODE = 2;
+  int OPERATION__OPERATION_CODE = 5;
 
   /**
    * The number of structural features of the '<em>Operation</em>' class.
@@ -468,7 +567,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION_FEATURE_COUNT = 3;
+  int OPERATION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.TimerPortImpl <em>Timer Port</em>}' class.
@@ -839,13 +938,22 @@ public interface UrmlPackage extends EPackage
   int TRANSITION__TIMER_PORT = 6;
 
   /**
+   * The feature id for the '<em><b>Universal</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__UNIVERSAL = 7;
+
+  /**
    * The feature id for the '<em><b>Action</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSITION__ACTION = 7;
+  int TRANSITION__ACTION = 8;
 
   /**
    * The number of structural features of the '<em>Transition</em>' class.
@@ -854,7 +962,7 @@ public interface UrmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSITION_FEATURE_COUNT = 8;
+  int TRANSITION_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link ca.queensu.cs.mase.urml.impl.Trigger_inImpl <em>Trigger in</em>}' class.
@@ -911,6 +1019,24 @@ public interface UrmlPackage extends EPackage
    * @generated
    */
   int INCOMING_VARIABLE = 16;
+
+  /**
+   * The feature id for the '<em><b>Is Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCOMING_VARIABLE__IS_BOOL = IDENTIFIABLE__IS_BOOL;
+
+  /**
+   * The feature id for the '<em><b>Is Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCOMING_VARIABLE__IS_INT = IDENTIFIABLE__IS_INT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2585,6 +2711,39 @@ public interface UrmlPackage extends EPackage
   EClass getOperation();
 
   /**
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Operation#isIsBool <em>Is Bool</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Bool</em>'.
+   * @see ca.queensu.cs.mase.urml.Operation#isIsBool()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_IsBool();
+
+  /**
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Operation#isIsInt <em>Is Int</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Int</em>'.
+   * @see ca.queensu.cs.mase.urml.Operation#isIsInt()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_IsInt();
+
+  /**
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Operation#isIsVoid <em>Is Void</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Void</em>'.
+   * @see ca.queensu.cs.mase.urml.Operation#isIsVoid()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_IsVoid();
+
+  /**
    * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Operation#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2971,6 +3130,17 @@ public interface UrmlPackage extends EPackage
    * @generated
    */
   EReference getTransition_TimerPort();
+
+  /**
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Transition#isUniversal <em>Universal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Universal</em>'.
+   * @see ca.queensu.cs.mase.urml.Transition#isUniversal()
+   * @see #getTransition()
+   * @generated
+   */
+  EAttribute getTransition_Universal();
 
   /**
    * Returns the meta object for the containment reference '{@link ca.queensu.cs.mase.urml.Transition#getAction <em>Action</em>}'.
@@ -3648,6 +3818,28 @@ public interface UrmlPackage extends EPackage
    * @generated
    */
   EClass getIdentifiable();
+
+  /**
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Identifiable#isIsBool <em>Is Bool</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Bool</em>'.
+   * @see ca.queensu.cs.mase.urml.Identifiable#isIsBool()
+   * @see #getIdentifiable()
+   * @generated
+   */
+  EAttribute getIdentifiable_IsBool();
+
+  /**
+   * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Identifiable#isIsInt <em>Is Int</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Int</em>'.
+   * @see ca.queensu.cs.mase.urml.Identifiable#isIsInt()
+   * @see #getIdentifiable()
+   * @generated
+   */
+  EAttribute getIdentifiable_IsInt();
 
   /**
    * Returns the meta object for the attribute '{@link ca.queensu.cs.mase.urml.Identifiable#getName <em>Name</em>}'.
@@ -4436,6 +4628,30 @@ public interface UrmlPackage extends EPackage
     EClass OPERATION = eINSTANCE.getOperation();
 
     /**
+     * The meta object literal for the '<em><b>Is Bool</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__IS_BOOL = eINSTANCE.getOperation_IsBool();
+
+    /**
+     * The meta object literal for the '<em><b>Is Int</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__IS_INT = eINSTANCE.getOperation_IsInt();
+
+    /**
+     * The meta object literal for the '<em><b>Is Void</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__IS_VOID = eINSTANCE.getOperation_IsVoid();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4738,6 +4954,14 @@ public interface UrmlPackage extends EPackage
      * @generated
      */
     EReference TRANSITION__TIMER_PORT = eINSTANCE.getTransition_TimerPort();
+
+    /**
+     * The meta object literal for the '<em><b>Universal</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRANSITION__UNIVERSAL = eINSTANCE.getTransition_Universal();
 
     /**
      * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
@@ -5304,6 +5528,22 @@ public interface UrmlPackage extends EPackage
      * @generated
      */
     EClass IDENTIFIABLE = eINSTANCE.getIdentifiable();
+
+    /**
+     * The meta object literal for the '<em><b>Is Bool</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IDENTIFIABLE__IS_BOOL = eINSTANCE.getIdentifiable_IsBool();
+
+    /**
+     * The meta object literal for the '<em><b>Is Int</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IDENTIFIABLE__IS_INT = eINSTANCE.getIdentifiable_IsInt();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

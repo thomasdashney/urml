@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ca.queensu.cs.mase.urml.impl.TransitionImpl#getGuard <em>Guard</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.TransitionImpl#getTriggers <em>Triggers</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.TransitionImpl#getTimerPort <em>Timer Port</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.impl.TransitionImpl#isUniversal <em>Universal</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.impl.TransitionImpl#getAction <em>Action</em>}</li>
  * </ul>
  * </p>
@@ -137,6 +138,26 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * @ordered
    */
   protected TimerPort timerPort;
+
+  /**
+   * The default value of the '{@link #isUniversal() <em>Universal</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isUniversal()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean UNIVERSAL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isUniversal() <em>Universal</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isUniversal()
+   * @generated
+   * @ordered
+   */
+  protected boolean universal = UNIVERSAL_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.
@@ -411,6 +432,29 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isUniversal()
+  {
+    return universal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUniversal(boolean newUniversal)
+  {
+    boolean oldUniversal = universal;
+    universal = newUniversal;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UrmlPackage.TRANSITION__UNIVERSAL, oldUniversal, universal));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ActionCode getAction()
   {
     return action;
@@ -501,6 +545,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
       case UrmlPackage.TRANSITION__TIMER_PORT:
         if (resolve) return getTimerPort();
         return basicGetTimerPort();
+      case UrmlPackage.TRANSITION__UNIVERSAL:
+        return isUniversal();
       case UrmlPackage.TRANSITION__ACTION:
         return getAction();
     }
@@ -540,6 +586,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
       case UrmlPackage.TRANSITION__TIMER_PORT:
         setTimerPort((TimerPort)newValue);
         return;
+      case UrmlPackage.TRANSITION__UNIVERSAL:
+        setUniversal((Boolean)newValue);
+        return;
       case UrmlPackage.TRANSITION__ACTION:
         setAction((ActionCode)newValue);
         return;
@@ -578,6 +627,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
       case UrmlPackage.TRANSITION__TIMER_PORT:
         setTimerPort((TimerPort)null);
         return;
+      case UrmlPackage.TRANSITION__UNIVERSAL:
+        setUniversal(UNIVERSAL_EDEFAULT);
+        return;
       case UrmlPackage.TRANSITION__ACTION:
         setAction((ActionCode)null);
         return;
@@ -609,6 +661,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
         return triggers != null && !triggers.isEmpty();
       case UrmlPackage.TRANSITION__TIMER_PORT:
         return timerPort != null;
+      case UrmlPackage.TRANSITION__UNIVERSAL:
+        return universal != UNIVERSAL_EDEFAULT;
       case UrmlPackage.TRANSITION__ACTION:
         return action != null;
     }
@@ -630,6 +684,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
     result.append(name);
     result.append(", init: ");
     result.append(init);
+    result.append(", universal: ");
+    result.append(universal);
     result.append(')');
     return result.toString();
   }

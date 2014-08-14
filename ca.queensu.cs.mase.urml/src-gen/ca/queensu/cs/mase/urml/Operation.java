@@ -14,6 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link ca.queensu.cs.mase.urml.Operation#isIsBool <em>Is Bool</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.Operation#isIsInt <em>Is Int</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.Operation#isIsVoid <em>Is Void</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Operation#getName <em>Name</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Operation#getLocalVars <em>Local Vars</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Operation#getOperationCode <em>Operation Code</em>}</li>
@@ -26,6 +29,84 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Operation extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Is Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Bool</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Bool</em>' attribute.
+   * @see #setIsBool(boolean)
+   * @see ca.queensu.cs.mase.urml.UrmlPackage#getOperation_IsBool()
+   * @model
+   * @generated
+   */
+  boolean isIsBool();
+
+  /**
+   * Sets the value of the '{@link ca.queensu.cs.mase.urml.Operation#isIsBool <em>Is Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Bool</em>' attribute.
+   * @see #isIsBool()
+   * @generated
+   */
+  void setIsBool(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Is Int</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Int</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Int</em>' attribute.
+   * @see #setIsInt(boolean)
+   * @see ca.queensu.cs.mase.urml.UrmlPackage#getOperation_IsInt()
+   * @model
+   * @generated
+   */
+  boolean isIsInt();
+
+  /**
+   * Sets the value of the '{@link ca.queensu.cs.mase.urml.Operation#isIsInt <em>Is Int</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Int</em>' attribute.
+   * @see #isIsInt()
+   * @generated
+   */
+  void setIsInt(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Is Void</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Void</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Void</em>' attribute.
+   * @see #setIsVoid(boolean)
+   * @see ca.queensu.cs.mase.urml.UrmlPackage#getOperation_IsVoid()
+   * @model
+   * @generated
+   */
+  boolean isIsVoid();
+
+  /**
+   * Sets the value of the '{@link ca.queensu.cs.mase.urml.Operation#isIsVoid <em>Is Void</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Void</em>' attribute.
+   * @see #isIsVoid()
+   * @generated
+   */
+  void setIsVoid(boolean value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

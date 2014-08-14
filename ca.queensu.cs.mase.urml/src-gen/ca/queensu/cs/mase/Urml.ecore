@@ -48,6 +48,9 @@
         eType="#//StateMachine" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isBool" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVoid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocalVars" upperBound="-1"
         eType="#//LocalVar" containment="true"/>
@@ -101,6 +104,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" upperBound="-1"
         eType="#//Trigger_in" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="timerPort" eType="#//TimerPort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="universal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//ActionCode"
         containment="true"/>
   </eClassifiers>
@@ -210,6 +214,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//Identifiable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Identifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isBool" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionCall" eSuperTypes="#//Literal">

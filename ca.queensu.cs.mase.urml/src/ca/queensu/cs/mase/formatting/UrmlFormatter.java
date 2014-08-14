@@ -98,9 +98,9 @@ public class UrmlFormatter extends AbstractDeclarativeFormatter {
 	}
 
 	private void setLeftParenAndComma(FormattingConfig c, UrmlGrammarAccess f) {
-		c.setNoSpace().before(f.getOperationAccess().getCommaKeyword_3_1_0());
+		c.setNoSpace().before(f.getOperationAccess().getCommaKeyword_4_1_0());
 		c.setNoSpace().before(
-				f.getOperationAccess().getLeftParenthesisKeyword_2());
+				f.getOperationAccess().getLeftParenthesisKeyword_3());
 		c.setNoSpace().before(f.getInvokeAccess().getCommaKeyword_3_1_0());
 		c.setNoSpace()
 				.before(f.getInvokeAccess().getLeftParenthesisKeyword_2());

@@ -1,6 +1,7 @@
 package ca.queensu.cs.mase.validation;
 
 import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.EcoreUtil2;
@@ -8,6 +9,7 @@ import org.eclipse.xtext.util.SimpleAttributeResolver;
 import org.eclipse.xtext.validation.Check;
 
 import ca.queensu.cs.mase.urml.Capsule;
+import ca.queensu.cs.mase.urml.CapsuleInst;
 import ca.queensu.cs.mase.urml.Connector;
 import ca.queensu.cs.mase.urml.FunctionCall;
 import ca.queensu.cs.mase.urml.Invoke;
@@ -168,9 +170,11 @@ public class UrmlJavaValidator extends AbstractUrmlJavaValidator {
 
 	@Check
 	public void connectorCannotHaveSamePort(Connector conn) {
+		CapsuleInst inst1 = conn.getCapsuleInst1();
+		CapsuleInst inst2 = conn.getCapsuleInst2();
 		Port port1 = conn.getPort1();
 		Port port2 = conn.getPort2();
-		if (port1 == port2) {
+		if (inst1 == inst2 && port1 == port2) {
 			for (EStructuralFeature feature : new EStructuralFeature[] {
 					UrmlPackage.eINSTANCE.getConnector_Port1(),
 					UrmlPackage.eINSTANCE.getConnector_Port2() }) {

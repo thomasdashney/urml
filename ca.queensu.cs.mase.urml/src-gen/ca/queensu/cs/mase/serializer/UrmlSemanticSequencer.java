@@ -905,7 +905,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID defaultValue=Expression?)
+	 *     ((isBool?='bool' | isInt?='int') name=ID defaultValue=Expression?)
 	 */
 	protected void sequence_Attribute(EObject context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1062,17 +1062,10 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     ((isBool?='bool' | isInt?='int') name=ID)
 	 */
 	protected void sequence_IncomingVariable(EObject context, IncomingVariable semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.IDENTIFIABLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.IDENTIFIABLE__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIncomingVariableAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1131,17 +1124,10 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     ((isBool?='bool' | isInt?='int') name=ID)
 	 */
 	protected void sequence_LocalVar(EObject context, LocalVar semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, UrmlPackage.Literals.IDENTIFIABLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UrmlPackage.Literals.IDENTIFIABLE__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLocalVarAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1282,7 +1268,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (LocalVars+=LocalVar LocalVars+=LocalVar*)? operationCode=OperationCode)
+	 *     ((isBool?='bool' | isInt?='int' | isVoid?='void') name=ID (LocalVars+=LocalVar LocalVars+=LocalVar*)? operationCode=OperationCode)
 	 */
 	protected void sequence_Operation(EObject context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1498,7 +1484,7 @@ public class UrmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (init?='initial' | from=[State_|ID]) 
 	 *         to=[State_|ID] 
 	 *         guard=Expression? 
-	 *         ((triggers+=Trigger_in triggers+=Trigger_in*) | timerPort=[TimerPort|ID])? 
+	 *         ((triggers+=Trigger_in triggers+=Trigger_in*) | timerPort=[TimerPort|ID] | universal?='*')? 
 	 *         action=ActionCode?
 	 *     )
 	 */

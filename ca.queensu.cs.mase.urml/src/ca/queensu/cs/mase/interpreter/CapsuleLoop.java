@@ -172,34 +172,4 @@ public class CapsuleLoop {
 		}
 		return allCapsulesReachedFinalState;
 	}
-
-	/**
-	 * Check if all the capsule instances in {@code capsuleContextsList} are in
-	 * final state. The capsule instances that do not have state machines are
-	 * not checked and assumed to be in final state.
-	 * 
-	 * @param capsuleContextsList
-	 *            to list of capsule instances
-	 * @return true if all capsule instances in the capsule instance list are at
-	 *         final state
-	 */
-	private boolean checkAllCapsulesReachedFinalState(
-			TreeNode<CapsuleContext> capsuleContexts) {
-		// check if all capsules has reached the final state. note
-		// that capsules that do not have state machines are ignored.
-		boolean allCapsulesReachedFinalState = true;
-		for (TreeNode<CapsuleContext> ctxNodeTest : capsuleContexts) {
-			CapsuleContext ctxTest = ctxNodeTest.data;
-			if (ctxTest.getCapsule().getStatemachines().size() != 0
-					&& !ctxTest.getReachedFinalState()) {
-				// consider only capsules that have state machines,
-				// and toggle allCapsulesReachedFinalState if that
-				// capsule is not at final state
-				allCapsulesReachedFinalState = false;
-				break;
-			}
-		}
-		return allCapsulesReachedFinalState;
-	}
-
 }

@@ -18,12 +18,15 @@ Model
 
 
 LocalVar
-	: 	name=ID 
+	: 	(isBool?='bool'|isInt?='int') 
+		name=ID 
 	;
 
 
 Attribute
-	:	'attribute' name=ID 
+	:	'attribute' 
+		(isBool?='bool'|isInt?='int')
+		name=ID 
 		(':=' defaultValue=Expression)?
 	;
 
@@ -67,7 +70,9 @@ Capsule
 	;
 
 Operation
-	:	'operation' name=ID 
+	:	'operation' 
+		(isBool?='bool'|isInt?='int'|isVoid?='void')
+		name=ID 
 		'(' (LocalVars+=LocalVar (',' LocalVars+=LocalVar)*)? ')' 
 		'{'
 			operationCode=OperationCode
@@ -135,7 +140,8 @@ Trigger_in:
 	)*)? ')';
 
 IncomingVariable
-	:	name=ID
+	:	(isBool?='bool'|isInt?='int') 
+		name=ID
 	;
 
 Trigger_out:
@@ -199,7 +205,10 @@ Statement
 	| 	LogStatement
 	;
 Variable 
-	:	'var' var=LocalVar (assign?=':=' exp=Expression)?
+	:	'var' 
+		
+		var=LocalVar 
+		(assign?=':=' exp=Expression)?
 	;
 SendTrigger 
 	:	'send' triggers+=Trigger_out  ('and' triggers+=Trigger_out)*

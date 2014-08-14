@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ca.queensu.cs.mase.urml.Transition#getGuard <em>Guard</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Transition#getTriggers <em>Triggers</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Transition#getTimerPort <em>Timer Port</em>}</li>
+ *   <li>{@link ca.queensu.cs.mase.urml.Transition#isUniversal <em>Universal</em>}</li>
  *   <li>{@link ca.queensu.cs.mase.urml.Transition#getAction <em>Action</em>}</li>
  * </ul>
  * </p>
@@ -202,6 +203,32 @@ public interface Transition extends EObject
    * @generated
    */
   void setTimerPort(TimerPort value);
+
+  /**
+   * Returns the value of the '<em><b>Universal</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Universal</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Universal</em>' attribute.
+   * @see #setUniversal(boolean)
+   * @see ca.queensu.cs.mase.urml.UrmlPackage#getTransition_Universal()
+   * @model
+   * @generated
+   */
+  boolean isUniversal();
+
+  /**
+   * Sets the value of the '{@link ca.queensu.cs.mase.urml.Transition#isUniversal <em>Universal</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Universal</em>' attribute.
+   * @see #isUniversal()
+   * @generated
+   */
+  void setUniversal(boolean value);
 
   /**
    * Returns the value of the '<em><b>Action</b></em>' containment reference.

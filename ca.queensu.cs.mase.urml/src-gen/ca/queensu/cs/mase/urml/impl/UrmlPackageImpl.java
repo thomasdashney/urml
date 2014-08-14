@@ -830,7 +830,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getOperation_Name()
+  public EAttribute getOperation_IsBool()
   {
     return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
   }
@@ -840,9 +840,39 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getOperation_IsInt()
+  {
+    return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperation_IsVoid()
+  {
+    return (EAttribute)operationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperation_Name()
+  {
+    return (EAttribute)operationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getOperation_LocalVars()
   {
-    return (EReference)operationEClass.getEStructuralFeatures().get(1);
+    return (EReference)operationEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -852,7 +882,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    */
   public EReference getOperation_OperationCode()
   {
-    return (EReference)operationEClass.getEStructuralFeatures().get(2);
+    return (EReference)operationEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1190,9 +1220,19 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getTransition_Universal()
+  {
+    return (EAttribute)transitionEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getTransition_Action()
   {
-    return (EReference)transitionEClass.getEStructuralFeatures().get(7);
+    return (EReference)transitionEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -1830,9 +1870,29 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIdentifiable_Name()
+  public EAttribute getIdentifiable_IsBool()
   {
     return (EAttribute)identifiableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIdentifiable_IsInt()
+  {
+    return (EAttribute)identifiableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIdentifiable_Name()
+  {
+    return (EAttribute)identifiableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2388,6 +2448,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     createEReference(capsuleEClass, CAPSULE__STATEMACHINES);
 
     operationEClass = createEClass(OPERATION);
+    createEAttribute(operationEClass, OPERATION__IS_BOOL);
+    createEAttribute(operationEClass, OPERATION__IS_INT);
+    createEAttribute(operationEClass, OPERATION__IS_VOID);
     createEAttribute(operationEClass, OPERATION__NAME);
     createEReference(operationEClass, OPERATION__LOCAL_VARS);
     createEReference(operationEClass, OPERATION__OPERATION_CODE);
@@ -2432,6 +2495,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     createEReference(transitionEClass, TRANSITION__GUARD);
     createEReference(transitionEClass, TRANSITION__TRIGGERS);
     createEReference(transitionEClass, TRANSITION__TIMER_PORT);
+    createEAttribute(transitionEClass, TRANSITION__UNIVERSAL);
     createEReference(transitionEClass, TRANSITION__ACTION);
 
     trigger_inEClass = createEClass(TRIGGER_IN);
@@ -2523,6 +2587,8 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     createEReference(identifierEClass, IDENTIFIER__ID);
 
     identifiableEClass = createEClass(IDENTIFIABLE);
+    createEAttribute(identifiableEClass, IDENTIFIABLE__IS_BOOL);
+    createEAttribute(identifiableEClass, IDENTIFIABLE__IS_INT);
     createEAttribute(identifiableEClass, IDENTIFIABLE__NAME);
 
     functionCallEClass = createEClass(FUNCTION_CALL);
@@ -2700,6 +2766,9 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEReference(getCapsule_Statemachines(), this.getStateMachine(), null, "statemachines", null, 0, -1, Capsule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOperation_IsBool(), ecorePackage.getEBoolean(), "isBool", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperation_IsInt(), ecorePackage.getEBoolean(), "isInt", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperation_IsVoid(), ecorePackage.getEBoolean(), "isVoid", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperation_LocalVars(), this.getLocalVar(), null, "LocalVars", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperation_OperationCode(), this.getOperationCode(), null, "operationCode", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2744,6 +2813,7 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEReference(getTransition_Guard(), this.getExpression(), null, "guard", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_Triggers(), this.getTrigger_in(), null, "triggers", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_TimerPort(), this.getTimerPort(), null, "timerPort", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransition_Universal(), ecorePackage.getEBoolean(), "universal", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_Action(), this.getActionCode(), null, "action", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(trigger_inEClass, Trigger_in.class, "Trigger_in", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2835,6 +2905,8 @@ public class UrmlPackageImpl extends EPackageImpl implements UrmlPackage
     initEReference(getIdentifier_Id(), this.getIdentifiable(), null, "id", null, 0, 1, Identifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(identifiableEClass, Identifiable.class, "Identifiable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIdentifiable_IsBool(), ecorePackage.getEBoolean(), "isBool", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIdentifiable_IsInt(), ecorePackage.getEBoolean(), "isInt", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIdentifiable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionCallEClass, FunctionCall.class, "FunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
