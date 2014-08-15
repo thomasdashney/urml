@@ -37,34 +37,29 @@ public class ExpressionGenerator {
   protected String _express(final Expression exp) {
     String _express = this.express(exp);
     String _plus = ("(" + _express);
-    String _plus_1 = (_plus + ")");
-    return _plus_1;
+    return (_plus + ")");
   }
   
   protected String _express(final IntLiteral exp) {
     int _int = exp.getInt();
-    String _string = Integer.toString(_int);
-    return _string;
+    return Integer.toString(_int);
   }
   
   protected String _express(final BoolLiteral exp) {
     boolean _isTrue = exp.isTrue();
-    String _string = Boolean.toString(_isTrue);
-    return _string;
+    return Boolean.toString(_isTrue);
   }
   
   protected String _express(final NotBooleanExpression exp) {
     Expression _exp = exp.getExp();
     String _express = this.express(_exp);
-    String _plus = ("!" + _express);
-    return _plus;
+    return ("!" + _express);
   }
   
   protected String _express(final UnaryExpression exp) {
     Expression _exp = exp.getExp();
     String _express = this.express(_exp);
-    String _plus = ("-" + _express);
-    return _plus;
+    return ("-" + _express);
   }
   
   protected String _express(final ConditionalOrExpression exp) {
@@ -121,8 +116,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " * ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final Divide exp) {
@@ -131,8 +125,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " / ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final Modulo exp) {
@@ -141,8 +134,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " % ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final LessThanOrEqual exp) {
@@ -151,8 +143,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " <= ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final LessThan exp) {
@@ -161,8 +152,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " < ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final GreaterThanOrEqual exp) {
@@ -171,8 +161,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " >= ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final GreaterThan exp) {
@@ -181,8 +170,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " > ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final Equal exp) {
@@ -191,8 +179,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " == ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final NotEqual exp) {
@@ -201,8 +188,7 @@ public class ExpressionGenerator {
     String _plus = (_express + " != ");
     Expression _rest = exp.getRest();
     String _express_1 = this.express(_rest);
-    String _plus_1 = (_plus + _express_1);
-    return _plus_1;
+    return (_plus + _express_1);
   }
   
   protected String _express(final Identifier exp) {
@@ -212,26 +198,23 @@ public class ExpressionGenerator {
       String _xifexpression = null;
       if ((identifiable instanceof Attribute)) {
         String _name = ((Attribute) identifiable).getName();
-        String _plus = ("_a_" + _name);
-        _xifexpression = _plus;
+        _xifexpression = ("_a_" + _name);
       } else {
         String _xifexpression_1 = null;
         if ((identifiable instanceof LocalVar)) {
           String _name_1 = ((LocalVar) identifiable).getName();
-          String _plus_1 = ("_l_" + _name_1);
-          _xifexpression_1 = _plus_1;
+          _xifexpression_1 = ("_l_" + _name_1);
         } else {
           String _xifexpression_2 = null;
           if ((identifiable instanceof IncomingVariable)) {
             String _name_2 = ((IncomingVariable) identifiable).getName();
-            String _plus_2 = ("_i_" + _name_2);
-            _xifexpression_2 = _plus_2;
+            _xifexpression_2 = ("_i_" + _name_2);
           }
           _xifexpression_1 = _xifexpression_2;
         }
         _xifexpression = _xifexpression_1;
       }
-      _xblockexpression = (_xifexpression);
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
@@ -256,8 +239,7 @@ public class ExpressionGenerator {
       }
     }
     String _plus_2 = (_plus_1 + _builder);
-    String _plus_3 = (_plus_2 + ")");
-    return _plus_3;
+    return (_plus_2 + ")");
   }
   
   public String express(final Expression exp) {

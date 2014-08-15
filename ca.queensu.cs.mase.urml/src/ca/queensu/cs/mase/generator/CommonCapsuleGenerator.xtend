@@ -6,21 +6,52 @@ class CommonCapsuleGenerator {
 		import java.util.*;
 		import java.util.concurrent.*;
 		import java.time.*;
+		
+		/**
+		 * Base class for capsules.
+		 *
+		 * This is part of the runtime for Urml codegen.
+		 */
 		public abstract class Capsule implements Runnable {
+			// global variable to determine when to exit
 			private static volatile boolean EXIT = false;
 			public Capsule parent;
 			public List<MessagePort> internalports;
 			public List<MessagePort> externalports;
 			public List<Capsule> capsules;
 			public List<Connector> connectors;
+			
+			/**
+			 * A message queue to keep track of messages sent by
+			 * other action code.  Will be checked against with
+			 * candidate transition to see if the transition's 
+			 * trigger message and the head of the queue match.
+			 */
 			public Queue<Message> queue = new LinkedBlockingQueue<>();
+			
+			/**
+			 * A map that stores the timers that is currently
+			 * available.  Will be checked against with 
+			 * candidate transition to see if the specified
+			 * timer in the transition's trigger has timed out.
+			 */
 			public Map<TimerPort, Instant> instants = new HashMap<>();
+			
+			/**
+			 * Lock used for synchronized blocks
+			 */
 			protected static Object lock = new Object();
 			
+			/**
+			 * A dummy state
+			 */
 			public State currentState = new State("_NO_STATE",
 					() -> { throw new IllegalArgumentException(); },
 					() -> { throw new IllegalArgumentException(); });
 			
+			/**
+			 * Starts the capsule and all its children capsules
+			 */
 			public void run() {
 				for (Capsule c: capsules) {
 					new Thread(c).start();
@@ -28,16 +59,41 @@ class CommonCapsuleGenerator {
 				launch();
 			}
 			
+			/**
+			 * The main loop of the capsule.  
+			 */
 			private void launch() {
+				// start the initial transition first
 				startInit();
 				while (!EXIT) {
+					// find all possible transitions that is outgoing 
+					// from the current state
 					List<? extends Transition> generated = findPossibleTrans();
+					
+					// filter out with enabled transitions remaining in the list
 					List<? extends Transition> found = findNextTransitions(generated);
+					
+					// if no enabled transition found, redo the loop
 					if (found == null || found.size() == 0) continue;
+					
+					// if more than one transition is found, choose the first transition
 					Transition t = found.get(0);
-					Message m = queue.poll();
-					List<? extends CommonObj> param = m == null ?
-						new ArrayList<>() : m.parameters;
+					
+					// get the parameter
+					
+					List<? extends CommonObj> param;
+					if (t.triggerIn != null && t.triggerIn.size() != 0) {
+						Message m = queue.poll();
+						if (m == null) {
+							param = new ArrayList<>();
+						} else {
+							param = m.parameters;
+						}
+					} else {
+						param = new ArrayList<>();
+					}
+					
+					// execute the transition and return whether to exit
 					boolean toExit = transitionAndIfFinal(t, param);
 					if (toExit) EXIT = true;
 				}

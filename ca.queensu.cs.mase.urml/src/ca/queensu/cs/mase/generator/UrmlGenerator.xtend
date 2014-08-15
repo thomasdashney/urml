@@ -74,7 +74,8 @@ class UrmlGenerator implements IGenerator {
 			public MessagePort port;
 			public Signal signal;
 			public List<CommonObj> parameters;
-			public Message(MessagePort msgPort, Signal signal, List<CommonObj> param) {
+			public Message(MessagePort msgPort, Signal signal, 
+					List<CommonObj> param) {
 				this.port = msgPort;
 				this.signal = signal;
 				this.parameters = param;
