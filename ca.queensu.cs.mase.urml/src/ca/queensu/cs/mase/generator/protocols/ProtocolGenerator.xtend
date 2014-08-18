@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator
+package ca.queensu.cs.mase.generator.protocols
 
 import ca.queensu.cs.mase.urml.Protocol
 
@@ -12,12 +12,12 @@ class ProtocolGenerator {
 		import java.util.*;
 		public class _P_«prot.name» extends Protocol {
 			public _P_«prot.name»() {
-				incomingSignals = Arrays.asList(new Signal[] {
+				incomingSignals = Arrays.asList(
 					«FOR s : prot.incomingMessages SEPARATOR ', '»_s_«s.name»«ENDFOR»
-				});
-				outgoingSignals = Arrays.asList(new Signal[] {
+				);
+				outgoingSignals = Arrays.asList(
 					«FOR s : prot.outgoingMessages SEPARATOR ', '»_s_«s.name»«ENDFOR»
-				});
+				);
 			}
 			«FOR s : prot.incomingMessages»
 				public static Signal _s_«s.name» = new Signal();

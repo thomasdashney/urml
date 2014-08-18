@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator;
+package ca.queensu.cs.mase.generator.capsules;
 
 import ca.queensu.cs.mase.urml.State_;
 import ca.queensu.cs.mase.urml.Transition;

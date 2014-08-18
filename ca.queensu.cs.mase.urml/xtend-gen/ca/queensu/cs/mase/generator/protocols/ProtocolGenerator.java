@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator;
+package ca.queensu.cs.mase.generator.protocols;
 
 import ca.queensu.cs.mase.urml.Protocol;
 import ca.queensu.cs.mase.urml.Signal;
@@ -31,7 +31,7 @@ public class ProtocolGenerator {
     _builder.append("() {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("incomingSignals = Arrays.asList(new Signal[] {");
+    _builder.append("incomingSignals = Arrays.asList(");
     _builder.newLine();
     _builder.append("\t\t\t");
     {
@@ -50,10 +50,10 @@ public class ProtocolGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("});");
+    _builder.append(");");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("outgoingSignals = Arrays.asList(new Signal[] {");
+    _builder.append("outgoingSignals = Arrays.asList(");
     _builder.newLine();
     _builder.append("\t\t\t");
     {
@@ -72,7 +72,7 @@ public class ProtocolGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("});");
+    _builder.append(");");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");

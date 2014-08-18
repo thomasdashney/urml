@@ -10,6 +10,9 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import ca.queensu.cs.mase.generator.launcher.LauncherGenerator
 import ca.queensu.cs.mase.urml.Protocol
+import ca.queensu.cs.mase.generator.capsules.CapsuleGenerator
+import ca.queensu.cs.mase.generator.capsules.CommonCapsuleGenerator
+import ca.queensu.cs.mase.generator.protocols.ProtocolGenerator
 
 class UrmlGenerator implements IGenerator {
 	
@@ -54,7 +57,7 @@ class UrmlGenerator implements IGenerator {
 	'''
 	
 	private def modelPackage() '''
-		package model.m_«model.name»;
+		package model.m_«model.name.toFirstLower»;
 	'''
 	
 	private def compile(Protocol p) '''

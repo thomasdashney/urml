@@ -1,7 +1,7 @@
-package ca.queensu.cs.mase.generator;
+package ca.queensu.cs.mase.generator.capsules;
 
-import ca.queensu.cs.mase.generator.NoInitialTransitionInStateMachineException;
-import ca.queensu.cs.mase.generator.TransitionGenerator;
+import ca.queensu.cs.mase.generator.capsules.NoInitialTransitionInStateMachineException;
+import ca.queensu.cs.mase.generator.capsules.TransitionGenerator;
 import ca.queensu.cs.mase.generator.dispatchers.ExpressionGenerator;
 import ca.queensu.cs.mase.generator.dispatchers.StatementGenerator;
 import ca.queensu.cs.mase.urml.ActionCode;
@@ -35,6 +35,13 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.xbase.typesystem.util.Multimaps2;
 
+/**
+ * Genereator for a specific capsule.  The capsule in question
+ * (i.e. the one to be compiled) is stored in the variable cap.
+ * This will generate the file _C_«cap.name».java, where
+ * «cap.name» is the name of the capsule.
+ * @author Keith
+ */
 @SuppressWarnings("all")
 public class CapsuleGenerator {
   private Capsule cap;
@@ -58,6 +65,7 @@ public class CapsuleGenerator {
   /**
    * Compile code for a capsule
    * @param capsule the capsule to be compiled
+   * @return generated code
    */
   public CharSequence compile() {
     StringConcatenation _builder = new StringConcatenation();
@@ -66,9 +74,23 @@ public class CapsuleGenerator {
     CharSequence _imports = this.imports();
     _builder.append(_imports, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("public class _C_");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* The capsule class for ");
     String _name = this.cap.getName();
-    _builder.append(_name, "");
+    _builder.append(_name, " ");
+    _builder.append(".");
+    _builder.newLineIfNotEmpty();
+    _builder.append(" ");
+    _builder.append("* @generated");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("public class _C_");
+    String _name_1 = this.cap.getName();
+    _builder.append(_name_1, "");
     _builder.append(" extends Capsule {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -117,6 +139,10 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Import statements
+   * @return generated code
+   */
   private CharSequence imports() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.time.*;");
@@ -128,8 +154,20 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Constructors
+   * @return generated code
+   */
   private CharSequence constructors() {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Call this constructor when the capsule is a root");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public _C_");
     String _name = this.cap.getName();
     _builder.append(_name, "");
@@ -140,6 +178,20 @@ public class CapsuleGenerator {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Call this constructor when the capsule is not a");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* root");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @param parent_ the parent of the capsule");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
     _builder.newLine();
     _builder.append("public _C_");
     String _name_1 = this.cap.getName();
@@ -166,6 +218,10 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Lists of message ports
+   * @return generated code
+   */
   private CharSequence registerPorts() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("internalports = Arrays.asList(");
@@ -212,6 +268,10 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * List of capsule instances that the current capsule has
+   * @return generated code
+   */
   private CharSequence registerCapsuleInsts() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("capsules = Arrays.asList(");
@@ -237,6 +297,10 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * List of connectors
+   * @return generated code
+   */
   private CharSequence registerConnectors() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("connectors = Arrays.asList(");
@@ -258,6 +322,13 @@ public class CapsuleGenerator {
         _builder.append("\t");
         _builder.append("new Connector(");
         _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("// capsule 1");
+        _builder.newLine();
         {
           boolean _equals = Objects.equal(c1, null);
           if (_equals) {
@@ -275,6 +346,10 @@ public class CapsuleGenerator {
             _builder.newLineIfNotEmpty();
           }
         }
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("// port 1");
+        _builder.newLine();
         {
           boolean _notEquals = (!Objects.equal(c1, null));
           if (_notEquals) {
@@ -296,6 +371,13 @@ public class CapsuleGenerator {
         _builder.append(_name_3, "\t\t");
         _builder.append(",");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("// capsule 2");
+        _builder.newLine();
         {
           boolean _equals_1 = Objects.equal(c2, null);
           if (_equals_1) {
@@ -313,6 +395,10 @@ public class CapsuleGenerator {
             _builder.newLineIfNotEmpty();
           }
         }
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("// port 2");
+        _builder.newLine();
         {
           boolean _notEquals_1 = (!Objects.equal(c2, null));
           if (_notEquals_1) {
@@ -344,21 +430,44 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * A state
+   * @return generated code
+   */
   private CharSequence defineStates() {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final State_ s : this.allStates) {
-        _builder.append("private State _state_");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append(" ");
+        _builder.append("* A state with name: ");
         String _name = s.getName();
-        _builder.append(_name, "");
+        _builder.append(_name, " ");
+        _builder.newLineIfNotEmpty();
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("private State _state_");
+        String _name_1 = s.getName();
+        _builder.append(_name_1, "");
         _builder.append(" = new State(");
         _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// name");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\"");
-        String _name_1 = s.getName();
-        _builder.append(_name_1, "\t");
+        String _name_2 = s.getName();
+        _builder.append(_name_2, "\t");
         _builder.append("\",");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// entry code");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("() -> {");
         _builder.newLine();
@@ -386,6 +495,11 @@ public class CapsuleGenerator {
         }
         _builder.append("\t");
         _builder.append("},");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// exit code");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("() -> {");
@@ -420,21 +534,44 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * A transition
+   * @return generated code
+   */
   private CharSequence defineTransitions() {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final Transition t : this.allTransitions) {
-        _builder.append("private Transition _tran_");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append(" ");
+        _builder.append("* A transition with name: ");
         String _name = t.getName();
-        _builder.append(_name, "");
+        _builder.append(_name, " ");
+        _builder.newLineIfNotEmpty();
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("private Transition _tran_");
+        String _name_1 = t.getName();
+        _builder.append(_name_1, "");
         _builder.append(" = new Transition(");
         _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// name");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\"");
-        String _name_1 = t.getName();
-        _builder.append(_name_1, "\t");
+        String _name_2 = t.getName();
+        _builder.append(_name_2, "\t");
         _builder.append("\",");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// guard");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("() -> {");
         _builder.newLine();
@@ -459,6 +596,11 @@ public class CapsuleGenerator {
         _builder.append("},");
         _builder.newLine();
         _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// action code");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("params -> {");
         _builder.newLine();
         {
@@ -478,8 +620,8 @@ public class CapsuleGenerator {
                 String _type = this.type(p);
                 _builder.append(_type, "\t\t");
                 _builder.append(" _i_");
-                String _name_2 = p.getName();
-                _builder.append(_name_2, "\t\t");
+                String _name_3 = p.getName();
+                _builder.append(_name_3, "\t\t");
                 _builder.append(" = ((");
                 String _commonObjType = this.commonObjType(p);
                 _builder.append(_commonObjType, "\t\t");
@@ -519,6 +661,11 @@ public class CapsuleGenerator {
         _builder.append("},");
         _builder.newLine();
         _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// triggers");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("Arrays.asList(");
         _builder.newLine();
         {
@@ -537,17 +684,17 @@ public class CapsuleGenerator {
             _builder.append("\t");
             _builder.append("_p_");
             Port _from = trig.getFrom();
-            String _name_3 = _from.getName();
-            _builder.append(_name_3, "\t\t\t");
+            String _name_4 = _from.getName();
+            _builder.append(_name_4, "\t\t\t");
             _builder.append(", _P_");
             Port _from_1 = trig.getFrom();
             Protocol _protocol = _from_1.getProtocol();
-            String _name_4 = _protocol.getName();
-            _builder.append(_name_4, "\t\t\t");
+            String _name_5 = _protocol.getName();
+            _builder.append(_name_5, "\t\t\t");
             _builder.append("._s_");
             Signal _signal = trig.getSignal();
-            String _name_5 = _signal.getName();
-            _builder.append(_name_5, "\t\t\t");
+            String _name_6 = _signal.getName();
+            _builder.append(_name_6, "\t\t\t");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append(")");
@@ -556,6 +703,11 @@ public class CapsuleGenerator {
         }
         _builder.append("\t");
         _builder.append("),");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// timer port");
         _builder.newLine();
         {
           TimerPort _timerPort = t.getTimerPort();
@@ -568,8 +720,8 @@ public class CapsuleGenerator {
             _builder.append("\t");
             _builder.append("_tp_");
             TimerPort _timerPort_1 = t.getTimerPort();
-            String _name_6 = _timerPort_1.getName();
-            _builder.append(_name_6, "\t");
+            String _name_7 = _timerPort_1.getName();
+            _builder.append(_name_7, "\t");
             _builder.newLineIfNotEmpty();
           }
         }
@@ -580,6 +732,10 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Defines the message ports
+   * @return generated code
+   */
   private CharSequence listPorts() {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -619,6 +775,10 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Defines the timers
+   * @return generated code
+   */
   private CharSequence listTimers() {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -634,6 +794,10 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Defines the capsule instances
+   * @return generated code
+   */
   private CharSequence listCapsuleInsts() {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -653,6 +817,10 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Defines the attributes and operations
+   * @return generated code
+   */
   private CharSequence listAttribOps() {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -674,8 +842,96 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Compiles the operation
+   * @param op operation to be compiled
+   * @return generated code
+   */
+  private CharSequence compile(final Operation op) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public ");
+    String _type = this.type(op);
+    _builder.append(_type, "");
+    _builder.append(" _f_");
+    String _name = op.getName();
+    _builder.append(_name, "");
+    _builder.append("(");
+    {
+      EList<LocalVar> _localVars = op.getLocalVars();
+      boolean _hasElements = false;
+      for(final LocalVar param : _localVars) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        String _type_1 = this.type(param);
+        _builder.append(_type_1, "");
+        _builder.append(" _l_");
+        String _name_1 = param.getName();
+        _builder.append(_name_1, "");
+      }
+    }
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      OperationCode _operationCode = op.getOperationCode();
+      EList<StatementOperation> _statements = _operationCode.getStatements();
+      for(final StatementOperation st : _statements) {
+        String _state = this.state(st);
+        _builder.append(_state, "\t");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  /**
+   * Compiles the attribute
+   */
+  private CharSequence compile(final Attribute attrib) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("private ");
+    String _type = this.type(attrib);
+    _builder.append(_type, "");
+    _builder.append(" _a_");
+    String _name = attrib.getName();
+    _builder.append(_name, "");
+    {
+      Expression _defaultValue = attrib.getDefaultValue();
+      boolean _notEquals = (!Objects.equal(_defaultValue, null));
+      if (_notEquals) {
+        _builder.append(" = ");
+        Expression _defaultValue_1 = attrib.getDefaultValue();
+        String _express = this.express(_defaultValue_1);
+        _builder.append(_express, "");
+      }
+    }
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  /**
+   * Find the possible next transitions for each state
+   * @return generated code
+   */
   private CharSequence findNextTransitions() {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Find the possible next transitions for each state");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @return outgoing transition for the current state");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public List<? extends Transition> findPossibleTrans() {");
     _builder.newLine();
     _builder.append("\t");
@@ -712,6 +968,11 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Generate possible outgoing transitions from state s
+   * @param s the state
+   * @return generated code
+   */
   private String genPossibleTrans(final State_ s) {
     State_ stateToGoThrough = s;
     String result = "";
@@ -743,8 +1004,20 @@ public class CapsuleGenerator {
     return result;
   }
   
+  /**
+   * Generate the initial transition chain
+   * @return generated code
+   */
   private CharSequence genInitMethod(final Transition init) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Initial transition chain");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public void startInit() {");
     _builder.newLine();
     _builder.append("\t");
@@ -762,6 +1035,11 @@ public class CapsuleGenerator {
     return _builder;
   }
   
+  /**
+   * Generate the initial transition chain
+   * @param init the initial transition
+   * @return generated code
+   */
   private String genInitMethod2(final Transition init) {
     String result = "";
     State_ state = null;
@@ -833,6 +1111,11 @@ public class CapsuleGenerator {
     return result;
   }
   
+  /**
+   * Find the initial transition for the given state machine
+   * @param sm the given state machine
+   * @return the initial transition of sm
+   */
   private Transition findInit(final StateMachine sm) {
     Capsule c = this.<Capsule>container(sm, Capsule.class);
     boolean _notEquals = (!Objects.equal(c, null));
@@ -848,6 +1131,12 @@ public class CapsuleGenerator {
     return null;
   }
   
+  /**
+   * Find the outgoing transitions for each state in the
+   * capsule
+   * @return a multimap containing a state mapping to
+   * a list of outgoing transitions of that state
+   */
   private ListMultimap<State_, Transition> findOutgoingTransitions() {
     ListMultimap<State_, Transition> result = Multimaps2.<State_, Transition>newLinkedHashListMultimap();
     for (final Transition t : this.allTransitions) {
@@ -884,48 +1173,13 @@ public class CapsuleGenerator {
     return null;
   }
   
-  private CharSequence compile(final Operation op) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("public ");
-    String _type = this.type(op);
-    _builder.append(_type, "");
-    _builder.append(" _f_");
-    String _name = op.getName();
-    _builder.append(_name, "");
-    _builder.append("(");
-    {
-      EList<LocalVar> _localVars = op.getLocalVars();
-      boolean _hasElements = false;
-      for(final LocalVar param : _localVars) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(", ", "");
-        }
-        String _type_1 = this.type(param);
-        _builder.append(_type_1, "");
-        _builder.append(" _l_");
-        String _name_1 = param.getName();
-        _builder.append(_name_1, "");
-      }
-    }
-    _builder.append(") {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    {
-      OperationCode _operationCode = op.getOperationCode();
-      EList<StatementOperation> _statements = _operationCode.getStatements();
-      for(final StatementOperation st : _statements) {
-        String _state = this.state(st);
-        _builder.append(_state, "\t");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
-  }
-  
+  /**
+   * Returns the CommonObj type corresponding to the
+   * incoming variable
+   * @param op the incoming variable
+   * @return a string that represents the CommonObj
+   * of the incoming variable
+   */
   private String commonObjType(final IncomingVariable op) {
     String _xifexpression = null;
     boolean _isIsBool = op.isIsBool();
@@ -942,6 +1196,12 @@ public class CapsuleGenerator {
     return _xifexpression;
   }
   
+  /**
+   * Returns the primitive type of the incoming variable
+   * @param op the incoming variable
+   * @return a string representing the primitive type
+   * of the incoming variable
+   */
   private String type(final IncomingVariable op) {
     String _xifexpression = null;
     boolean _isIsInt = op.isIsInt();
@@ -958,6 +1218,11 @@ public class CapsuleGenerator {
     return _xifexpression;
   }
   
+  /**
+   * Returns the return primitive type of the operation
+   * @param op the operation
+   * @return the return type (primitive type)
+   */
   private String type(final Operation op) {
     String _xifexpression = null;
     boolean _isIsInt = op.isIsInt();
@@ -976,6 +1241,12 @@ public class CapsuleGenerator {
     return _xifexpression;
   }
   
+  /**
+   * Returns the primitive type of the local variable
+   * @param op the local variable
+   * @return the string represents the primitive type
+   * of the local variable
+   */
   private String type(final LocalVar op) {
     String _xifexpression = null;
     boolean _isIsInt = op.isIsInt();
@@ -994,6 +1265,12 @@ public class CapsuleGenerator {
     return _xifexpression;
   }
   
+  /**
+   * Returns the primitive type of the attribute
+   * @op the attribute
+   * @return a string represents the primitive type of
+   * the attribute
+   */
   private String type(final Attribute op) {
     String _xifexpression = null;
     boolean _isIsInt = op.isIsInt();
@@ -1010,43 +1287,41 @@ public class CapsuleGenerator {
     return _xifexpression;
   }
   
-  private CharSequence compile(final Attribute attrib) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("private ");
-    String _type = this.type(attrib);
-    _builder.append(_type, "");
-    _builder.append(" _a_");
-    String _name = attrib.getName();
-    _builder.append(_name, "");
-    {
-      Expression _defaultValue = attrib.getDefaultValue();
-      boolean _notEquals = (!Objects.equal(_defaultValue, null));
-      if (_notEquals) {
-        _builder.append(" = ");
-        Expression _defaultValue_1 = attrib.getDefaultValue();
-        String _express = this.express(_defaultValue_1);
-        _builder.append(_express, "");
-      }
-    }
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
+  /**
+   * Compiles the expression
+   * @param ex the expression
+   * @return string expressing ex
+   */
   private String express(final Expression ex) {
     ExpressionGenerator _expressionGenerator = new ExpressionGenerator();
     return _expressionGenerator.express(ex);
   }
   
+  /**
+   * Compiles the statement
+   * @param obj the statement
+   * @return string expressing the statement
+   */
   private String state(final EObject obj) {
     StatementGenerator _statementGenerator = new StatementGenerator();
     return _statementGenerator.state(obj);
   }
   
+  /**
+   * Returns a list of all objects that is contained
+   * by the EObject t
+   * @param the container of the objects to be returned
+   * @return the objects that is contained by t
+   */
   private <T extends EObject> List<T> contents(final Class<T> t) {
     return EcoreUtil2.<T>getAllContentsOfType(this.cap, t);
   }
   
+  /**
+   * Returns the container of the EObject obj with type
+   * t
+   * @param
+   */
   private <T extends EObject> T container(final EObject obj, final Class<T> t) {
     return EcoreUtil2.<T>getContainerOfType(obj, t);
   }

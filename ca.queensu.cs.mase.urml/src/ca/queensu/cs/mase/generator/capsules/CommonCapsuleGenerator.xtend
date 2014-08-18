@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator
+package ca.queensu.cs.mase.generator.capsules
 
 class CommonCapsuleGenerator {
 	
@@ -79,8 +79,7 @@ class CommonCapsuleGenerator {
 					// if more than one transition is found, choose the first transition
 					Transition t = found.get(0);
 					
-					// get the parameter
-					
+					// if received message trigger, get the parameter
 					List<? extends CommonObj> param;
 					if (t.triggerIn != null && t.triggerIn.size() != 0) {
 						Message m = queue.poll();
@@ -99,34 +98,61 @@ class CommonCapsuleGenerator {
 				}
 			}
 			
+			/**
+			 * Starts the initial transition chain.  Will also start with
+			 * initial transitions of sub-state machines.
+			 */
 			public abstract void startInit();
 			
+			/**
+			 * Find all the possible transition (i.e. outgoing transitions)
+			 * from the current state.
+			 *
+			 * @return a list of all the outgoing transitions from the
+			 *         current state
+			 */
 			public abstract List<? extends Transition> findPossibleTrans();
 			
+			/**
+			 * Find the enabled transitions for the capsule.  A transition
+			 * is enabled if and only if (1) its guard condition is true, and
+			 * (2) (a) it does not have any trigger, or (b) it has a message
+			 * trigger that matches the trigger from the head of the capsule's
+			 * message queue, or (c) its timer trigger has timed out.
+			 *
+			 * @param possibleTrans the outgoing transitions from
+			 *        the current state
+			 * @return enabled transitions from the current state
+			 */
 			private List<? extends Transition> findNextTransitions(
 					List<? extends Transition> possibleTrans) {
+						
+				// check guard conditions
 				List<Transition> guardTrans = new ArrayList<>();
 				for (Transition t : possibleTrans)
 					if (t.guard.get())
 						guardTrans.add(t);
 				if (guardTrans.size() == 0) return new ArrayList<>();
 				
+				
+				// check message queue and look for matching trigger
+				// in the candidate transition
 				Message m = queue.peek();
 				List<Transition> inQueueTrans = new ArrayList<>();
-				if (m != null) {
-					for (Transition t : guardTrans) {
-						if (t.triggerIn.size() == 0) {
-							inQueueTrans.add(t);
-						} else {
-							for (TriggerIn ti : t.triggerIn) {
-								if (m.port == ti.port && m.signal == ti.signal) {
-									inQueueTrans.add(t);
-								}
+
+				for (Transition t : guardTrans) {
+					if (t.triggerIn.size() == 0 && t.timerPort == null) {
+						inQueueTrans.add(t);
+					} else {
+						for (TriggerIn ti : t.triggerIn) {
+							if (m != null && m.port == ti.port && m.signal == ti.signal) {
+								inQueueTrans.add(t);
 							}
 						}
 					}
 				}
-				
+
+				// find timers that have timed out
 				for (Transition t : guardTrans) {
 					if (t.timerPort != null) {
 						if (instants.containsKey(t.timerPort)) {
@@ -142,12 +168,33 @@ class CommonCapsuleGenerator {
 				return inQueueTrans;
 			}
 			
+			/**
+			 * Perform the specified transition.  The error in which the current state is not a "from"
+			 * state of the transition is not checked.
+			 *
+			 * @param t specified transition to be executed
+			 * @param params the parameter for the action code for t
+			 * @return a boolean that determines if the destination state is final
+			 */
 			public abstract boolean transitionAndIfFinal(Transition t, List<? extends CommonObj> params);
 			
+			/**
+			 * Send the message to the current capsule by adding it to the current capsule's
+			 * message queue.
+			 * 
+			 * @param m the message
+			 */
 			private void sendMessage(Message m) {
 				queue.add(m);
 			}
 			
+			/**
+			 * Pass message from message port p with the message
+			 * m
+			 *
+			 * @param p the port from which the message is sent
+			 * @param m the message
+			 */
 			protected void passMessage(MessagePort p, Message m) {
 				if (internalports.contains(p)) {
 					Connector conn = findConnector(this, p);

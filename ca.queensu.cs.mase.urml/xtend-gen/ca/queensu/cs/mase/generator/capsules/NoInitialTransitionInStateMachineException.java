@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator;
+package ca.queensu.cs.mase.generator.capsules;
 
 @SuppressWarnings("all")
 public class NoInitialTransitionInStateMachineException extends RuntimeException {
