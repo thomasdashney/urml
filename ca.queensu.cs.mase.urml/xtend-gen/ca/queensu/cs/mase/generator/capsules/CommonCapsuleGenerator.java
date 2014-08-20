@@ -2,6 +2,10 @@ package ca.queensu.cs.mase.generator.capsules;
 
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * Dummy printer for Capsule.java
+ * @author Keith
+ */
 @SuppressWarnings("all")
 public class CommonCapsuleGenerator {
   public CharSequence compile() {
@@ -109,6 +113,11 @@ public class CommonCapsuleGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("protected static Object lock = new Object();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public String name = \"root\";");
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
@@ -738,6 +747,15 @@ public class CommonCapsuleGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public class ConnectorInconsistentException extends RuntimeException {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("private static final long serialVersionUID = 1L;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public class CurrentStateIsNotSourceStateInTransitionException extends RuntimeException {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("private static final long serialVersionUID = 1L;");

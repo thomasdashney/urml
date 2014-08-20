@@ -158,7 +158,6 @@ public class UrmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	/**
 	 * Syntax:
 	 *     (
-	     ('outgoing' '{' ('}' 'outgoing' '{')*) | 
 	     (
 	         ('outgoing' '{' ('}' 'outgoing' '{')* '}')? 
 	         ('incoming' '{' '}')+ 
@@ -166,7 +165,8 @@ public class UrmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	         '{' 
 	         ('}' 'outgoing' '{')* 
 	         ('}' ('incoming' '{' '}')+ 'outgoing' '{' ('}' 'outgoing' '{')*)*
-	     )
+	     ) | 
+	     ('outgoing' '{' ('}' 'outgoing' '{')*)
 	 )
 	 */
 	protected void emit_Protocol___OutgoingKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_OutgoingKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___or_____OutgoingKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_OutgoingKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a_RightCurlyBracketKeyword_3_1_3__q___IncomingKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_OutgoingKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_OutgoingKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___RightCurlyBracketKeyword_3_1_3___IncomingKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_OutgoingKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_OutgoingKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a__a__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {

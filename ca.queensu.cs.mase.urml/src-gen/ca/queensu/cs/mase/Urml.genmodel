@@ -4,7 +4,7 @@
     editorDirectory="/ca.queensu.cs.mase.urml.editor/src" modelPluginID="ca.queensu.cs.mase.urml"
     forceOverwrite="true" modelName="Urml" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="ca.queensu.cs.mase.urml.edit"
-    editorPluginID="ca.queensu.cs.mase.urml.editor" runtimeVersion="2.9">
+    editorPluginID="ca.queensu.cs.mase.urml.editor" runtimeVersion="2.10">
   <genPackages prefix="Urml" basePackage="ca.queensu.cs.mase" disposableProviderFactory="true"
       ecorePackage="Urml.ecore#/">
     <genClasses ecoreClass="Urml.ecore#//Model">

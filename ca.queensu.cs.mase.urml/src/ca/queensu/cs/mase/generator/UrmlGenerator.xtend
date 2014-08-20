@@ -19,10 +19,10 @@ class UrmlGenerator implements IGenerator {
 	var Model model
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		val fname = resource.URI.segment(resource.URI.segmentCount - 1)
+		//val fname = resource.URI.segment(resource.URI.segmentCount - 1)
 		model = resource.contents.get(0) as Model
-		var modelfname = '/model/m_' + model.name
-		var mfname = fname + modelfname
+		var modelfname = 'model/m_' + model.name.toFirstLower
+		var mfname = modelfname
 		for (cap : model.capsules) 
 			fsa.generateFile(mfname + "/_C_" + cap.name + ".java", cap.compile)
 
@@ -47,7 +47,7 @@ class UrmlGenerator implements IGenerator {
 			'TriggerIn.java' -> compileTriggerIn,
 			'TimerPort.java' -> compileTimerPort
 		].forEach[
-			fsa.generateFile(fname + '/urml/runtime/' + it.key, it.value)
+			fsa.generateFile('urml/runtime/' + it.key, it.value)
 		]
 	}
 	

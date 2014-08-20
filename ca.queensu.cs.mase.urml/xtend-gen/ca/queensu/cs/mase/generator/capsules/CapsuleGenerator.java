@@ -28,11 +28,15 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtend.lib.Data;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
 import org.eclipse.xtext.xbase.typesystem.util.Multimaps2;
 
 /**
@@ -44,6 +48,38 @@ import org.eclipse.xtext.xbase.typesystem.util.Multimaps2;
  */
 @SuppressWarnings("all")
 public class CapsuleGenerator {
+  @Data
+  public static class Shit {
+    public Shit() {
+      super();
+    }
+    
+    @Override
+    public int hashCode() {
+      final int prime = 31;
+      int result = 1;
+      return result;
+    }
+    
+    @Override
+    public boolean equals(final Object obj) {
+      if (this == obj)
+        return true;
+      if (obj == null)
+        return false;
+      if (getClass() != obj.getClass())
+        return false;
+      Shit other = (Shit) obj;
+      return true;
+    }
+    
+    @Override
+    public String toString() {
+      String result = new ToStringHelper().toString(this);
+      return result;
+    }
+  }
+  
   private Capsule cap;
   
   private List<State_> allStates;
@@ -51,6 +87,10 @@ public class CapsuleGenerator {
   private List<Transition> allTransitions;
   
   private Multimap<State_, Transition> outgoingTransitions;
+  
+  private Map<Transition, Integer> nonameTrans = new HashMap<Transition, Integer>();
+  
+  private int nonameTransCount = 0;
   
   public CapsuleGenerator(final Capsule capsule) {
     this.cap = capsule;
@@ -130,7 +170,7 @@ public class CapsuleGenerator {
     _builder.append(_genInitMethod, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    TransitionGenerator _transitionGenerator = new TransitionGenerator(this.allTransitions);
+    TransitionGenerator _transitionGenerator = new TransitionGenerator(this.allTransitions, this.nonameTrans);
     CharSequence _transitions = _transitionGenerator.transitions();
     _builder.append(_transitions, "\t");
     _builder.newLineIfNotEmpty();
@@ -145,8 +185,6 @@ public class CapsuleGenerator {
    */
   private CharSequence imports() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("import java.time.*;");
-    _builder.newLine();
     _builder.append("import java.util.*;");
     _builder.newLine();
     _builder.append("import urml.runtime.*;");
@@ -294,6 +332,19 @@ public class CapsuleGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append(");");
     _builder.newLine();
+    {
+      EList<CapsuleInst> _capsuleInsts_1 = this.cap.getCapsuleInsts();
+      for(final CapsuleInst ci_1 : _capsuleInsts_1) {
+        _builder.append("_ci_");
+        String _name_1 = ci_1.getName();
+        _builder.append(_name_1, "");
+        _builder.append(".name = \"");
+        String _name_2 = ci_1.getName();
+        _builder.append(_name_2, "");
+        _builder.append("\";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -305,7 +356,6 @@ public class CapsuleGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("connectors = Arrays.asList(");
     _builder.newLine();
-    _builder.append("\t");
     {
       EList<Connector> _connectors = this.cap.getConnectors();
       boolean _hasElements = false;
@@ -313,113 +363,53 @@ public class CapsuleGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(", ", "\t");
+          _builder.appendImmediate(", ", "");
         }
-        CapsuleInst c1 = conn.getCapsuleInst1();
-        CapsuleInst c2 = conn.getCapsuleInst2();
+        CapsuleInst _capsuleInst1 = conn.getCapsuleInst1();
+        String c1 = this.ciName(_capsuleInst1);
+        CapsuleInst _capsuleInst2 = conn.getCapsuleInst2();
+        String c2 = this.ciName(_capsuleInst2);
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
         _builder.append("\t");
         _builder.append("new Connector(");
         _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t\t");
-        _builder.newLine();
-        _builder.append("\t");
         _builder.append("\t\t");
         _builder.append("// capsule 1");
         _builder.newLine();
-        {
-          boolean _equals = Objects.equal(c1, null);
-          if (_equals) {
-            _builder.append("\t");
-            _builder.append("\t");
-            _builder.append("this,");
-            _builder.newLine();
-          } else {
-            _builder.append("\t");
-            _builder.append("\t");
-            _builder.append("_ci_");
-            String _name = c1.getName();
-            _builder.append(_name, "\t\t");
-            _builder.append(",");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append(c1, "\t\t");
+        _builder.append(",");
+        _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
         _builder.append("// port 1");
         _builder.newLine();
-        {
-          boolean _notEquals = (!Objects.equal(c1, null));
-          if (_notEquals) {
-            _builder.append("\t");
-            _builder.append("\t");
-            _builder.append("((_C_");
-            Capsule _type = c1.getType();
-            String _name_1 = _type.getName();
-            _builder.append(_name_1, "\t\t");
-            _builder.append(") _ci_");
-            String _name_2 = c1.getName();
-            _builder.append(_name_2, "\t\t");
-            _builder.append(").");
-          }
-        }
-        _builder.append("_p_");
+        _builder.append("\t\t");
+        _builder.append(c1, "\t\t");
+        _builder.append("._p_");
         Port _port1 = conn.getPort1();
-        String _name_3 = _port1.getName();
-        _builder.append(_name_3, "\t\t");
+        String _name = _port1.getName();
+        _builder.append(_name, "\t\t");
         _builder.append(",");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
         _builder.append("\t\t");
         _builder.newLine();
-        _builder.append("\t");
         _builder.append("\t\t");
         _builder.append("// capsule 2");
         _builder.newLine();
-        {
-          boolean _equals_1 = Objects.equal(c2, null);
-          if (_equals_1) {
-            _builder.append("\t");
-            _builder.append("\t");
-            _builder.append("this,");
-            _builder.newLine();
-          } else {
-            _builder.append("\t");
-            _builder.append("\t");
-            _builder.append("_ci_");
-            String _name_4 = c2.getName();
-            _builder.append(_name_4, "\t\t");
-            _builder.append(",");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append(c2, "\t\t");
+        _builder.append(",");
+        _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
         _builder.append("// port 2");
         _builder.newLine();
-        {
-          boolean _notEquals_1 = (!Objects.equal(c2, null));
-          if (_notEquals_1) {
-            _builder.append("\t");
-            _builder.append("\t");
-            _builder.append("((_C_");
-            Capsule _type_1 = c2.getType();
-            String _name_5 = _type_1.getName();
-            _builder.append(_name_5, "\t\t");
-            _builder.append(") _ci_");
-            String _name_6 = c2.getName();
-            _builder.append(_name_6, "\t\t");
-            _builder.append(").");
-          }
-        }
-        _builder.append("_p_");
+        _builder.append("\t\t");
+        _builder.append(c2, "\t\t");
+        _builder.append("._p_");
         Port _port2 = conn.getPort2();
-        String _name_7 = _port2.getName();
-        _builder.append(_name_7, "\t\t");
+        String _name_1 = _port2.getName();
+        _builder.append(_name_1, "\t\t");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
         _builder.append("\t");
         _builder.append(")");
         _builder.newLine();
@@ -428,6 +418,18 @@ public class CapsuleGenerator {
     _builder.append(");");
     _builder.newLine();
     return _builder;
+  }
+  
+  private String ciName(final CapsuleInst c) {
+    String _xifexpression = null;
+    boolean _equals = Objects.equal(c, null);
+    if (_equals) {
+      _xifexpression = "this";
+    } else {
+      String _name = c.getName();
+      _xifexpression = ("_ci_" + _name);
+    }
+    return _xifexpression;
   }
   
   /**
@@ -542,19 +544,27 @@ public class CapsuleGenerator {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final Transition t : this.allTransitions) {
+        String _xifexpression = null;
+        String _name = t.getName();
+        boolean _equals = Objects.equal(_name, null);
+        if (_equals) {
+          _xifexpression = this.getNewNoNameTrans(t);
+        } else {
+          _xifexpression = t.getName();
+        }
+        String tname = _xifexpression;
+        _builder.newLineIfNotEmpty();
         _builder.append("/**");
         _builder.newLine();
         _builder.append(" ");
         _builder.append("* A transition with name: ");
-        String _name = t.getName();
-        _builder.append(_name, " ");
+        _builder.append(tname, " ");
         _builder.newLineIfNotEmpty();
         _builder.append(" ");
         _builder.append("*/");
         _builder.newLine();
         _builder.append("private Transition _tran_");
-        String _name_1 = t.getName();
-        _builder.append(_name_1, "");
+        _builder.append(tname, "");
         _builder.append(" = new Transition(");
         _builder.newLineIfNotEmpty();
         _builder.newLine();
@@ -563,8 +573,7 @@ public class CapsuleGenerator {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\"");
-        String _name_2 = t.getName();
-        _builder.append(_name_2, "\t");
+        _builder.append(tname, "\t");
         _builder.append("\",");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -577,8 +586,8 @@ public class CapsuleGenerator {
         _builder.newLine();
         {
           Expression _guard = t.getGuard();
-          boolean _equals = Objects.equal(_guard, null);
-          if (_equals) {
+          boolean _equals_1 = Objects.equal(_guard, null);
+          if (_equals_1) {
             _builder.append("\t\t");
             _builder.append("return true;");
             _builder.newLine();
@@ -620,8 +629,8 @@ public class CapsuleGenerator {
                 String _type = this.type(p);
                 _builder.append(_type, "\t\t");
                 _builder.append(" _i_");
-                String _name_3 = p.getName();
-                _builder.append(_name_3, "\t\t");
+                String _name_1 = p.getName();
+                _builder.append(_name_1, "\t\t");
                 _builder.append(" = ((");
                 String _commonObjType = this.commonObjType(p);
                 _builder.append(_commonObjType, "\t\t");
@@ -684,17 +693,17 @@ public class CapsuleGenerator {
             _builder.append("\t");
             _builder.append("_p_");
             Port _from = trig.getFrom();
-            String _name_4 = _from.getName();
-            _builder.append(_name_4, "\t\t\t");
+            String _name_2 = _from.getName();
+            _builder.append(_name_2, "\t\t\t");
             _builder.append(", _P_");
             Port _from_1 = trig.getFrom();
             Protocol _protocol = _from_1.getProtocol();
-            String _name_5 = _protocol.getName();
-            _builder.append(_name_5, "\t\t\t");
+            String _name_3 = _protocol.getName();
+            _builder.append(_name_3, "\t\t\t");
             _builder.append("._s_");
             Signal _signal = trig.getSignal();
-            String _name_6 = _signal.getName();
-            _builder.append(_name_6, "\t\t\t");
+            String _name_4 = _signal.getName();
+            _builder.append(_name_4, "\t\t\t");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append(")");
@@ -711,8 +720,8 @@ public class CapsuleGenerator {
         _builder.newLine();
         {
           TimerPort _timerPort = t.getTimerPort();
-          boolean _equals_1 = Objects.equal(_timerPort, null);
-          if (_equals_1) {
+          boolean _equals_2 = Objects.equal(_timerPort, null);
+          if (_equals_2) {
             _builder.append("\t");
             _builder.append("null");
             _builder.newLine();
@@ -720,8 +729,8 @@ public class CapsuleGenerator {
             _builder.append("\t");
             _builder.append("_tp_");
             TimerPort _timerPort_1 = t.getTimerPort();
-            String _name_7 = _timerPort_1.getName();
-            _builder.append(_name_7, "\t");
+            String _name_5 = _timerPort_1.getName();
+            _builder.append(_name_5, "\t");
             _builder.newLineIfNotEmpty();
           }
         }
@@ -803,13 +812,17 @@ public class CapsuleGenerator {
     {
       EList<CapsuleInst> _capsuleInsts = this.cap.getCapsuleInsts();
       for(final CapsuleInst ci : _capsuleInsts) {
-        _builder.append("Capsule _ci_");
-        String _name = ci.getName();
-        _builder.append(_name, "");
-        _builder.append(" = new _C_");
+        _builder.append("_C_");
         Capsule _type = ci.getType();
-        String _name_1 = _type.getName();
+        String _name = _type.getName();
+        _builder.append(_name, "");
+        _builder.append(" _ci_");
+        String _name_1 = ci.getName();
         _builder.append(_name_1, "");
+        _builder.append(" = new _C_");
+        Capsule _type_1 = ci.getType();
+        String _name_2 = _type_1.getName();
+        _builder.append(_name_2, "");
         _builder.append("(this);");
         _builder.newLineIfNotEmpty();
       }
@@ -981,10 +994,10 @@ public class CapsuleGenerator {
       {
         Collection<Transition> _get = this.outgoingTransitions.get(stateToGoThrough);
         for (final Transition t : _get) {
-          String _name = t.getName();
-          String _plus = ((result + "_tran_") + _name);
-          String _plus_1 = (_plus + ", ");
-          result = _plus_1;
+          {
+            String tname = this.genName(t);
+            result = (((result + "_tran_") + tname) + ", ");
+          }
         }
         EObject _eContainer = stateToGoThrough.eContainer();
         State_ _container = this.<State_>container(_eContainer, State_.class);
@@ -1045,10 +1058,10 @@ public class CapsuleGenerator {
     State_ state = null;
     boolean _notEquals = (!Objects.equal(init, null));
     if (_notEquals) {
+      String initname = this.genName(init);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("_tran_");
-      String _name = init.getName();
-      _builder.append(_name, "");
+      _builder.append(initname, "");
       _builder.append(".action.accept(new ArrayList<>());");
       _builder.newLineIfNotEmpty();
       String _plus = (result + _builder);
@@ -1057,13 +1070,13 @@ public class CapsuleGenerator {
       state = _to;
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("currentState = _state_");
-      String _name_1 = state.getName();
-      _builder_1.append(_name_1, "");
+      String _name = state.getName();
+      _builder_1.append(_name, "");
       _builder_1.append(";");
       _builder_1.newLineIfNotEmpty();
       _builder_1.append("_state_");
-      String _name_2 = state.getName();
-      _builder_1.append(_name_2, "");
+      String _name_1 = state.getName();
+      _builder_1.append(_name_1, "");
       _builder_1.append(".entry.run();");
       _builder_1.newLineIfNotEmpty();
       String _plus_1 = (result + _builder_1);
@@ -1079,10 +1092,10 @@ public class CapsuleGenerator {
           if (_equals) {
             throw new NoInitialTransitionInStateMachineException();
           }
+          String subInitialname = this.genName(subInitial);
           StringConcatenation _builder_2 = new StringConcatenation();
           _builder_2.append("_tran_");
-          String _name_3 = subInitial.getName();
-          _builder_2.append(_name_3, "");
+          _builder_2.append(subInitialname, "");
           _builder_2.append(".action.accept(new ArrayList<>());");
           _builder_2.newLineIfNotEmpty();
           String _plus_2 = (result + _builder_2);
@@ -1091,13 +1104,13 @@ public class CapsuleGenerator {
           state = _to_1;
           StringConcatenation _builder_3 = new StringConcatenation();
           _builder_3.append("currentState = _state_");
-          String _name_4 = state.getName();
-          _builder_3.append(_name_4, "");
+          String _name_2 = state.getName();
+          _builder_3.append(_name_2, "");
           _builder_3.append(";");
           _builder_3.newLineIfNotEmpty();
           _builder_3.append("_state_");
-          String _name_5 = state.getName();
-          _builder_3.append(_name_5, "");
+          String _name_3 = state.getName();
+          _builder_3.append(_name_3, "");
           _builder_3.append(".entry.run();");
           _builder_3.newLineIfNotEmpty();
           String _plus_3 = (result + _builder_3);
@@ -1109,6 +1122,30 @@ public class CapsuleGenerator {
       }
     }
     return result;
+  }
+  
+  private String getNewNoNameTrans(final Transition t) {
+    String _xblockexpression = null;
+    {
+      int i = this.nonameTransCount;
+      this.nonameTransCount++;
+      this.nonameTrans.put(t, Integer.valueOf(i));
+      _xblockexpression = ("_noname_" + Integer.valueOf(i));
+    }
+    return _xblockexpression;
+  }
+  
+  private String genName(final Transition t) {
+    String _xifexpression = null;
+    String _name = t.getName();
+    boolean _equals = Objects.equal(_name, null);
+    if (_equals) {
+      Integer _get = this.nonameTrans.get(t);
+      _xifexpression = ("_noname_" + _get);
+    } else {
+      _xifexpression = t.getName();
+    }
+    return _xifexpression;
   }
   
   /**

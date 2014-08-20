@@ -6,16 +6,25 @@ import com.google.common.base.Objects;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.EcoreUtil2;
 
+/**
+ * Used by CapsuleGenerator as a printer to
+ * emit possible transitions
+ * @author Keith
+ */
 @SuppressWarnings("all")
 public class TransitionGenerator {
   private List<Transition> allTransitions;
   
-  public TransitionGenerator(final List<Transition> allTrans) {
+  private Map<Transition, Integer> nonameTrans;
+  
+  public TransitionGenerator(final List<Transition> allTrans, final Map<Transition, Integer> nonameTrans) {
     this.allTransitions = allTrans;
+    this.nonameTrans = nonameTrans;
   }
   
   /**
@@ -24,15 +33,23 @@ public class TransitionGenerator {
    */
   public CharSequence transitions() {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Executes the transition t and returns whether the");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* destination state of t is final.  ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public boolean transitionAndIfFinal(");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("Transition t, List<? extends CommonObj> params)  {");
+    _builder.append("Transition t, List<? extends CommonObj> params) {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("synchronized (lock) {");
-    _builder.newLine();
-    _builder.append("\t\t");
     _builder.append("switch (t.name) {");
     _builder.newLine();
     {
@@ -41,45 +58,75 @@ public class TransitionGenerator {
           boolean _isInit = t.isInit();
           boolean _not = (!_isInit);
           if (_not) {
-            _builder.append("\t\t\t");
-            _builder.append("case \"");
-            String _name = t.getName();
-            _builder.append(_name, "\t\t\t");
-            _builder.append("\":");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t\t");
+            {
+              String _name = t.getName();
+              boolean _equals = Objects.equal(_name, null);
+              if (_equals) {
+                _builder.append("\t\t");
+                _builder.append("case \"_noname_");
+                Integer _get = this.nonameTrans.get(t);
+                _builder.append(_get, "\t\t");
+                _builder.append("\":");
+                _builder.newLineIfNotEmpty();
+              } else {
+                _builder.append("\t\t");
+                _builder.append("case \"");
+                String _name_1 = t.getName();
+                _builder.append(_name_1, "\t\t");
+                _builder.append("\":");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            _builder.append("\t\t");
             _builder.append("\t");
+            _builder.append("if (_state_");
+            State_ _from = t.getFrom();
+            String _name_2 = _from.getName();
+            _builder.append(_name_2, "\t\t\t");
+            _builder.append(" != currentState)");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
+            _builder.append("\t\t");
+            _builder.append("throw new CurrentStateIsNotSourceStateInTransitionException();");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t");
+            _builder.append("synchronized (lock) {");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t\t");
             String _genTransitionSwitchCase = this.genTransitionSwitchCase(t);
             _builder.append(_genTransitionSwitchCase, "\t\t\t\t");
             _builder.newLineIfNotEmpty();
-            _builder.append("\t\t\t");
-            _builder.append("\t");
+            _builder.append("\t\t");
+            _builder.append("\t\t");
             _builder.append("currentState = _state_");
             State_ _to = t.getTo();
-            String _name_1 = _to.getName();
-            _builder.append(_name_1, "\t\t\t\t");
+            String _name_3 = _to.getName();
+            _builder.append(_name_3, "\t\t\t\t");
             _builder.append(";");
             _builder.newLineIfNotEmpty();
-            _builder.append("\t\t\t");
-            _builder.append("\t");
+            _builder.append("\t\t");
+            _builder.append("\t\t");
             _builder.append("return ");
             State_ _to_1 = t.getTo();
             boolean _isFinal = _to_1.isFinal();
             _builder.append(_isFinal, "\t\t\t\t");
             _builder.append(";");
             _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
+            _builder.append("\t");
+            _builder.append("}");
+            _builder.newLine();
           }
         }
       }
     }
-    _builder.append("\t\t\t");
+    _builder.append("\t\t");
     _builder.append("default:");
     _builder.newLine();
-    _builder.append("\t\t\t\t");
+    _builder.append("\t\t\t");
     _builder.append("return false;");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("}");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -121,10 +168,19 @@ public class TransitionGenerator {
       boolean _not_1 = (!_isEmpty_1);
       _while = _not_1;
     }
+    String _xifexpression = null;
+    String _name = t.getName();
+    boolean _equals = Objects.equal(_name, null);
+    if (_equals) {
+      Integer _get = this.nonameTrans.get(t);
+      _xifexpression = ("_noname_" + _get);
+    } else {
+      _xifexpression = t.getName();
+    }
+    String tname = _xifexpression;
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("_tran_");
-    String _name = t.getName();
-    _builder.append(_name, "");
+    _builder.append(tname, "");
     _builder.append(".action.accept(params);");
     _builder.newLineIfNotEmpty();
     String _plus = (result + _builder);

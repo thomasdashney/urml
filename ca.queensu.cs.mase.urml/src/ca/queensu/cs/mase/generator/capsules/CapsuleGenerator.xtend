@@ -16,6 +16,9 @@ import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.xbase.typesystem.util.Multimaps2
+import ca.queensu.cs.mase.urml.CapsuleInst
+import java.util.Map
+import java.util.HashMap
 
 /**
  * Genereator for a specific capsule.  The capsule in question
@@ -30,6 +33,8 @@ class CapsuleGenerator {
 	var List<State_> allStates
 	var List<Transition> allTransitions
 	var Multimap<State_, Transition> outgoingTransitions
+	var Map<Transition, Integer> nonameTrans = new HashMap;
+	var nonameTransCount = 0;
 
 	new(Capsule capsule) {
 		cap = capsule
@@ -60,7 +65,7 @@ class CapsuleGenerator {
 			«defineTransitions»
 			«findNextTransitions»
 			«initialTransition.genInitMethod»
-			«new TransitionGenerator(allTransitions).transitions»
+			«new TransitionGenerator(allTransitions, nonameTrans).transitions»
 		}
 	'''
 
@@ -70,7 +75,6 @@ class CapsuleGenerator {
 	 * @return generated code
 	 */
 	private def imports() '''
-		import java.time.*;
 		import java.util.*;
 		import urml.runtime.*;
 	'''
@@ -126,40 +130,42 @@ class CapsuleGenerator {
 		capsules = Arrays.asList(
 			«FOR ci: cap.capsuleInsts SEPARATOR ', '»_ci_«ci.name»«ENDFOR»
 		);
+		«FOR ci: cap.capsuleInsts»
+			_ci_«ci.name».name = "«ci.name»";
+		«ENDFOR»
 	'''
 
+	@Data static class Shit {
+		
+	}
 	/**
 	 * List of connectors
 	 * @return generated code
 	 */
 	private def registerConnectors() '''
 		connectors = Arrays.asList(
-			«FOR conn : cap.connectors SEPARATOR ', '»«var c1 = conn.capsuleInst1»«var c2 = conn.capsuleInst2»
-				new Connector(
-					
-					// capsule 1
-				«IF c1 == null»
-					this,
-				«ELSE»
-					_ci_«c1.name»,
-				«ENDIF»
-					// port 1
-				«IF c1 != null»
-					((_C_«c1.type.name») _ci_«c1.name»).«ENDIF»_p_«conn.port1.name»,
-					
-					// capsule 2
-				«IF c2 == null»
-					this,
-				«ELSE»
-					_ci_«c2.name»,
-				«ENDIF»
-					// port 2
-				«IF c2 != null»
-					((_C_«c2.type.name») _ci_«c2.name»).«ENDIF»_p_«conn.port2.name»
-				)
-			«ENDFOR»
+		«FOR conn : cap.connectors SEPARATOR ', '»«var c1 = ciName(conn.capsuleInst1)»«var c2 = ciName(conn.capsuleInst2)»
+			new Connector(
+				// capsule 1
+				«c1»,
+				// port 1
+				«c1»._p_«conn.port1.name»,
+				
+				// capsule 2
+				«c2»,
+				// port 2
+				«c2»._p_«conn.port2.name»
+			)
+		«ENDFOR»
 		);
 	'''
+	
+	private def ciName(CapsuleInst c) {
+		if (c == null) 
+			"this"
+		else
+			"_ci_" + c.name
+	}
 
 	// STATES
 	
@@ -198,20 +204,21 @@ class CapsuleGenerator {
 	'''
 	
 	// TRANSITIONS
-
+	
 	/**
 	 * A transition
 	 * @return generated code
 	 */
 	private def defineTransitions() '''
 		«FOR t : allTransitions»
+			«var tname = if (t.name == null) getNewNoNameTrans(t) else t.name»
 			/**
-			 * A transition with name: «t.name»
+			 * A transition with name: «tname»
 			 */
-			private Transition _tran_«t.name» = new Transition(
+			private Transition _tran_«tname» = new Transition(
 			
 				// name
-				"«t.name»",
+				"«tname»",
 				
 				// guard
 				() -> {
@@ -286,7 +293,7 @@ class CapsuleGenerator {
 	 */
 	private def listCapsuleInsts() '''
 		«FOR ci: cap.capsuleInsts» 
-			Capsule _ci_«ci.name» = new _C_«ci.type.name»(this);
+			_C_«ci.type.name» _ci_«ci.name» = new _C_«ci.type.name»(this);
 		«ENDFOR»
 	'''
 	
@@ -355,8 +362,10 @@ class CapsuleGenerator {
 		var stateToGoThrough = s
 		var result = ''
 		do {
-			for (t : outgoingTransitions.get(stateToGoThrough))
-				result = result + '_tran_' + t.name + ', '
+			for (t : outgoingTransitions.get(stateToGoThrough)) {
+				var tname = genName(t)
+				result = result + '_tran_' + tname + ', '
+			}
 			stateToGoThrough = container(stateToGoThrough.eContainer, State_)
 		} while (stateToGoThrough != null)
 		if (result.length > 2)
@@ -388,8 +397,9 @@ class CapsuleGenerator {
 		var result = ''
 		var State_ state
 		if (init != null) {
+			var initname = genName(init)
 			result = result + '''
-				_tran_«init.name».action.accept(new ArrayList<>());
+				_tran_«initname».action.accept(new ArrayList<>());
 			'''
 			state = init.to
 			result = result + '''
@@ -401,8 +411,9 @@ class CapsuleGenerator {
 				var subInitial = sm.findInit
 				if (subInitial == null)
 					throw new NoInitialTransitionInStateMachineException
+				var subInitialname = genName(subInitial)
 				result = result + '''
-					_tran_«subInitial.name».action.accept(new ArrayList<>());
+					_tran_«subInitialname».action.accept(new ArrayList<>());
 				'''
 				state = subInitial.to
 				result = result + '''
@@ -414,6 +425,20 @@ class CapsuleGenerator {
 		return result
 	}
 
+	private def getNewNoNameTrans(Transition t) {
+		var i = nonameTransCount
+		nonameTransCount++
+		nonameTrans.put(t, i)
+		"_noname_" + i
+	}
+	
+	private def genName(Transition t) {
+		if (t.name == null)
+			"_noname_" + nonameTrans.get(t)
+		else
+			t.name
+	}
+	
 	/**
 	 * Find the initial transition for the given state machine
 	 * @param sm the given state machine

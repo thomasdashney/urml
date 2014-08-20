@@ -1,5 +1,9 @@
 package ca.queensu.cs.mase.generator.capsules
 
+/**
+ * Dummy printer for Capsule.java
+ * @author Keith
+ */
 class CommonCapsuleGenerator {
 	
 	public def compile() '''
@@ -41,6 +45,8 @@ class CommonCapsuleGenerator {
 			 * Lock used for synchronized blocks
 			 */
 			protected static Object lock = new Object();
+			
+			public String name = "root";
 			
 			/**
 			 * A dummy state
@@ -260,6 +266,9 @@ class CommonCapsuleGenerator {
 				private static final long serialVersionUID = 1L;
 			}
 			public class ConnectorInconsistentException extends RuntimeException {
+				private static final long serialVersionUID = 1L;
+			}
+			public class CurrentStateIsNotSourceStateInTransitionException extends RuntimeException {
 				private static final long serialVersionUID = 1L;
 			}
 		}

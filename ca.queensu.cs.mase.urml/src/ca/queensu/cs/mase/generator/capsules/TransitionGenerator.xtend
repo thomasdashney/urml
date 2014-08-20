@@ -7,13 +7,21 @@ import java.util.LinkedList
 import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
+import java.util.Map
 
+/**
+ * Used by CapsuleGenerator as a printer to
+ * emit possible transitions
+ * @author Keith
+ */
 class TransitionGenerator {
 
 	var List<Transition> allTransitions
+	var Map<Transition, Integer> nonameTrans
 
-	new(List<Transition> allTrans) {
+	new(List<Transition> allTrans, Map<Transition, Integer> nonameTrans) {
 		allTransitions = allTrans
+		this.nonameTrans = nonameTrans
 	}
 
 	/**
@@ -21,21 +29,31 @@ class TransitionGenerator {
 	 * @return generated code
 	 */
 	public def transitions() '''
+		/**
+		 * Executes the transition t and returns whether the
+		 * destination state of t is final.  
+		 */
 		public boolean transitionAndIfFinal(
-				Transition t, List<? extends CommonObj> params)  {
-			synchronized (lock) {
-				switch (t.name) {
-					«FOR t : allTransitions»
-						«IF !t.init»
+				Transition t, List<? extends CommonObj> params) {
+			switch (t.name) {
+				«FOR t : allTransitions»
+					«IF !t.init»
+						«IF t.name == null»
+							case "_noname_«nonameTrans.get(t)»":
+						«ELSE»
 							case "«t.name»":
+						«ENDIF»
+							if (_state_«t.from.name» != currentState)
+								throw new CurrentStateIsNotSourceStateInTransitionException();
+							synchronized (lock) {
 								«t.genTransitionSwitchCase»
 								currentState = _state_«t.to.name»;
 								return «t.to.final»;
-						«ENDIF»
-					«ENDFOR»
-					default:
-						return false;
-				}
+							}
+					«ENDIF»
+				«ENDFOR»
+				default:
+					return false;
 			}
 		}
 	'''
@@ -57,8 +75,9 @@ class TransitionGenerator {
 			result = result + '''
 				_state_«fromWithAnc.removeLast.name».exit.run();
 			'''
+		var tname = if (t.name == null) '_noname_' + nonameTrans.get(t) else t.name
 		result = result + '''
-			_tran_«t.name».action.accept(params);
+			_tran_«tname».action.accept(params);
 		'''
 		while (!toWithAnc.empty)
 			result = result + '''
@@ -114,12 +133,4 @@ class TransitionGenerator {
 		EcoreUtil2.getContainerOfType(obj, t)
 	}
 
-//	/**
-//	 * Expresses the expression ex
-//	 * @param ex the expression
-//	 * @return the string form of the expression
-//	 */
-//	private def express(Expression ex) {
-//		new ExpressionGenerator().express(ex)
-//	}
 }

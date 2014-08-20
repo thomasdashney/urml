@@ -90,7 +90,7 @@ public class StatementGenerator {
   
   protected String _state(final LogStatement st) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("System.out.println(\"logging to ");
+    _builder.append("System.out.println(this.name + \": logging to ");
     LogPort _logPort = st.getLogPort();
     String _name = _logPort.getName();
     _builder.append(_name, "");
@@ -206,102 +206,85 @@ public class StatementGenerator {
   }
   
   protected String _state(final IfStatementOperation st) {
-    String _xblockexpression = null;
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("if (");
+    Expression _condition = st.getCondition();
+    String _express = this.express(_condition);
+    _builder.append(_express, "");
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("if (");
-      Expression _condition = st.getCondition();
-      String _express = this.express(_condition);
-      _builder.append(_express, "");
-      _builder.append(") {");
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t");
-      {
-        EList<StatementOperation> _thenStatements = st.getThenStatements();
-        for(final StatementOperation subSt : _thenStatements) {
-          String _state = this.state(subSt);
-          _builder.append(_state, "\t");
-          _builder.newLineIfNotEmpty();
-        }
+      EList<StatementOperation> _thenStatements = st.getThenStatements();
+      for(final StatementOperation subSt : _thenStatements) {
+        String _state = this.state(subSt);
+        _builder.append(_state, "\t");
+        _builder.newLineIfNotEmpty();
       }
-      _builder.append("}");
-      String str = _builder.toString();
-      String _xifexpression = null;
+    }
+    _builder.append("}");
+    {
       EList<StatementOperation> _elseStatements = st.getElseStatements();
       int _size = _elseStatements.size();
       boolean _notEquals = (_size != 0);
       if (_notEquals) {
-        StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append("else {");
-        _builder_1.newLine();
-        _builder_1.append("\t");
+        _builder.append(" else {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         {
           EList<StatementOperation> _elseStatements_1 = st.getElseStatements();
           for(final StatementOperation subSt_1 : _elseStatements_1) {
             String _state_1 = this.state(subSt_1);
-            _builder_1.append(_state_1, "\t");
-            _builder_1.newLineIfNotEmpty();
+            _builder.append(_state_1, "\t");
+            _builder.newLineIfNotEmpty();
           }
         }
-        _builder_1.append("}");
-        _builder_1.newLine();
-        _xifexpression = (str + _builder_1);
-      } else {
-        StringConcatenation _builder_2 = new StringConcatenation();
-        _xifexpression = (str + _builder_2);
+        _builder.append("}");
+        _builder.newLine();
       }
-      _xblockexpression = _xifexpression;
     }
-    return _xblockexpression;
+    return _builder.toString();
   }
   
   protected String _state(final IfStatement st) {
-    String _xblockexpression = null;
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("if (");
+    Expression _condition = st.getCondition();
+    String _express = this.express(_condition);
+    _builder.append(_express, "");
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("if (");
-      Expression _condition = st.getCondition();
-      String _express = this.express(_condition);
-      _builder.append(_express, "");
-      _builder.append(") {");
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t");
-      {
-        EList<Statement> _thenStatements = st.getThenStatements();
-        for(final Statement subSt : _thenStatements) {
-          String _state = this.state(subSt);
-          _builder.append(_state, "\t");
-          _builder.newLineIfNotEmpty();
-        }
+      EList<Statement> _thenStatements = st.getThenStatements();
+      for(final Statement subSt : _thenStatements) {
+        String _state = this.state(subSt);
+        _builder.append(_state, "\t");
+        _builder.newLineIfNotEmpty();
       }
-      _builder.append("} ");
-      String str = _builder.toString();
-      String _xifexpression = null;
+    }
+    _builder.append("}");
+    {
       EList<Statement> _elseStatements = st.getElseStatements();
       int _size = _elseStatements.size();
       boolean _notEquals = (_size != 0);
       if (_notEquals) {
-        StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append(" ");
-        _builder_1.append("else {");
-        _builder_1.newLine();
-        _builder_1.append("\t");
+        _builder.append(" else {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         {
           EList<Statement> _elseStatements_1 = st.getElseStatements();
           for(final Statement subSt_1 : _elseStatements_1) {
             String _state_1 = this.state(subSt_1);
-            _builder_1.append(_state_1, "\t");
-            _builder_1.newLineIfNotEmpty();
+            _builder.append(_state_1, "\t");
+            _builder.newLineIfNotEmpty();
           }
         }
-        _builder_1.append("}");
-        _xifexpression = (str + _builder_1);
-      } else {
-        _xifexpression = str;
+        _builder.append("}");
       }
-      _xblockexpression = _xifexpression;
     }
-    return _xblockexpression;
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
   }
   
   protected String _state(final Invoke st) {
@@ -423,7 +406,7 @@ public class StatementGenerator {
   
   protected String _state(final InformTimer st) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Instant timeoutInstant = Instant.now().plusMillis(");
+    _builder.append("{java.time.Instant timeoutInstant = java.time.Instant.now().plusMillis(");
     Expression _time = st.getTime();
     String _express = this.express(_time);
     _builder.append(_express, "");
@@ -433,7 +416,7 @@ public class StatementGenerator {
     TimerPort _timerPort = st.getTimerPort();
     String _name = _timerPort.getName();
     _builder.append(_name, "");
-    _builder.append(", timeoutInstant);");
+    _builder.append(", timeoutInstant);}");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }

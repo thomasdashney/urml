@@ -46,11 +46,9 @@ class StatementGenerator {
 		}
 	}
 
-	def dispatch String state(LogStatement st) {
-		'''
-		System.out.println("logging to «st.logPort.name» with: " + «st.left.stateStr»);
-		'''
-	}
+	def dispatch String state(LogStatement st) '''
+		System.out.println(this.name + ": logging to «st.logPort.name» with: " + «st.left.stateStr»);
+	'''
 
 	def String stateStr(StringExpression stExp) {
 		if (stExp instanceof ConcatenateExpression) {
@@ -73,61 +71,46 @@ class StatementGenerator {
 		}
 	}
 
-	def dispatch String state(WhileLoopOperation st) {
-		'''
+	def dispatch String state(WhileLoopOperation st) '''
 		while («st.condition.express») {
 			«FOR subSt : st.statements»
-			«subSt.state»
+				«subSt.state»
 			«ENDFOR»
 		}
-		'''
-	}
+	'''
+	
 
-	def dispatch String state(WhileLoop st) {
-		'''
+	def dispatch String state(WhileLoop st) '''
 		while («st.condition.express») {
 			«FOR subSt : st.statements»
-			«subSt.state»
+				«subSt.state»
 			«ENDFOR»
 		}
-		'''
-	}
+	'''
+	
 
-	def dispatch String state(IfStatementOperation st) {
-		var str = '''
+	def dispatch String state(IfStatementOperation st) '''
 		if («st.condition.express») {
 			«FOR subSt : st.thenStatements»«subSt.state»
 			«ENDFOR»
-		}'''
-		if (st.elseStatements.size != 0) {
-			str + '''
-			else {
-				«FOR subSt : st.elseStatements»«subSt.state»
-				«ENDFOR»
-			}
-			'''
-		} else {
-			str + '''
-			'''
+		}«IF st.elseStatements.size != 0» else {
+			«FOR subSt : st.elseStatements»«subSt.state»
+			«ENDFOR»
 		}
-	}
+		«ENDIF»
+	'''
+		
 
-	def dispatch String state(IfStatement st) {
-		var str = '''
+	def dispatch String state(IfStatement st) '''
 		if («st.condition.express») {
 			«FOR subSt : st.thenStatements»«subSt.state»
 			«ENDFOR»
-		} '''
-		if (st.elseStatements.size != 0) {
-			str + '''
-			 else {
-				«FOR subSt : st.elseStatements»«subSt.state»
-				«ENDFOR»
-			}'''
-		} else {
-			str
-		}
-	}
+		}«IF st.elseStatements.size != 0» else {
+			«FOR subSt : st.elseStatements»«subSt.state»
+			«ENDFOR»
+		}«ENDIF»
+	'''
+		
 
 	def dispatch String state(Invoke st) {
 		'_f_' + st.operation.name + '(' + '''«FOR param : st.parameters SEPARATOR ", "»«param.express»«ENDFOR»''' + ');'
@@ -161,8 +144,8 @@ class StatementGenerator {
 	}
 
 	def dispatch String state(InformTimer st) '''
-		Instant timeoutInstant = Instant.now().plusMillis(«st.time.express»);
-		instants.put(_tp_«st.timerPort.name», timeoutInstant);
+		{java.time.Instant timeoutInstant = java.time.Instant.now().plusMillis(«st.time.express»);
+		instants.put(_tp_«st.timerPort.name», timeoutInstant);}
 	'''
 	
 	def String stateConcatStr(ConcatenateExpression concatExp) {
