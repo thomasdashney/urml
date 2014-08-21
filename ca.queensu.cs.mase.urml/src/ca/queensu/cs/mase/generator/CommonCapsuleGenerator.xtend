@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator.capsules
+package ca.queensu.cs.mase.generator
 
 /**
  * Dummy printer for Capsule.java

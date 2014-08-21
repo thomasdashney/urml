@@ -11,7 +11,6 @@ import org.eclipse.xtext.generator.IGenerator
 import ca.queensu.cs.mase.generator.launcher.LauncherGenerator
 import ca.queensu.cs.mase.urml.Protocol
 import ca.queensu.cs.mase.generator.capsules.CapsuleGenerator
-import ca.queensu.cs.mase.generator.capsules.CommonCapsuleGenerator
 import ca.queensu.cs.mase.generator.protocols.ProtocolGenerator
 
 class UrmlGenerator implements IGenerator {

@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator.capsules
+package ca.queensu.cs.mase.generator.capsules.methods
 
 import ca.queensu.cs.mase.urml.State_
 import ca.queensu.cs.mase.urml.Transition
@@ -14,7 +14,7 @@ import java.util.Map
  * emit possible transitions
  * @author Keith
  */
-class TransitionGenerator {
+class ExecuteTransitionGenerator {
 
 	var List<Transition> allTransitions
 	var Map<Transition, Integer> nonameTrans
@@ -24,11 +24,15 @@ class TransitionGenerator {
 		this.nonameTrans = nonameTrans
 	}
 
+	public def generate() {
+		transitions
+	}
+
 	/**
 	 * Generates code for executing transition
 	 * @return generated code
 	 */
-	public def transitions() '''
+	private def transitions() '''
 		/**
 		 * Executes the transition t and returns whether the
 		 * destination state of t is final.  
