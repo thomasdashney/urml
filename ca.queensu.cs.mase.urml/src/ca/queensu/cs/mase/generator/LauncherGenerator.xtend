@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator.launcher
+package ca.queensu.cs.mase.generator
 
 import ca.queensu.cs.mase.urml.Model
 
@@ -9,7 +9,7 @@ class LauncherGenerator {
 		this.model = model
 	}
 
-	public def compile() '''
+	public def generate() '''
 		import urml.runtime.*;
 		public class Launcher {
 			«compileMain»

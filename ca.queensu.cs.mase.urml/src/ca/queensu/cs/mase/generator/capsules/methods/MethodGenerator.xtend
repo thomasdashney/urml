@@ -13,8 +13,11 @@ class MethodGenerator {
 	var Multimap<State_, Transition> outgoingTransitions
 	var Map<Transition, Integer> nonameTrans
 	
-	new(List<State_> allStates, List<Transition> allTransitions, Transition inititalTransition, 
-		Multimap<State_, Transition> outgoingTransitions, Map<Transition, Integer> nonameTrans
+	new(List<State_> allStates, 
+		List<Transition> allTransitions, 
+		Transition inititalTransition, 
+		Multimap<State_, Transition> outgoingTransitions, 
+		Map<Transition, Integer> nonameTrans
 	) {
 		this.allStates = allStates
 		this.allTransitions = allTransitions

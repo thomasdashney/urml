@@ -12,7 +12,11 @@ class MemberGenerator {
 	var List<Transition> allTransitions
 	var Map<Transition, Integer> nonameTrans
 	
-	new(Capsule capsule, List<State_> state_s, List<Transition> transitions, Map<Transition, Integer> map) {
+	new(Capsule capsule, 
+		List<State_> state_s, 
+		List<Transition> transitions, 
+		Map<Transition, Integer> map
+	) {
 		this.cap = capsule
 		this.allStates = state_s
 		this.allTransitions = transitions
@@ -20,10 +24,10 @@ class MemberGenerator {
 	}
 	
 	public def generate() '''
-		«new ListGenerator(cap).list»
-		«new StateDefineGenerator(allStates).defineStates»
+		«new ListGenerator(cap).generate»
+		«new StateDefineGenerator(allStates).generate»
 		«new TransitionDefineGenerator(
-			allTransitions, nonameTrans).defineTransitions»	
+			allTransitions, nonameTrans).generate»	
 	'''
 	
 }

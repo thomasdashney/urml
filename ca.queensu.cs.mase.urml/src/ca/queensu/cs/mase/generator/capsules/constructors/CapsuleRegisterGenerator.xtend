@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator.capsules
+package ca.queensu.cs.mase.generator.capsules.constructors
 
 import ca.queensu.cs.mase.urml.Capsule
 import ca.queensu.cs.mase.urml.CapsuleInst
@@ -10,7 +10,7 @@ class CapsuleRegisterGenerator {
 	}
 	// REGISTERS
 	
-	public def register() '''
+	public def generate() '''
 		«registerPorts»
 		«registerCapsuleInsts»
 		«registerConnectors»

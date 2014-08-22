@@ -13,18 +13,18 @@ class TransitionDefineGenerator {
 	var List<Transition> allTransitions
 	var Map<Transition, Integer> nonameTrans
 	static var nonameTransCount = 0;
-	new(List<Transition> allTransitions, Map<Transition, Integer> nonameTrans) {
+	new(List<Transition> allTransitions, 
+		Map<Transition, Integer> nonameTrans
+	) {
 		this.allTransitions = allTransitions
 		this.nonameTrans = nonameTrans
 	}
-	
-	// TRANSITIONS
 	
 	/**
 	 * A transition
 	 * @return generated code
 	 */
-	public def defineTransitions() '''
+	public def generate() '''
 		«FOR t : allTransitions»
 			«var tname = if (t.name == null) getNewNoNameTrans(t) else t.name»
 			/**

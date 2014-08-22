@@ -8,7 +8,6 @@ import ca.queensu.cs.mase.urml.Model
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import ca.queensu.cs.mase.generator.launcher.LauncherGenerator
 import ca.queensu.cs.mase.urml.Protocol
 import ca.queensu.cs.mase.generator.capsules.CapsuleGenerator
 import ca.queensu.cs.mase.generator.protocols.ProtocolGenerator
@@ -18,17 +17,15 @@ class UrmlGenerator implements IGenerator {
 	var Model model
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		//val fname = resource.URI.segment(resource.URI.segmentCount - 1)
 		model = resource.contents.get(0) as Model
-		var modelfname = 'model/m_' + model.name.toFirstLower
-		var mfname = modelfname
+		var mfname = modelPackageName.replace('.','/')
 		for (cap : model.capsules) 
 			fsa.generateFile(mfname + "/_C_" + cap.name + ".java", cap.compile)
 
 		for (prot : model.protocols)
 			fsa.generateFile(mfname + "/_P_" + prot.name + ".java", prot.compile)
 			
-		fsa.generateFile(mfname + "/Launcher.java", compileRunThis)
+		fsa.generateFile(mfname + "/Launcher.java", compileLauncher)
 		
 		#[
 			'Int.java' -> compileInt, 
@@ -46,22 +43,32 @@ class UrmlGenerator implements IGenerator {
 			'TriggerIn.java' -> compileTriggerIn,
 			'TimerPort.java' -> compileTimerPort
 		].forEach[
-			fsa.generateFile('urml/runtime/' + it.key, it.value)
+			fsa.generateFile(urmlRuntimeName.replace('.','/') + 
+			'/' + it.key, it.value)
 		]
 	}
 	
 	
 	private def urmlRuntime() '''
-		package urml.runtime;
+		package «urmlRuntimeName»;
 	'''
 	
+	private def urmlRuntimeName() {
+		'urml.runtime'
+	}
+	
+	
 	private def modelPackage() '''
-		package model.m_«model.name.toFirstLower»;
+		package «modelPackageName»;
 	'''
+	
+	private def modelPackageName() {
+		'model.' + model.name.toFirstLower
+	}
 	
 	private def compile(Protocol p) '''
 		«modelPackage»
-		«new ProtocolGenerator(p).compile»
+		«new ProtocolGenerator(p).generate»
 	'''
 	
 	private def compileSignal() '''
@@ -95,7 +102,7 @@ class UrmlGenerator implements IGenerator {
 
 	private def compile(Capsule cap) '''
 		«modelPackage»
-		«new CapsuleGenerator(cap).compile»
+		«new CapsuleGenerator(cap).generate»
 	'''
 
 	private def compileInt() '''
@@ -166,9 +173,9 @@ class UrmlGenerator implements IGenerator {
 		}
 	'''
 	
-	private def compileRunThis() '''
+	private def compileLauncher() '''
 		«modelPackage»
-		«new LauncherGenerator(model).compile»
+		«new LauncherGenerator(model).generate»
 	'''
 	
 	private def compileState() '''

@@ -20,7 +20,7 @@ public class ProtocolGenerator {
   /**
    * Compiles the code for the protocol
    */
-  public CharSequence compile() {
+  public CharSequence generate() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import urml.runtime.*;");
     _builder.newLine();
@@ -33,6 +33,9 @@ public class ProtocolGenerator {
     String _name = this.prot.getName();
     _builder.append(_name, " ");
     _builder.newLineIfNotEmpty();
+    _builder.append(" ");
+    _builder.append("* @generated");
+    _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
     _builder.newLine();

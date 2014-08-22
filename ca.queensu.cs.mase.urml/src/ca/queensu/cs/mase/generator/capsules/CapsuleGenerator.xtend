@@ -1,5 +1,6 @@
 package ca.queensu.cs.mase.generator.capsules
 
+import ca.queensu.cs.mase.generator.capsules.constructors.ConstructorGenerator
 import ca.queensu.cs.mase.generator.capsules.members.MemberGenerator
 import ca.queensu.cs.mase.generator.capsules.methods.MethodGenerator
 import ca.queensu.cs.mase.urml.Capsule
@@ -12,6 +13,7 @@ import java.util.Map
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.xbase.typesystem.util.Multimaps2
+
 
 /**
  * Genereator for a specific capsule.  The capsule in question
@@ -40,8 +42,9 @@ class CapsuleGenerator {
 	 * @param capsule the capsule to be compiled
 	 * @return generated code
 	 */
-	public def compile() '''
+	public def generate() '''
 		«var initialTransition = getInit»
+		«var constructors = new ConstructorGenerator(cap)»
 		«var members = new MemberGenerator(cap, allStates, allTransitions, nonameTrans)»
 		«var methods = new MethodGenerator(allStates, allTransitions, initialTransition, outgoingTransitions, nonameTrans)»
 		«imports»
@@ -50,7 +53,7 @@ class CapsuleGenerator {
 		 * @generated
 		 */
 		public class _C_«cap.name» extends Capsule {
-			«constructors»
+			«constructors.generate»
 			«members.generate»
 			«methods.generate»
 		}
@@ -63,30 +66,6 @@ class CapsuleGenerator {
 	private def imports() '''
 		import java.util.*;
 		import urml.runtime.*;
-	'''
-	
-	/**
-	 * Constructors
-	 * @return generated code
-	 */
-	private def constructors() '''
-		«var reg = new CapsuleRegisterGenerator(cap)»
-		/**
-		 * Call this constructor when the capsule is a root
-		 */
-		public _C_«cap.name»() {
-			this(null);
-		}
-		
-		/**
-		 * Call this constructor when the capsule is not a
-		 * root
-		 * @param parent_ the parent of the capsule
-		 */
-		public _C_«cap.name»(Capsule parent) {
-			this.parent = parent;
-			«reg.register»
-		}
 	'''
 
 	/**

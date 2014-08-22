@@ -16,7 +16,7 @@ class StateDefineGenerator {
 	 * A state
 	 * @return generated code
 	 */
-	public def defineStates() '''
+	public def generate() '''
 		«FOR s : allStates»
 			/**
 			 * A state with name: «s.name»

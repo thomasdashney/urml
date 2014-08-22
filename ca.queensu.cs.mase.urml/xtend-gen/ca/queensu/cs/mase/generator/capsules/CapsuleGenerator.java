@@ -1,6 +1,6 @@
 package ca.queensu.cs.mase.generator.capsules;
 
-import ca.queensu.cs.mase.generator.capsules.CapsuleRegisterGenerator;
+import ca.queensu.cs.mase.generator.capsules.constructors.ConstructorGenerator;
 import ca.queensu.cs.mase.generator.capsules.members.MemberGenerator;
 import ca.queensu.cs.mase.generator.capsules.methods.MethodGenerator;
 import ca.queensu.cs.mase.urml.Capsule;
@@ -52,9 +52,11 @@ public class CapsuleGenerator {
    * @param capsule the capsule to be compiled
    * @return generated code
    */
-  public CharSequence compile() {
+  public CharSequence generate() {
     StringConcatenation _builder = new StringConcatenation();
     Transition initialTransition = this.getInit();
+    _builder.newLineIfNotEmpty();
+    ConstructorGenerator constructors = new ConstructorGenerator(this.cap);
     _builder.newLineIfNotEmpty();
     MemberGenerator members = new MemberGenerator(this.cap, this.allStates, this.allTransitions, this.nonameTrans);
     _builder.newLineIfNotEmpty();
@@ -83,16 +85,16 @@ public class CapsuleGenerator {
     _builder.append(" extends Capsule {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    CharSequence _constructors = this.constructors();
-    _builder.append(_constructors, "\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    CharSequence _generate = members.generate();
+    CharSequence _generate = constructors.generate();
     _builder.append(_generate, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    CharSequence _generate_1 = methods.generate();
+    CharSequence _generate_1 = members.generate();
     _builder.append(_generate_1, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    CharSequence _generate_2 = methods.generate();
+    _builder.append(_generate_2, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -108,64 +110,6 @@ public class CapsuleGenerator {
     _builder.append("import java.util.*;");
     _builder.newLine();
     _builder.append("import urml.runtime.*;");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  /**
-   * Constructors
-   * @return generated code
-   */
-  private CharSequence constructors() {
-    StringConcatenation _builder = new StringConcatenation();
-    CapsuleRegisterGenerator reg = new CapsuleRegisterGenerator(this.cap);
-    _builder.newLineIfNotEmpty();
-    _builder.append("/**");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("* Call this constructor when the capsule is a root");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("*/");
-    _builder.newLine();
-    _builder.append("public _C_");
-    String _name = this.cap.getName();
-    _builder.append(_name, "");
-    _builder.append("() {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("this(null);");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("/**");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("* Call this constructor when the capsule is not a");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("* root");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("* @param parent_ the parent of the capsule");
-    _builder.newLine();
-    _builder.append(" ");
-    _builder.append("*/");
-    _builder.newLine();
-    _builder.append("public _C_");
-    String _name_1 = this.cap.getName();
-    _builder.append(_name_1, "");
-    _builder.append("(Capsule parent) {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("this.parent = parent;");
-    _builder.newLine();
-    _builder.append("\t");
-    CharSequence _register = reg.register();
-    _builder.append(_register, "\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append("}");
     _builder.newLine();
     return _builder;
   }

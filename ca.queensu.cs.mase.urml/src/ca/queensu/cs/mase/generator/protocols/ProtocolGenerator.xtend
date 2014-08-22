@@ -15,11 +15,12 @@ class ProtocolGenerator {
 	/**
 	 * Compiles the code for the protocol
 	 */
-	public def compile() '''
+	public def generate() '''
 		import urml.runtime.*;
 		import java.util.*;
 		/**
 		 * Protocol with name: «prot.name»
+		 * @generated
 		 */
 		public class _P_«prot.name» extends Protocol {
 			public _P_«prot.name»() {

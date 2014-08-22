@@ -15,9 +15,7 @@ class ListGenerator {
 		this.cap = cap
 	}
 
-	// LISTS
-
-	public def list() '''
+	public def generate() '''
 		«listPorts»
 		«listTimers»
 		«listCapsuleInsts»
@@ -124,7 +122,7 @@ class ListGenerator {
 			"boolean"
 	}
 	
-		/**
+	/**
 	 * Compiles the expression
 	 * @param ex the expression
 	 * @return string expressing ex
