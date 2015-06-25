@@ -17,5 +17,12 @@ class UrmlGeneratorTest {
 	@Test
 	def void testGeneratedCode() {
 		
+     '''
+     model Test {
+     	
+     }
+	     '''.assertCompilesTo(
+	   '''
+	   testtesttest''')
 	}
 }
