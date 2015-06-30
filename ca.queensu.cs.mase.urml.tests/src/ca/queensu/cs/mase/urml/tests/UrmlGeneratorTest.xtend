@@ -15,14 +15,20 @@ class UrmlGeneratorTest {
 	@Inject extension CompilationTestHelper
 	
 	@Test
-	def void testGeneratedCode() {
-		
-     '''
-     model Test {
-     	
-     }
-	     '''.assertCompilesTo(
-	   '''
-	   testtesttest''')
+	def void testCapsules() {
+		'''
+		model Test {
+			root capsule Handshake {
+			}
+			capsule Originator {
+			}
+		}
+		'''.assertCompilesTo(
+		'''
+		proctype Handshake() {
+		}
+		proctype Originator() {
+		}
+		''')
 	}
 }

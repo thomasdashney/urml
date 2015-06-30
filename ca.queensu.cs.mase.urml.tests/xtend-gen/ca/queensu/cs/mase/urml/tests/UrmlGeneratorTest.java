@@ -20,17 +20,34 @@ public class UrmlGeneratorTest {
   private CompilationTestHelper _compilationTestHelper;
   
   @Test
-  public void testGeneratedCode() {
+  public void testCapsules() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("model Test {");
       _builder.newLine();
       _builder.append("\t");
+      _builder.append("root capsule Handshake {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("capsule Originator {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("testtesttest");
+      _builder_1.append("proctype Handshake() {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      _builder_1.append("proctype Originator() {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
       this._compilationTestHelper.assertCompilesTo(_builder, _builder_1);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
