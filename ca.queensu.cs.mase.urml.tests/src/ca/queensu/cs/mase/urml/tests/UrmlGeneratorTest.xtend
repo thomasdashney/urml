@@ -15,19 +15,71 @@ class UrmlGeneratorTest {
 	@Inject extension CompilationTestHelper
 	
 	@Test
-	def void testCapsules() {
+	def void testRootCapsule() {
 		'''
 		model Test {
 			root capsule Handshake {
 			}
+		}
+		'''.assertCompilesTo(
+		'''
+		active proctype Handshake() {
+		}
+		''')
+	}
+	
+	@Test
+	def void testCapsuleInstances() {
+		'''
+		model Test {
+			root capsule Handshake {
+				capsuleInstance sender : Originator
+			}
 			capsule Originator {
+				capsuleInstance test1 : Test
+				capsuleInstance test2 : Test
+			}
+			capsule Test {}
+		}
+		'''.assertCompilesTo(
+		'''
+		active proctype Handshake() {
+		}
+		active proctype sender() {
+		}
+		active proctype sender_test1() {
+		}
+		active proctype sender_test2() {
+		}
+		''')
+	}
+	
+	@Test
+	//XXX
+	def void testConnectors() {
+		'''
+		model handshake {
+			root capsule Handshake {
+				capsuleInstance sender : Originator
+				capsuleInstance receiver : Receiver
+				connector sender.hand and receiver.hand
+			}
+			capsule Originator {
+				external port hand : HandshakeProtocol
+			}
+			capsule Receiver {
+				external port ~hand : HandshakeProtocol
+			}
+			protocol HandshakeProtocol {
 			}
 		}
 		'''.assertCompilesTo(
 		'''
-		proctype Handshake() {
+		active proctype Handshake() {
 		}
-		proctype Originator() {
+		active proctype sender() {
+		}
+		active proctype receiver() {
 		}
 		''')
 	}
