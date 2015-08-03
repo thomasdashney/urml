@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator
+package ca.queensu.cs.mase.generator.helperStructs
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import ca.queensu.cs.mase.urml.CapsuleInst

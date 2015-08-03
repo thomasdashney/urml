@@ -1,6 +1,6 @@
 package ca.queensu.cs.mase.generator.promelaStructs
 import org.eclipse.xtend.lib.annotations.Accessors
-import ca.queensu.cs.mase.generator.CapsuleInstNode
+import ca.queensu.cs.mase.generator.helperStructs.CapsuleInstNode
 
 @Accessors class InstanceProcess extends Process {
 	CapsuleInstNode instanceNode
