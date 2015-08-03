@@ -4,11 +4,9 @@ import ca.queensu.cs.mase.urml.Model
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import ca.queensu.cs.mase.urml.Capsule
-import java.util.List
 import ca.queensu.cs.mase.generator.promelaStructs.Process
-import ca.queensu.cs.mase.generator.promelaStructs.InstanceProcess
-import ca.queensu.cs.mase.generator.promelaStructs.Channel
+import ca.queensu.cs.mase.generator.promelaStructs.PromelaModel
+import ca.queensu.cs.mase.generator.helperStructs.CapsuleInstTree
 
 class UrmlGenerator implements IGenerator {
 	var Model model
@@ -20,15 +18,11 @@ class UrmlGenerator implements IGenerator {
 		
 		// build up a tree of CapsuleInstNodes. these can later
 		// be used for easier traversal & channel building.
-		val instanceTree = parseInstanceTree(rootCapsule)
+		val instanceTree = CapsuleInstTree.treeFromRootCapsule(rootCapsule)
 		
 		// get a list of promela process objects
 		// (built from the instance tree)
-		var processes = getProcesses(instanceTree)
-		
-		// get a list of all of the promela channel objects 
-		// (built up from the instances)
-		var channels = getChannels(processes)
+		var promelaModel = PromelaModel.modelFromInstanceTree(instanceTree)
 		
 		var channelString = '' //XXX
 		
@@ -37,9 +31,9 @@ class UrmlGenerator implements IGenerator {
 			channelString = '';
 		
 		var processString = '''
-			active proctype «rootCapsule.name»() {
+			active proctype «promelaModel.rootProcess.name»() {
 			}
-			«FOR process : processes»
+			«FOR process : promelaModel.processes»
 			active proctype «process.name»() {
 				«process.compile»
 			}
@@ -52,65 +46,5 @@ class UrmlGenerator implements IGenerator {
 		fsa.generateFile(model.name + ".prom", contents)	
 	}
 	
-	// given a root node, will return a new root node as a CapsuleInstNode
-	private def CapsuleInstTree parseInstanceTree(Capsule rootCapsule) {
-		val instanceTree = new CapsuleInstTree
-		
-		// set initial tree values based on root capsule
-		instanceTree.rootCapsule = rootCapsule
-		rootCapsule.capsuleInsts.forEach[
-			instanceTree.topInstances.add(new CapsuleInstNode(it))
-		]
-		
-		instanceTree.topInstances.forEach[parseInstanceNode]
-		
-		return instanceTree
-	}
-	
-	// given a capsule instance node, will parse each of its children recursively
-	private def void parseInstanceNode(CapsuleInstNode capsuleInstNode) {
-		val capsule = capsuleInstNode.instance.type
-		capsuleInstNode.children = newArrayList
-		capsule.capsuleInsts.forEach[
-			var newCapsuleInstNode = new CapsuleInstNode(it, capsuleInstNode)
-			capsuleInstNode.children.add(newCapsuleInstNode)
-			parseInstanceNode(newCapsuleInstNode)
-		]
-	}
-	
-	// recursively finds all of the instances contained within a given capsule
-	// EXCEPT for the root capsule
-	private def List<InstanceProcess> getProcesses(CapsuleInstTree instanceTree) {
-		var processList = newArrayList()
-		// recursively build up a list of all of the instances added together
-		for (instanceNode : instanceTree.topInstances) {
-			processList.add(new InstanceProcess(instanceNode))
-			processList.addAll(getProcesses(instanceNode))
-		}
-		return processList
-	}
-	
-	private def List<InstanceProcess> getProcesses(CapsuleInstNode instanceNode) {
-		var processList = newArrayList()
-		// recursively build up a list of all of the instances added together
-		for (child : instanceNode.children) {
-			processList.add(new InstanceProcess(child))
-			processList.addAll(getProcesses(child))
-		}
-		return processList
-	}
-	
 	private def compile(Process process) ''''''
-	
-	private def List<Channel> getChannels(List<InstanceProcess> processes) {
-		var channels = newArrayList()
-		for (process : processes) {
-			val capsule = process.instanceNode.instance.type
-			// for each connector
-			for (connector : capsule.connectors) {
-				channels.add(new Channel(connector))
-			}
-		}
-		return channels; //XXX
-	}
 }
