@@ -78,21 +78,21 @@ class UrmlGenerator implements IGenerator {
 	
 	// recursively finds all of the instances contained within a given capsule
 	// EXCEPT for the root capsule
-	private def List<Process> getProcesses(CapsuleInstTree instanceTree) {
+	private def List<InstanceProcess> getProcesses(CapsuleInstTree instanceTree) {
 		var processList = newArrayList()
 		// recursively build up a list of all of the instances added together
 		for (instanceNode : instanceTree.topInstances) {
-			processList.add(new Process(instanceNode))
+			processList.add(new InstanceProcess(instanceNode))
 			processList.addAll(getProcesses(instanceNode))
 		}
 		return processList
 	}
 	
-	private def List<Process> getProcesses(CapsuleInstNode instanceNode) {
+	private def List<InstanceProcess> getProcesses(CapsuleInstNode instanceNode) {
 		var processList = newArrayList()
 		// recursively build up a list of all of the instances added together
 		for (child : instanceNode.children) {
-			processList.add(new Process(child))
+			processList.add(new InstanceProcess(child))
 			processList.addAll(getProcesses(child))
 		}
 		return processList
@@ -100,7 +100,7 @@ class UrmlGenerator implements IGenerator {
 	
 	private def compile(Process process) ''''''
 	
-	private def List<Channel> getChannels(List<Process> processes) {
+	private def List<Channel> getChannels(List<InstanceProcess> processes) {
 		var channels = newArrayList()
 		for (process : processes) {
 			val capsule = process.instanceNode.instance.type

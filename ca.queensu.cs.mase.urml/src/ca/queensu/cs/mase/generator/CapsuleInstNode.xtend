@@ -35,7 +35,7 @@ import java.util.List
 	 * name should be the name of the instance
 	 * preceded by its ancestor instance's names
 	 */
-	public def name() {
+	public def String name() {
 		if (parent == null)
 			return instance.name
 		'''«parent.name»_«instance.name»'''

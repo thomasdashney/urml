@@ -4,16 +4,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 /*
  * Promela process
  */
-@Accessors class Process {
-	CapsuleInstNode instanceNode
-	
-	new(CapsuleInstNode instanceNode) {
-		this.instanceNode = instanceNode
-	}
-	
+@Accessors abstract class Process {	
 	/*
-	 * Process name should be the name of the instance
-	 * preceded by its ancestor instance's names
+	 * A process should have a name
 	 */
-	public def name() { return instanceNode.name }
+	public abstract def String name()
 }
