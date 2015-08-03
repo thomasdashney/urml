@@ -1,7 +1,6 @@
-package ca.queensu.cs.mase.generator
+package ca.queensu.cs.mase.generator.promelaStructs
 import org.eclipse.xtend.lib.annotations.Accessors
 
-import ca.queensu.cs.mase.generator.Process
 import ca.queensu.cs.mase.urml.Capsule
 
 @Accessors class RootProcess extends Process {

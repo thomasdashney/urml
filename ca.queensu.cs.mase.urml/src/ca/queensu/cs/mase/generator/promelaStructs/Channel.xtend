@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator
+package ca.queensu.cs.mase.generator.promelaStructs
 
 import ca.queensu.cs.mase.urml.Connector
 import org.eclipse.xtend.lib.annotations.Accessors

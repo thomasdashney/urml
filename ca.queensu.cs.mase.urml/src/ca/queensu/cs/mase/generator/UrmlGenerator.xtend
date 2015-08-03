@@ -5,8 +5,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import ca.queensu.cs.mase.urml.Capsule
-import ca.queensu.cs.mase.urml.CapsuleInst
 import java.util.List
+import ca.queensu.cs.mase.generator.promelaStructs.Process
+import ca.queensu.cs.mase.generator.promelaStructs.InstanceProcess
+import ca.queensu.cs.mase.generator.promelaStructs.Channel
 
 class UrmlGenerator implements IGenerator {
 	var Model model
