@@ -6,7 +6,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import ca.queensu.cs.mase.generator.promelaStructs.Process
 import ca.queensu.cs.mase.generator.promelaStructs.PromelaModel
-import ca.queensu.cs.mase.generator.helperStructs.CapsuleInstTree
 
 class UrmlGenerator implements IGenerator {
 	var Model model
@@ -16,13 +15,8 @@ class UrmlGenerator implements IGenerator {
 		val capsules = model.capsules
 		val rootCapsule = capsules.filter[root].head
 		
-		// build up a tree of CapsuleInstNodes. these can later
-		// be used for easier traversal & channel building.
-		val instanceTree = CapsuleInstTree.treeFromRootCapsule(rootCapsule)
-		
-		// get a list of promela process objects
-		// (built from the instance tree)
-		var promelaModel = PromelaModel.modelFromInstanceTree(instanceTree)
+		// create the promela model from the root capsule
+		var promelaModel = PromelaModel.modelFromRootCapsule(rootCapsule)
 		
 		var channelString = '' //XXX
 		

@@ -1,19 +1,29 @@
 package ca.queensu.cs.mase.generator.promelaStructs
 import org.eclipse.xtend.lib.annotations.Accessors
-import ca.queensu.cs.mase.generator.helperStructs.CapsuleInstNode
+import java.util.List
+import ca.queensu.cs.mase.urml.CapsuleInst
 
 @Accessors class InstanceProcess extends Process {
-	CapsuleInstNode instanceNode
+	CapsuleInst capsuleInstance
+	Process parent
+	List<Process> children
+	List<Channel> outgoingChannels
+	List<Channel> incomingChannels
 	
-	new(CapsuleInstNode instanceNode) {
-		this.instanceNode = instanceNode
+	new(CapsuleInst capsuleInstance) {
+		this.capsuleInstance = capsuleInstance
+		children = newArrayList
+		outgoingChannels = newArrayList
+		incomingChannels = newArrayList
 	}
 	
 	/*
-	 * Process name should be the name of the instance
+	 * name should be the name of the instance
 	 * preceded by its ancestor instance's names
 	 */
 	public override String name() {
-		return instanceNode.name
+		if (parent == null)
+			return capsuleInstance.name
+		'''«parent.name»_«capsuleInstance.name»'''
 	}
 }
