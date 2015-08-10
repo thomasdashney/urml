@@ -117,6 +117,14 @@ public class UrmlGeneratorTest {
       _builder.append("\t\t");
       _builder.append("connector sender.hand and receiver.hand");
       _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("port internalHand : HandshakeProtocol");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("connector internalHand and receiver.hand");
+      _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
       _builder.newLine();
@@ -147,6 +155,11 @@ public class UrmlGeneratorTest {
       _builder.append("}");
       _builder.newLine();
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("chan sender.hand_receiver.hand;");
+      _builder_1.newLine();
+      _builder_1.append("chan Handshake.internalHand_receiver.hand;");
+      _builder_1.newLine();
+      _builder_1.newLine();
       _builder_1.append("active proctype Handshake() {");
       _builder_1.newLine();
       _builder_1.append("}");

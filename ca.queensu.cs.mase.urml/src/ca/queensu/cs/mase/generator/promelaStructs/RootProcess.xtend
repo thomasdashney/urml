@@ -7,6 +7,7 @@ import ca.queensu.cs.mase.urml.Capsule
 	Capsule rootCapsule
 	
 	new(Capsule rootCapsule) {
+		super()
 		this.rootCapsule = rootCapsule
 	}
 	

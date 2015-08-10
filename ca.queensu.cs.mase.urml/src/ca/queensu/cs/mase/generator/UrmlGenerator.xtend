@@ -18,27 +18,25 @@ class UrmlGenerator implements IGenerator {
 		// create the promela model from the root capsule
 		var promelaModel = PromelaModel.modelFromRootCapsule(rootCapsule)
 		
-		var channelString = '' //XXX
-		
-		// trim whitespace to satisfy tests w/ no channels
-		if (channelString.toString.trim == '')
-			channelString = '';
-		
-		var processString = '''
-			active proctype «promelaModel.rootProcess.name»() {
-			}
-			«FOR process : promelaModel.processes»
-			active proctype «process.name»() {
-				«process.compile»
-			}
-			«ENDFOR»
-		''';
-		
-		// combine into one string (which will comprise the promela file)
-		var contents = channelString + processString;
-		
-		fsa.generateFile(model.name + ".prom", contents)	
+		fsa.generateFile(model.name + ".prom", promelaModel.compile)	
 	}
 	
-	private def compile(Process process) ''''''
+	private def compile(PromelaModel model) '''
+		«FOR channel : model.channels»
+		chan «channel.name»;
+		«ENDFOR»
+		«IF model.channels.length > 0 /* add space if channels */»
+		
+		«ENDIF»
+		active proctype «model.rootProcess.name»() {
+		}
+		«FOR process : model.processes»
+		«process.compile»
+		«ENDFOR»
+	'''
+	
+	private def compile(Process process) '''
+		active proctype «process.name»() {
+		}
+	'''
 }

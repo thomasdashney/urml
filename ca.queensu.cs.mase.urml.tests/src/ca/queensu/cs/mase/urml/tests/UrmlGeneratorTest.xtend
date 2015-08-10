@@ -63,6 +63,9 @@ class UrmlGeneratorTest {
 				capsuleInstance sender : Originator
 				capsuleInstance receiver : Receiver
 				connector sender.hand and receiver.hand
+				
+				port internalHand : HandshakeProtocol
+				connector internalHand and receiver.hand
 			}
 			capsule Originator {
 				external port hand : HandshakeProtocol
@@ -75,6 +78,9 @@ class UrmlGeneratorTest {
 		}
 		'''.assertCompilesTo(
 		'''
+		chan sender.hand_receiver.hand;
+		chan Handshake.internalHand_receiver.hand;
+		
 		active proctype Handshake() {
 		}
 		active proctype sender() {

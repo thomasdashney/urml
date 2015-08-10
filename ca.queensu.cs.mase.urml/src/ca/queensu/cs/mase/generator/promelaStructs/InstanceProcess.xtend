@@ -7,14 +7,12 @@ import ca.queensu.cs.mase.urml.CapsuleInst
 	CapsuleInst capsuleInstance
 	Process parent
 	List<Process> children
-	List<Channel> outgoingChannels
-	List<Channel> incomingChannels
 	
 	new(CapsuleInst capsuleInstance) {
+		super()
 		this.capsuleInstance = capsuleInstance
 		children = newArrayList
-		outgoingChannels = newArrayList
-		incomingChannels = newArrayList
+		channels = newArrayList
 	}
 	
 	/*
