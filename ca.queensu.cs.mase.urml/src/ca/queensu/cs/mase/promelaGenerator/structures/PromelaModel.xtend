@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator.promelaStructs
+package ca.queensu.cs.mase.promelaGenerator.structures
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 import ca.queensu.cs.mase.urml.Capsule
@@ -18,8 +18,6 @@ import java.util.Map
 	 */
 	def static PromelaModel modelFromRootCapsule(Capsule rootCapsule) {
 		var model = new PromelaModel()
-		model.instanceMap = newHashMap
-		model.rootProcess = new RootProcess(rootCapsule)
 		model.build(rootCapsule)
 		return model
 	}
@@ -45,7 +43,9 @@ import java.util.Map
 	 * adding them to the global list
 	 */
 	private def void createProcesses(Capsule rootCapsule) {
+		this.rootProcess = new RootProcess(rootCapsule)
 		processes = newArrayList
+		instanceMap = newHashMap
 		// add the root processes
 		rootCapsule.capsuleInsts.forEach[
 			val newProcess = new InstanceProcess(it)

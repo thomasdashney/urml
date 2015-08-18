@@ -1,4 +1,4 @@
-package ca.queensu.cs.mase.generator.promelaStructs
+package ca.queensu.cs.mase.promelaGenerator.structures
 import org.eclipse.xtend.lib.annotations.Accessors
 
 import ca.queensu.cs.mase.urml.Capsule
@@ -16,5 +16,12 @@ import ca.queensu.cs.mase.urml.Capsule
 	 */
 	public override String name() {
 		return rootCapsule.name
+	}
+	
+	/**
+	 * Returns type of root capsule
+	 */
+	public override Capsule capsuleType() {
+		return rootCapsule
 	}
 }

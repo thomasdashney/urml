@@ -1,6 +1,7 @@
-package ca.queensu.cs.mase.generator.promelaStructs
+package ca.queensu.cs.mase.promelaGenerator.structures
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
+import ca.queensu.cs.mase.urml.Capsule
 import ca.queensu.cs.mase.urml.CapsuleInst
 
 @Accessors class InstanceProcess extends Process {
@@ -23,5 +24,12 @@ import ca.queensu.cs.mase.urml.CapsuleInst
 		if (parent == null)
 			return capsuleInstance.name
 		'''«parent.name»_«capsuleInstance.name»'''
+	}
+	
+	/**
+	 * Returns type of capsule
+	 */
+	public override Capsule capsuleType() {
+		return capsuleInstance.type
 	}
 }
