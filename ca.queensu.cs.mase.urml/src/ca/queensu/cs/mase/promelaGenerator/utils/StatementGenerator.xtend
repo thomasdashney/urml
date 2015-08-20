@@ -47,7 +47,7 @@ class StatementGenerator {
 	}
 
 	def dispatch String state(LogStatement st) '''
-		printf("(unknown capsule): logging to «st.logPort.name» with: «st.left.stateStr»" «st.left.stateStrExpressionsConcat»);
+		printf("(unknown capsule): logging to «st.logPort.name» with: «st.left.stateStr»"«st.left.stateStrExpressionsConcat»);
 	'''
 
 	/**
@@ -61,7 +61,6 @@ class StatementGenerator {
 				// TODO: put the conversion type based on the type of value
 				// for now just assume integer expression
 				'%u'
-				//stExp.expr.express
 			} else { // just put the string
 				stExp.str
 			}
