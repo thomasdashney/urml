@@ -9,6 +9,9 @@ import ca.queensu.cs.mase.promelaGenerator.structures.Process
 import ca.queensu.cs.mase.promelaGenerator.structures.PromelaModel
 import ca.queensu.cs.mase.promelaGenerator.utils.ExpressionGenerator
 import ca.queensu.cs.mase.urml.Expression
+import ca.queensu.cs.mase.urml.State_
+import org.eclipse.emf.ecore.EObject
+import ca.queensu.cs.mase.promelaGenerator.utils.StatementGenerator
 
 class UrmlGenerator implements IGenerator {
 	var Model model
@@ -42,7 +45,20 @@ class UrmlGenerator implements IGenerator {
 			«FOR a : process.capsuleType.attributes»
 			«a.type» «a.name»«IF a.defaultValue != null» = «a.defaultValue.express»«ENDIF»
 			«ENDFOR»
+			«IF process.hasStates»
+				«FOR state : process.states»
+					«state.compile»
+				«ENDFOR»
+			«ENDIF»
 		}
+	'''
+	
+	private def compile(State_ state)'''
+		«IF state.entryCode != null»
+			«FOR statement : state.entryCode.statements»
+				«statement.state»
+			«ENDFOR»
+		«ENDIF»
 	'''
 
 	/**
@@ -65,5 +81,14 @@ class UrmlGenerator implements IGenerator {
 	 */
 	private def express(Expression ex) {
 		new ExpressionGenerator().express(ex)
+	}
+	
+	/**
+	 * Compiles the statement
+	 * @param obj the statement
+	 * @return string expressing the statement
+	 */
+	private def state(EObject obj) {
+		new StatementGenerator().state(obj)
 	}
 }

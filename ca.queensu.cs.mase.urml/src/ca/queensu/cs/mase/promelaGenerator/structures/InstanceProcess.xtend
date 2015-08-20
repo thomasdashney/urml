@@ -14,6 +14,7 @@ import ca.queensu.cs.mase.urml.CapsuleInst
 		this.capsuleInstance = capsuleInstance
 		children = newArrayList
 		channels = newArrayList
+		findStates() // must happen after capsule instance is set
 	}
 	
 	/*

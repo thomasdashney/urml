@@ -9,6 +9,7 @@ import ca.queensu.cs.mase.urml.Capsule
 	new(Capsule rootCapsule) {
 		super()
 		this.rootCapsule = rootCapsule
+		findStates() // must happen after capsule is set
 	}
 	
 	/**
