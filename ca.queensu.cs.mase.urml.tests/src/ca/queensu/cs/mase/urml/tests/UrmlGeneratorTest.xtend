@@ -183,6 +183,8 @@ class UrmlGeneratorTest {
 						printf("(unknown capsule): logging to logger with: sent a handshake");
 				fi
 			end:
+				goto process_termination
+			process_termination: skip
 		}
 		active proctype receiver() {
 			goto start
@@ -192,6 +194,8 @@ class UrmlGeneratorTest {
 						printf("(unknown capsule): logging to logger with: received a handshake");
 				fi
 			end:
+				goto process_termination
+			process_termination: skip
 		}
 		''')
 	}

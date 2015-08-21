@@ -47,6 +47,21 @@ import static extension ca.queensu.cs.mase.promelaGenerator.utils.TraversalTools
 		return null
 	}
 	
+	/**
+	 * Returns the initial transition from the current capsule
+	 * @return the initial transition of the capsule
+	 */
+	public def State_ getFinalState() {
+		if (!hasStates)
+			return null
+		val stateMachine = capsuleType.statemachines.get(0)
+		for (transition : stateMachine.transitions) {
+			if (transition.init)
+				return transition.to
+		}
+		return null
+	}
+	
 	public def Boolean getHasStates() {
 		if (capsuleType.statemachines.size == 0)
 			return false

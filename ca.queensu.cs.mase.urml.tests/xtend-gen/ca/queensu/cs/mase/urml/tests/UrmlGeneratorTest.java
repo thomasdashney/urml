@@ -412,6 +412,12 @@ public class UrmlGeneratorTest {
       _builder_1.append("\t");
       _builder_1.append("end:");
       _builder_1.newLine();
+      _builder_1.append("\t\t");
+      _builder_1.append("goto process_termination");
+      _builder_1.newLine();
+      _builder_1.append("\t");
+      _builder_1.append("process_termination: skip");
+      _builder_1.newLine();
       _builder_1.append("}");
       _builder_1.newLine();
       _builder_1.append("active proctype receiver() {");
@@ -436,6 +442,12 @@ public class UrmlGeneratorTest {
       _builder_1.newLine();
       _builder_1.append("\t");
       _builder_1.append("end:");
+      _builder_1.newLine();
+      _builder_1.append("\t\t");
+      _builder_1.append("goto process_termination");
+      _builder_1.newLine();
+      _builder_1.append("\t");
+      _builder_1.append("process_termination: skip");
       _builder_1.newLine();
       _builder_1.append("}");
       _builder_1.newLine();

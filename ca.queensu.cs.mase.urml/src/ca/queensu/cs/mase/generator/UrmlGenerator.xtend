@@ -53,6 +53,7 @@ class UrmlGenerator implements IGenerator {
 				«FOR state : process.states»
 					«state.compile(process.outgoingTransitions.get(state))»
 				«ENDFOR»
+				process_termination: skip
 			«ENDIF»
 		}
 	'''
@@ -73,6 +74,9 @@ class UrmlGenerator implements IGenerator {
 						«ENDFOR»
 				«ENDFOR»
 			fi
+			«ENDIF»
+			«IF state.final»
+			goto process_termination
 			«ENDIF»
 	'''
 
