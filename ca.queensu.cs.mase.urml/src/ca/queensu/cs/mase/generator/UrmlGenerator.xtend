@@ -20,11 +20,9 @@ class UrmlGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		model = resource.contents.get(0) as Model
-		val capsules = model.capsules
-		val rootCapsule = capsules.filter[root].head
 		
 		// create the promela model from the root capsule
-		var promelaModel = PromelaModel.modelFromRootCapsule(rootCapsule)
+		var promelaModel = PromelaModel.modelFromUrmlModel(model)
 		
 		fsa.generateFile(model.name + ".prom", promelaModel.compile)	
 	}
@@ -33,6 +31,9 @@ class UrmlGenerator implements IGenerator {
 		«FOR channel : model.channels»
 		chan «channel.name»;
 		«ENDFOR»
+		«IF model.protocolMethodNames.length > 0»
+		mtype = {«model.protocolMethodNames.join(',')»}
+		«ENDIF»
 		«IF model.channels.length > 0 /* add space if channels */»
 		
 		«ENDIF»

@@ -379,6 +379,8 @@ public class UrmlGeneratorTest {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("chan sender.hand_receiver.hand;");
       _builder_1.newLine();
+      _builder_1.append("mtype = {shake}");
+      _builder_1.newLine();
       _builder_1.newLine();
       _builder_1.append("active proctype Handshake() {");
       _builder_1.newLine();
@@ -396,7 +398,13 @@ public class UrmlGeneratorTest {
       _builder_1.append("if");
       _builder_1.newLine();
       _builder_1.append("\t\t\t");
-      _builder_1.append("doHandShake");
+      _builder_1.append("::(true)");
+      _builder_1.newLine();
+      _builder_1.append("\t\t\t\t");
+      _builder_1.append("passMessage");
+      _builder_1.newLine();
+      _builder_1.append("\t\t\t\t");
+      _builder_1.append("printf(\"(unknown capsule): logging to logger with: sent a handshake\");");
       _builder_1.newLine();
       _builder_1.append("\t\t");
       _builder_1.append("fi");
@@ -418,7 +426,10 @@ public class UrmlGeneratorTest {
       _builder_1.append("if");
       _builder_1.newLine();
       _builder_1.append("\t\t\t");
-      _builder_1.append("receiveHandshake");
+      _builder_1.append("::(true)");
+      _builder_1.newLine();
+      _builder_1.append("\t\t\t\t");
+      _builder_1.append("printf(\"(unknown capsule): logging to logger with: received a handshake\");");
       _builder_1.newLine();
       _builder_1.append("\t\t");
       _builder_1.append("fi");

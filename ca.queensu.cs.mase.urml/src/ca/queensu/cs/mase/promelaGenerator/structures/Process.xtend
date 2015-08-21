@@ -3,12 +3,11 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 import ca.queensu.cs.mase.urml.Capsule
 
-import org.eclipse.xtext.EcoreUtil2
 import ca.queensu.cs.mase.urml.State_
 import com.google.common.collect.Multimap
 import org.eclipse.xtext.xbase.typesystem.util.Multimaps2
-import org.eclipse.emf.ecore.EObject
 import ca.queensu.cs.mase.urml.Transition
+import static extension ca.queensu.cs.mase.promelaGenerator.utils.TraversalTools.*
 
 /*
  * Promela process
@@ -28,19 +27,9 @@ import ca.queensu.cs.mase.urml.Transition
 	 * the capsule type has been set.
 	 */
 	protected def init() {
-		states = contained(State_)
-		transitions = contained(Transition)
+		states = capsuleType.contained(State_)
+		transitions = capsuleType.contained(Transition)
 		findOutgoingTransitions()
-	}
-	
-	/**
-	 * Returns a list of all objects that is contained
-	 * by the EObject t
-	 * @param the container of the objects to be returned
-	 * @return the objects that is contained by t
-	 */
-	private def <T extends EObject> contained(Class<T> t) {
-		EcoreUtil2.getAllContentsOfType(capsuleType, t)
 	}
 	
 	/**

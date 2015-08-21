@@ -170,14 +170,17 @@ class UrmlGeneratorTest {
 		'''.assertCompilesTo(
 		'''
 		chan sender.hand_receiver.hand;
-
+		mtype = {shake}
+		
 		active proctype Handshake() {
 		}
 		active proctype sender() {
 			goto start
 			start:
 				if
-					doHandShake
+					::(true)
+						passMessage
+						printf("(unknown capsule): logging to logger with: sent a handshake");
 				fi
 			end:
 		}
@@ -185,7 +188,8 @@ class UrmlGeneratorTest {
 			goto start
 			start:
 				if
-					receiveHandshake
+					::(true)
+						printf("(unknown capsule): logging to logger with: received a handshake");
 				fi
 			end:
 		}

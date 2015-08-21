@@ -146,7 +146,7 @@ class StatementGenerator {
 
 	def dispatch String state(SendTrigger st) '''
 		«FOR trig : st.triggers»
-			passMessage * TODO
+			passMessage
 		«ENDFOR»
 	'''
 

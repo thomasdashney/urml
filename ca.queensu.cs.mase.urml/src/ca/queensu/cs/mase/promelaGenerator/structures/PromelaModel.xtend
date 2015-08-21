@@ -4,9 +4,13 @@ import java.util.List
 import ca.queensu.cs.mase.urml.Capsule
 import ca.queensu.cs.mase.urml.CapsuleInst
 import java.util.Map
+import ca.queensu.cs.mase.urml.Protocol
+import static extension ca.queensu.cs.mase.promelaGenerator.utils.TraversalTools.*
+import ca.queensu.cs.mase.urml.Model
 
 @Accessors class PromelaModel {
 	RootProcess rootProcess
+	Model model // urml model
 	List<InstanceProcess> processes
 	List<Channel> channels
 	// map capsuleInsts to corresponding processes
@@ -16,10 +20,10 @@ import java.util.Map
 	/**
 	 * Creates a new promela model from a URML root capsule (xtext)
 	 */
-	def static PromelaModel modelFromRootCapsule(Capsule rootCapsule) {
-		var model = new PromelaModel()
-		model.build(rootCapsule)
-		return model
+	def static PromelaModel modelFromUrmlModel(Model model) {
+		var promelaModel = new PromelaModel()
+		promelaModel.build(model)
+		return promelaModel
 	}
 	
 	/**
@@ -29,7 +33,10 @@ import java.util.Map
 	 * - On each Process, will populate its in/outgoing channels
 	 * - Will populate the global "channels" as it creates each process object
 	 */
-	private def void build(Capsule rootCapsule) {
+	private def void build(Model model) {
+		this.model = model
+		val capsules = model.capsules
+		val rootCapsule = capsules.filter[root].head
 		// recursively create all of the processes
 		createProcesses(rootCapsule)
 		// create each of the channels. it's important that this is done
@@ -106,5 +113,18 @@ import java.util.Map
 			process1.channels.add(channel)
 			process2.channels.add(channel)
 		}
+	}
+	
+	public def List<String> getProtocolMethodNames() {
+		val protocols = model.contained(Protocol)
+		var strings = newArrayList
+		for (protocol : protocols) {
+			val messages = protocol.incomingMessages + protocol.outgoingMessages
+			for (signal : messages) {
+				if (!strings.contains(signal.name))
+					strings.add(signal.name)
+			}
+		}
+		return strings
 	}
 }
