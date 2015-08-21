@@ -115,6 +115,11 @@ import ca.queensu.cs.mase.urml.Model
 		}
 	}
 	
+	/**
+	 * Returns a list of all possible protocol signal (message)
+	 * names. If two different protocols have signals with identical names,
+	 * it will remove the duplicates.
+	 */
 	public def List<String> getProtocolMethodNames() {
 		val protocols = model.contained(Protocol)
 		var strings = newArrayList
