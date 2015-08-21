@@ -146,16 +146,7 @@ class StatementGenerator {
 
 	def dispatch String state(SendTrigger st) '''
 		«FOR trig : st.triggers»
-			passMessage(_p_«trig.to.name», new Message(
-				_p_«trig.to.name», 
-				_P_«trig.to.protocol.name»._s_«trig.signal.name»,
-				Arrays.asList(
-					«FOR param : trig.parameters»
-						«var i = 0»
-						new «trig.signal.localVars.get(i).typeCommonObj»(«param.express»)
-						«{ i = i + 1 ''}»
-					«ENDFOR»
-				)));
+			passMessage * TODO
 		«ENDFOR»
 	'''
 

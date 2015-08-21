@@ -144,7 +144,7 @@ class UrmlGeneratorTest {
 						}
 					}
 				}
-			}
+			}   
 			capsule Receiver {
 				external port ~hand : HandshakeProtocol
 				logPort logger
@@ -170,13 +170,24 @@ class UrmlGeneratorTest {
 		'''.assertCompilesTo(
 		'''
 		chan sender.hand_receiver.hand;
-		chan Handshake.internalHand_receiver.hand;
-		
+
 		active proctype Handshake() {
 		}
 		active proctype sender() {
+			goto start
+			start:
+				if
+					doHandShake
+				fi
+			end:
 		}
 		active proctype receiver() {
+			goto start
+			start:
+				if
+					receiveHandshake
+				fi
+			end:
 		}
 		''')
 	}

@@ -12,6 +12,8 @@ import ca.queensu.cs.mase.urml.Expression
 import ca.queensu.cs.mase.urml.State_
 import org.eclipse.emf.ecore.EObject
 import ca.queensu.cs.mase.promelaGenerator.utils.StatementGenerator
+import ca.queensu.cs.mase.urml.Transition
+import java.util.Collection
 
 class UrmlGenerator implements IGenerator {
 	var Model model
@@ -46,19 +48,31 @@ class UrmlGenerator implements IGenerator {
 			«a.type» «a.name»«IF a.defaultValue != null» = «a.defaultValue.express»«ENDIF»
 			«ENDFOR»
 			«IF process.hasStates»
+				goto «process.initialState.name»
 				«FOR state : process.states»
-					«state.compile»
+					«state.compile(process.outgoingTransitions.get(state))»
 				«ENDFOR»
 			«ENDIF»
 		}
 	'''
 	
-	private def compile(State_ state)'''
-		«IF state.entryCode != null»
-			«FOR statement : state.entryCode.statements»
-				«statement.state»
-			«ENDFOR»
-		«ENDIF»
+	private def compile(State_ state, Collection<Transition> outgoingTransitions)'''
+		«state.name»:
+			«IF state.entryCode != null»
+				«FOR statement : state.entryCode.statements»
+					«statement.state»
+				«ENDFOR»
+			«ENDIF»
+			«IF outgoingTransitions.length > 0»
+			if
+				«FOR transition : outgoingTransitions»
+					::(true)
+						«FOR statement : transition.action.statements»
+							«statement.state»
+						«ENDFOR»
+				«ENDFOR»
+			fi
+			«ENDIF»
 	'''
 
 	/**

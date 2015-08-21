@@ -7,14 +7,12 @@ import ca.queensu.cs.mase.urml.CapsuleInst
 @Accessors class InstanceProcess extends Process {
 	CapsuleInst capsuleInstance
 	Process parent
-	List<Process> children
+	List<Process> children = newArrayList
 	
 	new(CapsuleInst capsuleInstance) {
 		super()
 		this.capsuleInstance = capsuleInstance
-		children = newArrayList
-		channels = newArrayList
-		findStates() // must happen after capsule instance is set
+		init()
 	}
 	
 	/*

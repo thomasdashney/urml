@@ -5,37 +5,42 @@ import ca.queensu.cs.mase.urml.Capsule
 
 import org.eclipse.xtext.EcoreUtil2
 import ca.queensu.cs.mase.urml.State_
+import com.google.common.collect.Multimap
+import org.eclipse.xtext.xbase.typesystem.util.Multimaps2
+import org.eclipse.emf.ecore.EObject
+import ca.queensu.cs.mase.urml.Transition
 
 /*
  * Promela process
  */
 @Accessors abstract class Process {	
-	List<Channel> channels
-	List<State_> states // doesn't include initial state
+	List<Channel> channels = newArrayList
+	List<State_> states = newArrayList
+	List<Transition> transitions = newArrayList
+	Multimap<State_, Transition> outgoingTransitions = Multimaps2.newLinkedHashListMultimap
 	
 	public abstract def String name()
 	
 	public abstract def Capsule capsuleType()
 	
-	new() {
-		channels = newArrayList
+	/**
+	 * init() must be called by implemented class constructor after
+	 * the capsule type has been set.
+	 */
+	protected def init() {
+		states = contained(State_)
+		transitions = contained(Transition)
+		findOutgoingTransitions()
 	}
 	
-	/**
-	 * Sets the states on the process
-	 */
-	protected def findStates() {
-		states = containedStates(capsuleType)
-	}
-
 	/**
 	 * Returns a list of all objects that is contained
 	 * by the EObject t
 	 * @param the container of the objects to be returned
 	 * @return the objects that is contained by t
 	 */
-	private def List<State_> containedStates(Capsule capsule) {
-		EcoreUtil2.getAllContentsOfType(capsule, State_)
+	private def <T extends EObject> contained(Class<T> t) {
+		EcoreUtil2.getAllContentsOfType(capsuleType, t)
 	}
 	
 	/**
@@ -53,9 +58,21 @@ import ca.queensu.cs.mase.urml.State_
 		return null
 	}
 	
-	public def getHasStates() {
+	public def Boolean getHasStates() {
 		if (capsuleType.statemachines.size == 0)
 			return false
 		return true
+	}
+	
+	/**
+	 * Find the outgoing transitions for each state in the
+	 * capsule
+	 * @return a multimap containing a state mapping to 
+	 * a list of outgoing transitions of that state
+	 */
+	private def findOutgoingTransitions() {
+		for (t : transitions)
+			if (!t.init)
+				outgoingTransitions.put(t.from, t)
 	}
 }
