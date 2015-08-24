@@ -15,7 +15,6 @@ import ca.queensu.cs.mase.urml.StringExpression
 import ca.queensu.cs.mase.urml.Variable
 import ca.queensu.cs.mase.urml.WhileLoop
 import ca.queensu.cs.mase.urml.WhileLoopOperation
-import ca.queensu.cs.mase.urml.SendTrigger
 import ca.queensu.cs.mase.urml.InformTimer
 
 /**
@@ -143,12 +142,6 @@ class StatementGenerator {
 	def dispatch String state(ReturnStatement st) {
 		"return " + st.returnValue.express + ";"
 	}
-
-	def dispatch String state(SendTrigger st) '''
-		«FOR trig : st.triggers»
-			passMessage
-		«ENDFOR»
-	'''
 
 	def private typeCommonObj(LocalVar v) {
 		if (v.isBool)

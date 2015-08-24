@@ -8,6 +8,7 @@ import com.google.common.collect.Multimap
 import org.eclipse.xtext.xbase.typesystem.util.Multimaps2
 import ca.queensu.cs.mase.urml.Transition
 import static extension ca.queensu.cs.mase.promelaGenerator.utils.TraversalTools.*
+import ca.queensu.cs.mase.urml.Port
 
 /*
  * Promela process
@@ -17,6 +18,7 @@ import static extension ca.queensu.cs.mase.promelaGenerator.utils.TraversalTools
 	List<State_> states = newArrayList
 	List<Transition> transitions = newArrayList
 	Multimap<State_, Transition> outgoingTransitions = Multimaps2.newLinkedHashListMultimap
+	Multimap<Port, Channel> portChannels = Multimaps2.newLinkedHashListMultimap
 	
 	public abstract def String name()
 	

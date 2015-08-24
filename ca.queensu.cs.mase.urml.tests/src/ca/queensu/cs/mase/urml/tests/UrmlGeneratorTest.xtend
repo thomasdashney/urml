@@ -78,14 +78,38 @@ class UrmlGeneratorTest {
 		}
 		'''.assertCompilesTo(
 		'''
-		chan sender.hand_receiver.hand;
-		chan Handshake.internalHand_receiver.hand;
+		chan sender.hand_receiver.hand = [0] of mtype;
+		chan Handshake.internalHand_receiver.hand = [0] of mtype;
 		
 		active proctype Handshake() {
 		}
 		active proctype sender() {
 		}
 		active proctype receiver() {
+		}
+		''')
+	}
+	
+	@Test
+	//XXX
+	def void testRelayConnectors() {
+		'''
+		model handshake {
+			root capsule OuterCapsule {
+				capsuleInstance innerCapsule1 : InnerCapsule
+			}
+			capsule InnerCapsule {
+				capsuleInstance nestedCapsule1 : NestedCapsule
+			}
+			capsule NestedCapsule {}
+		}
+		'''.assertCompilesTo(
+		'''
+		active proctype OuterCapsule() {
+		}
+		active proctype innerCapsule1() {
+		}
+		active proctype innerCapsule1_nestedCapsule1() {
 		}
 		''')
 	}
@@ -118,7 +142,7 @@ class UrmlGeneratorTest {
 	
 	@Test
 	//XXX
-	def void testStateMachines() {
+	def void testHandshake() {
 		'''
 		/**
 		 * A simple example that consists of a producer and a consumer of a message.
@@ -169,7 +193,7 @@ class UrmlGeneratorTest {
 		}
 		'''.assertCompilesTo(
 		'''
-		chan sender.hand_receiver.hand;
+		chan sender.hand_receiver.hand = [0] of mtype;
 		mtype = {shake}
 		
 		active proctype Handshake() {
@@ -179,7 +203,7 @@ class UrmlGeneratorTest {
 			start:
 				if
 					::(true)
-						passMessage
+						sender.hand_receiver.hand!shake
 						printf("(unknown capsule): logging to logger with: sent a handshake");
 				fi
 			end:
@@ -190,7 +214,7 @@ class UrmlGeneratorTest {
 			goto start
 			start:
 				if
-					::(true)
+					::(sender.hand_receiver.hand?shake)
 						printf("(unknown capsule): logging to logger with: received a handshake");
 				fi
 			end:

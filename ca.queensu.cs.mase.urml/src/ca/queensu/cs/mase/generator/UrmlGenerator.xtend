@@ -9,11 +9,7 @@ import ca.queensu.cs.mase.promelaGenerator.structures.Process
 import ca.queensu.cs.mase.promelaGenerator.structures.PromelaModel
 import ca.queensu.cs.mase.promelaGenerator.utils.ExpressionGenerator
 import ca.queensu.cs.mase.urml.Expression
-import ca.queensu.cs.mase.urml.State_
-import org.eclipse.emf.ecore.EObject
-import ca.queensu.cs.mase.promelaGenerator.utils.StatementGenerator
-import ca.queensu.cs.mase.urml.Transition
-import java.util.Collection
+import ca.queensu.cs.mase.promelaGenerator.utils.StateGenerator
 
 class UrmlGenerator implements IGenerator {
 	var Model model
@@ -29,7 +25,7 @@ class UrmlGenerator implements IGenerator {
 	
 	private def compile(PromelaModel model) '''
 		«FOR channel : model.channels»
-		chan «channel.name»;
+		chan «channel.name» = [0] of mtype;
 		«ENDFOR»
 		«IF model.protocolMethodNames.length > 0»
 		mtype = {«model.protocolMethodNames.join(',')»}
@@ -51,33 +47,11 @@ class UrmlGenerator implements IGenerator {
 			«IF process.hasStates»
 				goto «process.initialState.name»
 				«FOR state : process.states»
-					«state.compile(process.outgoingTransitions.get(state))»
+					«(new StateGenerator(state, process)).compile»
 				«ENDFOR»
 				process_termination: skip
 			«ENDIF»
 		}
-	'''
-	
-	private def compile(State_ state, Collection<Transition> outgoingTransitions)'''
-		«state.name»:
-			«IF state.entryCode != null»
-				«FOR statement : state.entryCode.statements»
-					«statement.state»
-				«ENDFOR»
-			«ENDIF»
-			«IF outgoingTransitions.length > 0»
-			if
-				«FOR transition : outgoingTransitions»
-					::(true)
-						«FOR statement : transition.action.statements»
-							«statement.state»
-						«ENDFOR»
-				«ENDFOR»
-			fi
-			«ENDIF»
-			«IF state.final»
-			goto process_termination
-			«ENDIF»
 	'''
 
 	/**
@@ -100,14 +74,5 @@ class UrmlGenerator implements IGenerator {
 	 */
 	private def express(Expression ex) {
 		new ExpressionGenerator().express(ex)
-	}
-	
-	/**
-	 * Compiles the statement
-	 * @param obj the statement
-	 * @return string expressing the statement
-	 */
-	private def state(EObject obj) {
-		new StatementGenerator().state(obj)
 	}
 }

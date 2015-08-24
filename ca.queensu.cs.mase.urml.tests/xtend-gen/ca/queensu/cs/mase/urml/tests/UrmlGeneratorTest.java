@@ -155,9 +155,9 @@ public class UrmlGeneratorTest {
       _builder.append("}");
       _builder.newLine();
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("chan sender.hand_receiver.hand;");
+      _builder_1.append("chan sender.hand_receiver.hand = [0] of mtype;");
       _builder_1.newLine();
-      _builder_1.append("chan Handshake.internalHand_receiver.hand;");
+      _builder_1.append("chan Handshake.internalHand_receiver.hand = [0] of mtype;");
       _builder_1.newLine();
       _builder_1.newLine();
       _builder_1.append("active proctype Handshake() {");
@@ -169,6 +169,54 @@ public class UrmlGeneratorTest {
       _builder_1.append("}");
       _builder_1.newLine();
       _builder_1.append("active proctype receiver() {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      this._compilationTestHelper.assertCompilesTo(_builder, _builder_1);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testRelayConnectors() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model handshake {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("root capsule OuterCapsule {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("capsuleInstance innerCapsule1 : InnerCapsule");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("capsule InnerCapsule {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("capsuleInstance nestedCapsule1 : NestedCapsule");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("capsule NestedCapsule {}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("active proctype OuterCapsule() {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      _builder_1.append("active proctype innerCapsule1() {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      _builder_1.append("active proctype innerCapsule1_nestedCapsule1() {");
       _builder_1.newLine();
       _builder_1.append("}");
       _builder_1.newLine();
@@ -235,7 +283,7 @@ public class UrmlGeneratorTest {
   }
   
   @Test
-  public void testStateMachines() {
+  public void testHandshake() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("/**");
@@ -377,7 +425,7 @@ public class UrmlGeneratorTest {
       _builder.append("}");
       _builder.newLine();
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("chan sender.hand_receiver.hand;");
+      _builder_1.append("chan sender.hand_receiver.hand = [0] of mtype;");
       _builder_1.newLine();
       _builder_1.append("mtype = {shake}");
       _builder_1.newLine();
@@ -401,7 +449,7 @@ public class UrmlGeneratorTest {
       _builder_1.append("::(true)");
       _builder_1.newLine();
       _builder_1.append("\t\t\t\t");
-      _builder_1.append("passMessage");
+      _builder_1.append("sender.hand_receiver.hand!shake");
       _builder_1.newLine();
       _builder_1.append("\t\t\t\t");
       _builder_1.append("printf(\"(unknown capsule): logging to logger with: sent a handshake\");");
@@ -432,7 +480,7 @@ public class UrmlGeneratorTest {
       _builder_1.append("if");
       _builder_1.newLine();
       _builder_1.append("\t\t\t");
-      _builder_1.append("::(true)");
+      _builder_1.append("::(sender.hand_receiver.hand?shake)");
       _builder_1.newLine();
       _builder_1.append("\t\t\t\t");
       _builder_1.append("printf(\"(unknown capsule): logging to logger with: received a handshake\");");
