@@ -5,8 +5,6 @@ import ca.queensu.cs.mase.promelaGenerator.structures.Process
 import org.eclipse.emf.ecore.EObject
 import ca.queensu.cs.mase.urml.Transition
 import java.util.Collection
-import ca.queensu.cs.mase.urml.SendTrigger
-import ca.queensu.cs.mase.promelaGenerator.structures.Channel
 
 /**
  * Used to compile a state, given its contained process
@@ -38,11 +36,7 @@ class StateGenerator {
 					::(true)
 						«IF transition.action != null»
 						«FOR statement : transition.action.statements»
-							«IF statement instanceof SendTrigger»
-								«(statement as SendTrigger).compile»
-							«ELSE»
-								«statement.state»
-							«ENDIF»
+							«statement.state»
 						«ENDFOR»
 						«ENDIF»
 				«ENDFOR»
@@ -59,19 +53,6 @@ class StateGenerator {
 	 * @return string expressing the statement
 	 */
 	private def state(EObject obj) {
-		new StatementGenerator().state(obj)
+		new StatementGenerator(process).state(obj)
 	}
-	
-	/**
-	 * Compiles the trigger statement (send a message)
-	 * @param trigger the trigger
-	 * @return string expressing the statement
-	 */
-	private def compile(SendTrigger sendTrig) '''
-		«FOR trigger : sendTrig.triggers»
-			«FOR channel : process.portChannels.get(trigger.to)»
-				«channel.name»!«trigger.signal.name»
-			«ENDFOR»
-		«ENDFOR»
-	'''
 }

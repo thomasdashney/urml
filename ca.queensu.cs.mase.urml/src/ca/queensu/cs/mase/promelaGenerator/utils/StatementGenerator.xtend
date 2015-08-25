@@ -1,5 +1,6 @@
 package ca.queensu.cs.mase.promelaGenerator.utils
 
+import ca.queensu.cs.mase.promelaGenerator.structures.Process
 import ca.queensu.cs.mase.urml.Assignment
 import ca.queensu.cs.mase.urml.Attribute
 import ca.queensu.cs.mase.urml.ConcatenateExpression
@@ -16,11 +17,17 @@ import ca.queensu.cs.mase.urml.Variable
 import ca.queensu.cs.mase.urml.WhileLoop
 import ca.queensu.cs.mase.urml.WhileLoopOperation
 import ca.queensu.cs.mase.urml.InformTimer
+import ca.queensu.cs.mase.urml.SendTrigger
 
 /**
  * A code generator for statements
  */
 class StatementGenerator {
+	Process process
+	
+	new(Process process) {
+		this.process=process	
+	}
 
 	def dispatch String state(NoOp st) {
 		'''
@@ -162,4 +169,17 @@ class StatementGenerator {
 	def String express(Expression st) {
 		new ExpressionGenerator().express(st)
 	}
+	
+	/**
+	 * Compiles the trigger statement (send a message)
+	 * @param trigger the trigger
+	 * @return string expressing the statement
+	 */
+	def dispatch String state(SendTrigger sendTrig) '''
+		«FOR trigger : sendTrig.triggers»
+			«FOR channel : process.portChannels.get(trigger.to)»
+				«channel.name»!«trigger.signal.name»
+			«ENDFOR»
+		«ENDFOR»
+	'''
 }
