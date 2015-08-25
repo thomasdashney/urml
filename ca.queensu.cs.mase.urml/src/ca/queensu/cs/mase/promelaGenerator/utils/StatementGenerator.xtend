@@ -177,9 +177,7 @@ class StatementGenerator {
 	 */
 	def dispatch String state(SendTrigger sendTrig) '''
 		«FOR trigger : sendTrig.triggers»
-			«FOR channel : process.portChannels.get(trigger.to)»
-				«channel.name»!«trigger.signal.name»
-			«ENDFOR»
+			«process.portChannels.get(trigger.to).name»!«trigger.signal.name»
 		«ENDFOR»
 	'''
 }

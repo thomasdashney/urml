@@ -5,6 +5,8 @@ import ca.queensu.cs.mase.promelaGenerator.structures.Process
 import org.eclipse.emf.ecore.EObject
 import ca.queensu.cs.mase.urml.Transition
 import java.util.Collection
+import ca.queensu.cs.mase.urml.Trigger_in
+import ca.queensu.cs.mase.promelaGenerator.structures.Channel
 
 /**
  * Used to compile a state, given its contained process
@@ -33,7 +35,7 @@ class StateGenerator {
 			«IF outgoingTransitions.length > 0»
 			if
 				«FOR transition : outgoingTransitions»
-					::(true)
+					::(«transition.triggerCode»)
 						«IF transition.action != null»
 						«FOR statement : transition.action.statements»
 							«statement.state»
@@ -54,5 +56,21 @@ class StateGenerator {
 	 */
 	private def state(EObject obj) {
 		new StatementGenerator(process).state(obj)
+	}
+	
+	/**
+	 * Compiles the transition's triggers into Promela
+	 * "if" parenthesis
+	 */
+	private def String triggerCode(Transition transition) {
+		if (transition.triggers.length > 0)
+			transition.triggers.map[it.compile].join(' || ')
+		else
+			'true'
+	}
+	
+	private def String compile(Trigger_in trigger) {
+		val Channel channel = process.portChannels.get(trigger.from)
+		'''«channel.name»?«trigger.signal.name»'''
 	}
 }

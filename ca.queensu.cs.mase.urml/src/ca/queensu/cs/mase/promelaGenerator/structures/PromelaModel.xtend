@@ -104,6 +104,9 @@ import ca.queensu.cs.mase.urml.Port
 				processPort2 = getConnectedSubProcess(process, connector.capsuleInst2.process as InstanceProcess, connector.port2)
 			// create channel
 			val channel = new Channel(processPort1, processPort2)
+			// map the port to the channel on the process
+			processPort1.process.portChannels.put(processPort1.port, channel)
+			processPort2.process.portChannels.put(processPort2.port, channel)
 			// add to relevant lists
 			channels.add(channel)
 			processPort1.process.channels.add(channel)
