@@ -36,6 +36,7 @@ class StateGenerator {
 			if
 				«FOR transition : outgoingTransitions»
 					::(true)
+						«IF transition.action != null»
 						«FOR statement : transition.action.statements»
 							«IF statement instanceof SendTrigger»
 								«(statement as SendTrigger).compile»
@@ -43,6 +44,7 @@ class StateGenerator {
 								«statement.state»
 							«ENDIF»
 						«ENDFOR»
+						«ENDIF»
 				«ENDFOR»
 			fi
 			«ENDIF»
