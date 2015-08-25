@@ -78,8 +78,8 @@ class UrmlGeneratorTest {
 		}
 		'''.assertCompilesTo(
 		'''
-		chan sender.hand_receiver.hand = [0] of mtype;
-		chan Handshake.internalHand_receiver.hand = [0] of mtype;
+		chan sender_hand_receiver_hand = [0] of {mtype};
+		chan Handshake_internalHand_receiver_hand = [0] of {mtype};
 		
 		active proctype Handshake() {
 		}
@@ -125,7 +125,7 @@ class UrmlGeneratorTest {
 		}
 		'''.assertCompilesTo(
 		'''
-		chan innerCapsule1_nestedCapsule.nestedPort_innerCapsule2_nestedCapsule.nestedPort = [0] of mtype;
+		chan innerCapsule1_nestedCapsule_nestedPort_innerCapsule2_nestedCapsule_nestedPort = [0] of {mtype};
 		
 		active proctype OuterCapsule() {
 		}
@@ -219,8 +219,8 @@ class UrmlGeneratorTest {
 		}
 		'''.assertCompilesTo(
 		'''
-		chan sender.hand_receiver.hand = [0] of mtype;
-		mtype = {shake}
+		chan sender_hand_receiver_hand = [0] of {mtype};
+		mtype = {shake};
 		
 		active proctype Handshake() {
 		}
@@ -228,8 +228,8 @@ class UrmlGeneratorTest {
 			goto start
 			start:
 				if
-					::(true)
-						sender.hand_receiver.hand!shake
+					::true;
+						sender_hand_receiver_hand!shake
 						printf("(unknown capsule): logging to logger with: sent a handshake");
 				fi
 			end:
@@ -240,7 +240,7 @@ class UrmlGeneratorTest {
 			goto start
 			start:
 				if
-					::(sender.hand_receiver.hand?shake)
+					::sender_hand_receiver_hand?shake;
 						printf("(unknown capsule): logging to logger with: received a handshake");
 				fi
 			end:

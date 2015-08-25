@@ -35,7 +35,7 @@ class StateGenerator {
 			«IF outgoingTransitions.length > 0»
 			if
 				«FOR transition : outgoingTransitions»
-					::(«transition.triggerCode»)
+					::«transition.triggerCode»;
 						«IF transition.action != null»
 						«FOR statement : transition.action.statements»
 							«statement.state»

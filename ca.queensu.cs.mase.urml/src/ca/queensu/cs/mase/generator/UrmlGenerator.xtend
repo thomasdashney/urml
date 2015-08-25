@@ -25,10 +25,10 @@ class UrmlGenerator implements IGenerator {
 	
 	private def compile(PromelaModel model) '''
 		«FOR channel : model.channels»
-		chan «channel.name» = [0] of mtype;
+		chan «channel.name» = [0] of {mtype};
 		«ENDFOR»
 		«IF model.protocolMethodNames.length > 0»
-		mtype = {«model.protocolMethodNames.join(',')»}
+		mtype = {«model.protocolMethodNames.join(',')»};
 		«ENDIF»
 		«IF model.channels.length > 0 /* add space if channels */»
 		

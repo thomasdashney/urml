@@ -29,5 +29,5 @@ import ca.queensu.cs.mase.urml.Port
 	 * Name should be "channel" followed by each process name, separated by underscores
 	 */
 	public def String name() 
-		'''«process1.name».«process1Port.name»_«process2.name».«process2Port.name»'''
+		'''«process1.name»_«process1Port.name»_«process2.name»_«process2Port.name»'''
 }
