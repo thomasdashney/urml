@@ -56,7 +56,7 @@ class UrmlGeneratorTest {
 	
 	@Test
 	//XXX
-	def void testConnectors() {
+	def void testSimpleConnectors() {
 		'''
 		model handshake {
 			root capsule Handshake {
@@ -96,20 +96,46 @@ class UrmlGeneratorTest {
 		'''
 		model handshake {
 			root capsule OuterCapsule {
-				capsuleInstance innerCapsule1 : InnerCapsule
+				capsuleInstance innerCapsule1 : InnerCapsule1
+				capsuleInstance innerCapsule2 : InnerCapsule2
+				connector innerCapsule1.externPort and innerCapsule2.externPort
 			}
-			capsule InnerCapsule {
-				capsuleInstance nestedCapsule1 : NestedCapsule
+			
+			capsule InnerCapsule1 {
+				capsuleInstance nestedCapsule : NestedCapsule1
+				external port ~externPort : TestProtocol
+				connector externPort and nestedCapsule.externPort
 			}
-			capsule NestedCapsule {}
+			capsule NestedCapsule1 {
+				external port externPort : TestProtocol
+			}
+			
+			capsule InnerCapsule2 {
+				capsuleInstance nestedCapsule : NestedCapsule2
+				external port externPort : TestProtocol
+				connector externPort and nestedCapsule.externPort
+			}
+			
+			capsule NestedCapsule2 {
+				external port ~externPort : TestProtocol
+			}
+			
+			protocol TestProtocol {
+			}
 		}
 		'''.assertCompilesTo(
 		'''
+		chan innerCapsule1.externPort_innerCapsule2.externPort = [0] of mtype;
+		
 		active proctype OuterCapsule() {
 		}
 		active proctype innerCapsule1() {
 		}
-		active proctype innerCapsule1_nestedCapsule1() {
+		active proctype innerCapsule1_nestedCapsule() {
+		}
+		active proctype innerCapsule2() {
+		}
+		active proctype innerCapsule2_nestedCapsule() {
 		}
 		''')
 	}
