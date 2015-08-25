@@ -3,6 +3,7 @@ package ca.queensu.cs.mase.promelaGenerator.structures
 import ca.queensu.cs.mase.urml.Connector
 import org.eclipse.xtend.lib.annotations.Accessors
 import ca.queensu.cs.mase.urml.Protocol
+import ca.queensu.cs.mase.urml.Port
 
 /*
  * Promela channel
@@ -14,24 +15,19 @@ import ca.queensu.cs.mase.urml.Protocol
 @Accessors class Channel {
 	Process process1
 	Process process2
-	private Connector connector
-	private Protocol protocol
+	Port process1Port
+	Port process2Port
 	
-	new(Connector connector) {
-		this.connector = connector
-		protocol = connector.port1.protocol
-	}
-	
-	new(Connector connector, Process process1, Process process2) {
-		this.connector = connector
-		this.process1 = process1
-		this.process2 = process2
-		protocol = connector.port1.protocol
+	new(ProcessPort procPort1, ProcessPort procPort2) {
+		this.process1 = procPort1.process
+		this.process2 = procPort2.process
+		this.process1Port = procPort1.port
+		this.process2Port = procPort2.port
 	}
 	
 	/**
 	 * Name should be "channel" followed by each process name, separated by underscores
 	 */
 	public def String name() 
-		'''«process1.name».«connector.port1.name»_«process2.name».«connector.port2.name»'''
+		'''«process1.name».«process1Port.name»_«process2.name».«process2Port.name»'''
 }

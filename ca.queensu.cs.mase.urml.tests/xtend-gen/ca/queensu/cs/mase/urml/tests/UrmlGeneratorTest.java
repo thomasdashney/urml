@@ -211,7 +211,7 @@ public class UrmlGeneratorTest {
       _builder.append("external port ~externPort : TestProtocol");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("connector externPort and nestedCapsule.externPort");
+      _builder.append("connector externPort and nestedCapsule.nestedPort");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -220,7 +220,7 @@ public class UrmlGeneratorTest {
       _builder.append("capsule NestedCapsule1 {");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("external port externPort : TestProtocol");
+      _builder.append("external port nestedPort : TestProtocol");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -237,7 +237,7 @@ public class UrmlGeneratorTest {
       _builder.append("external port externPort : TestProtocol");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("connector externPort and nestedCapsule.externPort");
+      _builder.append("connector externPort and nestedCapsule.nestedPort");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -248,7 +248,7 @@ public class UrmlGeneratorTest {
       _builder.append("capsule NestedCapsule2 {");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("external port ~externPort : TestProtocol");
+      _builder.append("external port ~nestedPort : TestProtocol");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -264,7 +264,7 @@ public class UrmlGeneratorTest {
       _builder.append("}");
       _builder.newLine();
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("chan innerCapsule1.externPort_innerCapsule2.externPort = [0] of mtype;");
+      _builder_1.append("chan innerCapsule1_nestedCapsule.nestedPort_innerCapsule2_nestedCapsule.nestedPort = [0] of mtype;");
       _builder_1.newLine();
       _builder_1.newLine();
       _builder_1.append("active proctype OuterCapsule() {");

@@ -1,13 +1,11 @@
 package ca.queensu.cs.mase.promelaGenerator.structures
 import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.List
 import ca.queensu.cs.mase.urml.Capsule
 import ca.queensu.cs.mase.urml.CapsuleInst
 
 @Accessors class InstanceProcess extends Process {
 	CapsuleInst capsuleInstance
 	Process parent
-	List<Process> children = newArrayList
 	
 	new(CapsuleInst capsuleInstance) {
 		super()

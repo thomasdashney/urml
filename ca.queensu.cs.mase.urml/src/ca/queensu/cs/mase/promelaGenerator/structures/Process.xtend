@@ -14,6 +14,8 @@ import ca.queensu.cs.mase.urml.Port
  * Promela process
  */
 @Accessors abstract class Process {	
+	List<InstanceProcess> children = newArrayList
+	
 	List<Channel> channels = newArrayList
 	List<State_> states = newArrayList
 	List<Transition> transitions = newArrayList

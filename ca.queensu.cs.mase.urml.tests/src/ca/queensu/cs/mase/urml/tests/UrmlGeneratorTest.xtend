@@ -104,20 +104,20 @@ class UrmlGeneratorTest {
 			capsule InnerCapsule1 {
 				capsuleInstance nestedCapsule : NestedCapsule1
 				external port ~externPort : TestProtocol
-				connector externPort and nestedCapsule.externPort
+				connector externPort and nestedCapsule.nestedPort
 			}
 			capsule NestedCapsule1 {
-				external port externPort : TestProtocol
+				external port nestedPort : TestProtocol
 			}
 			
 			capsule InnerCapsule2 {
 				capsuleInstance nestedCapsule : NestedCapsule2
 				external port externPort : TestProtocol
-				connector externPort and nestedCapsule.externPort
+				connector externPort and nestedCapsule.nestedPort
 			}
 			
 			capsule NestedCapsule2 {
-				external port ~externPort : TestProtocol
+				external port ~nestedPort : TestProtocol
 			}
 			
 			protocol TestProtocol {
@@ -125,7 +125,7 @@ class UrmlGeneratorTest {
 		}
 		'''.assertCompilesTo(
 		'''
-		chan innerCapsule1.externPort_innerCapsule2.externPort = [0] of mtype;
+		chan innerCapsule1_nestedCapsule.nestedPort_innerCapsule2_nestedCapsule.nestedPort = [0] of mtype;
 		
 		active proctype OuterCapsule() {
 		}
