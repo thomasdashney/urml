@@ -53,7 +53,7 @@ class StatementGenerator {
 	}
 
 	def dispatch String state(LogStatement st) '''
-		printf("(unknown capsule): logging to «st.logPort.name» with: «st.left.stateStr»"«st.left.stateStrExpressionsConcat»);
+		printf("«process.name»: logging to «st.logPort.name» with: «st.left.stateStr»"«st.left.stateStrExpressionsConcat»);
 	'''
 
 	/**

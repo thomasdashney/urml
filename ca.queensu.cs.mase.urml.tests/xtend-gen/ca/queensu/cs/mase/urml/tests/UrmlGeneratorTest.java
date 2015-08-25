@@ -519,7 +519,7 @@ public class UrmlGeneratorTest {
       _builder_1.append("sender_hand_receiver_hand!shake");
       _builder_1.newLine();
       _builder_1.append("\t\t\t\t");
-      _builder_1.append("printf(\"(unknown capsule): logging to logger with: sent a handshake\");");
+      _builder_1.append("printf(\"sender: logging to logger with: sent a handshake\");");
       _builder_1.newLine();
       _builder_1.append("\t\t");
       _builder_1.append("fi");
@@ -550,7 +550,7 @@ public class UrmlGeneratorTest {
       _builder_1.append("::sender_hand_receiver_hand?shake;");
       _builder_1.newLine();
       _builder_1.append("\t\t\t\t");
-      _builder_1.append("printf(\"(unknown capsule): logging to logger with: received a handshake\");");
+      _builder_1.append("printf(\"receiver: logging to logger with: received a handshake\");");
       _builder_1.newLine();
       _builder_1.append("\t\t");
       _builder_1.append("fi");

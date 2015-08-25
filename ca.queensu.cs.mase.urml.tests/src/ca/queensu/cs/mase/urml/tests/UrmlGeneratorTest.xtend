@@ -230,7 +230,7 @@ class UrmlGeneratorTest {
 				if
 					::true;
 						sender_hand_receiver_hand!shake
-						printf("(unknown capsule): logging to logger with: sent a handshake");
+						printf("sender: logging to logger with: sent a handshake");
 				fi
 			end:
 				goto process_termination
@@ -241,7 +241,7 @@ class UrmlGeneratorTest {
 			start:
 				if
 					::sender_hand_receiver_hand?shake;
-						printf("(unknown capsule): logging to logger with: received a handshake");
+						printf("receiver: logging to logger with: received a handshake");
 				fi
 			end:
 				goto process_termination
