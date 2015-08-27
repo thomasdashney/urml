@@ -31,7 +31,7 @@ class StatementGenerator {
 
 	def dispatch String state(NoOp st) {
 		'''
-			// no-op
+			skip;
 		'''
 	}
 
