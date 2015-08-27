@@ -316,6 +316,96 @@ public class UrmlGeneratorTest {
   }
   
   @Test
+  public void testSignalParameters() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("model handshake {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("root capsule Handshake {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("capsuleInstance sender : Originator");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("capsuleInstance receiver : Receiver");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("connector sender.hand and receiver.hand");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("capsule Originator {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("external port hand : HandshakeProtocol");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("capsule Receiver {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("external port ~hand : HandshakeProtocol");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("protocol HandshakeProtocol {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("outgoing {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("signal1(int integerParam)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("signal2(bool booleanParam)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("signal3(int param1, bool param2)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("chan sender_hand_receiver_hand_signal1 = [0] of {mtype,int};");
+      _builder_1.newLine();
+      _builder_1.append("chan sender_hand_receiver_hand_signal2 = [0] of {mtype,bool};");
+      _builder_1.newLine();
+      _builder_1.append("chan sender_hand_receiver_hand_signal3 = [0] of {mtype,int,bool};");
+      _builder_1.newLine();
+      _builder_1.append("mtype = {msg};");
+      _builder_1.newLine();
+      _builder_1.newLine();
+      _builder_1.append("active proctype Handshake() {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      _builder_1.append("active proctype sender() {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      _builder_1.append("active proctype receiver() {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      this._compilationTestHelper.assertCompilesTo(_builder, _builder_1);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
   public void testAttributes() {
     try {
       StringConcatenation _builder = new StringConcatenation();

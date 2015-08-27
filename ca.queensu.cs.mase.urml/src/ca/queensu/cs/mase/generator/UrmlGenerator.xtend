@@ -4,12 +4,14 @@ import ca.queensu.cs.mase.urml.Model
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import ca.queensu.cs.mase.urml.Attribute
 import ca.queensu.cs.mase.promelaGenerator.structures.Process
 import ca.queensu.cs.mase.promelaGenerator.structures.PromelaModel
 import ca.queensu.cs.mase.promelaGenerator.utils.ExpressionGenerator
 import ca.queensu.cs.mase.urml.Expression
 import ca.queensu.cs.mase.promelaGenerator.utils.StateGenerator
+import java.util.List
+import ca.queensu.cs.mase.urml.LocalVar
+import ca.queensu.cs.mase.urml.Assignable
 
 class UrmlGenerator implements IGenerator {
 	var Model model
@@ -25,7 +27,7 @@ class UrmlGenerator implements IGenerator {
 	
 	private def compile(PromelaModel model) '''
 		«FOR channel : model.channels»
-		chan «channel.name» = [0] of {mtype};
+		chan «channel.name» = [0] of {mtype«channel.signal.localVars.list»};
 		«ENDFOR»
 		«IF model.channels.length > 0»
 		mtype = {msg};
@@ -51,6 +53,13 @@ class UrmlGenerator implements IGenerator {
 			«ENDIF»
 		}
 	'''
+	
+	/**
+	 * Returns a string of each variable type, with each
+	 * preceded by a comma
+	 */
+	private def list(List<LocalVar> localVars)
+		'''«FOR localVar : localVars»,«localVar.type»«ENDFOR»'''
 
 	/**
 	 * Returns the primitive type of the attribute
@@ -58,7 +67,7 @@ class UrmlGenerator implements IGenerator {
 	 * @return a string represents the primitive type of 
 	 * the attribute
 	 */
-	private def type(Attribute op) {
+	private def type(Assignable op) {
 		if (op.isInt)
 			'int'
 		else if (op.isBool)

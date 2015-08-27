@@ -150,6 +150,46 @@ class UrmlGeneratorTest {
 	
 	@Test
 	//XXX
+	def void testSignalParameters() {
+		'''
+		model handshake {
+			root capsule Handshake {
+				capsuleInstance sender : Originator
+				capsuleInstance receiver : Receiver
+				connector sender.hand and receiver.hand
+			}
+			capsule Originator {
+				external port hand : HandshakeProtocol
+			}
+			capsule Receiver {
+				external port ~hand : HandshakeProtocol
+			}
+			protocol HandshakeProtocol {
+				outgoing {
+					signal1(int integerParam)
+					signal2(bool booleanParam)
+					signal3(int param1, bool param2)
+				}
+			}
+		}
+		'''.assertCompilesTo(
+		'''
+		chan sender_hand_receiver_hand_signal1 = [0] of {mtype,int};
+		chan sender_hand_receiver_hand_signal2 = [0] of {mtype,bool};
+		chan sender_hand_receiver_hand_signal3 = [0] of {mtype,int,bool};
+		mtype = {msg};
+		
+		active proctype Handshake() {
+		}
+		active proctype sender() {
+		}
+		active proctype receiver() {
+		}
+		''')
+	}
+	
+	@Test
+	//XXX
 	def void testAttributes() {
 		'''
 		model handshake {
