@@ -74,12 +74,16 @@ class UrmlGeneratorTest {
 				external port ~hand : HandshakeProtocol
 			}
 			protocol HandshakeProtocol {
+				outgoing {
+					shake()
+				}
 			}
 		}
 		'''.assertCompilesTo(
 		'''
-		chan sender_hand_receiver_hand = [0] of {mtype};
-		chan Handshake_internalHand_receiver_hand = [0] of {mtype};
+		chan sender_hand_receiver_hand_shake = [0] of {mtype};
+		chan Handshake_internalHand_receiver_hand_shake = [0] of {mtype};
+		mtype = {msg};
 		
 		active proctype Handshake() {
 		}
@@ -121,11 +125,15 @@ class UrmlGeneratorTest {
 			}
 			
 			protocol TestProtocol {
+				outgoing {
+					shake()
+				}
 			}
 		}
 		'''.assertCompilesTo(
 		'''
-		chan innerCapsule1_nestedCapsule_nestedPort_innerCapsule2_nestedCapsule_nestedPort = [0] of {mtype};
+		chan innerCapsule1_nestedCapsule_nestedPort_innerCapsule2_nestedCapsule_nestedPort_shake = [0] of {mtype};
+		mtype = {msg};
 		
 		active proctype OuterCapsule() {
 		}
@@ -219,8 +227,8 @@ class UrmlGeneratorTest {
 		}
 		'''.assertCompilesTo(
 		'''
-		chan sender_hand_receiver_hand = [0] of {mtype};
-		mtype = {shake};
+		chan sender_hand_receiver_hand_shake = [0] of {mtype};
+		mtype = {msg};
 		
 		active proctype Handshake() {
 		}
@@ -229,7 +237,7 @@ class UrmlGeneratorTest {
 			start:
 				if
 					::true;
-						sender_hand_receiver_hand!shake
+						sender_hand_receiver_hand_shake!msg
 						printf("sender: logging to logger with: sent a handshake\n");
 				fi
 			end:
@@ -240,7 +248,7 @@ class UrmlGeneratorTest {
 			goto start
 			start:
 				if
-					::sender_hand_receiver_hand?shake;
+					::sender_hand_receiver_hand_shake?msg;
 						printf("receiver: logging to logger with: received a handshake\n");
 				fi
 			end:

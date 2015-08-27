@@ -27,10 +27,8 @@ class UrmlGenerator implements IGenerator {
 		«FOR channel : model.channels»
 		chan «channel.name» = [0] of {mtype};
 		«ENDFOR»
-		«IF model.protocolMethodNames.length > 0»
-		mtype = {«model.protocolMethodNames.join(',')»};
-		«ENDIF»
-		«IF model.channels.length > 0 /* add space if channels */»
+		«IF model.channels.length > 0»
+		mtype = {msg};
 		
 		«ENDIF»
 		«model.rootProcess.compile»

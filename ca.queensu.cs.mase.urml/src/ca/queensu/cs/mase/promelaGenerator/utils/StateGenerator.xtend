@@ -70,7 +70,7 @@ class StateGenerator {
 	}
 	
 	private def String compile(Trigger_in trigger) {
-		val Channel channel = process.portChannels.get(trigger.from)
-		'''«channel.name»?«trigger.signal.name»'''
+		val Channel channel = process.portChannels.get(trigger.from).filter[signal==trigger.signal].head
+		'''«channel.name»?msg'''
 	}
 }
