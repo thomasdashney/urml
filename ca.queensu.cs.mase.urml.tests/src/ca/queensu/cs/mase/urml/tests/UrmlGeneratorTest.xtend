@@ -215,7 +215,7 @@ class UrmlGeneratorTest {
 	}
 	
 	@Test
-	//XXX
+	// Use this test as an "integration" to test multiple functionalities
 	def void testHandshake() {
 		'''
 		/**

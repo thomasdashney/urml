@@ -100,7 +100,7 @@ import ca.queensu.cs.mase.urml.Port
 				processPort1 = getConnectedSubProcess(process, connector.capsuleInst1.process as InstanceProcess, connector.port1)
 			if (connector.capsuleInst2 == null)
 				processPort2 = new ProcessPort(process, connector.port2)
-			else // use algorithm to find relay-connected process (or simple the sub-capsule)
+			else // use algorithm to find relay-connected process (or simply the sub-capsule)
 				processPort2 = getConnectedSubProcess(process, connector.capsuleInst2.process as InstanceProcess, connector.port2)
 			// create channel
 			val protocol = connector.port1.protocol
