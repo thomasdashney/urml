@@ -31,7 +31,7 @@ class UrmlGenerator implements IGenerator {
 		«ENDFOR»
 		«IF model.channels.length > 0»
 		mtype = {msg};
-			
+		
 		«ENDIF»
 		«model.rootProcess.compile»
 		«FOR process : model.processes»
